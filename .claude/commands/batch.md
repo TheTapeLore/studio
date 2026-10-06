@@ -70,9 +70,9 @@ Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it,
 `registry.py add episodes/<ids>/spec.json`, then `registry.py status <id> qa_passed` for each.
 
 ## 10. Deliver (mode in CLAUDE.md)
-- session: branch `batch/<batch>`, commit (no MP4s in git), push, open PR.
+- session: commit to `main` (no MP4s in git), push.
   `gh release create batch-<batch> engine/out/<ids>*.mp4 publish/<ids>/thumb.png --title "Batch <batch>" --notes-file batches/<batch>-report.md`
-- actions: push the branch, then `gh workflow run render.yml --ref batch/<batch> -f batch=<batch> -f ref=batch/<batch>`; watch it with `gh run view <run-id>` until it finishes (it also marks entries released).
+- actions: commit to `main`, push, then `gh workflow run render.yml --ref main -f batch=<batch> -f ref=main`; watch it with `gh run view <run-id>` until it finishes (it also marks entries released).
 - `registry.py status <id> released --release batch-<batch>`.
 
 ## 11. Report (batches/<batch>-report.md, also printed)

@@ -100,7 +100,6 @@ gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # rend
 - Videos: GitHub Release [batch-2026-10-06-a](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-06-a) (MP4s, thumbnail, cover), created by the render workflow. Registry status: `released`.
 
 ### What you must do by hand
-1. **Merge this branch** into `main` (the render workflow runs from whatever branch it is dispatched on, but `main` should hold the studio).
-2. **Upload Lore 001** from the Release and `publish/L0001/*.md`. Claude never posts.
-3. **Check the Remotion licence** (remotion.dev/license) before monetising or hiring: it is free for individuals and very small companies; larger teams need a company licence. That is a money decision for you.
-4. Optional: nothing else needs credentials. Cloud sessions cannot create Releases themselves (HTTP 403 for this session type), which is why delivery runs through Actions with the workflow's own token.
+1. **Upload Lore 001** from the Release and `publish/L0001/*.md`. Claude never posts.
+2. **Check the Remotion licence** (remotion.dev/license) before monetising or hiring: it is free for individuals and very small companies; larger teams need a company licence. That is a money decision for you.
+3. Nothing else needs credentials. Cloud sessions cannot create Releases themselves (HTTP 403 for this session type), which is why delivery runs through Actions with the workflow's own token.

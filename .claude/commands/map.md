@@ -9,4 +9,4 @@ Regenerate the library's navigation from content/registry.json (released/publish
 3. publish/map-<YYYY-MM>/: X pinned-post text (<= 280) + reply listing the start-here Lore numbers; IG caption;
    YouTube playlist plan (one playlist per pillar + "Start here", with ordered video lists); IG highlight plan
    (which entries go in which highlight cover from brand/assets/instagram/).
-4. Commit, PR. Run monthly or when 10+ new entries have been released.
+4. Commit and push to `main`. Run monthly or when 10+ new entries have been released.

@@ -99,11 +99,12 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - delivery: actions   <- set 2026-10-06 by the setup smoke test: cloud sessions get HTTP 403 on `gh release create`
   ("not permitted for this session type"), while `gh workflow run` works and the workflow's own token can release.
   Smoke run: render.yml with batch=smoke rendered a 2 s clip, created release `smoke-test`, verified the asset, deleted it.
-- session: commit on `batch/<id>`, open a PR, `gh release create batch-<id>` with MP4s + thumbnails.
-- actions: commit specs (+ episodes/<id>/data.json, publish/<id>/*) on the batch branch, push, then
-  `gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>`; watch with `gh run watch`/`gh run view`.
+- Branch: commit and push everything straight to `main` (founder decision 2026-10-06). No batch branches, no PRs.
+- session: commit and push to `main`, then `gh release create batch-<id>` with MP4s + thumbnails.
+- actions: commit specs (+ episodes/<id>/data.json, publish/<id>/*) to `main`, push, then
+  `gh workflow run render.yml --ref main -f batch=<id> -f ref=main`; watch with `gh run watch`/`gh run view`.
   The workflow lints specs, renders, validates packages, creates/updates Release `batch-<id>` (MP4s, thumb, cover),
-  uploads a workflow artifact, and commits `registry.py status <id> released` back to the branch.
+  uploads a workflow artifact, and commits `registry.py status <id> released` back to `main` (pull before your next push).
 - The cloud proxy rejects tag pushes; releases are created through `gh` (API), never `git push --tags`.
 - Never post to social platforms. The founder uploads using publish/<id>/*.md.
 
@@ -114,3 +115,5 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 ## Founder decisions log
 - 2026-10: Handle TheTapeLore. Faceless. Education only. No monetisation yet; Legend Cards may become physical
   cards later (needs legal review of name/publicity rights first — see /print-cards).
+- 2026-10-06: Work goes straight to `main`: commit and push after every meaningful step so no progress is lost if a
+  session ends. No feature/batch branches and no PRs unless the founder asks.

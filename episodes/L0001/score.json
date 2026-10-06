@@ -1,0 +1,142 @@
+{
+ "id": "L0001",
+ "bpm": 90,
+ "key": "D minor",
+ "lufs": -24.0,
+ "true_peak_db": -5.5,
+ "generator": "scripts/sound/score.py",
+ "cues": [
+  {
+   "t": 0,
+   "cue": "Dm9 (depth 0.00)"
+  },
+  {
+   "t": 0.05,
+   "cue": "fall \u221250%: 4 notes down in 0.45s"
+  },
+  {
+   "t": 0.55,
+   "cue": "climb +100%: 7 notes needed, 7 played"
+  },
+  {
+   "t": 4.0,
+   "cue": "Gm9 (depth 0.45)"
+  },
+  {
+   "t": 4.4,
+   "cue": "fall \u221250%: 4 notes down in 1.20s"
+  },
+  {
+   "t": 9.6,
+   "cue": "climb +100%: 7 notes needed, 7 played"
+  },
+  {
+   "t": 13.0,
+   "cue": "Dm9 (depth 0.10)"
+  },
+  {
+   "t": 13.1,
+   "cue": "fall \u221210%: 1 notes down in 0.35s"
+  },
+  {
+   "t": 13.5,
+   "cue": "climb +11%: 1 notes needed, 1 played"
+  },
+  {
+   "t": 14.0,
+   "cue": "fall \u221220%: 1 notes down in 1.00s"
+  },
+  {
+   "t": 14.0,
+   "cue": "Bbmaj7 (depth 0.20)"
+  },
+  {
+   "t": 15.05,
+   "cue": "climb +25%: 2 notes needed, 2 played"
+  },
+  {
+   "t": 16.3,
+   "cue": "fall \u221250%: 4 notes down in 0.80s"
+  },
+  {
+   "t": 16.3,
+   "cue": "Gm9 (depth 0.50)"
+  },
+  {
+   "t": 17.15,
+   "cue": "climb +100%: 7 notes needed, 7 played"
+  },
+  {
+   "t": 19.9,
+   "cue": "fall \u221275%: 5 notes down in 0.80s"
+  },
+  {
+   "t": 19.9,
+   "cue": "E\u00f87 (depth 0.75)"
+  },
+  {
+   "t": 20.75,
+   "cue": "climb +300%: 21 notes needed, 11 played - UNRESOLVED"
+  },
+  {
+   "t": 22.7,
+   "cue": "fall \u221290%: 7 notes down in 0.80s"
+  },
+  {
+   "t": 22.7,
+   "cue": "A7b9 (depth 0.90)"
+  },
+  {
+   "t": 23.55,
+   "cue": "climb +900%: 63 notes needed, 18 played - UNRESOLVED"
+  },
+  {
+   "t": 26.8,
+   "cue": "chart drawdown 0.00"
+  },
+  {
+   "t": 28.13,
+   "cue": "chart drawdown 0.74"
+  },
+  {
+   "t": 32.13,
+   "cue": "chart drawdown 0.47"
+  },
+  {
+   "t": 33.47,
+   "cue": "chart drawdown 0.06"
+  },
+  {
+   "t": 34.29,
+   "cue": "tripwire snaps: resolve to D major"
+  },
+  {
+   "t": 38.0,
+   "cue": "myth: one held A, no pulse"
+  },
+  {
+   "t": 41.4,
+   "cue": "the math lands: D minor"
+  },
+  {
+   "t": 45.0,
+   "cue": "rule: Bbmaj9"
+  },
+  {
+   "t": 47.13,
+   "cue": "rule: F/A"
+  },
+  {
+   "t": 49.27,
+   "cue": "rule: Dm9"
+  },
+  {
+   "t": 51.55,
+   "cue": "sonic logo: the mark's path as notes"
+  },
+  {
+   "t": 52.09,
+   "cue": "wire snaps: D major"
+  }
+ ]
+}

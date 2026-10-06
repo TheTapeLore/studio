@@ -9,6 +9,7 @@ import { CornerBug, Paper, TapeStrip } from "../components/brand";
 import { CaptionTrack } from "../components/captions";
 import { Headline } from "../components/layout/Headline";
 import { useLayout } from "../components/layout/layout";
+import { Score } from "../components/layout/Score";
 import { Sfx } from "../components/layout/Sfx";
 import { Stage } from "../components/layout/Stage";
 import { COMPONENTS } from "../components/registry";
@@ -99,6 +100,7 @@ export const EpisodeVideo: React.FC<{ episode: Episode; format: FormatDef }> = (
           );
         })}
         <TapeStrip text={tapeText(episode, maxChars, right?.length ?? 0)} inAt={0} outAt={outAt} right={right} />
+        <Score episode={episode} />
         <Sfx name="tape-in" at={0} volume={0.8} />
         <Sfx name="tape-out" at={outAt} volume={0.8} />
         <CaptionTrack beats={beats} />

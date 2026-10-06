@@ -55,6 +55,8 @@ export interface Spec {
   thumb?: StillSpec;
   cover?: StillSpec;
   poll?: { question: string; options: string[] };
+  /** false = no music bed. Otherwise scripts/sound/score.py composes one from this spec (see episodes/<id>/score.json). */
+  score?: false | { gain_db?: number };
   status: string;
 }
 
@@ -69,7 +71,8 @@ export interface StillSpec {
 export interface Bar { t: string; o: number; h: number; l: number; c: number; v: number }
 export interface BarsData { symbol: string; interval: string; source?: string; bars: Bar[]; benchmark?: { symbol: string; bars: Bar[] } }
 
-export interface Episode { spec: Spec; data?: BarsData | null; sim?: Record<string, unknown> | null }
+export interface ScoreSheet { id: string; bpm: number; key: string; lufs: number; cues: { t: number; cue: string }[] }
+export interface Episode { spec: Spec; data?: BarsData | null; sim?: Record<string, unknown> | null; score?: ScoreSheet | null }
 
 export const PILLAR_NAMES: Record<string, string> = {
   conditions: "Market conditions",

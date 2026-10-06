@@ -118,12 +118,26 @@ const prepareData = (id) => {
   execFileSync("python3", [path.join(ROOT, "scripts", "prepare_data.py"), id], { stdio: "inherit" });
 };
 
+/** Compose the music bed from the spec (scripts/sound/score.py) when it is missing or older than spec/data. */
+const prepareScore = (id) => {
+  const dir = path.join(ROOT, "episodes", id);
+  const spec = readJson(path.join(dir, "spec.json"));
+  if (spec.score === false) return;
+  const wav = path.join(ENGINE, "public", "score", `${id}.wav`);
+  const mtime = (f) => (fs.existsSync(f) ? fs.statSync(f).mtimeMs : 0);
+  const newest = Math.max(mtime(path.join(dir, "spec.json")), mtime(path.join(dir, "data.json")), mtime(path.join(ROOT, "scripts", "sound", "score.py")));
+  if (fs.existsSync(wav) && fs.existsSync(path.join(dir, "score.json")) && mtime(wav) >= newest) return;
+  log(`score ${id}: composing from the spec`);
+  execFileSync("python3", [path.join(ROOT, "scripts", "sound", "score.py"), id], { stdio: ["ignore", "ignore", "inherit"] });
+};
+
 const runBatch = async (batchPath) => {
   const batch = readJson(path.resolve(ROOT, batchPath));
   let ids = batch.episodes;
   if (opt("--only")) ids = ids.filter((i) => opt("--only").split(",").includes(i));
   const aspectsOpt = opt("--aspects");
   ids.forEach(prepareData);
+  ids.forEach(prepareScore);
   const jobs = [];
   for (const id of ids) {
     const spec = readJson(path.join(ROOT, "episodes", id, "spec.json"));

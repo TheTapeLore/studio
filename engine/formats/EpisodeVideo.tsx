@@ -43,22 +43,20 @@ export const tapeText = (ep: Episode, maxChars = Infinity, rightChars = 0) => {
   return withLabel && withLabel.length <= room ? withLabel : parts.join("   ");
 };
 
-const BeatView: React.FC<{ beat: Beat; prev?: Beat; next?: Beat; durS: number }> = ({ beat, prev, next, durS }) => {
+const BeatView: React.FC<{ beat: Beat; prev?: Beat }> = ({ beat, prev }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const L = useLayout();
   const name = beat.component ?? DEFAULT_BY_KIND[beat.kind] ?? null;
   const Comp = name ? COMPONENTS[name] : null;
   const cutIn = beat.transition === "cut" && prev;
-  const cutOut = next?.transition === "cut";
-  // beats start on bar lines where the music hits: cut on the beat (0.1 s in/out), never a blank downbeat
-  const fin = cutIn ? 1 : prog(frame, fps, 0, 0.1);
-  // the last beat holds its final frame (the end card stays readable under the tape roll-out)
-  const fout = cutOut || !next ? 0 : prog(frame, fps, durS - 0.1, 0.1);
+  // beats start on bar lines where the music hits: a hard cut on the beat. The outgoing beat holds to its last
+  // frame and the incoming one enters from 40% so no frame is ever blank (the components animate in themselves).
+  const fin = cutIn ? 1 : 0.4 + 0.6 * prog(frame, fps, 0, 0.12);
   const headH = beat.headline ? L.u * 190 : 0;
   const stage = { ...L.stage, y: L.stage.y + headH, h: L.stage.h - headH };
   return (
-    <div style={{ position: "absolute", inset: 0, opacity: fin * (1 - fout) }}>
+    <div style={{ position: "absolute", inset: 0, opacity: fin }}>
       {beat.headline ? (
         <div style={{ position: "absolute", left: L.stage.x, top: L.stage.y, width: L.stage.w, height: headH - 20 * L.u, display: "flex", alignItems: "flex-start" }}>
           <Headline text={beat.headline} />
@@ -96,7 +94,7 @@ export const EpisodeVideo: React.FC<{ episode: Episode; format: FormatDef }> = (
           const d = Math.max(1, Math.round(b.dur * fps));
           return (
             <Sequence key={i} from={from} durationInFrames={d} name={`${i + 1} ${b.kind}${b.component ? ` · ${b.component}` : ""}`}>
-              <BeatView beat={b} prev={beats[i - 1]} next={beats[i + 1]} durS={d / fps} />
+              <BeatView beat={b} prev={beats[i - 1]} />
             </Sequence>
           );
         })}

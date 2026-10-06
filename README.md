@@ -102,5 +102,5 @@ gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # rend
 ### What you must do by hand
 1. **Merge this branch** into `main` (the render workflow runs from whatever branch it is dispatched on, but `main` should hold the studio).
 2. **Upload Lore 001** from the Release and `publish/L0001/*.md`. Claude never posts.
-3. **Pin the Remotion licence check** to your calendar: free for individuals and companies of up to 3 people; re-check remotion.dev/license before monetising or hiring.
+3. **Check the Remotion licence** (remotion.dev/license) before monetising or hiring: it is free for individuals and very small companies; larger teams need a company licence. That is a money decision for you.
 4. Optional: nothing else needs credentials. Cloud sessions cannot create Releases themselves (HTTP 403 for this session type), which is why delivery runs through Actions with the workflow's own token.

@@ -1,6 +1,6 @@
 // Thumbnail (YouTube, 1280x720) and cover (Reels/Shorts, 1080x1920) as Remotion stills, from spec.thumb / spec.cover.
 import React from "react";
-import { Freeze } from "remotion";
+import { Sequence } from "remotion";
 import { C, FONT } from "../tokens";
 import { parseMarks } from "../lib/anim";
 import { Episode, StillSpec, PILLAR_NAMES, loreLabel } from "../lib/spec";
@@ -30,11 +30,12 @@ const Finished: React.FC<{ spec?: StillSpec; rect: { x: number; y: number; w: nu
   const Comp = COMPONENTS[spec.component];
   if (!Comp) return null;
   return (
-    <Freeze frame={600}>
+    // A Still is one frame long, so <Freeze> would clamp to frame 0. A negative offset runs the clock forward.
+    <Sequence from={-600} layout="none">
       <Stage rect={rect}>
         <Comp {...(spec.props ?? {})} />
       </Stage>
-    </Freeze>
+    </Sequence>
   );
 };
 

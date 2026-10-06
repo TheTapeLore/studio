@@ -39,3 +39,21 @@ Frames: every 2 s + every beat boundary, 5 contact sheets viewed. Audio: ebur128
      mid-interval (frames ~1 s late). Fixed: `-nostdin`, exact `-ss` timestamps.
 6. Distinct: PASS (first entry; new beyond the brand sample: $0 bedrock line, keyframed sweep to −90%, real Nasdaq pit
    with a data-driven tripwire snap).
+
+## Pass 2 (full re-render, 4x5 + 9x16 + thumbnail + cover)
+Frames every 2 s (exact timestamps) + beat boundaries, contact sheets viewed for both aspects.
+1. Truth: PASS (unchanged numbers; re-read on screen).
+2. Compliance: PASS.
+3. Clarity: PASS.
+4. Brand: PASS.
+5. Craft: PASS.
+   - Audio, both aspects: **−13.2 LUFS integrated, −1.8 dBTP** (≤ −1 dBFS).
+   - Table sweep labels clear the table at −75% / −90%; last frame holds the end card under the tape roll-out.
+   - 9x16: everything inside the safe zone (top 250 / bottom 420 / right 150); the corner bug sits inside it.
+   - Found and fixed during packaging: thumbnail and cover rendered their visual at frame 0 (undrawn pit) because
+     `<Freeze>` is clamped to a Still's one-frame duration. Stills now run the clock forward with a negative
+     `<Sequence>` offset; both re-rendered and viewed — they match brand/assets samples.
+   - Files: L0001-4x5.mp4 1080x1350 h264/aac 55.4 s 3.0 MB; L0001-9x16.mp4 1080x1920 55.4 s 3.3 MB.
+6. Distinct: PASS.
+
+**Result: qa_passed after 2 passes.**

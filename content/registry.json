@@ -1,4 +1,37 @@
 {
   "version": 1,
-  "entries": []
+  "entries": [
+    {
+      "id": "L0001",
+      "lore_no": 1,
+      "slug": "the-pit",
+      "pillar": "risk",
+      "cluster": "math-of-losses",
+      "format": "anatomy",
+      "concept_key": "risk.math-of-losses.recovery-asymmetry",
+      "title": "The Pit: why a 50% loss needs +100%",
+      "hook": "Lose half. Now you must double just to break even.",
+      "takeaway": "A loss is measured from where you started, but the climb back is measured from what is left. So the climb is always the bigger percentage, and it grows faster the deeper the pit.",
+      "data": {
+        "symbol": "^IXIC",
+        "start": "1999-06-01",
+        "end": "2015-12-31",
+        "interval": "1d",
+        "source": "yfinance"
+      },
+      "legends": [],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [],
+        "next": [
+          "L0002"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-06-a",
+      "created": "2026-10-06",
+      "updated": "2026-10-06"
+    }
+  ]
 }

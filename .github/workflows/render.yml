@@ -1,17 +1,31 @@
-# Fallback renderer. Used when CLAUDE.md says `delivery: actions`, or whenever a cloud session can't render/upload.
-# Claude triggers it with: gh workflow run render.yml -f batch=<batch-id> -f ref=batch/<batch-id>
+# Renderer + releaser. CLAUDE.md says `delivery: actions`: cloud sessions can render but may not create
+# GitHub Releases, so the session pushes the batch branch and dispatches this workflow.
+#
+#   gh workflow run render.yml -f batch=<batch-id> -f ref=<branch>
+#   gh workflow run render.yml -f batch=smoke -f ref=<branch>          # delivery smoke test (creates + deletes a release)
+#
+# It renders every episode in batches/<batch>.json (both aspects + thumbnail + cover), validates the publish
+# packages, creates or updates the Release `batch-<batch>`, uploads the files, and marks the entries released.
 name: render
 on:
   workflow_dispatch:
     inputs:
-      batch: { description: "Batch id (batches/<id>.json)", required: true }
-      ref:   { description: "Branch holding the batch", required: true, default: "main" }
+      batch: { description: "Batch id (batches/<id>.json), or 'smoke'", required: true }
+      ref: { description: "Branch holding the batch", required: true, default: "main" }
+      register: { description: "Commit registry status 'released' back to the branch", required: false, default: "true" }
 permissions:
   contents: write
+concurrency:
+  group: render-${{ inputs.batch }}
+  cancel-in-progress: false
 jobs:
   render:
     runs-on: ubuntu-24.04
     timeout-minutes: 180
+    env:
+      BATCH: ${{ inputs.batch }}
+      REF: ${{ inputs.ref }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
         with: { ref: "${{ inputs.ref }}" }
@@ -20,20 +34,59 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: System deps
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Python deps
-        run: pip install pyyaml yfinance pandas numpy
+        run: pip install -q pyyaml yfinance pandas numpy
       - name: Engine deps
         working-directory: engine
-        run: npm ci && npx remotion browser ensure
-      - name: Render batch
-        run: node scripts/render_batch.mjs "batches/${{ inputs.batch }}.json"
-      - name: Validate packages
-        run: python scripts/validate_publish.py --batch "batches/${{ inputs.batch }}.json"
-      - name: Publish release
-        env: { GH_TOKEN: "${{ github.token }}" }
+        run: npm ci --no-audit --no-fund && npx remotion browser ensure
+
+      - name: Smoke test (render 2 s, create and delete a release)
+        if: inputs.batch == 'smoke'
         run: |
-          NOTES="batches/${{ inputs.batch }}-report.md"; [ -f "$NOTES" ] || echo "Batch ${{ inputs.batch }}" > "$NOTES"
-          gh release create "batch-${{ inputs.batch }}" engine/out/*.mp4 publish/*/thumb.png \
-            --target "${{ inputs.ref }}" --title "Batch ${{ inputs.batch }}" --notes-file "$NOTES" \
-          || gh release upload "batch-${{ inputs.batch }}" engine/out/*.mp4 --clobber
+          node scripts/render_batch.mjs --comp smoke --out engine/out/smoke.mp4
+          gh release create smoke-test engine/out/smoke.mp4 --target "$REF" --title "Smoke test (auto-deleted)" --notes "Delivery smoke test."
+          gh release view smoke-test --json assets --jq '.assets[].name' | grep -q smoke.mp4
+          gh release delete smoke-test --yes --cleanup-tag
+          echo "Smoke test passed: release created with the clip, then deleted." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check batch
+        if: inputs.batch != 'smoke'
+        run: |
+          test -f "batches/$BATCH.json" || { echo "batches/$BATCH.json not found on $REF"; exit 1; }
+          python scripts/spec_lint.py --batch "batches/$BATCH.json"
+      - name: Render batch
+        if: inputs.batch != 'smoke'
+        run: node scripts/render_batch.mjs "batches/$BATCH.json" --concurrency 2
+      - name: Validate packages
+        if: inputs.batch != 'smoke'
+        run: python scripts/validate_publish.py --batch "batches/$BATCH.json"
+      - name: Keep the renders as a workflow artifact too
+        if: inputs.batch != 'smoke'
+        uses: actions/upload-artifact@v4
+        with: { name: "batch-${{ inputs.batch }}", path: "engine/out/*.*", retention-days: 30 }
+      - name: Publish release
+        if: inputs.batch != 'smoke'
+        run: |
+          IDS=$(python -c "import json,os; print(' '.join(json.load(open('batches/'+os.environ['BATCH']+'.json'))['episodes']))")
+          FILES=""
+          for id in $IDS; do FILES="$FILES $(ls engine/out/$id-*.mp4 engine/out/$id-thumb.png engine/out/$id-cover.png 2>/dev/null)"; done
+          NOTES="batches/$BATCH-report.md"; [ -f "$NOTES" ] || { echo "Batch $BATCH" > /tmp/notes.md; NOTES=/tmp/notes.md; }
+          if gh release view "batch-$BATCH" >/dev/null 2>&1; then
+            gh release upload "batch-$BATCH" $FILES --clobber
+            gh release edit "batch-$BATCH" --notes-file "$NOTES"
+          else
+            gh release create "batch-$BATCH" $FILES --target "$REF" --title "Batch $BATCH" --notes-file "$NOTES"
+          fi
+          echo "Release: $(gh release view "batch-$BATCH" --json url --jq .url)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Mark entries released
+        if: inputs.batch != 'smoke' && inputs.register == 'true'
+        run: |
+          IDS=$(python -c "import json,os; print(' '.join(json.load(open('batches/'+os.environ['BATCH']+'.json'))['episodes']))")
+          for id in $IDS; do python scripts/registry.py status "$id" released --release "batch-$BATCH"; done
+          git config user.name "tapelore-render[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/registry.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Registry: batch $BATCH released"
+          for i in 1 2 3; do git pull --rebase -q origin "$REF" && git push origin "HEAD:$REF" && break; sleep 5; done

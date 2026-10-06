@@ -6,3 +6,4 @@ engine/.remotion/
 __pycache__/
 .DS_Store
 episodes/*/frames/
+.remotion/

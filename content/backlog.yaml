@@ -1,0 +1,603 @@
+# Idea backlog. /batch takes items in Season order first; /backlog refills it.
+# status: open | taken: <Lore id> | blocked: <reason>
+items:
+- id: B001
+  season: 1
+  order: 1
+  pillar: risk
+  format: anatomy
+  concept_key: risk.math-of-losses.recovery-asymmetry
+  title: 'The Pit: why a 50% loss needs +100%'
+  hook: Lose half. Now you must double just to break even.
+  priority: quick_win
+  search_terms:
+  - loss recovery math
+  status: open
+- id: B002
+  season: 1
+  order: 2
+  pillar: risk
+  format: whatif
+  concept_key: risk.expectancy.win-rate-vs-payoff
+  title: 35% winners can beat 60% winners
+  hook: Being right most of the time is not the goal.
+  priority: big_bet
+  search_terms:
+  - win rate vs risk reward
+  status: open
+- id: B003
+  season: 1
+  order: 3
+  pillar: risk
+  format: anatomy
+  concept_key: risk.r-multiples.what-is-r
+  title: 'R: the only unit a trader needs'
+  hook: Stop counting money. Count R.
+  priority: quick_win
+  search_terms:
+  - r multiple trading
+  status: open
+- id: B004
+  season: 1
+  order: 4
+  pillar: legends
+  format: legendcard
+  concept_key: legends.card.livermore
+  title: 'Legend 01: Jesse Livermore'
+  hook: The trader who waited for the market to prove him right.
+  priority: quick_win
+  search_terms:
+  - jesse livermore
+  status: open
+- id: B005
+  season: 1
+  order: 5
+  pillar: risk
+  format: anatomy
+  concept_key: risk.position-sizing.seesaw
+  title: 'The Seesaw: wider stop, smaller size'
+  hook: Same risk, different stop, different size.
+  priority: quick_win
+  search_terms:
+  - position sizing formula
+  status: open
+- id: B006
+  season: 1
+  order: 6
+  pillar: risk
+  format: whatif
+  concept_key: risk.sizing.risk-per-trade-drawdown
+  title: 'Risk 0.5% vs 2% per trade: 1,000 runs'
+  hook: Same edge. Very different drawdowns.
+  priority: big_bet
+  search_terms:
+  - how much to risk per trade
+  status: open
+- id: B007
+  season: 1
+  order: 7
+  pillar: legends
+  format: council
+  concept_key: legends.council.where-stop
+  title: 'The Council: where does your stop go?'
+  hook: Five legends. One question.
+  priority: big_bet
+  search_terms:
+  - where to place stop loss
+  status: open
+- id: B008
+  season: 1
+  order: 8
+  pillar: risk
+  format: lexicon
+  concept_key: risk.lexicon.expectancy
+  title: Expectancy in 15 seconds
+  hook: The number that decides if you have an edge.
+  priority: fill_in
+  search_terms:
+  - trading expectancy
+  status: open
+- id: B009
+  season: 1
+  order: 9
+  pillar: risk
+  format: failure
+  concept_key: risk.failure.averaging-down
+  title: 'Failure File: averaging down a loser'
+  hook: It looked cheaper. It was a trap.
+  priority: quick_win
+  search_terms:
+  - averaging down stocks
+  status: open
+- id: B010
+  season: 1
+  order: 10
+  pillar: legends
+  format: legendcard
+  concept_key: legends.card.oneil
+  title: 'Legend 02: William O''Neil'
+  hook: He studied every big winner, then wrote the rules.
+  priority: quick_win
+  search_terms:
+  - william oneil
+  status: open
+- id: B011
+  season: 1
+  order: 11
+  pillar: selection
+  format: anatomy
+  concept_key: selection.relative-strength.rs-line
+  title: The RS line leads price
+  hook: Watch the line, not the price.
+  priority: big_bet
+  search_terms:
+  - relative strength line
+  status: open
+- id: B012
+  season: 1
+  order: 12
+  pillar: selection
+  format: anatomy
+  concept_key: selection.trend-template.criteria
+  title: The trend template, criterion by criterion
+  hook: Eight filters before a stock earns a look.
+  priority: big_bet
+  search_terms:
+  - minervini trend template
+  status: open
+- id: B013
+  season: 1
+  order: 13
+  pillar: selection
+  format: lexicon
+  concept_key: selection.lexicon.adr
+  title: ADR% in 15 seconds
+  hook: Why some stocks need a wider stop.
+  priority: fill_in
+  search_terms:
+  - average daily range
+  status: open
+- id: B014
+  season: 1
+  order: 14
+  pillar: selection
+  format: anatomy
+  concept_key: selection.group-leadership.leaders-in-groups
+  title: Leaders travel in groups
+  hook: One strong stock is noise. Five is a theme.
+  priority: quick_win
+  search_terms:
+  - sector rotation leaders
+  status: open
+- id: B015
+  season: 1
+  order: 15
+  pillar: legends
+  format: legendcard
+  concept_key: legends.card.minervini
+  title: 'Legend 03: Mark Minervini'
+  hook: Tightness before the move.
+  priority: quick_win
+  search_terms:
+  - mark minervini
+  status: open
+- id: B016
+  season: 1
+  order: 16
+  pillar: setups
+  format: anatomy
+  concept_key: setups.vcp.anatomy
+  title: Anatomy of a VCP
+  hook: Each pullback smaller than the last. Then the snap.
+  priority: big_bet
+  search_terms:
+  - vcp pattern
+  status: open
+- id: B017
+  season: 1
+  order: 17
+  pillar: setups
+  format: replay
+  concept_key: setups.vcp.replay-1
+  title: 'Replay: would you buy here?'
+  hook: Pause. What do you see?
+  priority: big_bet
+  search_terms:
+  - how to read a chart pattern
+  status: open
+- id: B018
+  season: 1
+  order: 18
+  pillar: setups
+  format: anatomy
+  concept_key: setups.cup-with-handle.anatomy
+  title: Anatomy of a cup with handle
+  hook: The handle is the last shakeout.
+  priority: big_bet
+  search_terms:
+  - cup and handle pattern
+  status: open
+- id: B019
+  season: 1
+  order: 19
+  pillar: setups
+  format: failure
+  concept_key: setups.failure.late-stage-base
+  title: 'Failure File: the fourth base'
+  hook: Perfect pattern. Wrong stage.
+  priority: quick_win
+  search_terms:
+  - late stage base
+  status: open
+- id: B020
+  season: 1
+  order: 20
+  pillar: legends
+  format: legendcard
+  concept_key: legends.card.qullamaggie
+  title: 'Legend 04: Qullamaggie'
+  hook: Tight range, big gap, fast move.
+  priority: quick_win
+  search_terms:
+  - qullamaggie breakout
+  status: open
+- id: B021
+  season: 1
+  order: 21
+  pillar: setups
+  format: anatomy
+  concept_key: setups.episodic-pivot.anatomy
+  title: The episodic pivot
+  hook: A surprise changes the story overnight.
+  priority: big_bet
+  search_terms:
+  - episodic pivot
+  status: open
+- id: B022
+  season: 1
+  order: 22
+  pillar: exits
+  format: whatif
+  concept_key: exits.five-exits.same-winner
+  title: Same winner, five exits
+  hook: Five sell rules. One stock. Different results.
+  priority: big_bet
+  search_terms:
+  - when to sell a stock
+  status: open
+- id: B023
+  season: 1
+  order: 23
+  pillar: exits
+  format: anatomy
+  concept_key: exits.sell-into-strength.climax
+  title: 'Selling into strength: the climax run'
+  hook: When up gets too easy.
+  priority: big_bet
+  search_terms:
+  - climax top
+  status: open
+- id: B024
+  season: 1
+  order: 24
+  pillar: exits
+  format: anatomy
+  concept_key: exits.sell-into-weakness.ma-break
+  title: 'Selling into weakness: the MA break'
+  hook: The trend tells you when it's done.
+  priority: quick_win
+  search_terms:
+  - moving average sell rule
+  status: open
+- id: B025
+  season: 1
+  order: 25
+  pillar: legends
+  format: council
+  concept_key: legends.council.sell-winner
+  title: 'The Council: when do you sell a winner?'
+  hook: Into strength or into weakness?
+  priority: big_bet
+  search_terms:
+  - when to take profits
+  status: open
+- id: B026
+  season: 1
+  order: 26
+  pillar: exits
+  format: lexicon
+  concept_key: exits.lexicon.trailing-stop
+  title: Trailing stop in 15 seconds
+  hook: A stop that only moves one way.
+  priority: fill_in
+  search_terms:
+  - trailing stop loss
+  status: open
+- id: B027
+  season: 1
+  order: 27
+  pillar: conditions
+  format: anatomy
+  concept_key: conditions.distribution-days.drawn
+  title: Distribution days, drawn
+  hook: Big volume. Lower close. Again.
+  priority: big_bet
+  search_terms:
+  - distribution days
+  status: open
+- id: B028
+  season: 1
+  order: 28
+  pillar: conditions
+  format: anatomy
+  concept_key: conditions.follow-through-day.drawn
+  title: The follow-through day
+  hook: How the old school knew a bottom was in.
+  priority: big_bet
+  search_terms:
+  - follow through day
+  status: open
+- id: B029
+  season: 1
+  order: 29
+  pillar: conditions
+  format: whatif
+  concept_key: conditions.breakouts-by-regime
+  title: Same setup, different weather
+  hook: Breakouts in good vs bad markets.
+  priority: big_bet
+  search_terms:
+  - market conditions breakouts
+  status: open
+- id: B030
+  season: 1
+  order: 30
+  pillar: conditions
+  format: lexicon
+  concept_key: conditions.lexicon.breadth
+  title: Breadth in 15 seconds
+  hook: Is the whole market rising, or just a few?
+  priority: fill_in
+  search_terms:
+  - market breadth
+  status: open
+- id: B031
+  season: 1
+  order: 31
+  pillar: leverage
+  format: anatomy
+  concept_key: leverage.options-payoffs.long-call
+  title: A call option, both sides shown
+  hook: Small cost. Big upside. And the side nobody shows.
+  priority: big_bet
+  search_terms:
+  - call option explained
+  status: open
+- id: B032
+  season: 1
+  order: 32
+  pillar: leverage
+  format: anatomy
+  concept_key: leverage.greeks.theta-hourglass
+  title: 'Theta: the hourglass'
+  hook: Time is a cost you pay every day.
+  priority: big_bet
+  search_terms:
+  - option theta explained
+  status: open
+- id: B033
+  season: 1
+  order: 33
+  pillar: leverage
+  format: anatomy
+  concept_key: leverage.futures-margin.rope
+  title: 'Futures margin: the rope'
+  hook: Less slack, harder snap.
+  priority: big_bet
+  search_terms:
+  - futures margin call
+  status: open
+- id: B034
+  season: 1
+  order: 34
+  pillar: leverage
+  format: whatif
+  concept_key: leverage.etf-decay.volatility-drag
+  title: Why leveraged ETFs leak
+  hook: Up 10%, down 10%. Not even.
+  priority: quick_win
+  search_terms:
+  - leveraged etf decay
+  status: open
+- id: B035
+  season: 1
+  order: 35
+  pillar: operator
+  format: anatomy
+  concept_key: operator.inner-chart.emotions
+  title: The inner chart
+  hook: Your feelings, plotted under the price.
+  priority: big_bet
+  search_terms:
+  - trading psychology
+  status: open
+- id: B036
+  season: 1
+  order: 36
+  pillar: operator
+  format: replay
+  concept_key: operator.hindsight.unchart
+  title: 'The Unchart: the chart without hindsight'
+  hook: You only knew this much.
+  priority: big_bet
+  search_terms:
+  - hindsight bias trading
+  status: open
+- id: B037
+  season: null
+  order: null
+  pillar: risk
+  format: anatomy
+  concept_key: risk.total-heat.open-risk
+  title: 'Portfolio heat: all your stops at once'
+  hook: Five 1% risks are not 1%.
+  priority: fill_in
+  search_terms:
+  - portfolio risk
+  status: open
+- id: B038
+  season: null
+  order: null
+  pillar: risk
+  format: whatif
+  concept_key: risk.streaks.losing-streak-odds
+  title: How long can a losing streak get?
+  hook: At 40% win rate, 10 losses in a row happens.
+  priority: quick_win
+  search_terms:
+  - losing streak probability
+  status: open
+- id: B039
+  season: null
+  order: null
+  pillar: selection
+  format: failure
+  concept_key: selection.failure.cheap-laggard
+  title: 'Failure File: the cheap laggard'
+  hook: It was cheap for a reason.
+  priority: quick_win
+  search_terms:
+  - buying stocks near lows
+  status: open
+- id: B040
+  season: null
+  order: null
+  pillar: setups
+  format: anatomy
+  concept_key: setups.high-tight-flag.anatomy
+  title: The high tight flag
+  hook: The rarest pattern, drawn.
+  priority: big_bet
+  search_terms:
+  - high tight flag
+  status: open
+- id: B041
+  season: null
+  order: null
+  pillar: setups
+  format: anatomy
+  concept_key: setups.stages.weinstein
+  title: Four stages of a stock
+  hook: Only one stage pays a buyer.
+  priority: big_bet
+  search_terms:
+  - stage analysis
+  status: open
+- id: B042
+  season: null
+  order: null
+  pillar: setups
+  format: lexicon
+  concept_key: setups.lexicon.pivot
+  title: Pivot point in 15 seconds
+  hook: The line the whole setup is built around.
+  priority: fill_in
+  search_terms:
+  - pivot point stock
+  status: open
+- id: B043
+  season: null
+  order: null
+  pillar: setups
+  format: anatomy
+  concept_key: setups.darvas-box.lineage
+  title: 'Darvas boxes to VCP: the lineage'
+  hook: Every setup has an ancestor.
+  priority: big_bet
+  search_terms:
+  - darvas box
+  status: open
+- id: B044
+  season: null
+  order: null
+  pillar: exits
+  format: whatif
+  concept_key: exits.partial-profits.scale-out
+  title: Scaling out vs all-in, all-out
+  hook: Selling half changes more than you think.
+  priority: quick_win
+  search_terms:
+  - partial profit taking
+  status: open
+- id: B045
+  season: null
+  order: null
+  pillar: conditions
+  format: anatomy
+  concept_key: conditions.exposure-dial
+  title: The exposure dial
+  hook: Not in or out. How much.
+  priority: quick_win
+  search_terms:
+  - market exposure
+  status: open
+- id: B046
+  season: null
+  order: null
+  pillar: leverage
+  format: anatomy
+  concept_key: leverage.iv-crush.earnings
+  title: IV crush around earnings
+  hook: Right on direction, still lost.
+  priority: big_bet
+  search_terms:
+  - iv crush
+  status: open
+- id: B047
+  season: null
+  order: null
+  pillar: leverage
+  format: anatomy
+  concept_key: leverage.calls-vs-stock.breakout
+  title: Calls vs stock on a breakout
+  hook: Same view, different bet.
+  priority: big_bet
+  search_terms:
+  - options vs stocks
+  status: open
+- id: B048
+  season: null
+  order: null
+  pillar: operator
+  format: anatomy
+  concept_key: operator.process-vs-outcome
+  title: Good trade, bad result
+  hook: Judge the decision, not the dice.
+  priority: quick_win
+  search_terms:
+  - process over outcome
+  status: open
+- id: B049
+  season: null
+  order: null
+  pillar: operator
+  format: lexicon
+  concept_key: operator.lexicon.fomo
+  title: FOMO in 15 seconds
+  hook: The chase, drawn.
+  priority: fill_in
+  search_terms:
+  - fomo trading
+  status: open
+- id: B050
+  season: null
+  order: null
+  pillar: legends
+  format: council
+  concept_key: legends.council.sit-in-cash
+  title: 'The Council: when do you sit in cash?'
+  hook: Doing nothing is a position.
+  priority: big_bet
+  search_terms:
+  - when to stay out of the market
+  status: open

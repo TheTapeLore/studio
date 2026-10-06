@@ -1,0 +1,35 @@
+# The visual language. Each metaphor always means the same thing, so viewers learn to read it.
+metaphors:
+  MarketWeather: {pillar: conditions, status: todo, meaning: "Market conditions as weather: tailwind, headwind, storm, calm.",
+    visual: "Wind lines across the frame; strength = breadth/trend; storms = distribution clusters; Sodium arrow = tailwind.",
+    props: [regime, windStrength, distributionDays, label], never: "Never used as a live forecast; historical periods only."}
+  TheRace: {pillar: selection, status: todo, meaning: "Relative strength: stocks/sectors as runners in lanes; leaders pull ahead before the crowd notices.",
+    visual: "Horizontal lanes (Blueline), runners as dots; the leader is Sodium; RS line can morph into the lane.",
+    props: [series, highlight, window, showRSLine]}
+  Anatomy: {pillar: setups, status: todo, meaning: "A pattern built bar by bar with each structural part labelled as it forms.",
+    visual: "Candles reveal in time; contractions measured in %; volume pane drying up; pivot Tripwire snaps on breakout.",
+    props: [bars, annotations, contractions, pivot, revealSpeed]}
+  Tripwire: {pillar: setups, status: built-in-logo, meaning: "The pivot/buy point. When price breaks it, the wire snaps (with the snap sound).",
+    visual: "Sodium horizontal line; on break both ends recoil upward. The logo is this moment.", props: [y, snapAtFrame]}
+  ThePit: {pillar: risk, status: designed, meaning: "Losses dig a pit; climbing out takes a bigger percentage than falling in.",
+    visual: "See brand/assets samples: red arrow down, Sodium arrow up, same distance, labels -50% / +100%.", props: [lossPct, showTable]}
+  RTower: {pillar: risk, status: todo, meaning: "Asymmetry: losers are single 1R blocks below the line; winners stack as tall towers above.",
+    visual: "Ember outlined blocks below baseline, Sodium blocks stacking above; running total of R.", props: [trades, winRate, avgWinR]}
+  Seesaw: {pillar: risk, status: todo, meaning: "Position sizing: wider stop means smaller size so the risk stays equal.",
+    visual: "A balance beam: stop distance on one side, shares on the other; the fulcrum is your fixed risk %.", props: [accountRiskPct, stopDistance, price]}
+  FiveExits: {pillar: exits, status: todo, meaning: "Same winner, five exit rules drawn at once; your rule decides how much trend you keep.",
+    visual: "One historical run; five coloured trailing lines; markers where each exits; final R per rule.", props: [bars, rules]}
+  Throttle: {pillar: leverage, status: todo, meaning: "Leverage as a throttle with a redline: it accelerates gains and losses.",
+    visual: "Gauge with Ember redline; needle tied to notional/equity; crash zone shown.", props: [leverage, moveSeries]}
+  Hourglass: {pillar: leverage, status: todo, meaning: "Theta: option time value drains like sand, faster near expiry.",
+    visual: "Hourglass whose sand rate follows the actual theta curve.", props: [daysToExpiry, iv]}
+  Rope: {pillar: leverage, status: todo, meaning: "Futures margin as rope slack: less slack, harder snap (margin call).",
+    visual: "Rope between equity and position; slack = excess margin; snaps at maintenance level.", props: [initialMargin, maintenance, moves]}
+  PayoffDiagram: {pillar: leverage, status: todo, meaning: "Options payoff at expiry and today; losing side always visible.",
+    visual: "Hollow Tape line for today, solid for expiry, Ember loss region shaded.", props: [legs, underlyingRange]}
+  InnerChart: {pillar: operator, status: todo, meaning: "An emotion line under the price chart, out of phase with the right action.",
+    visual: "Price on top; dotted Sodium emotion line below (euphoria at highs, despair at lows).", props: [bars, emotionCurve, labels]}
+  CouncilArc: {pillar: legends, status: todo, meaning: "Legends seated in an arc around one question; seats light up as they answer.",
+    visual: "Seats are emblem medallions; the question sits at the centre on a Sodium diamond.", props: [question, seats]}
+  LegendCard: {pillar: legends, status: designed, meaning: "Collectible card per legend; abstract emblem; facts with sources.",
+    visual: "See brand/assets/cards.", props: [legend, emblem, fields]}

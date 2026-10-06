@@ -1,0 +1,8 @@
+node_modules/
+engine/out/
+engine/.remotion/
+*.mp4
+*.mov
+__pycache__/
+.DS_Store
+episodes/*/frames/

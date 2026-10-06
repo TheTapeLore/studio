@@ -1,0 +1,51 @@
+# Roster for Legend Cards and the Council. `known_for` is a starting pointer ONLY.
+# verified: false means /legend-card must research and source every field before anything is published.
+legends:
+  - {id: livermore, name: Jesse Livermore, era: "1890s-1940", markets: [stocks, commodities], priority: 1, verified: false,
+     known_for: "Tape reading, pivotal points, adding to winners; subject of Reminiscences of a Stock Operator; wrote How to Trade in Stocks (1940)"}
+  - {id: oneil, name: William O'Neil, era: "1958-2023", markets: [stocks], priority: 1, verified: false,
+     known_for: "CAN SLIM (IBD's mark), cup with handle, cutting losses at 7-8%, founded Investor's Business Daily; How to Make Money in Stocks"}
+  - {id: minervini, name: Mark Minervini, era: "1980s-", markets: [stocks], priority: 1, verified: false,
+     known_for: "VCP, trend template, SEPA (his mark); Trade Like a Stock Market Wizard; US Investing Championship"}
+  - {id: qullamaggie, name: Kristjan Kullamagi (Qullamaggie), era: "2010s-", markets: [stocks], priority: 1, verified: false,
+     known_for: "Breakouts from tight ranges, episodic pivots, parabolic shorts; teaches through streams and posts"}
+  - {id: zanger, name: Dan Zanger, era: "1990s-", markets: [stocks], priority: 1, verified: false,
+     known_for: "Chart patterns and volume; cup and handle, flags; large late-1990s run"}
+  - {id: weinstein, name: Stan Weinstein, era: "1970s-", markets: [stocks], priority: 2, verified: false,
+     known_for: "Stage analysis (stages 1-4), 30-week MA; Secrets for Profiting in Bull and Bear Markets"}
+  - {id: darvas, name: Nicolas Darvas, era: "1950s-60s", markets: [stocks], priority: 2, verified: false,
+     known_for: "Darvas box; How I Made $2,000,000 in the Stock Market"}
+  - {id: loeb, name: Gerald Loeb, era: "1920s-1970s", markets: [stocks], priority: 2, verified: false,
+     known_for: "The Battle for Investment Survival; cutting losses, concentration"}
+  - {id: wyckoff, name: Richard Wyckoff, era: "1900s-1930s", markets: [stocks], priority: 2, verified: false,
+     known_for: "Accumulation/distribution schematics, the composite operator"}
+  - {id: ryan, name: David Ryan, era: "1980s-", markets: [stocks], priority: 2, verified: false,
+     known_for: "O'Neil school; US Investing Championship wins in the 1980s; Market Wizards interview"}
+  - {id: morales-kacher, name: Gil Morales & Chris Kacher, era: "1990s-", markets: [stocks], priority: 3, verified: false,
+     known_for: "Pocket pivots; Trade Like an O'Neil Disciple"}
+  - {id: kell, name: Oliver Kell, era: "2010s-", markets: [stocks], priority: 3, verified: false,
+     known_for: "Cycle of price action; US Investing Championship 2020"}
+  - {id: seykota, name: Ed Seykota, era: "1970s-", markets: [futures], priority: 2, verified: false,
+     known_for: "Systematic trend following; Market Wizards interview"}
+  - {id: dennis-eckhardt, name: Richard Dennis & William Eckhardt, era: "1970s-", markets: [futures], priority: 2, verified: false,
+     known_for: "The Turtle experiment (1983): can trading be taught?"}
+  - {id: ptj, name: Paul Tudor Jones, era: "1980s-", markets: [futures, macro], priority: 2, verified: false,
+     known_for: "Defence first, risk control, the 200-day moving average as a regime filter"}
+  - {id: druckenmiller, name: Stanley Druckenmiller, era: "1980s-", markets: [macro, stocks], priority: 2, verified: false,
+     known_for: "Sizing up when conviction is high; preserving capital"}
+  - {id: brandt, name: Peter Brandt, era: "1970s-", markets: [futures], priority: 2, verified: false,
+     known_for: "Classical charting in futures; Diary of a Professional Commodity Trader"}
+  - {id: raschke, name: Linda Raschke, era: "1980s-", markets: [futures, stocks], priority: 3, verified: false,
+     known_for: "Short-term swing patterns; Street Smarts (with Larry Connors)"}
+  - {id: schwartz, name: Marty Schwartz, era: "1970s-", markets: [futures, stocks], priority: 3, verified: false,
+     known_for: "Pit Bull; moving averages and discipline"}
+  - {id: williams, name: Larry Williams, era: "1960s-", markets: [futures], priority: 3, verified: false,
+     known_for: "Short-term futures trading; trading competition results"}
+  - {id: kovner, name: Bruce Kovner, era: "1970s-", markets: [macro, futures], priority: 3, verified: false,
+     known_for: "Risk control and stop placement; Market Wizards interview"}
+  - {id: marcus, name: Michael Marcus, era: "1970s-", markets: [futures], priority: 3, verified: false,
+     known_for: "Commodities; Market Wizards interview; mentor to Kovner"}
+  - {id: edwards-magee, name: Edwards & Magee (with Schabacker), era: "1930s-1940s", markets: [stocks], priority: 3, verified: false,
+     known_for: "Technical Analysis of Stock Trends: the pattern vocabulary everyone inherited"}
+  - {id: schwager, name: Jack Schwager (The Chronicler), era: "1980s-", markets: [all], priority: 2, verified: false,
+     special: "Chronicler card, not a trader card", known_for: "Market Wizards series of interviews"}

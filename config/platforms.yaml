@@ -1,0 +1,73 @@
+# Platform specs used by the engine and by scripts/validate_publish.py.
+# Specs drift. Run /specs-check at least monthly; it re-verifies each value on the web and updates `verified`.
+verified: "2026-10-06"
+
+renders:
+  feed_4x5:   {width: 1080, height: 1350, fps: 30, use_for: [x, instagram_feed]}
+  vertical_9x16: {width: 1080, height: 1920, fps: 30, use_for: [instagram_reels, youtube_shorts]}
+  landscape_16x9: {width: 1920, height: 1080, fps: 30, use_for: [youtube_longform]}
+  codec: h264
+  crf: 18            # motion graphics are flat colour; this keeps files small and edges crisp
+  audio: aac 192k
+  max_file_mb: 200
+
+safe_zones:          # keep captions and key visuals inside these boxes (pixels)
+  vertical_9x16: {left: 64, right: 150, top: 250, bottom: 420}   # right/bottom carry app buttons and captions
+  feed_4x5:      {left: 64, right: 64, top: 64, bottom: 96}
+  ig_grid_3x4_crop_of_9x16: {top: 240, bottom: 240}             # profile grid shows the centre 1080x1440
+
+x:
+  post_max_chars: 280          # assume a non-Premium account; URLs count as 23 chars
+  url_chars: 23
+  video_max_seconds: 140
+  hashtags_max: 2
+  notes: "Native video autoplays muted: captions are burned in. Put the Lore number in the post."
+
+instagram:
+  caption_max_chars: 2200
+  caption_fold_chars: 125      # text before '... more'; the hook must live here
+  hashtags_max: 5              # hard cap since Dec 2025
+  reel_max_seconds: 180
+  carousel_max_slides: 20
+  alt_text_required: true
+
+youtube:
+  title_max_chars: 100
+  title_target_chars: 60
+  description_max_chars: 5000
+  tags_total_max_chars: 500
+  shorts_max_seconds: 180
+  hashtags_max: 5
+  category: Education
+  made_for_kids: false
+
+brand_assets:
+  x_avatar: {size: "400x400", file: brand/assets/profile/avatar-1080.png}
+  x_header: {size: "1500x500", file: brand/assets/x/x-header-1500x500.png}
+  ig_avatar: {size: "320x320 (upload 1080)", file: brand/assets/profile/avatar-1080.png}
+  ig_highlight_covers: {size: "1080x1920", dir: brand/assets/instagram/}
+  yt_avatar: {size: "800x800", file: brand/assets/profile/avatar-1080.png}
+  yt_banner: {size: "2560x1440, safe 1546x423", file: brand/assets/youtube/youtube-banner-2560x1440.png}
+  yt_watermark: {size: "150x150", file: brand/assets/youtube/youtube-watermark-150.png}
+  yt_thumbnail: {size: "1280x720", max_mb: 2}
+
+required_disclaimer: "Education only. Not investment advice. Historical charts; past results don't predict future ones."
+
+banned_phrases:   # hype, advice, and performance claims. Case-insensitive substring match.
+  - guaranteed
+  - can't lose
+  - cannot lose
+  - free money
+  - to the moon
+  - sure shot
+  - 100% win
+  - buy now
+  - you should buy
+  - you should sell
+  - price target
+  - target price
+  - entry at
+  - multibagger
+  - get rich
+  - financial freedom fast
+banned_emoji: ["🚀", "💰", "🤑", "💸", "📈🔥"]

@@ -1,0 +1,39 @@
+# Fallback renderer. Used when CLAUDE.md says `delivery: actions`, or whenever a cloud session can't render/upload.
+# Claude triggers it with: gh workflow run render.yml -f batch=<batch-id> -f ref=batch/<batch-id>
+name: render
+on:
+  workflow_dispatch:
+    inputs:
+      batch: { description: "Batch id (batches/<id>.json)", required: true }
+      ref:   { description: "Branch holding the batch", required: true, default: "main" }
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ inputs.ref }}" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: engine/package-lock.json }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: System deps
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Python deps
+        run: pip install pyyaml yfinance pandas numpy
+      - name: Engine deps
+        working-directory: engine
+        run: npm ci && npx remotion browser ensure
+      - name: Render batch
+        run: node scripts/render_batch.mjs "batches/${{ inputs.batch }}.json"
+      - name: Validate packages
+        run: python scripts/validate_publish.py --batch "batches/${{ inputs.batch }}.json"
+      - name: Publish release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          NOTES="batches/${{ inputs.batch }}-report.md"; [ -f "$NOTES" ] || echo "Batch ${{ inputs.batch }}" > "$NOTES"
+          gh release create "batch-${{ inputs.batch }}" engine/out/*.mp4 publish/*/thumb.png \
+            --target "${{ inputs.ref }}" --title "Batch ${{ inputs.batch }}" --notes-file "$NOTES" \
+          || gh release upload "batch-${{ inputs.batch }}" engine/out/*.mp4 --clobber

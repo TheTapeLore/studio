@@ -1,0 +1,42 @@
+formats:
+  anatomy:
+    what: "A concept built step by step on screen (pattern, rule, mechanism)."
+    duration_s: [35, 70]
+    beats: [hook_payoff_visual, build_1, build_2, build_3, the_rule, misconception, tripwire_snap_end]
+    deliverables: [video_4x5, video_9x16, thumb, cover]
+  council:
+    what: "One question; 4-6 legends' documented answers side by side; where they agree and where they split."
+    duration_s: [45, 75]
+    beats: [question, seats_light_up, agree, split, your_choice, end]
+    deliverables: [video_4x5, video_9x16, x_thread, ig_carousel]
+  whatif:
+    what: "What If Lab: a seeded simulation answers a question; assumptions on screen; median and bad tail shown."
+    duration_s: [40, 75]
+    beats: [question, setup_and_assumptions, runs_unfold, distribution, lesson, end]
+    deliverables: [video_4x5, video_9x16, x_thread_optional]
+  replay:
+    what: "Model Book Replay: a historical leader revealed bar by bar; freeze before the decision; poll; reveal next post."
+    duration_s: [30, 60]
+    beats: [context_no_hindsight, reveal_bars, freeze_question, poll_card]
+    companion: "A second short 'reveal' entry (format replay, concept_key suffix .reveal) posted next day."
+    deliverables: [video_4x5, video_9x16, x_poll_text, ig_story_poll_text]
+  failure:
+    what: "Failure Files: a textbook-looking setup that broke; the warning signs that were visible; the risk rule that saved you."
+    duration_s: [35, 60]
+    beats: [looks_perfect, it_breaks, rewind_to_tells, the_rule, end]
+    deliverables: [video_4x5, video_9x16]
+  lexicon:
+    what: "One term, defined visually in 12-20 seconds."
+    duration_s: [12, 20]
+    beats: [term, picture, one_line_definition, end]
+    deliverables: [video_4x5, video_9x16]
+  desknotes:
+    what: "The founder's own lesson, misconception, book or routine — first-person, honest, no trades or P&L."
+    duration_s: [20, 45]
+    beats: [the_line, the_story, the_change, end]
+    deliverables: [x_post_or_thread, optional_video, optional_ig_carousel]
+  legendcard:
+    what: "A collectible card for one legend with an abstract emblem; reveal video + carousel."
+    duration_s: [15, 25]
+    beats: [tape_in, emblem_draws, fields_type_on, snap]
+    deliverables: [card_front, card_back, print_files, video_4x5, video_9x16, ig_carousel]

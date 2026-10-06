@@ -1,0 +1,58 @@
+# The Map: 8 pillars in learning order. Clusters are the topical-authority units (each grows to 5-15 Lore entries).
+pillars:
+  - key: risk
+    name: Risk & sizing
+    stage: 4
+    season_1_order: 1
+    question: "How much can I lose, and how much do I put on?"
+    metaphors: [ThePit, RTower, Seesaw]
+    clusters: [math-of-losses, r-multiples, expectancy, position-sizing, stop-placement, total-heat, drawdowns, risk-of-ruin, gap-risk]
+  - key: selection
+    name: Selection & relative strength
+    stage: 2
+    season_1_order: 2
+    question: "What is strong right now, and why?"
+    metaphors: [TheRace]
+    clusters: [relative-strength, trend-template, earnings-and-sales-growth, group-leadership, liquidity-and-adr, stock-character, catalysts]
+  - key: setups
+    name: Setups
+    stage: 3
+    season_1_order: 3
+    question: "Where exactly is the low-risk entry?"
+    metaphors: [Anatomy, Tripwire]
+    clusters: [vcp, cup-with-handle, flat-base, high-tight-flag, breakout-from-tight-range, episodic-pivot, pocket-pivot, base-counting-and-stages, undercut-and-rally, parabolic-short, darvas-box, failed-breakouts]
+  - key: exits
+    name: Exits
+    stage: 5
+    season_1_order: 4
+    question: "When do I get out — into strength or into weakness?"
+    metaphors: [FiveExits]
+    clusters: [sell-into-strength, sell-into-weakness, trailing-stops, partial-profits, time-stops, holding-through-earnings, letting-winners-run]
+  - key: conditions
+    name: Market conditions
+    stage: 1
+    season_1_order: 5
+    question: "Should I be trading at all right now?"
+    metaphors: [MarketWeather]
+    clusters: [index-trend, distribution-days, follow-through-day, breadth, new-highs-vs-lows, volatility-regimes, exposure-dial, cash-as-a-position]
+  - key: leverage
+    name: Leverage — options & futures
+    stage: 6
+    season_1_order: 6
+    question: "How do I amplify an edge without amplifying ruin?"
+    metaphors: [Throttle, Hourglass, Rope, PayoffDiagram]
+    clusters: [options-payoffs, the-greeks, implied-volatility, calls-vs-stock, defined-risk-spreads, futures-margin, contract-sizing, leveraged-etf-decay, leverage-rules]
+  - key: operator
+    name: The Operator — psychology
+    stage: 7
+    season_1_order: 7
+    question: "Can I follow my own rules under pressure?"
+    metaphors: [InnerChart]
+    clusters: [hindsight-bias, fomo, revenge-trading, loss-aversion, process-vs-outcome, journaling, streaks, patience, routines]
+  - key: legends
+    name: Legends
+    stage: 0
+    season_1_order: 8   # woven through every week, not a block
+    question: "What did the greats agree on — and where did they split?"
+    metaphors: [CouncilArc, LegendCard]
+    clusters: [legend-cards, council-questions, lineage]

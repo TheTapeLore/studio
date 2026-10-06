@@ -1,0 +1,13 @@
+questions:
+  - {q: "Where does your stop go?", seats_hint: [oneil, minervini, kovner, seykota, livermore], status: open}
+  - {q: "How much do you risk on one trade?", seats_hint: [minervini, seykota, ptj, druckenmiller], status: open}
+  - {q: "When do you sit in cash?", seats_hint: [oneil, weinstein, ptj, qullamaggie], status: open}
+  - {q: "When do you sell a winner?", seats_hint: [oneil, minervini, zanger, qullamaggie, loeb], status: open}
+  - {q: "Do you ever average down?", seats_hint: [livermore, oneil, loeb, minervini], status: open}
+  - {q: "What makes a stock a leader?", seats_hint: [oneil, minervini, darvas, weinstein], status: open}
+  - {q: "How do you handle a losing streak?", seats_hint: [minervini, kovner, ptj, schwartz], status: open}
+  - {q: "How do you size up when you are right?", seats_hint: [livermore, druckenmiller, ryan, qullamaggie], status: open}
+  - {q: "Do you hold through earnings?", seats_hint: [oneil, minervini, zanger, qullamaggie], status: open}
+  - {q: "Is leverage a tool or a trap?", seats_hint: [brandt, seykota, druckenmiller, kovner], status: open}
+  - {q: "How do you know a breakout is real?", seats_hint: [zanger, oneil, darvas, brandt], status: open}
+  - {q: "Can trading be taught?", seats_hint: [dennis-eckhardt, schwager, oneil, minervini], status: open}

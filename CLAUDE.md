@@ -94,15 +94,18 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - Render stills first and LOOK at them. Then full renders, one per command, in the background
   (`BASH_MAX_TIMEOUT_MS` is raised in the environment). Sample frames with ffmpeg and view them in QA.
 - New components must use tokens, fit the design system, and be added to the gallery composition.
-- Music (the Tape Machine, `scripts/sound/score.py <id>`, run automatically by render_batch): a beat scored from the
-  episode's data, one genre per pillar (risk dark trap 150 · setups techno · selection garage · exits deep house ·
-  conditions breakbeat · leverage drum & bass · operator lo-fi · legends boom bap). Losses are tape-stops (808 slides
-  12 semitones per 100%), climbs are risers of 1 bar per +100% that drop only if they fit, charts drive a low-pass on
-  the beat (the tripwire snap is the drop), the logo's path is the lead riff. The groove starts on frame 0 and the last
-  bar builds back into it: make every video a whole number of bars (spec_lint warns; lengthen the end beat).
-  QA reads the cue sheet (`episodes/<id>/score.json`) against the beats. New components get an interpreter in score.py
-  (else a default groove by beat kind). Override with `"score": {"genre": "...", "gain_db": n}` or opt out with
-  `"score": false`. Final mix: about -14 LUFS integrated, true peak <= -1 dBTP.
+- Music (the Tape Machine v3, `scripts/sound/score.py <id>`, run automatically by render_batch): every video is a
+  SONG: one hook, one continuous groove. The hook is the logo (the mark's path as a two-bar melody: three shrinking
+  dips, then the breakout), answered by a second phrase, over a four-chord loop (i–VI–III–VII) with a four-on-the-floor
+  pump. Risk = melodic house 120 BPM in A minor (2.0 s bars, 15 frames per beat); each pillar has its own tempo/feel.
+  The data changes the ARRANGEMENT, never the clock: losses = descending runs in key (12 semitones per 100%), depth =
+  darker chords + half-time + the breakout note withheld, climbs = builds that drop where the arrow lands, charts = a
+  filter sweep (tripwire snap = drop into the chorus), myths = breakdowns, rules = the full chorus, the end card draws
+  the mark vertex-by-vertex on the hook's notes (EndCard `vertexAt`) and snaps on the breakout downbeat.
+  TIME SPECS IN WHOLE BARS and put key moments on beats (digAt/climbAt, chart revealDur, myth factAt); spec_lint
+  warns when a video is not loop-aligned. QA reads `episodes/<id>/score.json` (bar-by-bar arrangement + cues).
+  New components get an interpreter in score.py (else a default groove by beat kind). Override with
+  `"score": {"genre": "...", "gain_db": n}`; opt out with `"score": false`. Mix: ~-14 LUFS, true peak <= -1 dBTP.
 - Quality loop: up to 3 passes per entry, logged in episodes/<id>/qa.md. Nothing ships with a failing check.
 
 ## Delivery
@@ -129,3 +132,5 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
   session ends. No feature/batch branches and no PRs unless the founder asks.
 - 2026-10-06: Every video gets music composed in code from the episode's data (no licensed music, ever). v2 the same day:
   beat-driven (one electronic/hip-hop genre per pillar), drops on reveals, seamless loops; the piano bed is retired.
+  v3 (founder: "a score needs a tune and one continuous motion"; reference: the 128 BPM motion reel): a song with
+  the logo as the hook, one unbroken groove, picture cut to the bar grid. Tape-stops and random effects are retired.

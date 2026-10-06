@@ -95,3 +95,21 @@ that start and end on the same rhythm (YouTube counts replays as views). Score =
 - All 8 pillar genres compose at −16.8…−17.5 LUFS (music bus) and ≤ −1.5 dBTP. PASS.
 - Final mix (4x5): **−14.3 LUFS, −1.8 dBTP**. Visuals unchanged apart from the 0.6 s longer end card. PASS.
 **Result: qa_passed with music v2.**
+
+## Pass 5: music v3, a song (founder: "no tune, no continuous motion"; reference: the 128 BPM motion reel)
+Reference analysed: 128 BPM, Am–F–C–G one chord per bar, plucked arpeggio intro, four-on-the-floor from bar 3, one
+continuous groove (LRA 3.9 LU), ringing final chord, −14.4 LUFS. Pace assessed for a 60 s captioned lesson: **120 BPM**
+(2.0 s bars: two bars per caption; 15 frames per beat), melodic house, A minor.
+- Hook = the logo (phrase A: E–A–D–B–D–C → A breakout; phrase B answers). Plays from frame 0. Every melody note sits in
+  its chord's scale (checked: 0 out-of-scale notes).
+- Spec retimed to whole bars (31 bars = 62.0 s): dig reaches the floor on bar 4; the +100% arrow lands on the 12.0 s drop;
+  the Nasdaq reclaim snaps on bar 19 (revealDur 8.037); the math lands on bar 23; the end card draws the mark on the
+  hook's notes and the wire snaps on the breakout downbeat (58.0 s). Frames at each moment viewed. PASS.
+- Arrangement (score.json): hook → set-up → breakdown "what's left" (F–Dm–E, no breakout) → build → DROP → sweep
+  darkening Dm → Bb → E with half-time drums and falls in key → filtered verse through the crash → DROP on the snap →
+  myth breakdown → math lands → chorus (C–G–Am–F, both phrases) → end card → loop build. Continuous: LRA 5.4 LU. PASS.
+- Visual fixes found in this pass: myth strike-through now follows wrapped lines (9x16); beat changes are hard cuts on
+  the downbeat with the incoming beat entering from 40% (no blank frame on a downbeat). PASS.
+- Loop seam rendered across the end: snare roll → frame-0 hit, continuous. PASS.
+- Final mix, both aspects: **−14.1 LUFS, −2.9 dBTP**. PASS.
+**Result: qa_passed with music v3.**

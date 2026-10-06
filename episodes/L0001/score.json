@@ -1,156 +1,403 @@
 {
  "id": "L0001",
- "genre": "dark trap",
- "bpm": 150.0,
- "bars": 35.0,
+ "genre": "melodic house",
+ "bpm": 120.0,
+ "bars": 31.0,
  "loop_aligned": true,
- "lufs": -17.4,
- "true_peak_db": -2.0,
- "generator": "scripts/sound/score.py",
+ "lufs": -16.8,
+ "true_peak_db": -2.8,
+ "generator": "scripts/sound/score.py (v3)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "hook"
+  },
+  {
+   "bar": 2,
+   "t": 2.0,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "hook"
+  },
+  {
+   "bar": 3,
+   "t": 4.0,
+   "chord": "III",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1",
+   "label": "set-up"
+  },
+  {
+   "bar": 4,
+   "t": 6.0,
+   "chord": "VI",
+   "energy": 1,
+   "drums": "break",
+   "melody": "A2-",
+   "label": "what's left"
+  },
+  {
+   "bar": 5,
+   "t": 8.0,
+   "chord": "iv",
+   "energy": 2,
+   "drums": "break",
+   "melody": "A1-",
+   "label": "what's left"
+  },
+  {
+   "bar": 6,
+   "t": 10.0,
+   "chord": "V",
+   "energy": 2,
+   "drums": "break",
+   "melody": "A2-",
+   "label": "what's left"
+  },
+  {
+   "bar": 7,
+   "t": 12.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "made it back"
+  },
+  {
+   "bar": 8,
+   "t": 14.0,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "depth \u221210%"
+  },
+  {
+   "bar": 9,
+   "t": 16.0,
+   "chord": "III",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "depth \u221220%"
+  },
+  {
+   "bar": 10,
+   "t": 18.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2-",
+   "label": "depth \u221250%"
+  },
+  {
+   "bar": 11,
+   "t": 20.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1-",
+   "label": "depth \u221250%"
+  },
+  {
+   "bar": 12,
+   "t": 22.0,
+   "chord": "bII",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A2-",
+   "label": "depth \u221275%"
+  },
+  {
+   "bar": 13,
+   "t": 24.0,
+   "chord": "V",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A1-",
+   "label": "depth \u221290%"
+  },
+  {
+   "bar": 14,
+   "t": 26.0,
+   "chord": "V",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A2-",
+   "label": "depth \u221290%"
+  },
+  {
+   "bar": 15,
+   "t": 28.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 16,
+   "t": 30.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 17,
+   "t": 32.0,
+   "chord": "III",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 18,
+   "t": 34.0,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B2-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 19,
+   "t": 36.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "tripwire snaps: chorus"
+  },
+  {
+   "bar": 20,
+   "t": 38.0,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "tripwire snaps: chorus"
+  },
+  {
+   "bar": 21,
+   "t": 40.0,
+   "chord": "iv",
+   "energy": 1,
+   "drums": "break",
+   "melody": "A1-",
+   "label": "myth: breakdown"
+  },
+  {
+   "bar": 22,
+   "t": 42.0,
+   "chord": "i",
+   "energy": 1,
+   "drums": "break",
+   "melody": "A2-",
+   "label": "myth: breakdown"
+  },
+  {
+   "bar": 23,
+   "t": 44.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "the math lands"
+  },
+  {
+   "bar": 24,
+   "t": 46.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "the math lands"
+  },
+  {
+   "bar": 25,
+   "t": 48.0,
+   "chord": "III",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 26,
+   "t": 50.0,
+   "chord": "VII",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 27,
+   "t": 52.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 28,
+   "t": 54.0,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 29,
+   "t": 56.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "end card"
+  },
+  {
+   "bar": 30,
+   "t": 58.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "end card"
+  },
+  {
+   "bar": 31,
+   "t": 60.0,
+   "chord": "III",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1",
+   "label": "end card"
+  }
+ ],
  "cues": [
   {
-   "t": 0,
-   "cue": "hook: energy 3"
+   "t": 0.0,
+   "bar": 1,
+   "cue": "hook: full groove + the logo melody from frame 0"
   },
   {
-   "t": 0.05,
-   "cue": "hook fall \u221250% (808 slide), climb lift"
+   "t": 5.5,
+   "bar": 3,
+   "cue": "loss \u221250%: 4-note fall, 6.0 semitones down"
   },
   {
-   "t": 4.0,
-   "cue": "set-up: energy 2"
+   "t": 8.0,
+   "bar": 5,
+   "cue": "climb +100%: build 2.0 bars"
   },
   {
-   "t": 4.4,
-   "cue": "loss \u221250%: tape stops, 808 slides 6.0 semitones"
-  },
-  {
-   "t": 6.4,
-   "cue": "what's left: energy 1"
-  },
-  {
-   "t": 9.6,
-   "cue": "climb +100%: riser 1.00 bars, resolves"
-  },
-  {
-   "t": 9.6,
-   "cue": "climbing: energy 1"
-  },
-  {
-   "t": 11.2,
+   "t": 12.0,
+   "bar": 7,
    "cue": "DROP"
-  },
-  {
-   "t": 11.2,
-   "cue": "made it back: energy 4"
-  },
-  {
-   "t": 13.0,
-   "cue": "sweep \u221210%: energy 3"
-  },
-  {
-   "t": 13.6,
-   "cue": "climb +11%: a 0.11-bar lift, barely longer than the fall"
   },
   {
    "t": 14.0,
-   "cue": "loss \u221220%: tape stops, 808 slides 2.4 semitones"
+   "bar": 8,
+   "cue": "depth \u221210% -> i, full drums; climb needs +11%; hook resolves"
   },
   {
-   "t": 15.0,
-   "cue": "depth \u221220%: energy 3"
-  },
-  {
-   "t": 15.05,
-   "cue": "climb +25%: a 0.25-bar lift, barely longer than the fall"
+   "t": 15.75,
+   "bar": 8,
+   "cue": "loss \u221220%: 2-note fall, 2.4 semitones down"
   },
   {
    "t": 16.0,
-   "cue": "back up: energy 3"
+   "bar": 9,
+   "cue": "depth \u221220% -> VI, full drums; climb needs +25%; hook resolves"
   },
   {
-   "t": 16.3,
-   "cue": "loss \u221250%: tape stops, 808 slides 6.0 semitones"
+   "t": 17.5,
+   "bar": 9,
+   "cue": "loss \u221250%: 4-note fall, 6.0 semitones down"
   },
   {
-   "t": 17.1,
-   "cue": "depth \u221250%: energy 2"
+   "t": 18.0,
+   "bar": 10,
+   "cue": "depth \u221250% -> iv, full drums; climb needs +100%; hook breakout withheld"
   },
   {
-   "t": 17.15,
-   "cue": "climb +100%: riser 1.00 bars, resolves"
+   "t": 21.25,
+   "bar": 11,
+   "cue": "loss \u221275%: 6-note fall, 9.0 semitones down"
   },
   {
-   "t": 19.2,
+   "t": 22.0,
+   "bar": 12,
+   "cue": "depth \u221275% -> bII, half-time drums; climb needs +300%; hook breakout withheld"
+  },
+  {
+   "t": 24.12,
+   "bar": 13,
+   "cue": "loss \u221290%: 7-note fall, 10.8 semitones down"
+  },
+  {
+   "t": 25.0,
+   "bar": 13,
+   "cue": "depth \u221290% -> V, half-time drums; climb needs +900%; hook breakout withheld"
+  },
+  {
+   "t": 25.0,
+   "bar": 13,
+   "cue": "climb +900%: the riser never lands"
+  },
+  {
+   "t": 28.0,
+   "bar": 15,
+   "cue": "groove runs through a low-pass that follows the drawdown (deepest \u221274% ~ 320 Hz)"
+  },
+  {
+   "t": 34.0,
+   "bar": 18,
+   "cue": "the old high comes back: build 1.0 bars"
+  },
+  {
+   "t": 36.0,
+   "bar": 19,
    "cue": "DROP"
   },
   {
-   "t": 19.2,
-   "cue": "back up: energy 3"
+   "t": 40.0,
+   "bar": 21,
+   "cue": "myth: breakdown, hook without its breakout"
   },
   {
-   "t": 19.9,
-   "cue": "loss \u221275%: tape stops, 808 slides 9.0 semitones"
+   "t": 44.0,
+   "bar": 23,
+   "cue": "the math lands: groove back"
   },
   {
-   "t": 20.7,
-   "cue": "depth \u221275%: energy 1"
+   "t": 48.0,
+   "bar": 25,
+   "cue": "chorus: both hook phrases, the breakout lands at the end"
   },
   {
-   "t": 20.75,
-   "cue": "climb +300%: riser needs 3.0 bars, only 1.2 fit: UNRESOLVED"
+   "t": 58.0,
+   "bar": 29,
+   "cue": "the wire snaps on the breakout note"
   },
   {
-   "t": 22.7,
-   "cue": "loss \u221290%: tape stops, 808 slides 10.8 semitones"
-  },
-  {
-   "t": 23.5,
-   "cue": "depth \u221290%: energy 1"
-  },
-  {
-   "t": 23.55,
-   "cue": "climb +900%: riser needs 9.0 bars, only 2.0 fit: UNRESOLVED"
-  },
-  {
-   "t": 26.8,
-   "cue": "chart: filter follows the drawdown: energy 3"
-  },
-  {
-   "t": 27.1,
-   "cue": "ticker traces the price; deepest drawdown \u221275% closes the filter to ~260 Hz"
-  },
-  {
-   "t": 34.29,
-   "cue": "tripwire snaps: DROP: energy 4"
-  },
-  {
-   "t": 38.0,
-   "cue": "myth: tape stops, only the clock ticks"
-  },
-  {
-   "t": 41.4,
-   "cue": "the math lands: energy 3"
-  },
-  {
-   "t": 45.0,
-   "cue": "rule: full groove + the mark riff: energy 4"
-  },
-  {
-   "t": 51.4,
-   "cue": "end card: the mark riff: energy 1"
-  },
-  {
-   "t": 51.55,
-   "cue": "mark riff plays as the line draws"
-  },
-  {
-   "t": 52.09,
-   "cue": "wire snaps: ride out: energy 3"
-  },
-  {
-   "t": 54.4,
-   "cue": "loop build: last bar resolves into frame 0's hit"
+   "t": 60.0,
+   "bar": 31,
+   "cue": "loop build: the last bar resolves into frame 0"
   }
  ]
 }

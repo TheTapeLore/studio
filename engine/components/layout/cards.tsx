@@ -34,7 +34,7 @@ export const MonoLabel: React.FC<{ children: React.ReactNode; color?: string; si
  * The ending every Lore shares: the mark draws, breaks the wire, the wire snaps (with the snap sound),
  * then "Lore N. Next: Lore N+1 — <title>".
  */
-export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; title: string } | null; sfx?: boolean }> = ({ lore_no, next, sfx = true }) => {
+export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; title: string } | null; sfx?: boolean; drawAt?: number }> = ({ lore_no, next, sfx = true, drawAt = 0.15 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { u } = useLayout();
@@ -42,7 +42,7 @@ export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; tit
   const ep = useEpisode();
   const n = lore_no ?? ep?.spec.lore_no ?? 0;
   const nx = next ?? ep?.spec.next ?? null;
-  const drawAt = 0.15;
+  // drawAt lets the score put the wire snap on a beat (scripts/sound/score.py reads the same prop)
   const snapS = markSnapSeconds(drawAt, 1.0);
   const t1 = prog(frame, fps, snapS + 0.15, 0.35);
   const t2 = prog(frame, fps, snapS + 0.45, 0.4);

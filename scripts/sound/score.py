@@ -1,34 +1,33 @@
 #!/usr/bin/env python3
 """
-The Tape Machine: a beat engine that scores each episode from its own data.
+The Tape Machine v3: every episode gets a song, written around one hook and one continuous groove, and arranged by
+the episode's data.
 
   python scripts/sound/score.py L0001            -> engine/public/score/L0001.wav + episodes/L0001/score.json
-  python scripts/sound/score.py L0001 --report   -> cue sheet + loudness only
-  python scripts/sound/score.py L0001 --genre leverage   (audition another pillar's genre)
+  python scripts/sound/score.py L0001 --report   -> bar-by-bar arrangement + loudness only
+  python scripts/sound/score.py L0001 --genre leverage   (audition another pillar's sound)
 
-Everything is synthesised with numpy (no samples, no loops, no licences: compliance rule 9) and is deterministic.
+Synthesised with numpy only (no samples, no loops, no licences: compliance rule 9). Deterministic.
 
-Why beats. Short-form audiences decide in 1–2 seconds; the sound has to start on frame 0, sit on a grid, and land its
-drops on the reveals. So the music is a groove, and the data writes the arrangement:
+Principles (founder feedback on v1 piano and v2 effects: "a score needs a tune and one continuous motion")
+  1. A hook you can hum. The channel's melody IS the logo: the mark's price path (tokens.mark: three shrinking dips,
+     then the breakout) sung as two bars, answered by a second phrase. It plays from frame 0 and recurs.
+  2. One groove that never stops. One tempo, one key, a four-chord loop, a four-on-the-floor pulse with a sidechain
+     pump. Story moments change the arrangement (filter, density, chords, fills), never the clock.
+  3. The picture sits on the grid. Specs are timed in whole bars; the dig, the arrow, the snap land on beats.
+  4. The data writes the arrangement:
+       losses   -> a descending bass/tom run that falls 12 semitones per 100% (on the beats before the bar line)
+       depth    -> darker chords (Am -> Dm -> Bb -> E), half-time drums, and the hook's BREAKOUT NOTE IS WITHHELD
+                   while you are deep: you only hear the melody climb out when the climb succeeds
+       climbs   -> a build (riser + snare roll + rising line) that drops on the bar where the arrow lands
+       charts   -> a DJ low-pass that follows the drawdown; the tripwire snap is the drop into the chorus
+       myths    -> a breakdown (no kick); the math lands with an impact and the groove returns
+       rules    -> the full chorus: both hook phrases
+       end card -> the breakout note lands on the wire snap; the last bar builds into frame 0 (seamless loop)
 
-  Losses are tape-stops.  When a pit is dug the whole groove slows and dies (the brand's tape literally stops) and the
-                          808 slides down by the loss: 12 semitones = 100%, so −50% is a six-semitone fall.
-  Climbs are risers.      A riser lasts one bar per +100% of gain needed. If it fits before the next event it
-                          resolves into a DROP. −75% needs three bars, −90% needs nine: those risers are cut off,
-                          unresolved. You hear that the deeper the fall, the harder the climb.
-  Depth empties the room. Deeper pits strip the drums and darken the harmony (Dm → Bb → Gm → Eb → A).
-  Charts are filters.     A revealed chart drives a low-pass on the whole beat: the Nasdaq crash muffles the groove,
-                          the recovery opens it, the tripwire snap is the drop. A ticker voice traces the price.
-  Myths stop the tape.    The beat stops; only the ticker clock ticks; the math lands with an impact and the beat returns.
-  The mark is the hook.   The logo's price path (tokens.mark) is the lead riff; on the end card it plays note-for-note
-                          as the line draws and the wire snap lands on the downbeat.
-  Loops.                  The last bar is a build that resolves into the first hit, so a replay sounds continuous.
-                          The video should last a whole number of bars (the report says how to adjust the end beat).
-
-Genre per pillar (one sound per pillar, so viewers learn the map by ear):
-  risk: dark trap 150 · setups: breakout techno 128.6 · selection: two-step garage 138.5 · exits: deep house 120 ·
-  conditions: breakbeat 120 · leverage: drum & bass 171.4 · operator: lo-fi hip hop 90 · legends: boom bap 94.7
-  (tempos chosen so a beat is a whole or half number of 30 fps frames).
+Pillar sound (same song engine, different tempo/feel/key):
+  risk 120 melodic house (A minor) · setups 128.6 melodic techno · selection 128.6 garage-house · exits 120 deep house ·
+  conditions 120 breaks · leverage 171.4 liquid drum & bass · operator 90 lo-fi · legends 90 boom bap
 """
 import json, math, os, sys, wave
 import numpy as np
@@ -40,170 +39,208 @@ MUSIC_LUFS = -16.0
 sys.path.insert(0, os.path.dirname(__file__))
 from gen_cues import lufs, true_peak_db, sweep_bp  # same BS.1770 meter as the cues
 
-rng = np.random.default_rng(7)
+rng = np.random.default_rng(11)
 
-# ---------------------------------------------------------------- genres (16 steps per bar)
+# ---------------------------------------------------------------- pillar sounds
 GENRES = {
-    "risk": dict(name="dark trap", bpm=150.0, swing=0.0, kit="trap", root=38,
-                 kick=[0, 7, 10], snare=[8], hats="trap", bass="808", prog=["Dm", "Bb", "Gm", "A"]),
-    "setups": dict(name="breakout techno", bpm=1800 / 14, swing=0.0, kit="techno", root=40,
-                   kick=[0, 4, 8, 12], snare=[4, 12], hats="offbeat", bass="roll", prog=["Em", "Em", "C", "D"]),
-    "selection": dict(name="two-step garage", bpm=1800 / 13, swing=0.16, kit="garage", root=41,
-                      kick=[0, 10], snare=[4, 12], hats="garage", bass="sub", prog=["Fm", "Db", "Ab", "Eb"]),
-    "exits": dict(name="deep house", bpm=120.0, swing=0.08, kit="house", root=43,
-                  kick=[0, 4, 8, 12], snare=[4, 12], hats="offbeat", bass="deep", prog=["Gm", "Eb", "Bb", "F"]),
-    "conditions": dict(name="breakbeat", bpm=120.0, swing=0.05, kit="breaks", root=45,
-                       kick=[0, 10], snare=[4, 12], hats="eighths", bass="sub", prog=["Am", "F", "C", "G"]),
-    "leverage": dict(name="drum & bass", bpm=1800 / 10.5, swing=0.0, kit="dnb", root=37,
-                     kick=[0, 10], snare=[4, 12], hats="eighths", bass="reese", prog=["C#m", "A", "E", "B"]),
-    "operator": dict(name="lo-fi hip hop", bpm=90.0, swing=0.22, kit="lofi", root=36,
-                     kick=[0, 7, 10], snare=[4, 12], hats="eighths", bass="sub", prog=["Cm7", "Abmaj7", "Ebmaj7", "Bb"]),
-    "legends": dict(name="boom bap", bpm=1800 / 19, swing=0.12, kit="boombap", root=39,
-                    kick=[0, 6, 10], snare=[4, 12], hats="eighths", bass="sub", prog=["Ebm", "B", "Gb", "Db"]),
+    "risk":       dict(name="melodic house", bpm=120.0, key=9, swing=0.0, drums="four"),
+    "setups":     dict(name="melodic techno", bpm=1800 / 14, key=4, swing=0.0, drums="four"),
+    "selection":  dict(name="garage house", bpm=1800 / 14, key=5, swing=0.14, drums="garage"),
+    "exits":      dict(name="deep house", bpm=120.0, key=7, swing=0.08, drums="four"),
+    "conditions": dict(name="breaks", bpm=120.0, key=2, swing=0.05, drums="breaks"),
+    "leverage":   dict(name="liquid drum & bass", bpm=1800 / 10.5, key=1, swing=0.0, drums="dnb"),
+    "operator":   dict(name="lo-fi hip hop", bpm=90.0, key=0, swing=0.2, drums="hiphop"),
+    "legends":    dict(name="boom bap", bpm=90.0, key=3, swing=0.12, drums="hiphop"),
 }
-NOTE = {"C": 0, "C#": 1, "Db": 1, "D": 2, "D#": 3, "Eb": 3, "E": 4, "F": 5, "F#": 6, "Gb": 6, "G": 7, "G#": 8,
-        "Ab": 8, "A": 9, "A#": 10, "Bb": 10, "B": 11}
+
+# chords as scale-relative to the minor key root (A minor for risk): name -> (bass offset, voicing offsets)
+CHORDS = {
+    "i":   (0, [0, 3, 7, 10]),      # Am7
+    "VI":  (-4, [-4, 0, 3, 7]),     # Fmaj7
+    "III": (3, [3, 7, 10, 14]),     # Cmaj7
+    "VII": (-2, [-2, 2, 5, 10]),    # G
+    "iv":  (5, [5, 8, 12, 15]),     # Dm7
+    "bII": (1, [1, 5, 8, 12]),      # Bbmaj7 (Neapolitan colour: the darkest)
+    "V":   (7, [7, 11, 14, 17]),    # E7 (harmonic minor: wants to resolve)
+}
+LOOP = ["i", "VI", "III", "VII"]    # Am F C G: the four-chord loop
+
+# The hook, from the logo: (semitones above the key root at octave 5, start beat, length in beats).
+# Phrase A = the mark: E-A-D-B-D-C (three shrinking dips) then the breakout up to A. Phrase B answers it.
+PHRASE_A = [(7, 0.0, 0.75), (0, 0.75, 0.75), (5, 1.5, 0.5), (2, 2.0, 0.5), (5, 2.5, 0.5), (3, 3.0, 1.0),
+            (12, 4.0, 2.5), (10, 6.5, 0.5), (7, 7.0, 1.0)]
+PHRASE_B = [(10, 0.0, 0.75), (3, 0.75, 0.75), (8, 1.5, 0.5), (5, 2.0, 0.5), (8, 2.5, 0.5), (7, 3.0, 1.0),
+            (5, 4.0, 2.0), (2, 6.0, 2.0)]
+BREAKOUT = 12                       # the note that only sounds once you are out of the pit
+
+# chord scales (pitch classes relative to the key root): the hook bends to fit each chord, so dark never means wrong
+NAT_MINOR = [0, 2, 3, 5, 7, 8, 10]
+CHORD_SCALE = {"i": NAT_MINOR, "VI": NAT_MINOR, "III": NAT_MINOR, "VII": NAT_MINOR, "iv": NAT_MINOR,
+               "bII": [1, 3, 5, 7, 8, 10, 0],          # Bb lydian colour inside A minor
+               "V": [0, 2, 3, 5, 7, 8, 11]}            # A harmonic minor: G# leads home
 
 
-def chord(name, base=60):
-    """'Dm', 'Bb', 'Cm7', 'Abmaj7' -> MIDI notes around `base`."""
-    root = name[:2] if len(name) > 1 and name[1] in "#b" else name[:1]
-    q = name[len(root):]
-    r = NOTE[root]
-    iv = {"": [0, 4, 7], "m": [0, 3, 7], "m7": [0, 3, 7, 10], "maj7": [0, 4, 7, 11], "7": [0, 4, 7, 10],
-          "dim": [0, 3, 6], "sus2": [0, 2, 7]}.get(q, [0, 3, 7])
-    n0 = base + ((r - base) % 12)
-    if n0 > base + 5:
-        n0 -= 12
-    return [n0 + i for i in iv], n0
+def fit(semis, chord):
+    """Snap a note (semitones from the key root) to the nearest pitch class of the chord's scale."""
+    pcs = CHORD_SCALE.get(chord, NAT_MINOR)
+    best = min((semis + d for d in range(-2, 3)), key=lambda x: (0 if x % 12 in pcs else 1, abs(x - semis)))
+    return best
 
 
-def mtof(m):
-    return 440.0 * 2 ** ((m - 69) / 12)
+class Bar:
+    def __init__(self):
+        self.chord = None          # None = follow the four-chord loop from the latest anchor
+        self.energy = 3            # 0 silent · 1 pad/hats · 2 + kick · 3 + bass/clap · 4 + arp
+        self.drums = "full"        # full · half · break · none
+        self.melody = None         # (withhold_breakout: bool, gain); phrase = A over i/VI/dark chords, B over III/VII
+        self.half = 0              # which bar of the two-bar phrase (from the loop anchor)
+        self.label = ""
 
 
-DEPTH_STEPS = [(0.15, 0, "m"), (0.35, -4, ""), (0.6, -7, "m"), (0.8, 1, ""), (1.01, 7, "")]  # i, VI, iv, bII, V
-
-
-def depth_chord(depth, g):
-    """Darker chords as the pit deepens: i -> VI -> iv -> bII (Phrygian) -> V (wants to resolve, can't)."""
-    for th, off, q in DEPTH_STEPS:
-        if depth < th:
-            break
-    root_pc = (g["root"] + off) % 12
-    name = [k for k, v in NOTE.items() if v == root_pc and "#" not in k][0] + q
-    notes, _ = chord(name, 60)
-    return notes, g["root"] + ((off + 12) % 12 if off < 6 else off - 12)
-
-
-# ---------------------------------------------------------------- arrangement model
-class Score:
+class Song:
     def __init__(self, dur, g):
-        self.dur, self.g = dur, g
+        self.g = g
+        self.dur = dur
         self.beat = 60 / g["bpm"]
         self.bar = 4 * self.beat
-        self.step = self.beat / 4
-        self.sections = []   # (t0, t1, energy 0..4, chords [names or (notes, bass)], label)
-        self.free = []       # one-off events on the free bus: (t, kind, params)
-        self.stops = []      # tape-stops: (t, dur, resume)
-        self.cutoff = []     # (t0, t1, fn(t) -> Hz) low-pass automation on the groove bus
+        self.nbars = int(math.ceil(dur / self.bar - 1e-6))
+        self.bars = [Bar() for _ in range(self.nbars)]
+        self.anchors = {0}         # bars where the loop restarts on i (every drop lands on the tonic)
+        self.events = []           # (t, kind, params): fills, risers, impacts, rolls
+        self.cutoff = []           # (t0, t1, fn) low-pass automation
         self.ducks = []
         self.cues = []
 
-    def cue(self, t, what):
-        self.cues.append({"t": round(t, 2), "cue": what})
+    def bar_of(self, t):
+        return max(0, min(self.nbars - 1, int(t / self.bar + 1e-6)))
 
-    def section(self, t0, t1, energy, chords=None, label=None):
-        if t1 > t0:
-            self.sections.append((t0, t1, energy, chords, label))
-            self.cue(t0, f"{label or 'groove'}: energy {energy}")
-
-    def next_bar(self, t):
-        return math.ceil(t / self.bar - 1e-6) * self.bar
+    def bars_in(self, t0, t1):
+        return range(self.bar_of(t0), self.bar_of(t1 - 1e-3) + 1)
 
     def ev(self, t, kind, **p):
-        if -0.5 <= t < self.dur + 0.5:
-            self.free.append((t, kind, p))
+        self.events.append((t, kind, p))
+
+    def cue(self, t, text):
+        self.cues.append({"t": round(t, 2), "bar": self.bar_of(t) + 1, "cue": text})
+
+    def melody(self, t0, t1, phrase_start_bar=None, withhold=False, gain=1.0):
+        """The hook over bars [t0, t1). Which phrase and which half follow the chord loop (see finish())."""
+        for k in self.bars_in(t0, t1):
+            self.bars[k].melody = (withhold, gain)
+
+    def anchor(self, t):
+        self.anchors.add(self.bar_of(t))
+
+    def finish(self):
+        """Fill loop chords from the latest anchor; set each bar's half of the two-bar phrase."""
+        a = 0
+        for k, bar in enumerate(self.bars):
+            if k in self.anchors:
+                a = k
+            if bar.chord is None:
+                bar.chord = LOOP[(k - a) % 4]
+            bar.half = (k - a) % 2
 
 
 def fmt(x):
     return f"{'+' if x >= 0 else '−'}{abs(x) * 100:.0f}%"
 
 
-# ---------------------------------------------------------------- the story moves
-def loss_stop(S, t, dur, L, resume):
-    """The tape stops: groove slows to a halt; the 808 slides down 12·L semitones and hums under the silence."""
-    S.stops.append((t, dur, resume))
-    S.ev(t, "glide", start=S.g["root"] + 12, semis=12 * L, dur=max(0.25, dur), hold=min(0.6, max(0.0, resume - t - dur)))
-    S.ev(t, "tapestop_sfx", dur=dur)
-    S.ducks.append(t)
-    S.cue(t, f"loss {fmt(-L)}: tape stops, 808 slides {12 * L:.1f} semitones")
+DEPTH_CHORDS = [(0.15, "i"), (0.35, "VI"), (0.6, "iv"), (0.8, "bII"), (1.01, "V")]
 
 
-def climb(S, t, L, limit, drop_energy=4, chords=None, label="climb"):
-    """A riser lasting one bar per +100% of required gain. Resolves into a drop only if it fits before `limit`."""
-    gain = L / (1 - L) if L < 1 else 99.0
-    need = gain * S.bar
-    room = max(0.0, limit - t)
-    if need <= room:
-        land = min(limit, S.next_bar(t + need)) if t + need < limit - S.step else t + need
-        S.ev(t, "riser", dur=land - t, semis=min(24, 12 * gain), resolve=True)
-        if gain >= 0.5:                      # a real climb earns a drop; a small one is just a lift
-            S.ev(land, "impact", size=min(1.0, 0.5 + gain / 4))
-            S.ducks.append(land)
-            S.cue(t, f"{label} {fmt(gain)}: riser {need / S.bar:.2f} bars, resolves")
-            S.cue(land, "DROP")
-        else:
-            S.cue(t, f"{label} {fmt(gain)}: a {need / S.bar:.2f}-bar lift, barely longer than the fall")
-        return land
-    S.ev(t, "riser", dur=room, semis=12 * gain * room / need, resolve=False)
-    S.cue(t, f"{label} {fmt(gain)}: riser needs {need / S.bar:.1f} bars, only {room / S.bar:.1f} fit: UNRESOLVED")
-    return None
+def depth_chord(L):
+    for th, c in DEPTH_CHORDS:
+        if L < th:
+            return c
+    return "V"
 
 
-# ---------------------------------------------------------------- interpreters
+# ---------------------------------------------------------------- interpreters: beats -> arrangement
+def fall_fill(S, t_end, L):
+    """A descending run ending on the bar line: 12 semitones per 100% of loss, in 16ths (at least two notes)."""
+    semis = 12 * L
+    n = max(2, min(8, int(round(semis / 1.5))))
+    step = S.beat / 4
+    for i in range(n):
+        S.ev(t_end - (n - i) * step, "fall", semis=-semis * (i + 1) / n, vel=0.55 + 0.4 * i / n)
+    S.cue(t_end - n * step, f"loss {fmt(-L)}: {n}-note fall, {semis:.1f} semitones down")
+
+
+def build(S, t0, t1, label):
+    """Riser + snare roll + rising line from t0, dropping at t1 (a bar line)."""
+    S.ev(t0, "riser", dur=t1 - t0)
+    S.ev(t0, "roll", dur=t1 - t0)
+    S.ev(t1, "impact", size=1.0)
+    S.ducks.append(t1)
+    S.cue(t0, f"{label}: build {(t1 - t0) / S.bar:.1f} bars")
+    S.cue(t1, "DROP")
+
+
 def i_thepit(S, b, t0, t1, data):
     p = b.get("props", {})
     keys = p.get("keys")
     if keys:
-        holds = [(t0 + ka, t0 + kb, lb) for (ka, la), (kb, lb) in zip(keys, keys[1:]) if lb != la]
-        first_end = holds[0][0] if holds else t1
-        L0 = keys[0][1]
-        S.section(t0, first_end, 3, [depth_chord(L0, S.g)], f"sweep {fmt(-L0)}")
-        climb(S, t0 + 0.6, L0, first_end - 0.05, label="climb")
-        for k, (ta, tb, L) in enumerate(holds):
-            nxt = holds[k + 1][0] if k + 1 < len(holds) else t1
-            loss_stop(S, ta, min(0.35, tb - ta), L, tb)
-            energy = 3 if L < 0.3 else 2 if L < 0.6 else 1
-            land = climb(S, tb + 0.05, L, nxt - 0.08, label="climb")
-            if land and land < nxt:
-                S.section(tb, land, energy, [depth_chord(L, S.g)], f"depth {fmt(-L)}")
-                S.section(land, nxt, 3, [depth_chord(L, S.g)], "back up")
-            else:
-                S.section(tb, nxt, energy, [depth_chord(L, S.g)], f"depth {fmt(-L)}")
+        # sweep: each new depth = a fall on the beats before it; deeper = darker chords, half-time, no breakout
+        seq = []
+        for (ka, la), (kb, lb) in zip(keys, keys[1:]):
+            if lb != la:
+                seq.append((t0 + kb, lb))
+        level = keys[0][1]
+        marks = [(t0, level)] + seq
+        for j, (ta, L) in enumerate(marks):
+            tb = marks[j + 1][0] if j + 1 < len(marks) else t1
+            if j:
+                fall_fill(S, ta, L)
+            for k in S.bars_in(ta, tb):
+                bar = S.bars[k]
+                bar.chord = depth_chord(L) if L >= 0.35 else None   # shallow: the loop carries on
+                bar.energy = 4 if L < 0.3 else 3 if L < 0.6 else 2
+                bar.drums = "full" if L < 0.6 else "half"
+                bar.label = f"depth {fmt(-L)}"
+            S.melody(ta, tb, phrase_start_bar=S.bar_of(t0), withhold=L >= 0.35, gain=1.0 if L < 0.6 else 0.7)
+            gain_needed = L / (1 - L)
+            S.cue(ta, f"depth {fmt(-L)} -> {depth_chord(L)}, {'full' if L < 0.6 else 'half-time'} drums; climb needs {fmt(gain_needed)}"
+                  + ("; hook breakout withheld" if L >= 0.35 else "; hook resolves"))
+        last_L = marks[-1][1]
+        if last_L >= 0.6:   # the deepest climb never resolves: an endless riser cut by the next section
+            S.ev(marks[-1][0], "riser", dur=t1 - marks[-1][0], unresolved=True)
+            S.cue(marks[-1][0], f"climb {fmt(last_L / (1 - last_L))}: the riser never lands")
         return
     L = p.get("lossPct", 0.5)
     dig_at, dig_dur = t0 + p.get("digAt", 0.15), p.get("digDur", 0.8)
-    climb_at = t0 + p.get("climbAt", 1.05)
+    climb_at, climb_dur = t0 + p.get("climbAt", 1.05), p.get("climbDur", 0.8)
     if b.get("kind") == "hook":
-        # hook: the groove starts on frame 0 with a hit; the fall is an 808 slide, the climb a short lift
-        S.ev(t0, "impact", size=0.8)
-        S.section(t0, t1, 3, None, "hook")
-        S.ev(dig_at, "glide", start=S.g["root"] + 12, semis=12 * L, dur=dig_dur, hold=climb_at - dig_at)
-        S.ev(climb_at, "riser", dur=max(0.4, p.get("climbDur", 0.5)), semis=12, resolve=True)
-        S.cue(dig_at, f"hook fall {fmt(-L)} (808 slide), climb lift")
+        for k in S.bars_in(t0, t1):
+            S.bars[k].energy, S.bars[k].label = 4, "hook"
+        S.melody(t0, t1)
+        S.ev(t0, "impact", size=0.7)
+        S.cue(t0, "hook: full groove + the logo melody from frame 0")
         return
-    S.section(t0, dig_at, 2, None, "set-up")
-    # the tape stops on the loss, then the groove limps back on the next bar: thin, dark, "what's left"
-    resume = min(climb_at, S.next_bar(dig_at + dig_dur + 0.2))
-    loss_stop(S, dig_at, dig_dur, L, resume)
-    S.section(resume, climb_at, 1, [depth_chord(L, S.g)], "what's left")
-    land = climb(S, climb_at, L, t1 - 0.05)
-    if land:
-        S.section(climb_at, land, 1, [depth_chord(L, S.g)], "climbing")
-        S.section(land, t1, 4, None, "made it back")
-    else:
-        S.section(climb_at, t1, 1, [depth_chord(L, S.g)], "climbing")
+    floor_bar = S.bar_of(dig_at + dig_dur)
+    land = climb_at + climb_dur
+    land_bar = S.bar_of(land)
+    fall_fill(S, dig_at + dig_dur, L)
+    for k in S.bars_in(t0, t1):
+        bar = S.bars[k]
+        if k < floor_bar:
+            bar.energy, bar.label = 3, "set-up"
+        elif k < land_bar:
+            # what's left: the room empties, the chords go dark, the hook plays without its breakout
+            depth_bars = list(range(floor_bar, land_bar))
+            pos = depth_bars.index(k)
+            bar.chord = ["VI", "iv", "V", "V"][min(pos, 3)] if len(depth_bars) <= 4 else depth_chord(L)
+            bar.energy = 1 if pos < len(depth_bars) - 2 else 2
+            bar.drums = "break"
+            bar.label = "what's left"
+        else:
+            bar.energy, bar.label = 4, "made it back"
+    S.melody(t0, S.bar_of(dig_at + dig_dur) * S.bar, phrase_start_bar=S.bar_of(t0))
+    S.melody(floor_bar * S.bar, land_bar * S.bar, phrase_start_bar=floor_bar, withhold=True, gain=0.6)
+    S.melody(land_bar * S.bar, t1, phrase_start_bar=land_bar)
+    build_start = max((floor_bar + 1) * S.bar, (land_bar - 2) * S.bar)
+    build(S, build_start, land_bar * S.bar, f"climb {fmt(L / (1 - L))}")
+    S.anchor(land_bar * S.bar)
 
 
 def i_candlechart(S, b, t0, t1, data):
@@ -227,128 +264,107 @@ def i_candlechart(S, b, t0, t1, data):
         i = min(n - 1, max(0, int((t - t0 - rev_at) / rev_dur * n)))
         return float(1 - closes[i] / peak[i])
 
-    end = snap or t1
-    # the filter IS the drawdown: full band at a peak, muffled at the bottom
-    S.cutoff.append((t0, end, lambda t: max(260.0, 16000.0 * (1 - dd_at(t)) ** 3.2)))
-    S.section(t0, end, 3, None, "chart: filter follows the drawdown")
-    # ticker voice: one blip per eighth note, pitch = % from the running peak (12 semitones = 100%)
-    t = t0 + rev_at
-    while t < min(end, t0 + rev_at + rev_dur):
-        S.ev(t, "ticker", note=S.g["root"] + 36 - 12 * dd_at(t), vel=0.5)
-        t += S.beat / 2
-    worst = max(dd_at(x) for x in np.linspace(t0 + rev_at, end, 60))
-    S.cue(t0 + rev_at, f"ticker traces the price; deepest drawdown {fmt(-worst)} closes the filter to ~{max(260, 16000 * (1 - worst) ** 3.2):.0f} Hz")
+    end = snap if snap and snap < t1 else t1
+    S.cutoff.append((t0, end, lambda t: max(320.0, 15000.0 * (1 - dd_at(t)) ** 3.0)))
+    for k in S.bars_in(t0, end):
+        S.bars[k].energy, S.bars[k].label = 3, "chart: filter = drawdown"
+    S.melody(t0, end, phrase_start_bar=S.bar_of(t0), withhold=True, gain=0.85)
+    worst = max(dd_at(x) for x in np.linspace(t0 + rev_at, end, 80))
+    S.cue(t0, f"groove runs through a low-pass that follows the drawdown (deepest {fmt(-worst)} ~ {max(320, 15000 * (1 - worst) ** 3):.0f} Hz)")
     if snap and snap < t1:
-        S.ev(snap, "impact", size=1.0)
-        S.ducks.append(snap)
-        S.section(snap, t1, 4, [(chord("F", 60)[0], S.g["root"] + 3), (chord("A", 60)[0], S.g["root"] + 7)], "tripwire snaps: DROP")
+        if abs(snap / S.bar - round(snap / S.bar)) > 0.05:
+            S.cue(snap, "warning: the snap is not on a bar line (set revealDur so it is)")
+        build(S, max(t0, snap - S.bar), snap, "the old high comes back")
+        S.anchor(snap)
+        for k in S.bars_in(snap, t1):
+            S.bars[k].energy, S.bars[k].label = 4, "tripwire snaps: chorus"
+        S.melody(snap, t1, phrase_start_bar=S.bar_of(snap))
 
 
 def i_myth(S, b, t0, t1, data):
     fact = t0 + b.get("props", {}).get("factAt", 1.6)
-    S.stops.append((t0, 0.45, fact))
-    S.ev(t0, "tapestop_sfx", dur=0.45)
-    tk = t0 + 0.5
-    while tk < fact - 0.05:
-        S.ev(tk, "clock", vel=0.6)
-        tk += S.beat
-    S.ev(t0 + 0.45, "hold", dur=fact - t0 - 0.45, note=S.g["root"] + 19)
-    S.ev(fact, "impact", size=0.9)
+    for k in S.bars_in(t0, t1):
+        bar = S.bars[k]
+        if k < S.bar_of(fact):
+            bar.energy, bar.drums, bar.label = 1, "break", "myth: breakdown"
+            bar.chord = ["iv", "i"][k % 2]
+        else:
+            bar.energy, bar.label = 3, "the math lands"
+    S.melody(t0, fact, phrase_start_bar=S.bar_of(t0), withhold=True, gain=0.6)
+    S.melody(fact, t1, phrase_start_bar=S.bar_of(fact))
+    S.ev(fact, "impact", size=0.8)
     S.ducks.append(fact)
-    S.section(fact, t1, 3, None, "the math lands")
-    S.cue(t0, "myth: tape stops, only the clock ticks")
+    S.anchor(fact)
+    S.cue(t0, "myth: breakdown, hook without its breakout")
+    S.cue(fact, "the math lands: groove back")
 
 
 def i_rule(S, b, t0, t1, data):
-    S.section(t0, t1, 4, None, "rule: full groove + the mark riff")
-    t = S.next_bar(t0)
-    while t < t1 - S.bar / 2:
-        logo_riff(S, t, S.bar, vel=0.55)
-        t += 2 * S.bar
+    seq = ["III", "VII", "i", "VI"]
+    for j, k in enumerate(S.bars_in(t0, t1)):
+        S.bars[k].chord, S.bars[k].energy, S.bars[k].label = seq[j % 4], 4, "chorus: the rule"
+    # chorus: C G Am F, so the answer phrase B comes first and the chorus ends on A's breakout
+    S.anchor(t0)
+    S.melody(t0, t1, gain=1.1)
+    S.cue(t0, "chorus: both hook phrases, the breakout lands at the end")
 
 
-def mark_notes(S):
-    """The logo's price path as pitches: below the wire = below the tonic, the breakout = an octave up."""
+def mark_snap_seconds(draw_at, draw_dur=1.0):
     pts, wy = TOKENS["mark"]["price_path_512"], TOKENS["mark"]["wire_y_512"]
-    scale = [0, 2, 3, 5, 7, 8, 10]
-    out = []
-    for x, y in pts:
-        raw = S.g["root"] + 36 + (wy - y) / 15
-        best = min((S.g["root"] + 12 * o + d for o in range(1, 7) for d in scale), key=lambda m: abs(m - raw))
-        out.append(best)
-    return out
+    e = TOKENS["motion"]["ease"]["draw"]
+    seg = [math.dist(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
+    (x1, y1), (x2, y2) = pts[-2], pts[-1]
+    frac = (sum(seg[:-1]) + math.dist(pts[-2], (x1 + (x2 - x1) * (y1 - wy) / (y1 - y2), wy))) / sum(seg)
 
+    def bez(x):
+        lo, hi = 0.0, 1.0
+        for _ in range(40):
+            m = (lo + hi) / 2
+            bx = 3 * (1 - m) ** 2 * m * e[0] + 3 * (1 - m) * m * m * e[2] + m ** 3
+            lo, hi = (m, hi) if bx < x else (lo, m)
+        m = (lo + hi) / 2
+        return 3 * (1 - m) ** 2 * m * e[1] + 3 * (1 - m) * m * m * e[3] + m ** 3
 
-def logo_riff(S, t, span, vel=0.6):
-    notes = mark_notes(S)
-    for i, m in enumerate(notes):
-        S.ev(t + i * span / len(notes), "lead", note=m, dur=span / len(notes) * 0.9, vel=vel * (1.25 if i == len(notes) - 1 else 1))
-
-
-def bezier_y(x, p):
-    x1, y1, x2, y2 = p
     lo, hi = 0.0, 1.0
     for _ in range(40):
         m = (lo + hi) / 2
-        bx = 3 * (1 - m) ** 2 * m * x1 + 3 * (1 - m) * m ** 2 * x2 + m ** 3
-        lo, hi = (m, hi) if bx < x else (lo, m)
-    m = (lo + hi) / 2
-    return 3 * (1 - m) ** 2 * m * y1 + 3 * (1 - m) * m ** 2 * y2 + m ** 3
-
-
-def time_for(frac, at, dur, ease):
-    lo, hi = 0.0, 1.0
-    for _ in range(40):
-        m = (lo + hi) / 2
-        lo, hi = (m, hi) if bezier_y(m, ease) < frac else (lo, m)
-    return at + hi * dur
+        lo, hi = (m, hi) if bez(m) < frac else (lo, m)
+    return draw_at + hi * draw_dur
 
 
 def i_end(S, b, t0, t1, data):
-    """End card: the mark riff note-for-note as the line draws (EndCard drawAt 0.15, drawDur 1.0), the snap is a hit,
-    the groove rides out and the last bar builds back into the first hit (loop)."""
-    pts, wy = TOKENS["mark"]["price_path_512"], TOKENS["mark"]["wire_y_512"]
-    ease = TOKENS["motion"]["ease"]["draw"]
-    seg = [math.dist(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
-    total = sum(seg)
-    (x1, y1), (x2, y2) = pts[-2], pts[-1]
-    cross_len = sum(seg[:-1]) + math.dist(pts[-2], (x1 + (x2 - x1) * (y1 - wy) / (y1 - y2), wy))
-    notes = mark_notes(S)
-    acc = 0.0
-    for i in range(len(pts) - 1):
-        if i:
-            acc += seg[i - 1]
-        S.ev(time_for(acc / total, t0 + 0.15, 1.0, ease), "lead", note=notes[i], dur=0.22, vel=0.7)
-    snap = time_for(cross_len / total, t0 + 0.15, 1.0, ease)
-    S.ev(snap, "lead", note=notes[-1], dur=0.6, vel=0.85)
-    S.ev(snap, "impact", size=0.9)
+    """The end card's mark draws over phrase A's dips; its wire snap IS the breakout note on the next downbeat."""
+    snap = t0 + mark_snap_seconds(b.get("props", {}).get("drawAt", 0.15))
+    S.anchor(t0)
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = 3, "end card"
+    S.melody(t0, t1)
+    S.ev(snap, "impact", size=0.8)
     S.ducks.append(snap)
-    S.section(t0, snap, 1, None, "end card: the mark riff")
-    S.section(snap, t1, 3, None, "wire snaps: ride out")
-    S.cue(t0 + 0.15, "mark riff plays as the line draws")
+    on_beat = abs(snap / S.beat - round(snap / S.beat)) < 0.05
+    breakout_t = (S.bar_of(t0) + 1) * S.bar
+    S.cue(snap, "the wire snaps" + (" on the breakout note" if abs(snap - breakout_t) < 0.05 else f" (breakout note is at {breakout_t:.2f}s{'' if on_beat else '; snap is off the beat'})"))
     loop_build(S, t1)
 
 
 def loop_build(S, t_end):
-    """The last bar builds into the first hit: snare roll + short riser that resolve on the loop point."""
-    a = max(0.0, t_end - S.bar)
-    k = 0
-    t = a
-    while t < t_end - 1e-6:
-        S.ev(t, "snare", vel=0.25 + 0.6 * (t - a) / S.bar)
-        k += 1
-        t += S.step if t - a < S.bar / 2 else S.step / 2
-    S.ev(a, "riser", dur=t_end - a, semis=12, resolve=False)
-    S.cue(a, "loop build: last bar resolves into frame 0's hit")
+    a = t_end - S.bar
+    S.ev(a, "roll", dur=S.bar)
+    S.ev(a, "riser", dur=S.bar)
+    S.cue(a, "loop build: the last bar resolves into frame 0")
 
 
 def i_default(S, b, t0, t1, data):
     kind = b.get("kind", "build")
-    energy = {"hook": 3, "question": 2, "term": 2, "assumptions": 1, "breaks": 4, "reveal": 3, "poll": 1,
-              "rule": 4, "lesson": 3, "quote": 1, "story": 2}.get(kind, 3)
+    energy = {"hook": 4, "question": 3, "term": 3, "assumptions": 2, "breaks": 4, "reveal": 3, "poll": 1,
+              "rule": 4, "lesson": 4, "quote": 2, "story": 2, "runs": 3, "distribution": 3}.get(kind, 3)
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = energy, kind
+        if energy <= 2:
+            S.bars[k].drums = "break"
+    S.melody(t0, t1, withhold=energy <= 2)
     if t0 == 0:
-        S.ev(0, "impact", size=0.8)
-    S.section(t0, t1, energy, None, f"{kind}")
+        S.ev(0, "impact", size=0.7)
 
 
 INTERPRETERS = {"ThePit": i_thepit, "CandleChart": i_candlechart, "Anatomy": i_candlechart, "MythCard": i_myth,
@@ -356,169 +372,124 @@ INTERPRETERS = {"ThePit": i_thepit, "CandleChart": i_candlechart, "Anatomy": i_c
 KIND_DEFAULT = {"end": "EndCard", "misconception": "MythCard", "rule": "RuleCard", "the_rule": "RuleCard"}
 
 
-# ---------------------------------------------------------------- instruments
-def lin_env(n, a, d=None, curve=1.0):
-    t = np.arange(n) / SR
-    e = np.minimum(1, t / max(a, 1e-4))
-    if d:
-        e = e * np.exp(-np.maximum(t - a, 0) / d) ** curve
-    return e
+# ---------------------------------------------------------------- instruments (band-limited, additive)
+def mtof(m):
+    return 440.0 * 2 ** ((m - 69) / 12)
+
+
+def tt(n):
+    return np.arange(n) / SR
 
 
 def hp(x):
     return np.diff(np.concatenate([[0], x]))
 
 
-def lp1(x, a):
-    """One-pole low-pass via exponential smoothing (vectorised with cumulative trick is not exact; use small loop on short one-shots)."""
-    y = np.empty_like(x)
-    acc = 0.0
-    for i, v in enumerate(x):
-        acc += a * (v - acc)
-        y[i] = acc
-    return y
+def kick():
+    n = int(0.42 * SR)
+    t = tt(n)
+    f = 48 + 120 * np.exp(-t / 0.03)
+    s = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.26)
+    s += hp(rng.standard_normal(n)) * np.exp(-t / 0.002) * 0.25
+    return np.tanh(1.8 * s) * 0.9
 
 
-def mk_kick(kit):
-    n = int(0.45 * SR)
-    t = np.arange(n) / SR
-    top, bottom, dec = {"trap": (160, 42, 0.38), "dnb": (190, 52, 0.18), "lofi": (120, 48, 0.22), "boombap": (140, 50, 0.25)}.get(kit, (170, 48, 0.28))
-    f = bottom + (top - bottom) * np.exp(-t / 0.035)
-    s = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / dec)
-    s += hp(rng.standard_normal(n)) * np.exp(-t / 0.0025) * 0.4
-    return np.tanh(1.6 * s)
+def clap():
+    n = int(0.4 * SR)
+    t = tt(n)
+    noise = hp(hp(rng.standard_normal(n)))
+    e = np.zeros(n)
+    for k, off in enumerate([0, 0.011, 0.023]):
+        i = int(off * SR)
+        e[i:] += np.exp(-t[: n - i] / (0.007 if k < 2 else 0.16))
+    body = np.sin(2 * np.pi * 210 * t) * np.exp(-t / 0.04) * 0.4
+    return (noise * e * 0.32 + body) * 0.8
 
 
-def mk_snare(kit):
-    n = int(0.35 * SR)
-    t = np.arange(n) / SR
-    if kit in ("trap", "techno", "house", "garage"):            # clap: three bursts + tail
-        noise = hp(hp(rng.standard_normal(n)))
-        e = np.zeros(n)
-        for k, off in enumerate([0, 0.009, 0.019]):
-            i = int(off * SR)
-            e[i:] += np.exp(-(t[: n - i]) / (0.006 if k < 2 else 0.11))
-        return noise * e * 0.35
-    tone = np.sin(2 * np.pi * 185 * t) * np.exp(-t / 0.07)
-    noise = hp(rng.standard_normal(n)) * np.exp(-t / (0.16 if kit in ("lofi", "boombap") else 0.12))
-    return 0.6 * tone + 0.5 * noise
+def hat(open_=False):
+    n = int((0.25 if open_ else 0.05) * SR)
+    t = tt(n)
+    metal = sum(np.sin(2 * np.pi * f * t + i) for i, f in enumerate((6150, 7230, 8370, 9440))) / 4
+    s = hp(hp(rng.standard_normal(n))) * 0.6 + metal * 0.35
+    return s * np.exp(-t / (0.085 if open_ else 0.014)) * 0.2
 
 
-def mk_hat(open_=False):
-    n = int((0.22 if open_ else 0.05) * SR)
-    t = np.arange(n) / SR
-    s = hp(hp(rng.standard_normal(n)))
-    return s * np.exp(-t / (0.09 if open_ else 0.012)) * 0.22
+def tom(f0):
+    n = int(0.25 * SR)
+    t = tt(n)
+    f = f0 * (1 + 0.5 * np.exp(-t / 0.02))
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.11) * 0.6
 
 
-def mk_tick():
-    """The brand hat: a ticker-tape click with a metallic ring."""
-    n = int(0.06 * SR)
-    t = np.arange(n) / SR
-    ring = sum(np.sin(2 * np.pi * f * t) for f in (5200, 7130, 8410)) / 3
-    return (ring * np.exp(-t / 0.012) + hp(rng.standard_normal(n)) * np.exp(-t / 0.002) * 0.6) * 0.3
-
-
-def mk_impact(size):
-    n = int(1.6 * SR)
-    t = np.arange(n) / SR
-    f = 30 + 50 * np.exp(-t / 0.12)
-    boom = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / (0.5 * size + 0.2))
-    crash = hp(rng.standard_normal(n)) * np.exp(-t / (0.45 * size + 0.1)) * 0.25
-    return np.tanh(1.4 * (boom + crash)) * (0.6 + 0.4 * size)
-
-
-def saw(f, n, harmonics=24):
-    t = np.arange(n) / SR
+def additive(f, n, nh, tilt=1.0, decay=None):
+    """Band-limited saw-like tone; `decay` gives a natural filter envelope (high harmonics die first)."""
+    t = tt(n)
     s = np.zeros(n)
-    for h in range(1, harmonics + 1):
-        if f * h > 16000:
+    for h in range(1, nh + 1):
+        if f * h > 14000:
             break
-        s += np.sin(2 * np.pi * f * h * t) / h
+        a = 1 / h ** tilt
+        if decay:
+            a = a * np.exp(-t * decay * (h - 1))
+        s += a * np.sin(2 * np.pi * f * h * t + 0.37 * h)
     return s
 
 
-def square(f, n, harmonics=9):
-    """Band-limited square (odd harmonics only): no aliasing, no inter-sample overs."""
-    t = np.arange(n) / SR
-    s = np.zeros(n)
-    for h in range(1, 2 * harmonics, 2):
-        if f * h > 15000:
-            break
-        s += np.sin(2 * np.pi * f * h * t) / h
-    return s * 4 / np.pi
+def lead_note(m, dur, vel):
+    n = int((dur + 0.35) * SR)
+    t = tt(n)
+    f = mtof(m)
+    vib = 1 + 0.004 * np.sin(2 * np.pi * 5.2 * t) * np.clip((t - 0.15) / 0.2, 0, 1)
+    tone = additive(f, n, 14, 1.0, decay=3.0) * 0.55 + additive(f * 1.003, n, 8, 1.2, decay=4.0) * 0.35
+    tone += np.sin(2 * np.pi * f * 0.5 * np.cumsum(vib) / SR) * 0.25          # sub-octave body
+    env = np.minimum(1, t / 0.006) * np.where(t < dur, np.exp(-t / (0.9 + dur)), np.exp(-dur / (0.9 + dur)) * np.exp(-(t - dur) / 0.09))
+    return tone * env * vel * 0.32
 
 
-def mk_808(f, dur, glide_to=None, glide_dur=0.3, drive=2.2):
-    n = int((dur + 0.1) * SR)
-    t = np.arange(n) / SR
-    freq = np.full(n, f) * (1 + 1.0 * np.exp(-t / 0.012))           # punch
-    if glide_to:
-        g = np.clip(t / max(glide_dur, 0.01), 0, 1)
-        freq = freq * (glide_to / f) ** (g ** 1.4)
-    s = np.sin(2 * np.pi * np.cumsum(freq) / SR)
-    env = np.minimum(1, t / 0.004) * np.exp(-t / max(0.25, dur * 0.9))
-    env[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
-    return np.tanh(drive * s) / np.tanh(drive) * env * 0.7          # saturation = harmonics phones can play
-
-
-def mk_stab(notes, dur, bright=1.0):
-    n = int((dur + 0.15) * SR)
-    t = np.arange(n) / SR
+def pad_chord(notes, dur):
+    n = int((dur + 0.4) * SR)
+    t = tt(n)
     s = np.zeros(n)
     for m in notes:
-        for det in (-0.006, 0.0, 0.006):
-            s += saw(mtof(m) * (1 + det), n, harmonics=int(4 + 14 * bright))
-    s *= np.minimum(1, t / 0.005) * np.exp(-t / (0.12 + 0.25 * dur))
-    return s / (3 * max(1, len(notes))) * 0.6
+        for det in (-0.005, 0.0, 0.005):
+            s += additive(mtof(m) * (1 + det), n, 7, 1.3)
+    env = np.minimum(1, t / 0.08) * np.minimum(1, np.maximum(0, dur + 0.4 - t) / 0.35)
+    return s * env / (3 * len(notes)) * 0.32
 
 
-def mk_lead(m, dur, vel):
-    n = int((dur + 0.2) * SR)
-    t = np.arange(n) / SR
+def pluck(m, vel=0.5):
+    n = int(0.35 * SR)
+    t = tt(n)
+    return additive(mtof(m), n, 9, 1.0, decay=9.0) * np.exp(-t / 0.12) * vel * 0.3
+
+
+def bass_note(m, dur, vel=0.8):
+    n = int((dur + 0.02) * SR)
+    t = tt(n)
     f = mtof(m)
-    s = saw(f, n, 10) * 0.6 + square(f * 0.5, n, 9) * 0.15
-    s *= np.minimum(1, t / 0.004) * np.exp(-t / (0.08 + dur * 0.6))
-    return s * vel * 0.5
+    s = np.sin(2 * np.pi * f * t) + 0.35 * additive(f, n, 6, 1.0, decay=10.0)
+    env = np.minimum(1, t / 0.004) * np.exp(-t / 0.35)
+    env[-int(0.015 * SR):] *= np.linspace(1, 0, int(0.015 * SR))
+    return np.tanh(1.5 * s) * env * vel * 0.5
 
 
-def mk_ticker(m, vel):
-    n = int(0.12 * SR)
-    t = np.arange(n) / SR
-    f = mtof(m)
-    s = square(f, n, 9) * 0.5 + np.sin(2 * np.pi * f * 2 * t) * 0.3
-    return s * np.exp(-t / 0.035) * vel * 0.25
+def impact(size):
+    n = int(1.8 * SR)
+    t = tt(n)
+    f = 32 + 55 * np.exp(-t / 0.1)
+    boom = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / (0.45 * size + 0.2))
+    air = hp(rng.standard_normal(n)) * np.exp(-t / (0.6 * size + 0.15)) * 0.18
+    return np.tanh(1.3 * (boom + air)) * (0.55 + 0.35 * size)
 
 
-def mk_pad(notes, dur, bright):
-    n = int((dur + 0.6) * SR)
-    t = np.arange(n) / SR
-    s = np.zeros(n)
-    for m in notes:
-        for det in (-0.004, 0.004):
-            s += saw(mtof(m) * (1 + det), n, harmonics=int(2 + 8 * bright))
-    e = np.minimum(1, t / 0.3) * np.minimum(1, np.maximum(0, (dur + 0.6 - t)) / 0.5)
-    return s * e / (2 * max(1, len(notes))) * 0.35
-
-
-def mk_riser(dur, semis, resolve):
+def riser(dur, unresolved=False):
     n = max(1, int(dur * SR))
-    t = np.arange(n) / SR
-    x = t / max(dur, 1e-3)
-    noise = sweep_bp(rng.standard_normal(n), 400, 400 * 2 ** (min(semis, 36) / 12 + 1.5), q=1.3)
-    f = 220 * 2 ** (semis * x / 12)
-    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) + 0.3 * np.sin(4 * np.pi * np.cumsum(f) / SR)
-    env = x ** 1.6
-    if not resolve:
-        env *= np.minimum(1, (1 - x) / 0.04)   # a hard cut, not a landing
-    return (noise * 0.9 + tone * 0.18) * env * 0.5
-
-
-def mk_tapestop_sfx(dur):
-    n = int((dur + 0.05) * SR)
-    t = np.arange(n) / SR
-    f = 90 * (1 - np.clip(t / dur, 0, 1)) ** 1.5 + 25
-    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / (dur * 0.8)) * 0.35
+    x = np.linspace(0, 1, n)
+    noise = sweep_bp(rng.standard_normal(n), 300, 6000, q=1.1)
+    env = x ** 1.8
+    if unresolved:
+        env *= np.minimum(1, (1 - x) / 0.02)
+    return noise * env * 0.35
 
 
 # ---------------------------------------------------------------- render
@@ -534,175 +505,183 @@ def place(buf, t, sig, pan=0.0, gain=1.0):
     buf[1, i:j] += sig[: j - i] * rg * gain
 
 
-def section_at(S, t):
-    for s in S.sections:
-        if s[0] <= t < s[1]:
-            return s
-    return None
-
-
-def stft_lowpass(x, fn, t_offset=0.0):
-    """Time-varying low-pass by STFT masking (vectorised); fn(t) -> cutoff Hz, None = untouched."""
+def stft_lowpass(x, fn):
     nfft, hop = 2048, 512
     win = np.hanning(nfft)
     out = np.zeros_like(x)
     norm = np.zeros(x.shape[1])
     freqs = np.fft.rfftfreq(nfft, 1 / SR)
     for start in range(0, x.shape[1] - nfft, hop):
-        c = fn((start + nfft / 2) / SR + t_offset)
+        c = fn((start + nfft / 2) / SR)
         mask = 1.0 if c is None else 1 / (1 + (freqs / c) ** 4)
         for ch in range(2):
-            seg = np.fft.irfft(np.fft.rfft(x[ch, start:start + nfft] * win) * mask, nfft)
-            out[ch, start:start + nfft] += seg * win
+            out[ch, start:start + nfft] += np.fft.irfft(np.fft.rfft(x[ch, start:start + nfft] * win) * mask, nfft) * win
         norm[start:start + nfft] += win ** 2
     norm[norm < 1e-6] = 1
     return out / norm
 
 
-def tape_stop(x, t, dur, resume):
-    """Slow the bus to a halt over `dur` (playback rate 1 -> 0), then silence until `resume`."""
-    i0, n = int(t * SR), x.shape[1]
-    i1 = min(n, int((t + dur) * SR))
-    ir = min(n, int(resume * SR))
-    if i0 >= n:
-        return
-    tau = (np.arange(i1 - i0) / SR) / dur
-    pos = i0 + np.cumsum((1 - tau) ** 1.3)                  # source sample index advances ever slower
-    for ch in range(2):
-        x[ch, i0:i1] = np.interp(pos, np.arange(n), x[ch]) * (1 - tau ** 3)
-    x[:, i1:ir] = 0
-    if ir < n:                                              # a 10 ms fade back in
-        k = min(n - ir, int(0.01 * SR))
-        x[:, ir:ir + k] *= np.linspace(0, 1, k)
+def delay(x, time_s, fb=0.42, taps=4):
+    """Ping-pong echo (dotted eighths): the melody's tail fills the space between notes."""
+    out = x.copy()
+    d = int(time_s * SR)
+    for k in range(1, taps + 1):
+        g = fb ** k
+        src = x[:, : x.shape[1] - k * d] * g
+        if k % 2:
+            out[1, k * d:] += src[0]
+            out[0, k * d:] += src[1] * 0.4
+        else:
+            out[0, k * d:] += src[0]
+            out[1, k * d:] += src[1] * 0.4
+    return out
+
+
+def reverb(x, seconds=1.8):
+    n = x.shape[1]
+    ir_n = int(seconds * SR)
+    ti = tt(ir_n)
+    size = 1 << (n + ir_n).bit_length()
+    wet = np.zeros_like(x)
+    for c in range(2):
+        ir = rng.standard_normal(ir_n) * np.exp(-ti / (seconds / 4.5))
+        ir[: int(0.015 * SR)] = 0
+        ir = np.convolve(ir, np.ones(6) / 6, mode="same")          # soften the top
+        ir /= np.sqrt(np.sum(ir ** 2))
+        wet[c] = np.fft.irfft(np.fft.rfft(x[c], size) * np.fft.rfft(ir, size), size)[:n]
+    return wet
 
 
 def render(S):
     g = S.g
-    n = int(S.dur * SR)
-    groove = np.zeros((2, n))   # drums + bass + chords: affected by tape-stops and the chart filter
-    synth = np.zeros((2, n))    # pads/stabs (sidechained), also part of the groove
-    free = np.zeros((2, n))     # story events: impacts, risers, ticker, leads, holds
-    kick, snare, chat, ohat, tick = mk_kick(g["kit"]), mk_snare(g["kit"]), mk_hat(), mk_hat(True), mk_tick()
-    kick_times = []
-    steps = int(S.dur / S.step) + 1
-    for k in range(steps):
-        pos = k % 16
-        t = k * S.step + (g["swing"] * S.step if pos % 2 == 1 else 0.0)
-        sec = section_at(S, k * S.step)
-        if not sec:
-            continue
-        t0, t1, e, chords, _ = sec
-        bar_idx = int(k // 16)
-        if e >= 2 and pos in g["kick"]:
-            place(groove, t, kick, 0, 0.95)
-            kick_times.append(t)
-        if e >= 3 and pos in g["snare"]:
-            place(groove, t, snare, 0.05, 0.8)
-        if e >= 1:
-            style = g["hats"]
-            if style == "trap":
-                roll = (bar_idx % 2 == 1 and pos >= 12)
-                if pos % 2 == 0 or roll:
-                    place(groove, t, tick if pos % 4 == 2 else chat, 0.3, 0.55 if pos % 4 == 0 else 0.4)
-                if roll:
-                    place(groove, t + S.step / 2, chat, 0.3, 0.3)
-            elif style == "offbeat":
-                if pos % 4 == 2:
-                    place(groove, t, ohat, 0.25, 0.5)
-                place(groove, t, chat if pos % 2 else tick, -0.25, 0.22)
-            elif style == "garage":
-                if pos in (2, 3, 6, 10, 11, 14):
-                    place(groove, t, tick if pos in (2, 10) else chat, 0.3, 0.45)
-            else:
-                if pos % 2 == 0:
-                    place(groove, t, tick if pos % 4 == 2 else chat, 0.25, 0.45)
-        # chords: one per bar, from the section or the genre progression
-        if pos == 0:
-            if chords:
-                notes, bass = chords[bar_idx % len(chords)]
-            else:
-                notes, bass = chord(g["prog"][bar_idx % len(g["prog"])], 60)
-                bass = g["root"] + ((bass - g["root"]) % 12)
-            dur = min(S.bar, t1 - k * S.step)
+    n = int(round(S.dur * SR))
+    root = 45 + ((g["key"] - 9) % 12)                 # bass register (A2 = 45 for A minor)
+    drums = np.zeros((2, n))
+    bass = np.zeros((2, n))
+    chords = np.zeros((2, n))
+    lead = np.zeros((2, n))
+    fx = np.zeros((2, n))
+    K, CL, HC, HO = kick(), clap(), hat(), hat(True)
+    kicks = []
+    step = S.beat / 4
+
+    def swing_t(t, k):
+        return t + (g["swing"] * step if k % 2 == 1 else 0.0)
+
+    for bi, bar in enumerate(S.bars):
+        t_bar = bi * S.bar
+        boff, voicing = CHORDS[bar.chord]
+        e = bar.energy
+        # --- drums
+        for k in range(16):
+            t = swing_t(t_bar + k * step, k)
+            if t >= S.dur:
+                break
+            style = g["drums"]
+            if bar.drums == "none" or e == 0:
+                continue
+            kick_steps = {"four": [0, 4, 8, 12], "garage": [0, 7, 10], "breaks": [0, 10], "dnb": [0, 10],
+                          "hiphop": [0, 7, 10]}[style]
+            snare_steps = [4, 12] if style != "dnb" else [4, 12]
+            if bar.drums == "half":
+                kick_steps, snare_steps = [0, 10], [8]
+            if bar.drums == "break":
+                kick_steps, snare_steps = [], []
+            if e >= 2 and k in kick_steps:
+                place(drums, t, K, 0, 1.0)
+                kicks.append(t)
+            if e >= 3 and k in snare_steps:
+                place(drums, t, CL, 0.05, 0.85)
             if e >= 1:
-                place(synth, t, mk_pad(notes, dur, 0.3 + 0.15 * e), 0, 0.9)
-            if e >= 3 and g["bass"] == "808":
-                for kp in g["kick"]:
-                    kt = (k + kp) * S.step
-                    if kt < t1:
-                        nxt = [x for x in g["kick"] if x > kp]
-                        d = ((nxt[0] if nxt else 16) - kp) * S.step
-                        place(groove, kt, mk_808(mtof(bass), d * 0.95), 0, 0.85)
-            elif e >= 3:
-                for sp in ([2, 6, 10, 14] if g["bass"] in ("roll", "deep") else [0, 8]):
-                    bt = (k + sp) * S.step
-                    if bt < t1:
-                        place(groove, bt, mk_808(mtof(bass + 12), S.step * (3 if g["bass"] == "roll" else 6), drive=1.4), 0, 0.6)
-            if e >= 4:
-                for sp in (0, 3, 6, 10):
-                    st = (k + sp) * S.step
-                    if st < t1:
-                        place(synth, st, mk_stab([m + 12 for m in notes], S.step * 1.5, 0.8), (-0.3, 0.3)[sp % 2], 0.55)
-    # sidechain pump on the synth bus
+                if k % 4 == 2:
+                    place(drums, t, HO, 0.25, 0.55 if e >= 3 else 0.35)
+                elif e >= 3 or k % 2 == 0:
+                    place(drums, t, HC, -0.25, 0.32 if k % 2 else 0.22)
+        # --- bass: rolling offbeat eighths on the root, an octave jump to keep it moving
+        if e >= 3:
+            for k in (2, 6, 10, 14):
+                bt = t_bar + k * step
+                if bt < S.dur:
+                    place(bass, bt, bass_note(root + boff + (12 if k == 14 else 0), step * 1.6), 0, 0.9)
+        elif e == 2:
+            place(bass, t_bar, bass_note(root + boff, S.bar * 0.9, 0.7), 0, 0.9)
+        # --- chords: pad every bar; plucked offbeat stabs and a 16th arp at full energy
+        notes = [root + 12 + v for v in voicing]
+        if e >= 1:
+            place(chords, t_bar, pad_chord(notes, min(S.bar, S.dur - t_bar)), 0, 0.85 if e >= 3 else 0.7)
+        if e >= 4:
+            arp = sorted(notes) + [notes[0] + 12]
+            for k in range(16):
+                at = t_bar + k * step
+                if at < S.dur:
+                    place(chords, at, pluck(arp[[0, 2, 1, 3, 4, 2, 3, 1][k % 8]] + 12, 0.35 if k % 2 else 0.5), (-0.4, 0.4)[k % 2], 0.6)
+        # --- the hook
+        if bar.melody:
+            withhold, gain = bar.melody
+            half = bar.half
+            notes_ph = PHRASE_B if bar.chord in ("III", "VII") else PHRASE_A
+            for semis, start, length in notes_ph:
+                if half * 4 <= start < half * 4 + 4:
+                    if withhold and semis == BREAKOUT:
+                        continue                          # still in the pit: the breakout does not sound
+                    t = t_bar + (start - half * 4) * S.beat
+                    if t < S.dur:
+                        place(lead, t, lead_note(root + 24 + fit(semis, bar.chord), length * S.beat * 0.92, 0.85 * gain), 0, 1.0)
+    # --- story events
+    for t, kind, p in S.events:
+        if kind == "impact":
+            place(fx, t, impact(p["size"]), 0, 0.7)
+        elif kind == "riser":
+            place(fx, t, riser(p["dur"], p.get("unresolved", False)), 0, 0.7)
+        elif kind == "roll":
+            d = p["dur"]
+            k = 0
+            tr = t
+            while tr < t + d - 1e-6:
+                x = (tr - t) / d
+                place(drums, tr, CL, 0.0, 0.18 + 0.55 * x)
+                tr += S.beat / 2 if x < 0.5 else S.beat / 4
+                k += 1
+        elif kind == "fall":
+            m = fit(int(round(p["semis"])), "i")              # the fall walks down the key, not chromatically
+            place(drums, t, tom(mtof(root + 12 + m)), 0.1, p["vel"])
+            place(bass, t, bass_note(root + 12 + m, S.beat / 4 * 0.9, 0.6), 0, 0.8)
+        elif kind == "lead":
+            place(lead, t, lead_note(root + 24 + p["semis"], p["dur"], p["vel"]), 0, 1.0)
+    # --- sidechain pump (the continuous motion) on bass, chords and a little on the lead
     pump = np.ones(n)
-    for kt in kick_times:
+    for kt in kicks:
         i = int(kt * SR)
-        L = min(n - i, int(0.25 * S.beat * SR * 2))
+        L = min(n - i, int(S.beat * SR))
         if L > 0:
-            pump[i:i + L] = np.minimum(pump[i:i + L], 1 - 0.55 * np.exp(-np.arange(L) / (0.09 * SR)))
-    groove += synth * pump
-    # chart filter, then tape-stops
+            pump[i:i + L] = np.minimum(pump[i:i + L], 1 - 0.6 * np.exp(-np.arange(L) / (0.075 * SR)))
+    lead_bus = delay(lead, S.beat * 0.75)
+    music = drums + bass * pump + chords * pump + lead_bus * (0.6 + 0.4 * pump)
+    music += reverb(chords * 0.5 + lead_bus * 0.6 + drums * 0.08) * 0.35
     if S.cutoff:
         def fn(t):
             for a, b_, f in S.cutoff:
                 if a <= t < b_:
                     return f(t)
             return None
-        groove = stft_lowpass(groove, fn)
-    for t, d, r in S.stops:
-        tape_stop(groove, t, d, r)
-    # free bus
-    for t, kind, p in S.free:
-        if kind == "impact":
-            place(free, t, mk_impact(p["size"]), 0, 0.8)
-        elif kind == "riser":
-            place(free, t, mk_riser(p["dur"], p["semis"], p["resolve"]), 0, 0.55)
-        elif kind == "glide":
-            f0 = mtof(p["start"])
-            place(free, t, mk_808(f0, p["dur"] + p["hold"], f0 * 2 ** (-p["semis"] / 12), p["dur"], drive=2.8), 0, 0.8)
-        elif kind == "hold":
-            if p["dur"] > 0.05:
-                place(free, t, mk_pad([p["note"] + 24, p["note"] + 31], p["dur"], 0.25), 0, 0.6)
-        elif kind == "ticker":
-            place(free, t, mk_ticker(p["note"], p["vel"]), 0.2, 1.0)
-        elif kind == "lead":
-            place(free, t, mk_lead(p["note"], p["dur"], p["vel"]), -0.15, 1.0)
-        elif kind == "clock":
-            place(free, t, mk_tick(), 0.0, p["vel"] * 1.3)
-        elif kind == "snare":
-            place(free, t, snare, 0.0, p["vel"])
-        elif kind == "tapestop_sfx":
-            place(free, t, mk_tapestop_sfx(p["dur"]), 0, 0.7)
-    mix = groove + free
-    # duck under every sound cue so the cues stay on top
+        music = stft_lowpass(music, fn)
+    mix = music + fx
     duck = np.ones(n)
     for t in S.ducks:
         i = int(t * SR)
-        a, r = int(0.03 * SR), int(0.35 * SR)
-        seg = np.concatenate([np.linspace(1, 0.6, a), np.linspace(0.6, 1, r)])
+        a, r = int(0.02 * SR), int(0.3 * SR)
+        seg = np.concatenate([np.linspace(1, 0.7, a), np.linspace(0.7, 1, r)])
         j0 = max(0, i - a)
         j1 = min(n, j0 + len(seg))
         duck[j0:j1] = np.minimum(duck[j0:j1], seg[: j1 - j0])
     mix *= duck
-    # no fade-in, no fade-out: the loop must be seamless. 3 ms guards against clicks only.
+    mix = stft_lowpass(mix, lambda t: 15000.0)
     k = int(0.003 * SR)
     mix[:, :k] *= np.linspace(0, 1, k)
     mix[:, -k:] *= np.linspace(1, 0, k)
-    # air ceiling: nothing useful lives above 15 kHz on phone speakers, and it is where inter-sample overs come from
-    mix = stft_lowpass(mix, lambda t: 15000.0)
     mix *= 10 ** ((MUSIC_LUFS - lufs(mix.mean(axis=0))) / 20)
     c = 10 ** (-3.0 / 20)
-    mix = np.tanh(mix / c) * c                       # soft clip: transients round off instead of overshooting
+    mix = np.tanh(mix / c) * c
     tp = max(true_peak_db(mix[0]), true_peak_db(mix[1]))
     if tp > -1.5:
         mix *= 10 ** ((-1.5 - tp) / 20)
@@ -722,14 +701,17 @@ def compose(eid, genre=None):
     data = json.load(open(dp)) if os.path.exists(dp) else None
     sc = spec.get("score") if isinstance(spec.get("score"), dict) else {}
     g = GENRES[genre or sc.get("genre") or spec.get("pillar", "risk")]
-    S = Score(spec["duration_s"], g)
+    S = Song(spec["duration_s"], g)
     for b in spec["beats"]:
         comp = b.get("component") or KIND_DEFAULT.get(b.get("kind"))
         INTERPRETERS.get(comp, i_default)(S, b, b["t"], b["t"] + b["dur"], data)
         if b.get("sfx"):
             S.ducks.append(b["t"] + b.get("sfx_at", 0))
-    if not any(c["cue"].startswith("loop build") for c in S.cues):
+        if abs(b["t"] / S.bar - round(b["t"] / S.bar)) > 0.05:
+            S.cue(b["t"], f"note: beat '{b['kind']}' starts off the bar grid (bar = {S.bar:.3f}s)")
+    if not any("loop build" in c["cue"] for c in S.cues):
         loop_build(S, S.dur)
+    S.finish()
     S.cues.sort(key=lambda c: c["t"])
     return spec, S
 
@@ -743,12 +725,13 @@ def main():
     spec, S = compose(eid, genre)
     if spec.get("score") is False:
         print(f"{eid}: score disabled in spec"); return
-    bars = S.dur / S.bar
+    print(f"{eid}: {S.g['name']} {S.g['bpm']:.1f} BPM · bar {S.bar:.3f}s · {S.dur / S.bar:.2f} bars")
+    for i, bar in enumerate(S.bars):
+        ph = "B" if bar.chord in ("III", "VII") else "A"
+        mel = f"hook {ph}{bar.half + 1}{' (no breakout)' if bar.melody[0] else ''}" if bar.melody else "-"
+        print(f"  bar {i + 1:2d} {i * S.bar:5.1f}s  {bar.chord:4} energy {bar.energy} {bar.drums:5}  {mel:22} {bar.label}")
     for c in S.cues:
-        print(f"{c['t']:6.2f}s  {c['cue']}")
-    aligned = abs(bars - round(bars)) < 0.02
-    print(f"{eid}: {S.g['name']} {S.g['bpm']:.1f} BPM, bar {S.bar:.3f}s, {bars:.2f} bars"
-          + ("" if aligned else f"  (not loop-aligned: make the video {round(bars + 0.5) * S.bar:.2f}s by lengthening the end beat)"))
+        print(f"  {c['t']:6.2f}s  bar {c['bar']:2d}  {c['cue']}")
     if report:
         return
     mix = render(S)
@@ -757,8 +740,12 @@ def main():
     out = os.path.join(ROOT, "engine", "public", "score")
     os.makedirs(out, exist_ok=True)
     write_wav(os.path.join(out, f"{eid}.wav"), mix)
-    json.dump({"id": eid, "genre": S.g["name"], "bpm": round(S.g["bpm"], 2), "bars": round(bars, 2), "loop_aligned": aligned,
-               "lufs": round(L, 1), "true_peak_db": round(P, 1), "generator": "scripts/sound/score.py", "cues": S.cues},
+    bars_out = [{"bar": i + 1, "t": round(i * S.bar, 3), "chord": b.chord, "energy": b.energy, "drums": b.drums,
+                 "melody": (("B" if b.chord in ("III", "VII") else "A") + str(b.half + 1) + ("-" if b.melody[0] else "")) if b.melody else None, "label": b.label}
+                for i, b in enumerate(S.bars)]
+    json.dump({"id": eid, "genre": S.g["name"], "bpm": round(S.g["bpm"], 2), "bars": round(S.dur / S.bar, 2),
+               "loop_aligned": abs(S.dur / S.bar - round(S.dur / S.bar)) < 0.02, "lufs": round(L, 1), "true_peak_db": round(P, 1),
+               "generator": "scripts/sound/score.py (v3)", "arrangement": bars_out, "cues": S.cues},
               open(os.path.join(ROOT, "episodes", eid, "score.json"), "w"), indent=1)
     print(f"wrote engine/public/score/{eid}.wav and episodes/{eid}/score.json")
 

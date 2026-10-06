@@ -43,8 +43,9 @@ export const RunsFan: React.FC<RunsFanProps> = ({ runs, simKey = "runs", dur = 4
   const n = R[0].length;
   const p = clamp((frame / fps - startAt) / dur);
   const vis = Math.max(2, Math.ceil(p * n));
-  const all = R.flat();
-  const [lo, hi] = yRange ?? [Math.min(...all, 1), Math.max(...all, 1)];
+  // y-range from the 1st–99th percentile so one lucky run cannot squash the fan; outliers are clipped
+  const all = [...R.flat()].sort((a, b) => a - b);
+  const [lo, hi] = yRange ?? [Math.min(quantile(all, 0.01), 0.95), Math.max(quantile(all, 0.99), 1.05)];
   const padL = 90 * u, padB = 40 * u, padT = 50 * u;
   const X = (i: number) => padL + (i / (n - 1)) * (w - padL - 10 * u);
   const Y = (v: number) => padT + (h - padT - padB) * (1 - (v - lo) / (hi - lo));
@@ -72,11 +73,18 @@ export const RunsFan: React.FC<RunsFanProps> = ({ runs, simKey = "runs", dur = 4
           </text>
         </g>
       ))}
+      <defs>
+        <clipPath id="fanClip">
+          <rect x={padL} y={padT - 4 * u} width={w - padL} height={h - padT - padB + 8 * u} />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#fanClip)">
       {R.map((r, k) => (
         <path key={k} d={path(r)} fill="none" stroke={C.mist} strokeWidth={1.4 * u} opacity={Math.max(0.06, Math.min(0.35, 12 / R.length))} />
       ))}
       {showTail ? <path d={path(tail)} fill="none" stroke={C.ember} strokeWidth={5 * u} strokeLinejoin="round" /> : null}
       {showMedian ? <path d={path(med)} fill="none" stroke={C.tape} strokeWidth={5 * u} strokeLinejoin="round" /> : null}
+      </g>
       {p > 0.98 ? (
         <g fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.1}>
           {showMedian ? (

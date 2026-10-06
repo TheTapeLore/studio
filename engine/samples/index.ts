@@ -45,7 +45,7 @@ export const SAMPLES: Record<string, Episode> = {
   ]),
   failure: base("failure", "setups", [
     { t: 0, dur: 4, kind: "looks_perfect", component: "Anatomy", props: { demo: true, revealSpeed: 30, pivot: null }, caption: "It looked textbook. Then it broke." },
-    { t: 4, dur: 4.2, kind: "the_rule", props: { label: "The rule that saved you", text: "The stop was set [[before]] the entry." }, caption: "The stop decided the damage, not hope." },
+    { t: 4, dur: 4.2, kind: "the_rule", component: "RuleCard", props: { label: "The rule that saved you", text: "The stop was set [[before]] the entry." }, caption: "The stop decided the damage, not hope." },
     { t: 8.2, dur: 3.4, kind: "end", caption: "Failures teach the most." },
   ]),
   lexicon: base("lexicon", "risk", [

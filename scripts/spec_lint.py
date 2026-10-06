@@ -23,7 +23,7 @@ FORMATS = yaml.safe_load(open(os.path.join(ROOT, "content", "formats.yaml")))["f
 PILLARS = ["conditions", "selection", "setups", "risk", "exits", "leverage", "operator", "legends"]
 ASPECTS = ["4x5", "9x16", "16x9"]
 REGISTRY = os.path.join(ROOT, "engine", "components", "registry.ts")
-DEFAULT_BY_KIND = {"end", "poll", "freeze", "rule", "misconception", "term", "quote", "assumptions", "title", "chapter"}
+DEFAULT_BY_KIND = {"end", "poll", "freeze", "rule", "the_rule", "the_line", "misconception", "term", "quote", "assumptions", "title", "chapter"}
 MAX_WORDS = 12
 
 

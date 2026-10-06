@@ -1,7 +1,7 @@
 // One renderer for every format: the spec's beats, in order, inside the brand frame.
 import React from "react";
 import { Sequence, useCurrentFrame, useVideoConfig } from "remotion";
-import { MOTION } from "../tokens";
+import { MOTION, SIZE } from "../tokens";
 import { prog } from "../lib/anim";
 import { Beat, Episode, PILLAR_NAMES, loreLabel } from "../lib/spec";
 import { EpisodeContext } from "../lib/useEpisode";
@@ -20,6 +20,8 @@ const DEFAULT_BY_KIND: Record<string, string> = {
   poll: "PollCard",
   freeze: "PollCard",
   rule: "RuleCard",
+  the_rule: "RuleCard",
+  the_line: "QuoteCard",
   misconception: "MythCard",
   term: "TermCard",
   quote: "QuoteCard",
@@ -28,11 +30,16 @@ const DEFAULT_BY_KIND: Record<string, string> = {
   chapter: "TitleCard",
 };
 
-export const tapeText = (ep: Episode) => {
+/**
+ * TapeStrip text. The optional episode label is dropped when it would run into the right-hand compliance label
+ * (Martian Mono 600 + 0.18em tracking advances ~0.88em per character).
+ */
+export const tapeText = (ep: Episode, maxChars = Infinity, rightChars = 0) => {
   const s = ep.spec;
   const parts = [loreLabel(s.lore_no), (PILLAR_NAMES[s.pillar] ?? s.pillar).toUpperCase()];
-  if (s.tape?.label) parts.push(s.tape.label.toUpperCase());
-  return parts.join("   ");
+  const withLabel = s.tape?.label ? [...parts, s.tape.label.toUpperCase()].join("   ") : null;
+  const room = maxChars - (rightChars ? rightChars + 4 : 0);
+  return withLabel && withLabel.length <= room ? withLabel : parts.join("   ");
 };
 
 const BeatView: React.FC<{ beat: Beat; prev?: Beat; next?: Beat; durS: number }> = ({ beat, prev, next, durS }) => {
@@ -76,6 +83,9 @@ export const EpisodeVideo: React.FC<{ episode: Episode; format: FormatDef }> = (
   const beats = s.beats;
   const endBeat = beats.find((b) => b.kind === "end");
   const outAt = total - MOTION.tapeStripOut_s - 0.05;
+  const L = useLayout();
+  const right = format.tapeRight?.(episode) ?? null;
+  const maxChars = Math.floor((L.W - L.tape.h * 0.6 - Math.max(L.tape.h * 0.6, L.safe.right)) / (SIZE.tape * L.u * 0.88));
   return (
     <EpisodeContext.Provider value={episode}>
       <Paper>
@@ -88,7 +98,7 @@ export const EpisodeVideo: React.FC<{ episode: Episode; format: FormatDef }> = (
             </Sequence>
           );
         })}
-        <TapeStrip text={tapeText(episode)} inAt={0} outAt={outAt} right={format.tapeRight?.(episode) ?? null} />
+        <TapeStrip text={tapeText(episode, maxChars, right?.length ?? 0)} inAt={0} outAt={outAt} right={right} />
         <Sfx name="tape-in" at={0} volume={0.8} />
         <Sfx name="tape-out" at={outAt} volume={0.8} />
         <CaptionTrack beats={beats} />

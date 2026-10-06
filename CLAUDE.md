@@ -43,7 +43,8 @@ anatomy · council · whatif (simulation lab) · replay (model-book replay with 
 6. Every factual claim and legend reference carries a source in spec.json `sources`.
 7. Required disclaimer in every Instagram caption and YouTube description (see config/platforms.yaml).
 8. Simulations state their assumptions on screen; synthetic data is labelled "simulated".
-9. No copyrighted music, footage, charts or images. Sound is generated (scripts/sound/gen_cues.py).
+9. No copyrighted music, footage, charts or images. Sound is generated: cues by scripts/sound/gen_cues.py, the music
+   bed by scripts/sound/score.py (composed from each spec). Never add licensed, library or sampled music.
 
 ## Brand system (brand/BRAND.md, brand/tokens.json)
 Colours: Prussian #0F2A47 (base) · Abyss #081A2E (depth) · Blueline #2F5D8A (grid, hairlines) · Tape #EAF0F2 (ink)
@@ -93,6 +94,11 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - Render stills first and LOOK at them. Then full renders, one per command, in the background
   (`BASH_MAX_TIMEOUT_MS` is raised in the environment). Sample frames with ffmpeg and view them in QA.
 - New components must use tokens, fit the design system, and be added to the gallery composition.
+- Music: every episode gets a score composed from its own data (`scripts/sound/score.py <id>`, run automatically by
+  render_batch). Percent is pitch (12 semitones = 100%), depth is darkness, the tripwire snap resolves to D major, the
+  end card plays the mark's path as the sonic logo. Read the cue sheet (`episodes/<id>/score.json`) in QA: the music must
+  follow the story beat by beat. A new component should get an interpreter in score.py (otherwise it gets a quiet
+  default texture). Opt out with `"score": false`. Final mix: about -15 LUFS integrated, true peak <= -1 dBTP.
 - Quality loop: up to 3 passes per entry, logged in episodes/<id>/qa.md. Nothing ships with a failing check.
 
 ## Delivery
@@ -117,3 +123,4 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
   cards later (needs legal review of name/publicity rights first — see /print-cards).
 - 2026-10-06: Work goes straight to `main`: commit and push after every meaningful step so no progress is lost if a
   session ends. No feature/batch branches and no PRs unless the founder asks.
+- 2026-10-06: Every video gets a music bed, composed in code from the episode's data (no licensed music, ever).

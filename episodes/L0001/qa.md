@@ -64,3 +64,16 @@ Frames every 2 s (exact timestamps) + beat boundaries, contact sheets viewed for
   L0001-4x5.mp4, L0001-9x16.mp4, L0001-thumb.png, L0001-cover.png. Status `released`.
 - The run's registry push-back failed (rendered files left the checkout dirty, so `pull --rebase` refused) while the
   step still reported success. Fixed in render.yml (`--autostash`, explicit failure); status recorded from the session.
+
+## Pass 3: music (founder request, 2026-10-06)
+Score composed from this spec by `scripts/sound/score.py` (cue sheet: `score.json`). No samples, no licensed music.
+- Story check (cue sheet vs beats): hook = Dm9 with a 4-note fall and a 7-note climb that resolves (+100% = one octave);
+  bedrock beat darkens to Gm9, the climb lands with the up arrow at 9.6 s; sweep: −10% climb 1 note, −20% 2 notes,
+  −50% 7 notes (resolves), **−75% needs 21 notes, 11 fit (unresolved), −90% needs 63, 18 fit (unresolved)** while the
+  harmony sinks Dm9 → Bbmaj7 → Gm9 → Eø7 → A7b9; Nasdaq: price voice traces the drawdown, harmony at 0.74 depth in
+  2001–02, **D major on the 2015-04-23 snap**; myth: one held A, then D minor when the math lands; rule: Bbmaj9 → F/A →
+  Dm9; end: the mark's path as six notes, D major on the wire snap. PASS.
+- Spectrogram and waveform viewed: rising ladders at 20–25 s, the myth beat thinned to one note, swell at the end. PASS.
+- Mix (4x5 render): **−15.5 LUFS integrated, −1.9 dBTP** (master: static gain to −15 LUFS, limiter −4 dBFS). PASS.
+- Visuals unchanged (same spec); frames re-sampled, no regressions.
+**Result: qa_passed with music.**

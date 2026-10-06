@@ -13,7 +13,7 @@
  * Output: engine/out/<id>-4x5.mp4, <id>-9x16.mp4, <id>-thumb.png, <id>-cover.png; thumb/cover copied to publish/<id>/.
  */
 import { createRequire } from "node:module";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -61,16 +61,28 @@ const progressPrinter = (label) => {
 };
 
 /**
- * Master bus: cues are mastered one by one (gen_cues.py), but overlaps, the renderer's mix and AAC overshoot
- * can push the final track above the ceiling. A brick-wall limiter at -3 dBFS sample peak keeps the encoded
- * true peak under -1 dBFS (CLAUDE.md QA rule). Video is stream-copied, never re-encoded.
+ * Master bus. Cues are mastered one by one (gen_cues.py) and the score is a quiet bed (score.py), but overlaps, the
+ * renderer's mix and AAC overshoot (~2 dB) can still push the encoded track over the ceiling. So: measure the
+ * integrated loudness, apply one static gain to reach -15 LUFS (short-form platforms normalise around -14), then a
+ * brick-wall limiter at -4 dBFS so the encoded true peak lands near -2 dBTP (CLAUDE.md rule: <= -1).
+ * Video is stream-copied, never re-encoded.
  */
+const MASTER_LUFS = -15;
+/** Integrated loudness (EBU R128) of a file's audio, from ffmpeg's ebur128 summary. */
+const integrated = (file) => {
+  const r = spawnSync("ffmpeg", ["-nostdin", "-hide_banner", "-nostats", "-i", file, "-af", "ebur128", "-f", "null", "-"], { encoding: "utf8" });
+  const m = [...(r.stderr || "").matchAll(/I:\s+(-?[\d.]+) LUFS/g)].pop();
+  return m ? Number(m[1]) : null;
+};
 const masterAudio = (part, out) => {
   const tmp = out.replace(/\.mp4$/, ".master.mp4");
+  const I = integrated(part);
+  const gain = I === null || I < -60 ? 0 : Math.max(-6, Math.min(8, MASTER_LUFS - I));
   execFileSync("ffmpeg", ["-nostdin", "-loglevel", "error", "-y", "-i", part, "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
-    "-af", "alimiter=limit=0.708:attack=2:release=60:level=false", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
+    "-af", `volume=${gain.toFixed(2)}dB,alimiter=limit=0.631:attack=2:release=60:level=false`, "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
   fs.renameSync(tmp, out);
   fs.unlinkSync(part);
+  log(`audio ${path.basename(out)}: ${I === null ? "?" : I.toFixed(1)} LUFS -> gain ${gain.toFixed(1)} dB, limiter -4 dBFS`);
 };
 
 export const renderVideo = async (id, out) => {

@@ -21,7 +21,7 @@ How the music reads the episode
   Rules resolve.     Bbmaj9 -> F/A -> Dm9, warm and settled.
   The mark is the motif. The end card plays the logo's own price path (tokens.mark: three shrinking pullbacks, then
                      the breakout) note by note as the line draws, and the wire snap lands on a D major chord.
-Mix: a bed at about -24 LUFS that ducks under every sound cue, so captions, cues and silence still lead.
+Mix: a bed at about -22 LUFS that ducks under every sound cue, so captions, cues and silence still lead.
 Every component the interpreter does not know gets a quiet, steady texture by beat kind.
 """
 import json, math, os, sys, wave
@@ -32,7 +32,7 @@ SR = 48000
 BPM = 90                      # 0.667 s per beat = 20 frames at 30 fps: musical time lands on frames
 BEAT = 60 / BPM
 CLIMB_RATE = 6.0              # notes per second: the pace of "effort"
-TARGET_LUFS = -24.0
+TARGET_LUFS = -22.0
 SCALE = [0, 2, 3, 5, 7, 8, 10]  # D natural minor
 TONIC = 62                    # D4
 TOKENS = json.load(open(os.path.join(ROOT, "brand", "tokens.json")))

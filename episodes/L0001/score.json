@@ -2,8 +2,8 @@
  "id": "L0001",
  "bpm": 90,
  "key": "D minor",
- "lufs": -24.0,
- "true_peak_db": -5.5,
+ "lufs": -22.0,
+ "true_peak_db": -3.5,
  "generator": "scripts/sound/score.py",
  "cues": [
   {

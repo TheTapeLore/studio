@@ -43,6 +43,9 @@ Follow CLAUDE.md exactly. Work autonomously; stop only for credentials or spendi
   -> episodes/<id>/stills/, and VIEW them. Fix before full render. Full renders: `node scripts/render_batch.mjs batches/<batch>.json`.
 - Full renders: `engine/out/<id>-4x5.mp4` and `<id>-9x16.mp4`, one command per render, in the background.
   Thumbnail (1280x720) and cover (1080x1920) from Remotion stills into publish/<id>/. Status `rendered`.
+- Music: render_batch composes the score from the spec (scripts/sound/score.py). Run `python scripts/sound/score.py
+  <id> --report` and read the cue sheet against the beats: the music must rise, darken, hold and resolve where the
+  story does. A component without an interpreter in score.py gets a quiet default; add one when it matters.
 
 ## 7. QA loop (max 3 passes per entry; log every pass in episodes/<id>/qa.md)
 Extract frames every 2s and at every beat boundary (`SHEET=1 scripts/frames.sh engine/out/<id>-<aspect>.mp4`), VIEW them, and score:

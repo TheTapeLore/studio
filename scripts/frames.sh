@@ -22,10 +22,9 @@ DUR="$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$VIDEO")"
 echo "video $VIDEO  (${DUR}s) -> $OUT"
 
 # every N seconds
-ffmpeg -loglevel error -y -i "$VIDEO" -vf "fps=1/${EVERY}" -start_number 0 "$OUT/t%03d.png"
-for f in "$OUT"/t*.png; do
-  n="$(basename "$f" .png | sed 's/^t0*//')"; n="${n:-0}"
-  mv "$f" "$OUT/$(awk -v n="$n" -v e="$EVERY" 'BEGIN { printf "t%05.1fs.png", n * e }')"
+# (exact timestamps: ffmpeg's fps filter samples mid-interval, which shifts every frame by EVERY/2)
+for t in $(awk -v d="$DUR" -v e="$EVERY" 'BEGIN { for (t = 0; t < d; t += e) printf "%.2f ", t }'); do
+  ffmpeg -nostdin -loglevel error -y -ss "$t" -i "$VIDEO" -frames:v 1 "$OUT/$(awk -v t="$t" 'BEGIN { printf "t%05.1fs.png", t }')"
 done
 
 # just after each beat boundary (0.5 s in, past the fade)
@@ -37,7 +36,7 @@ s = json.load(open(sys.argv[1]))
 for b in s.get("beats", []):
     print(f"{b['t'] + min(0.5, b['dur'] / 2):.2f} {b['kind']}")
 PY
-    ffmpeg -loglevel error -y -ss "$t" -i "$VIDEO" -frames:v 1 "$OUT/$(printf 'b%05.1fs' "$t")-${kind}.png"
+    ffmpeg -nostdin -loglevel error -y -ss "$t" -i "$VIDEO" -frames:v 1 "$OUT/$(printf 'b%05.1fs' "$t")-${kind}.png"
   done
 fi
 

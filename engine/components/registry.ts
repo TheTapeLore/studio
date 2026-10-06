@@ -2,7 +2,7 @@
 // A new component must be added here AND to gallery/entries.ts.
 import React from "react";
 import { Lockup, Mark } from "./brand";
-import { CandleChart } from "./charts";
+import { CandleChart, Distribution, RunsFan } from "./charts";
 import { AssumptionsPanel, EndCard, MythCard, PollCard, QuoteCard, RuleCard, StatCard, TermCard, TitleCard } from "./layout/cards";
 import * as M from "./metaphors";
 
@@ -24,6 +24,8 @@ export const COMPONENTS: Record<string, React.FC<any>> = {
   CouncilArc: M.CouncilArc,
   LegendCard: M.LegendCard,
   CandleChart,
+  RunsFan,
+  Distribution,
   EndCard,
   RuleCard,
   MythCard,

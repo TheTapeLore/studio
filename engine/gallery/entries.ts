@@ -1,5 +1,6 @@
 // Every component with demo props, for visual QA (the `gallery` compositions). Demo data is simulated.
 import { simBars } from "../lib/finance";
+import simDemo from "../samples/sim-demo.json";
 
 export interface GalleryEntry { name: string; component: string; props: Record<string, unknown>; secs?: number; note?: string }
 
@@ -17,6 +18,8 @@ export const GALLERY: GalleryEntry[] = [
   { name: "TheRace", component: "TheRace", props: { dur: 3.5, window: "SIMULATED" } },
   { name: "Anatomy (synthetic VCP)", component: "Anatomy", props: { demo: true, revealSpeed: 22 }, secs: 5 },
   { name: "CandleChart + MAs + volume", component: "CandleChart", props: { bars: simBars(140, 5, 40, 0.003, 0.02), ma: [10, 21, 50], volume: true, revealDur: 3.5, measures: [{ from: 40, to: 70, fromPrice: "l", toPrice: "h" }], annotations: [{ at: 100, text: "Simulated", price: "h" }] }, secs: 5 },
+  { name: "RunsFan (sims/risk_per_trade.py)", component: "RunsFan", props: { runs: simDemo["runs_2pct"], label: "RISK 2% PER TRADE · SIMULATED", dur: 3 } },
+  { name: "Distribution", component: "Distribution", props: { values: simDemo.values["maxdd_2pct"], label: "MAX DRAWDOWN", badSide: "low" } },
   { name: "FiveExits", component: "FiveExits", props: { revealSpeed: 30 }, secs: 5 },
   { name: "Throttle", component: "Throttle", props: { leverage: 5, dur: 2.5 } },
   { name: "Hourglass", component: "Hourglass", props: { daysToExpiry: 60, iv: 0.3, dur: 3 } },

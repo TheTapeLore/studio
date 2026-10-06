@@ -1,6 +1,7 @@
 // Demo specs, one per format, so every format composition can be previewed and QA'd in the Studio.
 // They are NOT episodes: lore_no 0, tape label "DEMO", simulated data only. Never publish them.
 import { Episode, Spec } from "../lib/spec";
+import simDemo from "./sim-demo.json";
 
 const base = (format: string, pillar: string, beats: Spec["beats"], extra: Partial<Spec> = {}): Episode => {
   const dur = beats.reduce((m, b) => Math.max(m, b.t + b.dur), 0);
@@ -16,6 +17,8 @@ const base = (format: string, pillar: string, beats: Spec["beats"], extra: Parti
   };
 };
 
+const withSim = (e: Episode): Episode => ({ ...e, sim: simDemo as unknown as Record<string, unknown> });
+
 export const SAMPLES: Record<string, Episode> = {
   anatomy: base("anatomy", "setups", [
     { t: 0, dur: 3.2, kind: "hook", component: "Anatomy", props: { demo: true, revealSpeed: 30 }, caption: "Each pullback smaller than the last?" },
@@ -28,11 +31,13 @@ export const SAMPLES: Record<string, Episode> = {
     { t: 4, dur: 3.5, kind: "agree", component: "CouncilArc", props: { question: "Where does your stop go?", seats: [{ id: "a", name: "Seat A", emblem: "pivot-step" }, { id: "b", name: "Seat B", emblem: "cup-handle" }, { id: "c", name: "Seat C", emblem: "vcp" }, { id: "d", name: "Seat D", emblem: "shield" }], showAll: true, group: ["a", "b"] }, caption: "Where they agree lights up." },
     { t: 7.5, dur: 3.6, kind: "end", caption: "Sources in every description." },
   ]),
-  whatif: base("whatif", "risk", [
+  whatif: withSim(base("whatif", "risk", [
     { t: 0, dur: 3.4, kind: "question", component: "RTower", props: { winRate: 0.35, avgWinR: 3, n: 16, dur: 2.6 }, caption: "Can 35% winners come out ahead?" },
-    { t: 3.4, dur: 4.4, kind: "assumptions", props: { items: ["Seeded runs: seed 7", "Losses cost **1R**", "Wins average **3R**"] }, caption: "Assumptions first, always on screen." },
-    { t: 7.8, dur: 3.6, kind: "end", caption: "Simulated, and labelled so." },
-  ], { simulation: { script: "demo", seed: 7 } }),
+    { t: 3.4, dur: 4.4, kind: "assumptions", props: { items: simDemo.meta.assumptions }, caption: "Assumptions first, always on screen." },
+    { t: 7.8, dur: 4.2, kind: "runs", component: "RunsFan", props: { simKey: "runs_2pct", label: "RISK 2% PER TRADE", dur: 3 }, caption: "Every run drawn. Median and worst 5% marked." },
+    { t: 12.0, dur: 4.0, kind: "distribution", component: "Distribution", props: { simKey: "maxdd_2pct", label: "MAX DRAWDOWN" }, caption: "The bad tail is never hidden." },
+    { t: 16.0, dur: 3.6, kind: "end", caption: "Simulated, and labelled so." },
+  ], { simulation: { script: "sims/risk_per_trade.py", seed: 7 } })),
   replay: base("replay", "setups", [
     { t: 0, dur: 5, kind: "reveal", component: "CandleChart", props: { demo: true, domain: "visible", revealDur: 4.4, revealTo: 63, ma: [10, 21], volume: true }, caption: "Bars arrive in order. No hindsight." },
     { t: 5, dur: 4.6, kind: "poll", props: { question: "What would you do here?", options: ["Act on the break", "Wait for proof", "Pass"] }, caption: "Vote. The reveal is the next entry." },

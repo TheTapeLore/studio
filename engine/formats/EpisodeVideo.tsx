@@ -44,7 +44,8 @@ const BeatView: React.FC<{ beat: Beat; prev?: Beat; next?: Beat; durS: number }>
   const cutIn = beat.transition === "cut" && prev;
   const cutOut = next?.transition === "cut";
   const fin = cutIn ? 1 : prog(frame, fps, 0, 0.25);
-  const fout = cutOut ? 0 : prog(frame, fps, durS - 0.2, 0.2);
+  // the last beat holds its final frame (the end card stays readable under the tape roll-out)
+  const fout = cutOut || !next ? 0 : prog(frame, fps, durS - 0.2, 0.2);
   const headH = beat.headline ? L.u * 190 : 0;
   const stage = { ...L.stage, y: L.stage.y + headH, h: L.stage.h - headH };
   return (

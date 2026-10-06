@@ -60,6 +60,19 @@ const progressPrinter = (label) => {
   };
 };
 
+/**
+ * Master bus: cues are mastered one by one (gen_cues.py), but overlaps, the renderer's mix and AAC overshoot
+ * can push the final track above the ceiling. A brick-wall limiter at -3 dBFS sample peak keeps the encoded
+ * true peak under -1 dBFS (CLAUDE.md QA rule). Video is stream-copied, never re-encoded.
+ */
+const masterAudio = (part, out) => {
+  const tmp = out.replace(/\.mp4$/, ".master.mp4");
+  execFileSync("ffmpeg", ["-nostdin", "-loglevel", "error", "-y", "-i", part, "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
+    "-af", "alimiter=limit=0.708:attack=2:release=60:level=false", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
+  fs.renameSync(tmp, out);
+  fs.unlinkSync(part);
+};
+
 export const renderVideo = async (id, out) => {
   if (done(out)) return log(`skip  ${rel(out)} (exists)`);
   const url = await getBundle();
@@ -73,7 +86,7 @@ export const renderVideo = async (id, out) => {
     audioCodec: "aac", audioBitrate: "192k", enforceAudioTrack: true, imageFormat: "jpeg", jpegQuality: 95,
     concurrency: CONCURRENCY, onProgress: progressPrinter(id), chromiumOptions: { gl: "swangle" },
   });
-  fs.renameSync(part, out);
+  masterAudio(part, out);
   log(`done  ${rel(out)}  ${(fs.statSync(out).size / 1e6).toFixed(1)} MB in ${((Date.now() - t0) / 1000).toFixed(0)}s`);
 };
 

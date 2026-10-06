@@ -79,7 +79,8 @@ export const ThePit: React.FC<ThePitProps> = ({
 
   // geometry
   const tableW = showTable ? w * 0.36 : 0;
-  const pw = w - tableW;
+  // pit area keeps a gutter before the table so the climb label never touches it
+  const pw = w - tableW - (showTable ? 40 * u : 0);
   const noteH = note ? 70 * u : 0;
   const top = h * 0.1;
   const groundY = top;
@@ -90,7 +91,7 @@ export const ThePit: React.FC<ThePitProps> = ({
   const deepest = Math.max(0.5, lossPct, keyed ? Math.max(...(keys as [number, number][]).map((k) => k[1])) : sweeping ? (fromLossPct as number) : 0);
   const depth = (showBedrock ? bedrockDepth : avail / deepest) * Ldug;
   const floorY = groundY + depth;
-  const pitW = Math.min(pw * (showTable ? 0.3 : 0.42), 340 * u);
+  const pitW = Math.min(pw * (showTable ? 0.26 : 0.42), 340 * u);
   const cx = pw * 0.5;
   const xl = cx - pitW / 2, xr = cx + pitW / 2;
   const sw = 13 * u;
@@ -186,7 +187,7 @@ export const ThePit: React.FC<ThePitProps> = ({
         ) : null}
       </svg>
       {showTable ? (
-        <div style={{ position: "absolute", left: pw, top: groundY - 10 * u, width: tableW, fontFamily: FONT.mono, fontSize: SIZE.label * u * 1.05 }}>
+        <div style={{ position: "absolute", left: w - tableW, top: groundY - 10 * u, width: tableW, fontFamily: FONT.mono, fontSize: SIZE.label * u * 1.05 }}>
           <div style={{ display: "flex", justifyContent: "space-between", color: C.mist, fontSize: SIZE.tape * u * 0.95, letterSpacing: "0.12em", paddingBottom: 12 * u, borderBottom: `${2 * u}px solid ${C.blueline}` }}>
             <span>LOSS</span>
             <span>TO GET BACK</span>

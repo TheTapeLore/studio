@@ -68,11 +68,12 @@ Studio built and Lore 001 produced (2026-10-06). Delivery mode: **actions** (see
 | Render engine | `engine/` | Remotion 4.0.533 + TypeScript + React 19. Fonts from `@fontsource`. Every colour, size, ease and safe zone comes from `brand/tokens.json` via `engine/tokens.ts`. |
 | Brand components | `engine/components/brand` | Mark (draws, then the wire snaps), Lockup, TapeStrip (unspools in, rewinds out, right-hand compliance label), BlueprintGrid + Paper, CornerBug. |
 | Captions | `engine/components/captions` | Burned-in cards, safe-zone aware. Timing rule (≤ 12 words, ≥ 0.35 s/word + 0.8 s) lives in `timing.ts` and in `scripts/spec_lint.py`. |
-| Charts | `engine/components/charts` | CandleChart (bar-by-bar reveal, hollow up / Ember down, line mode, no-hindsight y-range), VolumePane, MovingAverages 10/21/50/200, RSLine, Tripwire (snaps + snap sound), Annotation, PercentMeasure. One shared scale. |
+| Charts | `engine/components/charts` | CandleChart (bar-by-bar reveal, hollow up / Ember down, line mode, no-hindsight y-range), VolumePane, MovingAverages 10/21/50/200, RSLine, Tripwire (snaps + snap sound), Annotation, PercentMeasure, plus RunsFan and Distribution for the What If Lab (median and worst-5% always both shown). One shared scale. |
 | Metaphors | `engine/components/metaphors` | All 14 in `content/metaphors.yaml` (status now `built`) + PitCurve. Every number on screen is computed (recovery math, Black–Scholes, sizing, exits, margin). Abstract legend emblems only. |
 | Formats | `engine/formats` | One spec-driven composition per format (anatomy, council, whatif, replay, failure, lexicon, desknotes, legendcard) at 1080x1350 and 1080x1920, plus `chapter` at 1920x1080. Thumbnail (1280x720) and cover (1080x1920) are `<Still>`s. Demo specs for each in `engine/samples`. |
 | Gallery | compositions `gallery`, `gallery-9x16`, `gallery-16x9` | Every component in the real frame with safe-zone guides. |
 | Sound | `scripts/sound/gen_cues.py` → `engine/public/sfx` | snap, tick, click, whoosh, tape-in, tape-out, dig, rise. Pure numpy synthesis, BS.1770 loudness, true peak ≤ −1.2 dBTP. No samples, no music. |
+| Simulations | `sims/risk_per_trade.py` | Seeded numpy template for /sim: writes `episodes/<id>/sim.json` (downsampled runs + per-run outcomes + assumptions + analytic check). Its demo output drives the whatif sample. |
 | Tooling | `scripts/` | `render_batch.mjs` (resumable), `frames.sh` (QA frames + contact sheets), `spec_lint.py`, `prepare_data.py`. |
 | Delivery | `.github/workflows/render.yml` | Lint → render → validate → Release `batch-<id>` → registry `released`. Smoke-tested 2026-10-06. |
 

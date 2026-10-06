@@ -6,4 +6,6 @@ export { RSLine } from "./RSLine";
 export { Tripwire } from "./Tripwire";
 export { Annotation } from "./Annotation";
 export { PercentMeasure } from "./PercentMeasure";
+export { RunsFan } from "./RunsFan";
+export { Distribution } from "./Distribution";
 export { ChartContext, useChart, barIndex, priceAt } from "./ChartContext";

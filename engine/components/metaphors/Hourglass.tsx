@@ -43,7 +43,7 @@ export const Hourglass: React.FC<HourglassProps> = ({ daysToExpiry = 60, iv = 0.
   const topSandY = mid - (gh / 2 - 20 * u) * frac;
   const botSandY = gy + gh - (gh / 2 - 20 * u) * (1 - frac);
   // curve
-  const cx0 = gx + gw + 70 * u, cx1 = w - 20 * u, cy0 = gy + 190 * u, cy1 = gy + gh - 60 * u;
+  const cx0 = gx + gw + 70 * u, cx1 = w - 20 * u, cy0 = gy + 220 * u, cy1 = gy + gh - 60 * u;
   const X = (d: number) => cx0 + (1 - d / daysToExpiry) * (cx1 - cx0);
   const Y = (v: number) => cy1 - (v / tv0) * (cy1 - cy0);
   const curve: string[] = [];
@@ -80,9 +80,12 @@ export const Hourglass: React.FC<HourglassProps> = ({ daysToExpiry = 60, iv = 0.
         {`${Math.ceil(day)} days left`}
       </text>
       <text x={cx0} y={gy + 96 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs}>
-        {`TIME VALUE ${fmtMoney(tv(day), 2)} · TODAY'S DECAY ${fmtMoney(perDay, 2)}`}
+        {`TIME VALUE ${fmtMoney(tv(day), 2)}`}
       </text>
-      <text x={cx0} y={gy + 132 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.9}>
+      <text x={cx0} y={gy + 132 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs}>
+        {`TODAY'S DECAY ${fmtMoney(perDay, 2)}`}
+      </text>
+      <text x={cx0} y={gy + 168 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.9}>
         {`ATM ${type.toUpperCase()} · IV ${Math.round(iv * 100)}% · BLACK–SCHOLES`}
       </text>
     </svg>

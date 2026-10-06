@@ -39,7 +39,7 @@ export const PayoffDiagram: React.FC<PayoffDiagramProps> = ({
   const exp = xs.map((s) => legsPnl(legs, s, 0) * multiplier);
   const now = xs.map((s) => legsPnl(legs, s, daysLeft) * multiplier);
   const yAbs = Math.max(...exp.map(Math.abs), ...now.map(Math.abs)) * 1.1;
-  const padL = 30 * u, padR = 30 * u, padT = 70 * u, padB = 120 * u;
+  const padL = 30 * u, padR = 30 * u, padT = 70 * u, padB = 150 * u;
   const X = (s: number) => padL + ((s - lo) / (hi - lo)) * (w - padL - padR);
   const Y = (v: number) => padT + (h - padT - padB) * (0.5 - v / (2 * yAbs));
   const draw = prog(frame, fps, drawAt, 1.2, "draw");
@@ -98,7 +98,7 @@ export const PayoffDiagram: React.FC<PayoffDiagramProps> = ({
         </text>
       </g>
       <g opacity={labels} fontFamily={FONT.mono} fontSize={SIZE.tape * u} fill={C.mist}>
-        <text x={w - padR} y={h - padB + 14 * u} textAnchor="end">
+        <text x={w - padR} y={h - 4 * u} textAnchor="end">
           {daysLeft > 0 ? `SOLID = EXPIRY · HOLLOW = ${daysLeft}D LEFT` : "AT EXPIRY"}
         </text>
       </g>

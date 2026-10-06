@@ -41,6 +41,8 @@ export interface CandleChartProps {
   /** "line" draws a close line instead of candles (long histories). */
   style?: "candles" | "line";
   axes?: boolean;
+  /** Mono label top-left, e.g. "NASDAQ COMPOSITE · DAILY CLOSE". "auto" builds it from the episode data. */
+  title?: string | null;
   w?: number;
   h?: number;
   children?: React.ReactNode;
@@ -97,6 +99,11 @@ export const CandleChart: React.FC<CandleChartProps> = (p) => {
   hi += pad;
 
   const step = plot.w / n;
+  const d = ep?.data;
+  const title =
+    p.title === "auto" && d
+      ? `${d.symbol} · ${d.interval === "1mo" ? "MONTHLY" : d.interval === "1wk" ? "WEEKLY" : "DAILY"}${p.style === "line" ? " CLOSE" : ""} · ${(d.source ?? "yfinance").toUpperCase()}`
+      : p.title ?? null;
   const scale: ChartScale = {
     bars, start, end, plot, vol, step, reveal, timeOfBar, u, w: W, h: H,
     bodyW: Math.max(1, step * 0.62),
@@ -183,6 +190,11 @@ export const CandleChart: React.FC<CandleChartProps> = (p) => {
     <ChartContext.Provider value={scale}>
       <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
         <line x1={plot.x + plot.w} x2={plot.x + plot.w} y1={plot.y} y2={plot.y + plot.h} stroke={hexA(C.blueline, 0.8)} strokeWidth={1.5 * u} />
+        {title ? (
+          <text x={plot.x} y={plot.y + 22 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={SIZE.tape * u * 0.9} letterSpacing="0.1em">
+            {title}
+          </text>
+        ) : null}
         {ticks}
         {vol ? <VolumePane /> : null}
         {p.ma?.length ? <MovingAverages periods={p.ma} /> : null}

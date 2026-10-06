@@ -1,0 +1,40 @@
+{
+  "id": "L0001",
+  "lore_no": 1,
+  "title": "The Pit: why a 50% loss needs +100%",
+  "batch": "2026-10-06-a",
+  "duration_s": 55.4,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0001-4x5.mp4",
+    "video_9x16": "release:L0001-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png"
+  },
+  "x": {
+    "post": "Lose half. Now you need +100% just to get back.\n\nThe fall is measured from where you started. The climb is measured from what's left.\n\nLore 001 · The Pit",
+    "reply": "A real pit: the Nasdaq fell 78% from March 2000 to October 2002. Getting back needed +353%. It reclaimed the old closing high in April 2015.\n\nNext: Lore 002 · 35% winners can beat 60% winners"
+  },
+  "instagram": {
+    "caption": "Lose 50% and you need +100% just to break even. That's loss recovery math, and it's why risk comes first.\n\nA loss is measured from where you started. The climb back is measured from what's left. Start with $10,000 and lose half: $5,000 left. Getting back needs another $5,000, which is +100% of what you have.\n\nThe deeper the pit, the faster the climb grows. −10% needs +11%. −25% needs +33%. −75% needs +300%. −90% needs +900%.\n\nA real pit: the Nasdaq Composite closed at 5,048.62 on 10 March 2000 and at 1,114.11 on 9 October 2002, a 78% fall. Getting back needed +353%. It closed above the old high on 23 April 2015.\n\nLore 001 · The Pit. Next: Lore 002, why 35% winners can beat 60% winners.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #TradingEducation #LossRecovery #Drawdown",
+    "alt_text": "Animated diagram on a dark blue grid. A pit is dug into a white ground line: a red arrow down labelled −50% and an amber arrow up labelled +100%, the same length. A $0 line below shows only $5,000 is left. A table lists losses from 10% to 90% with the gain needed to recover each. A Nasdaq Composite line chart from 1999 to 2015 marks the 78% fall and the +353% climb back to the March 2000 close.",
+    "cover_frame_s": 1.5
+  },
+  "youtube": {
+    "title": "Loss recovery math: why a 50% loss needs +100% | Lore 001",
+    "description": "A 50% loss needs a +100% gain to break even. The fall is measured from where you started; the climb back is measured from what's left.\nEvery number is computed: −10% needs +11%, −25% needs +33%, −75% needs +300%, −90% needs +900%. A real example: the Nasdaq Composite fell 78% (March 2000 to October 2002) and needed +353% to get back. That took until April 2015.\n\nNext: Lore 002 — 35% winners can beat 60% winners\n\nSources: recovery formula (exceljet.net/formulas/required-recovery-rate); Nasdaq Composite daily closes from Yahoo Finance; record close reported by CNN Money and NPR on 23 April 2015.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #Trading",
+    "tags": [
+      "loss recovery math",
+      "gain needed to recover a loss",
+      "recovery asymmetry",
+      "drawdown recovery",
+      "risk management trading",
+      "trading education",
+      "break even after a loss",
+      "nasdaq 2000 crash",
+      "the tape lore",
+      "lore 001"
+    ],
+    "playlist": "Risk & sizing"
+  }
+}

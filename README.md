@@ -60,4 +60,46 @@ Every entry lands as: videos in the GitHub Release `batch-<id>`, and copy in `pu
 - Yahoo data is fine for education; consider a licensed data source if the channel is monetised.
 
 ## Status
-Kit delivered. Engine not built yet: run SETUP_PROMPT.md.
+Studio built and Lore 001 produced (2026-10-06). Delivery mode: **actions** (see CLAUDE.md).
+
+### What was built
+| Part | Where | Notes |
+|---|---|---|
+| Render engine | `engine/` | Remotion 4.0.533 + TypeScript + React 19. Fonts from `@fontsource`. Every colour, size, ease and safe zone comes from `brand/tokens.json` via `engine/tokens.ts`. |
+| Brand components | `engine/components/brand` | Mark (draws, then the wire snaps), Lockup, TapeStrip (unspools in, rewinds out, right-hand compliance label), BlueprintGrid + Paper, CornerBug. |
+| Captions | `engine/components/captions` | Burned-in cards, safe-zone aware. Timing rule (≤ 12 words, ≥ 0.35 s/word + 0.8 s) lives in `timing.ts` and in `scripts/spec_lint.py`. |
+| Charts | `engine/components/charts` | CandleChart (bar-by-bar reveal, hollow up / Ember down, line mode, no-hindsight y-range), VolumePane, MovingAverages 10/21/50/200, RSLine, Tripwire (snaps + snap sound), Annotation, PercentMeasure. One shared scale. |
+| Metaphors | `engine/components/metaphors` | All 14 in `content/metaphors.yaml` (status now `built`) + PitCurve. Every number on screen is computed (recovery math, Black–Scholes, sizing, exits, margin). Abstract legend emblems only. |
+| Formats | `engine/formats` | One spec-driven composition per format (anatomy, council, whatif, replay, failure, lexicon, desknotes, legendcard) at 1080x1350 and 1080x1920, plus `chapter` at 1920x1080. Thumbnail (1280x720) and cover (1080x1920) are `<Still>`s. Demo specs for each in `engine/samples`. |
+| Gallery | compositions `gallery`, `gallery-9x16`, `gallery-16x9` | Every component in the real frame with safe-zone guides. |
+| Sound | `scripts/sound/gen_cues.py` → `engine/public/sfx` | snap, tick, click, whoosh, tape-in, tape-out, dig, rise. Pure numpy synthesis, BS.1770 loudness, true peak ≤ −1.2 dBTP. No samples, no music. |
+| Tooling | `scripts/` | `render_batch.mjs` (resumable), `frames.sh` (QA frames + contact sheets), `spec_lint.py`, `prepare_data.py`. |
+| Delivery | `.github/workflows/render.yml` | Lint → render → validate → Release `batch-<id>` → registry `released`. Smoke-tested 2026-10-06. |
+
+### How to run things
+Inside a Claude Code session, the slash commands in section 3 do everything. By hand:
+```bash
+cd engine && npm ci && npx remotion studio                    # preview every episode, format and the gallery
+python scripts/spec_lint.py episodes/L0001/spec.json          # rules check before rendering
+python scripts/registry.py check episodes/L0001/spec.json     # no-repeat check
+python scripts/prepare_data.py L0001                          # spec.data -> episodes/L0001/data.json
+node scripts/render_batch.mjs batches/2026-10-06-a.json --stills   # hook/peak/end stills -> episodes/<id>/stills
+node scripts/render_batch.mjs batches/2026-10-06-a.json       # MP4s + thumb + cover -> engine/out, publish/<id>
+node scripts/render_batch.mjs --gallery                       # one still per component -> engine/out/gallery
+node scripts/render_batch.mjs --comp gallery --out engine/out/gallery.mp4
+SHEET=1 scripts/frames.sh engine/out/L0001-9x16.mp4           # QA frames + contact sheets
+python scripts/sound/gen_cues.py                              # regenerate the sound cues
+python scripts/validate_publish.py --write-md publish/L0001   # platform limits + copy-paste files
+gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # render + release in Actions
+```
+
+### Lore 001
+- Spec, data, stills and QA log: `episodes/L0001/` (QA passed; see `qa.md`).
+- Copy to paste: `publish/L0001/x.md`, `instagram.md`, `youtube.md`; thumbnail and cover in `publish/L0001/`.
+- Videos: GitHub Release `batch-2026-10-06-a` (created by the render workflow).
+
+### What you must do by hand
+1. **Merge this branch** into `main` (the render workflow runs from whatever branch it is dispatched on, but `main` should hold the studio).
+2. **Upload Lore 001** from the Release and `publish/L0001/*.md`. Claude never posts.
+3. **Pin the Remotion licence check** to your calendar: free for individuals and companies of up to 3 people; re-check remotion.dev/license before monetising or hiring.
+4. Optional: nothing else needs credentials. Cloud sessions cannot create Releases themselves (HTTP 403 for this session type), which is why delivery runs through Actions with the workflow's own token.

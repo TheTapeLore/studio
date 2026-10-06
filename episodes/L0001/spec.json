@@ -1,0 +1,268 @@
+{
+  "id": "L0001",
+  "lore_no": 1,
+  "slug": "the-pit",
+  "batch": "2026-10-06-a",
+  "pillar": "risk",
+  "cluster": "math-of-losses",
+  "format": "anatomy",
+  "concept_key": "risk.math-of-losses.recovery-asymmetry",
+  "title": "The Pit: why a 50% loss needs +100%",
+  "hook": "Lose half. Now you must double just to break even.",
+  "takeaway": "A loss is measured from where you started, but the climb back is measured from what is left. So the climb is always the bigger percentage, and it grows faster the deeper the pit.",
+  "question": null,
+  "legends": [],
+  "duration_s": 55.4,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "The Pit"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 4.0,
+      "kind": "hook",
+      "component": "ThePit",
+      "props": {
+        "lossPct": 0.5,
+        "digAt": 0.05,
+        "digDur": 0.45,
+        "climbAt": 0.55,
+        "climbDur": 0.5
+      },
+      "caption": "Lose half. What does it take to get **back**?"
+    },
+    {
+      "t": 4.0,
+      "dur": 9.0,
+      "kind": "build",
+      "component": "ThePit",
+      "props": {
+        "lossPct": 0.5,
+        "account": 10000,
+        "showBedrock": true,
+        "digAt": 0.4,
+        "digDur": 1.2,
+        "climbAt": 5.6,
+        "climbDur": 1.0
+      },
+      "captions": [
+        "Start with $10,000. Lose half.",
+        "Now $5,000 is all that's left.",
+        "Climbing back $5,000 from there is **+100%**."
+      ]
+    },
+    {
+      "t": 13.0,
+      "dur": 13.8,
+      "kind": "build",
+      "component": "ThePit",
+      "props": {
+        "lossPct": 0.9,
+        "showTable": true,
+        "keys": [
+          [
+            0,
+            0.1
+          ],
+          [
+            1.0,
+            0.1
+          ],
+          [
+            2.0,
+            0.2
+          ],
+          [
+            3.3,
+            0.2
+          ],
+          [
+            4.1,
+            0.5
+          ],
+          [
+            6.9,
+            0.5
+          ],
+          [
+            7.7,
+            0.75
+          ],
+          [
+            9.7,
+            0.75
+          ],
+          [
+            10.5,
+            0.9
+          ]
+        ]
+      },
+      "captions": [
+        "Small pits: the climb is barely bigger.",
+        "Halfway down, the climb is double the fall.",
+        "Deeper still, the climb runs away from you.",
+        "−90% needs +900%. Ten times the fall."
+      ]
+    },
+    {
+      "t": 26.8,
+      "dur": 11.2,
+      "kind": "build",
+      "component": "CandleChart",
+      "peak": true,
+      "props": {
+        "style": "line",
+        "revealAt": 0.3,
+        "revealDur": 7.5,
+        "domain": "all",
+        "title": "NASDAQ COMPOSITE · DAILY CLOSE · YAHOO FINANCE",
+        "tripwire": {
+          "price": 5048.62,
+          "from": "2000-03-10",
+          "snapAt": "auto",
+          "label": "MARCH 2000 CLOSE"
+        },
+        "measures": [
+          {
+            "from": "2000-03-10",
+            "to": "2002-10-09",
+            "fromPrice": "c",
+            "toPrice": "c",
+            "x": "to",
+            "side": "right"
+          },
+          {
+            "from": "2002-10-09",
+            "to": "2015-04-23",
+            "fromPrice": "c",
+            "toPrice": 5048.62,
+            "x": "to",
+            "side": "left",
+            "delay": 0.25
+          }
+        ]
+      },
+      "captions": [
+        "A real pit: the Nasdaq, 2000 to 2002.",
+        "It fell 78% in two and a half years.",
+        "Getting back needed +353%. That took until 2015."
+      ]
+    },
+    {
+      "t": 38.0,
+      "dur": 7.0,
+      "kind": "misconception",
+      "component": "MythCard",
+      "props": {
+        "myth": "Down 50%? Up 50% gets it back.",
+        "fact": "Up 50% from $5,000 is [[$7,500]]. Still down 25%.",
+        "factAt": 3.4
+      },
+      "captions": [
+        "The common mistake: up 50% undoes down 50%.",
+        "It doesn't. You'd still be down 25%."
+      ]
+    },
+    {
+      "t": 45.0,
+      "dur": 6.4,
+      "kind": "rule",
+      "component": "RuleCard",
+      "props": {
+        "text": "Keep the pit [[shallow]].",
+        "sub": "Small losses, short climbs."
+      },
+      "captions": [
+        "Small losses keep the climb back short.",
+        "That's why risk comes first here."
+      ]
+    },
+    {
+      "t": 51.4,
+      "dur": 4.0,
+      "kind": "end"
+    }
+  ],
+  "data": {
+    "symbol": "^IXIC",
+    "start": "1999-06-01",
+    "end": "2015-12-31",
+    "interval": "1d",
+    "source": "yfinance"
+  },
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Exceljet: Required recovery rate (formula =1/(1+loss)-1, e.g. an 80% loss needs +400%)",
+      "url": "https://exceljet.net/formulas/required-recovery-rate",
+      "used_for": "Recovery math: gain needed = L / (1 − L). Every on-screen percentage is computed from this in the engine."
+    },
+    {
+      "title": "ETF Trends: Break-even math — how much gain is needed to recover from a loss",
+      "url": "https://www.etftrends.com/retirement-income-content-hub/break-even-math-how-much-gain-is-needed-to-recover-from-a-loss-fully/",
+      "used_for": "Second reference for the table: −10% needs +11%, −20% needs +25%, −50% needs +100%."
+    },
+    {
+      "title": "Yahoo Finance: Nasdaq Composite (^IXIC) daily history, via yfinance",
+      "url": "https://finance.yahoo.com/quote/%5EIXIC/history/",
+      "used_for": "Chart data 1999-06-01 to 2015-12-31. Computed: close 5,048.62 (2000-03-10) to 1,114.11 (2002-10-09) = −77.9%; +353.2% needed; first close above on 2015-04-23 (5,056.06)."
+    },
+    {
+      "title": "Wikipedia: Nasdaq Composite (history section)",
+      "url": "https://en.wikipedia.org/wiki/Nasdaq_Composite",
+      "used_for": "Cross-check: the index fell about 78% from its March 2000 peak by October 2002."
+    },
+    {
+      "title": "CNN Money (2015-04-23): Finally! Nasdaq zooms to new all-time closing high",
+      "url": "https://money.cnn.com/2015/04/23/investing/nasdaq-record-closing-high/",
+      "used_for": "Cross-check: record close 5,056.06 on 2015-04-23, first above the 5,048.62 close of 2000-03-10."
+    },
+    {
+      "title": "NPR (2015-04-23): 15 years after the dot-com bust, a Nasdaq record",
+      "url": "https://www.npr.org/sections/thetwo-way/2015/04/23/397113284/15-years-after-the-dot-com-bust-nasdaq-closes-at-new-record",
+      "used_for": "Cross-check: about 15 years from the 2000 high to the 2015 record close."
+    }
+  ],
+  "links": {
+    "prerequisites": [],
+    "next": [
+      "L0002"
+    ]
+  },
+  "next": {
+    "lore_no": 2,
+    "title": "35% winners can beat 60% winners"
+  },
+  "thumb": {
+    "lines": [
+      "A 50% loss",
+      "[[needs +100%]]",
+      "to recover"
+    ],
+    "component": "ThePit",
+    "props": {
+      "lossPct": 0.5,
+      "note": "Same distance. Twice the percentage.",
+      "sfx": false
+    }
+  },
+  "cover": {
+    "lines": [
+      "The Pit:",
+      "−50% needs",
+      "[[+100%]]"
+    ],
+    "component": "ThePit",
+    "props": {
+      "lossPct": 0.5,
+      "note": "Same distance. Twice the percentage.",
+      "sfx": false
+    }
+  },
+  "status": "scripted"
+}

@@ -12,7 +12,7 @@ items:
   priority: quick_win
   search_terms:
   - loss recovery math
-  status: open
+  status: "taken: L0001"
 - id: B002
   season: 1
   order: 2

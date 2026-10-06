@@ -14,6 +14,8 @@ export interface ThePitProps {
   fromLossPct?: number | null;
   sweepAt?: number;
   sweepDur?: number;
+  /** Keyframes [seconds, loss] for the sweep, eased between holds. Overrides fromLossPct/sweepAt/sweepDur. */
+  keys?: [number, number][] | null;
   /** Starting account in dollars; adds $ labels and the "what's left" bracket. */
   account?: number | null;
   /** Bedrock = $0. The climb is measured against what's left above it. */
@@ -40,6 +42,7 @@ export const ThePit: React.FC<ThePitProps> = ({
   fromLossPct = null,
   sweepAt = 0.4,
   sweepDur = 3,
+  keys = null,
   account = null,
   showBedrock = false,
   showTable = false,
@@ -57,11 +60,20 @@ export const ThePit: React.FC<ThePitProps> = ({
   const { u } = useLayout();
   const { w, h } = useStage();
 
-  const sweeping = fromLossPct !== null && fromLossPct !== undefined;
+  const keyed = !!keys && keys.length > 1;
+  const sweeping = keyed || (fromLossPct !== null && fromLossPct !== undefined);
   const ground = enter && !sweeping ? prog(frame, fps, 0, 0.35, "draw") : 1;
   const dig = enter && !sweeping ? prog(frame, fps, digAt, digDur, "draw") : 1;
   const climb = enter && !sweeping ? prog(frame, fps, climbAt, climbDur, "draw") : 1;
-  const L = sweeping ? lerp(fromLossPct as number, lossPct, prog(frame, fps, sweepAt, sweepDur, "standard")) : lossPct;
+  const keyAt = (ts: number) => {
+    const k = keys as [number, number][];
+    if (ts <= k[0][0]) return k[0][1];
+    for (let i = 1; i < k.length; i++) {
+      if (ts <= k[i][0]) return lerp(k[i - 1][1], k[i][1], prog(ts * fps, fps, k[i - 1][0], k[i][0] - k[i - 1][0], "standard"));
+    }
+    return k[k.length - 1][1];
+  };
+  const L = keyed ? keyAt(frame / fps) : sweeping ? lerp(fromLossPct as number, lossPct, prog(frame, fps, sweepAt, sweepDur, "standard")) : lossPct;
   const Ldug = L * dig;
   const gain = recoveryGain(L);
 
@@ -75,7 +87,7 @@ export const ThePit: React.FC<ThePitProps> = ({
   // (never less than 50%) fills the available depth.
   const avail = h - top - noteH - (showBedrock ? 70 : 90) * u;
   const bedrockDepth = avail;
-  const deepest = Math.max(0.5, lossPct, sweeping ? (fromLossPct as number) : 0);
+  const deepest = Math.max(0.5, lossPct, keyed ? Math.max(...(keys as [number, number][]).map((k) => k[1])) : sweeping ? (fromLossPct as number) : 0);
   const depth = (showBedrock ? bedrockDepth : avail / deepest) * Ldug;
   const floorY = groundY + depth;
   const pitW = Math.min(pw * (showTable ? 0.3 : 0.42), 340 * u);

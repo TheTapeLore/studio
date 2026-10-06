@@ -96,9 +96,14 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - Quality loop: up to 3 passes per entry, logged in episodes/<id>/qa.md. Nothing ships with a failing check.
 
 ## Delivery
-- delivery: UNSET   <- the setup run records `session` or `actions` here after the smoke test.
+- delivery: actions   <- set 2026-10-06 by the setup smoke test: cloud sessions get HTTP 403 on `gh release create`
+  ("not permitted for this session type"), while `gh workflow run` works and the workflow's own token can release.
+  Smoke run: render.yml with batch=smoke rendered a 2 s clip, created release `smoke-test`, verified the asset, deleted it.
 - session: commit on `batch/<id>`, open a PR, `gh release create batch-<id>` with MP4s + thumbnails.
-- actions: commit specs on `batch/<id>`, `gh workflow run render.yml -f batch=<id>`; the workflow renders and releases.
+- actions: commit specs (+ episodes/<id>/data.json, publish/<id>/*) on the batch branch, push, then
+  `gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>`; watch with `gh run watch`/`gh run view`.
+  The workflow lints specs, renders, validates packages, creates/updates Release `batch-<id>` (MP4s, thumb, cover),
+  uploads a workflow artifact, and commits `registry.py status <id> released` back to the branch.
 - The cloud proxy rejects tag pushes; releases are created through `gh` (API), never `git push --tags`.
 - Never post to social platforms. The founder uploads using publish/<id>/*.md.
 

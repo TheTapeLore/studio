@@ -34,16 +34,18 @@ Follow CLAUDE.md exactly. Work autonomously; stop only for credentials or spendi
 ## 5. Script
 - beats[] with component + props + caption + sfx. Hook (payoff visual + question) inside 1.5s.
 - One idea. 30–75s (lexicon 12–20s). Captions <= 12 words, >= 0.35s/word + 0.8s on screen.
-- End: tripwire snap -> "Lore N. Next: Lore N+1 — <title>". Set status `scripted`.
+- End: tripwire snap -> "Lore N. Next: Lore N+1 — <title>" (an `end` beat + spec `next`). Run
+  `python scripts/spec_lint.py episodes/<id>/spec.json` until PASS. Set status `scripted`.
 
 ## 6. Build and render
 - Reuse components. A missing component: build it in engine/components/metaphors (tokens only), add to gallery.
-- Render 3 key stills per aspect (hook, peak, end) to episodes/<id>/stills/ and VIEW them. Fix before full render.
+- Render 3 key stills per aspect (hook, peak, end): `node scripts/render_batch.mjs batches/<batch>.json --stills`
+  -> episodes/<id>/stills/, and VIEW them. Fix before full render. Full renders: `node scripts/render_batch.mjs batches/<batch>.json`.
 - Full renders: `engine/out/<id>-4x5.mp4` and `<id>-9x16.mp4`, one command per render, in the background.
   Thumbnail (1280x720) and cover (1080x1920) from Remotion stills into publish/<id>/. Status `rendered`.
 
 ## 7. QA loop (max 3 passes per entry; log every pass in episodes/<id>/qa.md)
-Extract frames every 2s and at every beat boundary (`ffmpeg -vf fps=0.5`), VIEW them, and score:
+Extract frames every 2s and at every beat boundary (`SHEET=1 scripts/frames.sh engine/out/<id>-<aspect>.mp4`), VIEW them, and score:
 1. Truth: every claim matches a source; numbers recomputed from data/sim.
 2. Compliance: the 9 rules in CLAUDE.md.
 3. Clarity: one idea; a first-time viewer gets it muted.
@@ -70,7 +72,7 @@ Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it,
 ## 10. Deliver (mode in CLAUDE.md)
 - session: branch `batch/<batch>`, commit (no MP4s in git), push, open PR.
   `gh release create batch-<batch> engine/out/<ids>*.mp4 publish/<ids>/thumb.png --title "Batch <batch>" --notes-file batches/<batch>-report.md`
-- actions: push the branch, then `gh workflow run render.yml -f batch=<batch> -f ref=batch/<batch>`; watch it finish.
+- actions: push the branch, then `gh workflow run render.yml --ref batch/<batch> -f batch=<batch> -f ref=batch/<batch>`; watch it with `gh run view <run-id>` until it finishes (it also marks entries released).
 - `registry.py status <id> released --release batch-<batch>`.
 
 ## 11. Report (batches/<batch>-report.md, also printed)

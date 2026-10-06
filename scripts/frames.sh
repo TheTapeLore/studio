@@ -66,3 +66,8 @@ print("sheets written")
 PY
 fi
 ls "$OUT" | wc -l | xargs echo "frames:"
+
+# audio: integrated loudness and true peak of the final mix (rule: peaks <= -1 dBFS)
+ffmpeg -nostats -hide_banner -i "$VIDEO" -af ebur128=peak=true -f null - 2>&1 \
+  | awk '/Summary:/{s=1} s&&/I:|Peak:/{gsub(/^ +/,""); print "audio  " $0}'
+

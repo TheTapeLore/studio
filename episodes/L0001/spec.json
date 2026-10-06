@@ -12,7 +12,7 @@
   "takeaway": "A loss is measured from where you started, but the climb back is measured from what is left. So the climb is always the bigger percentage, and it grows faster the deeper the pit.",
   "question": null,
   "legends": [],
-  "duration_s": 55.4,
+  "duration_s": 56.0,
   "aspects": [
     "4x5",
     "9x16"
@@ -184,7 +184,7 @@
     },
     {
       "t": 51.4,
-      "dur": 4.0,
+      "dur": 4.6,
       "kind": "end"
     }
   ],

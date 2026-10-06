@@ -1,142 +1,156 @@
 {
  "id": "L0001",
- "bpm": 90,
- "key": "D minor",
- "lufs": -22.0,
- "true_peak_db": -3.5,
+ "genre": "dark trap",
+ "bpm": 150.0,
+ "bars": 35.0,
+ "loop_aligned": true,
+ "lufs": -17.4,
+ "true_peak_db": -2.0,
  "generator": "scripts/sound/score.py",
  "cues": [
   {
    "t": 0,
-   "cue": "Dm9 (depth 0.00)"
+   "cue": "hook: energy 3"
   },
   {
    "t": 0.05,
-   "cue": "fall \u221250%: 4 notes down in 0.45s"
-  },
-  {
-   "t": 0.55,
-   "cue": "climb +100%: 7 notes needed, 7 played"
+   "cue": "hook fall \u221250% (808 slide), climb lift"
   },
   {
    "t": 4.0,
-   "cue": "Gm9 (depth 0.45)"
+   "cue": "set-up: energy 2"
   },
   {
    "t": 4.4,
-   "cue": "fall \u221250%: 4 notes down in 1.20s"
+   "cue": "loss \u221250%: tape stops, 808 slides 6.0 semitones"
+  },
+  {
+   "t": 6.4,
+   "cue": "what's left: energy 1"
   },
   {
    "t": 9.6,
-   "cue": "climb +100%: 7 notes needed, 7 played"
+   "cue": "climb +100%: riser 1.00 bars, resolves"
+  },
+  {
+   "t": 9.6,
+   "cue": "climbing: energy 1"
+  },
+  {
+   "t": 11.2,
+   "cue": "DROP"
+  },
+  {
+   "t": 11.2,
+   "cue": "made it back: energy 4"
   },
   {
    "t": 13.0,
-   "cue": "Dm9 (depth 0.10)"
+   "cue": "sweep \u221210%: energy 3"
   },
   {
-   "t": 13.1,
-   "cue": "fall \u221210%: 1 notes down in 0.35s"
-  },
-  {
-   "t": 13.5,
-   "cue": "climb +11%: 1 notes needed, 1 played"
+   "t": 13.6,
+   "cue": "climb +11%: a 0.11-bar lift, barely longer than the fall"
   },
   {
    "t": 14.0,
-   "cue": "fall \u221220%: 1 notes down in 1.00s"
+   "cue": "loss \u221220%: tape stops, 808 slides 2.4 semitones"
   },
   {
-   "t": 14.0,
-   "cue": "Bbmaj7 (depth 0.20)"
+   "t": 15.0,
+   "cue": "depth \u221220%: energy 3"
   },
   {
    "t": 15.05,
-   "cue": "climb +25%: 2 notes needed, 2 played"
+   "cue": "climb +25%: a 0.25-bar lift, barely longer than the fall"
+  },
+  {
+   "t": 16.0,
+   "cue": "back up: energy 3"
   },
   {
    "t": 16.3,
-   "cue": "fall \u221250%: 4 notes down in 0.80s"
+   "cue": "loss \u221250%: tape stops, 808 slides 6.0 semitones"
   },
   {
-   "t": 16.3,
-   "cue": "Gm9 (depth 0.50)"
+   "t": 17.1,
+   "cue": "depth \u221250%: energy 2"
   },
   {
    "t": 17.15,
-   "cue": "climb +100%: 7 notes needed, 7 played"
+   "cue": "climb +100%: riser 1.00 bars, resolves"
+  },
+  {
+   "t": 19.2,
+   "cue": "DROP"
+  },
+  {
+   "t": 19.2,
+   "cue": "back up: energy 3"
   },
   {
    "t": 19.9,
-   "cue": "fall \u221275%: 5 notes down in 0.80s"
+   "cue": "loss \u221275%: tape stops, 808 slides 9.0 semitones"
   },
   {
-   "t": 19.9,
-   "cue": "E\u00f87 (depth 0.75)"
+   "t": 20.7,
+   "cue": "depth \u221275%: energy 1"
   },
   {
    "t": 20.75,
-   "cue": "climb +300%: 21 notes needed, 11 played - UNRESOLVED"
+   "cue": "climb +300%: riser needs 3.0 bars, only 1.2 fit: UNRESOLVED"
   },
   {
    "t": 22.7,
-   "cue": "fall \u221290%: 7 notes down in 0.80s"
+   "cue": "loss \u221290%: tape stops, 808 slides 10.8 semitones"
   },
   {
-   "t": 22.7,
-   "cue": "A7b9 (depth 0.90)"
+   "t": 23.5,
+   "cue": "depth \u221290%: energy 1"
   },
   {
    "t": 23.55,
-   "cue": "climb +900%: 63 notes needed, 18 played - UNRESOLVED"
+   "cue": "climb +900%: riser needs 9.0 bars, only 2.0 fit: UNRESOLVED"
   },
   {
    "t": 26.8,
-   "cue": "chart drawdown 0.00"
+   "cue": "chart: filter follows the drawdown: energy 3"
   },
   {
-   "t": 28.13,
-   "cue": "chart drawdown 0.74"
-  },
-  {
-   "t": 32.13,
-   "cue": "chart drawdown 0.47"
-  },
-  {
-   "t": 33.47,
-   "cue": "chart drawdown 0.06"
+   "t": 27.1,
+   "cue": "ticker traces the price; deepest drawdown \u221275% closes the filter to ~260 Hz"
   },
   {
    "t": 34.29,
-   "cue": "tripwire snaps: resolve to D major"
+   "cue": "tripwire snaps: DROP: energy 4"
   },
   {
    "t": 38.0,
-   "cue": "myth: one held A, no pulse"
+   "cue": "myth: tape stops, only the clock ticks"
   },
   {
    "t": 41.4,
-   "cue": "the math lands: D minor"
+   "cue": "the math lands: energy 3"
   },
   {
    "t": 45.0,
-   "cue": "rule: Bbmaj9"
+   "cue": "rule: full groove + the mark riff: energy 4"
   },
   {
-   "t": 47.13,
-   "cue": "rule: F/A"
-  },
-  {
-   "t": 49.27,
-   "cue": "rule: Dm9"
+   "t": 51.4,
+   "cue": "end card: the mark riff: energy 1"
   },
   {
    "t": 51.55,
-   "cue": "sonic logo: the mark's path as notes"
+   "cue": "mark riff plays as the line draws"
   },
   {
    "t": 52.09,
-   "cue": "wire snaps: D major"
+   "cue": "wire snaps: ride out: energy 3"
+  },
+  {
+   "t": 54.4,
+   "cue": "loop build: last bar resolves into frame 0's hit"
   }
  ]
 }

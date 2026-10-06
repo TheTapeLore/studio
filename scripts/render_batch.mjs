@@ -63,11 +63,11 @@ const progressPrinter = (label) => {
 /**
  * Master bus. Cues are mastered one by one (gen_cues.py) and the score is a quiet bed (score.py), but overlaps, the
  * renderer's mix and AAC overshoot (~2 dB) can still push the encoded track over the ceiling. So: measure the
- * integrated loudness, apply one static gain to reach -15 LUFS (short-form platforms normalise around -14), then a
+ * integrated loudness, apply one static gain to reach -14 LUFS (short-form platforms normalise around -14), then a
  * brick-wall limiter at -4 dBFS so the encoded true peak lands near -2 dBTP (CLAUDE.md rule: <= -1).
  * Video is stream-copied, never re-encoded.
  */
-const MASTER_LUFS = -15;
+const MASTER_LUFS = -14;
 /** Integrated loudness (EBU R128) of a file's audio, from ffmpeg's ebur128 summary. */
 const integrated = (file) => {
   const r = spawnSync("ffmpeg", ["-nostdin", "-hide_banner", "-nostats", "-i", file, "-af", "ebur128", "-f", "null", "-"], { encoding: "utf8" });

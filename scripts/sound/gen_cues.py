@@ -122,7 +122,8 @@ def lufs(x):
 
 
 def true_peak_db(x):
-    # 4x oversampling by FFT zero-padding
+    # 4x oversampling by FFT zero-padding (padded with silence so the circular FFT cannot wrap the end onto the start)
+    x = np.concatenate([x, np.zeros(min(len(x), 4800))])
     n = len(x)
     X = np.fft.rfft(x, n)
     Y = np.zeros(2 * n + 1, dtype=complex)

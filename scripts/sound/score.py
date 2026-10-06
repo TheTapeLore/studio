@@ -334,7 +334,14 @@ def mark_snap_seconds(draw_at, draw_dur=1.0):
 
 def i_end(S, b, t0, t1, data):
     """The end card's mark draws over phrase A's dips; its wire snap IS the breakout note on the next downbeat."""
-    snap = t0 + mark_snap_seconds(b.get("props", {}).get("drawAt", 0.15))
+    pr = b.get("props", {})
+    if pr.get("vertexAt"):          # the mark is drawn vertex by vertex to the hook's rhythm
+        pts, wy = TOKENS["mark"]["price_path_512"], TOKENS["mark"]["wire_y_512"]
+        va = pr["vertexAt"]
+        f = (pts[-2][1] - wy) / (pts[-2][1] - pts[-1][1])
+        snap = t0 + pr.get("drawAt", 0.0) + va[-2] + f * (va[-1] - va[-2])
+    else:
+        snap = t0 + mark_snap_seconds(pr.get("drawAt", 0.15))
     S.anchor(t0)
     for k in S.bars_in(t0, t1):
         S.bars[k].energy, S.bars[k].label = 3, "end card"

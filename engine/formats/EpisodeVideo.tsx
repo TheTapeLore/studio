@@ -51,9 +51,10 @@ const BeatView: React.FC<{ beat: Beat; prev?: Beat; next?: Beat; durS: number }>
   const Comp = name ? COMPONENTS[name] : null;
   const cutIn = beat.transition === "cut" && prev;
   const cutOut = next?.transition === "cut";
-  const fin = cutIn ? 1 : prog(frame, fps, 0, 0.25);
+  // beats start on bar lines where the music hits: cut on the beat (0.1 s in/out), never a blank downbeat
+  const fin = cutIn ? 1 : prog(frame, fps, 0, 0.1);
   // the last beat holds its final frame (the end card stays readable under the tape roll-out)
-  const fout = cutOut || !next ? 0 : prog(frame, fps, durS - 0.2, 0.2);
+  const fout = cutOut || !next ? 0 : prog(frame, fps, durS - 0.1, 0.1);
   const headH = beat.headline ? L.u * 190 : 0;
   const stage = { ...L.stage, y: L.stage.y + headH, h: L.stage.h - headH };
   return (

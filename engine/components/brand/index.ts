@@ -1,4 +1,4 @@
-export { Mark, markCrossX, markSnapSeconds } from "./Mark";
+export { Mark, markCrossX, markSnapSeconds, markSnapFromVertices } from "./Mark";
 export { Lockup } from "./Lockup";
 export { TapeStrip } from "./TapeStrip";
 export { BlueprintGrid, Paper } from "./BlueprintGrid";

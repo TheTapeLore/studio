@@ -5,7 +5,7 @@ import { C, FONT, SIZE, TYPE, hexA } from "../../tokens";
 import { parseMarks, prog } from "../../lib/anim";
 import { loreText } from "../../lib/spec";
 import { useEpisode } from "../../lib/useEpisode";
-import { Mark, markSnapSeconds } from "../brand/Mark";
+import { Mark, markSnapFromVertices, markSnapSeconds } from "../brand/Mark";
 import { RichText } from "../captions/CaptionCard";
 import { useLayout } from "./layout";
 import { Sfx } from "./Sfx";
@@ -34,7 +34,13 @@ export const MonoLabel: React.FC<{ children: React.ReactNode; color?: string; si
  * The ending every Lore shares: the mark draws, breaks the wire, the wire snaps (with the snap sound),
  * then "Lore N. Next: Lore N+1 — <title>".
  */
-export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; title: string } | null; sfx?: boolean; drawAt?: number }> = ({ lore_no, next, sfx = true, drawAt = 0.15 }) => {
+export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; title: string } | null; sfx?: boolean; drawAt?: number; vertexAt?: number[] | null }> = ({
+  lore_no,
+  next,
+  sfx = true,
+  drawAt = 0.15,
+  vertexAt = null,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { u } = useLayout();
@@ -43,13 +49,13 @@ export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; tit
   const n = lore_no ?? ep?.spec.lore_no ?? 0;
   const nx = next ?? ep?.spec.next ?? null;
   // drawAt lets the score put the wire snap on a beat (scripts/sound/score.py reads the same prop)
-  const snapS = markSnapSeconds(drawAt, 1.0);
+  const snapS = vertexAt ? drawAt + markSnapFromVertices(vertexAt) : markSnapSeconds(drawAt, 1.0);
   const t1 = prog(frame, fps, snapS + 0.15, 0.35);
   const t2 = prog(frame, fps, snapS + 0.45, 0.4);
   const size = Math.min(w * 0.5, h * 0.48);
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-      <Mark size={size} drawAt={drawAt} drawDur={1.0} />
+      <Mark size={size} drawAt={drawAt} drawDur={1.0} vertexAt={vertexAt} />
       {sfx ? <Sfx name="snap" at={snapS} /> : null}
       <div style={{ marginTop: 26 * u, opacity: t1, fontFamily: FONT.display, fontWeight: 900, fontSize: SIZE.h1 * u, color: C.tape, lineHeight: 1 }}>{loreText(n)}</div>
       {nx ? (
@@ -100,9 +106,20 @@ export const MythCard: React.FC<{ myth: string; fact: string; factAt?: number }>
     <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: 46 * u }}>
       <div style={{ opacity: p0 }}>
         <MonoLabel color={C.ember}>Myth</MonoLabel>
-        <div style={{ position: "relative", display: "inline-block", marginTop: 16 * u, fontFamily: FONT.display, fontWeight: 800, fontSize: SIZE.h2 * u, lineHeight: 1.02, color: hexA(C.tape, 1 - 0.45 * strike) }}>
-          {myth}
-          <div style={{ position: "absolute", left: 0, top: "52%", height: 6 * u, width: `${strike * 100}%`, background: C.ember, borderRadius: 3 * u }} />
+        <div style={{ marginTop: 16 * u, fontFamily: FONT.display, fontWeight: 800, fontSize: SIZE.h2 * u, lineHeight: 1.08, color: hexA(C.tape, 1 - 0.45 * strike) }}>
+          {/* the strike follows every wrapped line (background on an inline span, cloned per line box) */}
+          <span
+            style={{
+              backgroundImage: `linear-gradient(${C.ember}, ${C.ember})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "0 56%",
+              backgroundSize: `${strike * 100}% ${6 * u}px`,
+              WebkitBoxDecorationBreak: "clone",
+              boxDecorationBreak: "clone",
+            }}
+          >
+            {myth}
+          </span>
         </div>
       </div>
       <div style={{ opacity: p1, transform: `translateY(${(1 - p1) * 16 * u}px)` }}>

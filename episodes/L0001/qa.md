@@ -77,3 +77,21 @@ Score composed from this spec by `scripts/sound/score.py` (cue sheet: `score.jso
 - Mix (4x5 render): **−15.5 LUFS integrated, −1.9 dBTP** (master: static gain to −15 LUFS, limiter −4 dBFS). PASS.
 - Visuals unchanged (same spec); frames re-sampled, no regressions.
 **Result: qa_passed with music.**
+
+## Pass 4: music v2, the Tape Machine (founder feedback: piano felt unrelated; wants beat-driven, hooky)
+Research: hook audio in the first 1–2 s, upbeat electronic/hip-hop holds short-form attention, drops on reveals, loops
+that start and end on the same rhythm (YouTube counts replays as views). Score = dark trap 150 BPM (risk pillar).
+- Story check (cue sheet `score.json`): groove + hit on frame 0; −50% hook = 808 slide; bedrock: tape stops at 4.4 s
+  (808 slides 6 st), thin "what's left" groove from 6.4 s, riser 1 bar from 9.6 s, **DROP 11.2 s** with "+100%";
+  sweep: −10%/−20% small lifts, −50% riser resolves into a drop (19.2 s), **−75% riser needs 3 bars, 1.2 fit;
+  −90% needs 9, 2 fit: both cut off unresolved** while the drums thin out; Nasdaq: low-pass follows the drawdown
+  (~260 Hz at −75%), ticker traces the price, **DROP on the 2015 snap (34.3 s)**; myth: tape stops, clock only, impact
+  when the math lands (41.4 s); rule: full groove + the mark riff; end: riff note-for-note with the line, hit on the wire
+  snap, last bar builds into frame 0. PASS.
+- Spectrogram + waveform viewed (two iterations: v2a left a 5 s 808 drone after the bedrock tape-stop; fixed by
+  restarting a thin groove on the next bar). PASS.
+- Loop: end beat 4.0 → 4.6 s, video 56.0 s = 35 bars; seam rendered across the loop point: snare-roll build lands on the
+  frame-0 hit. PASS.
+- All 8 pillar genres compose at −16.8…−17.5 LUFS (music bus) and ≤ −1.5 dBTP. PASS.
+- Final mix (4x5): **−14.3 LUFS, −1.8 dBTP**. Visuals unchanged apart from the 0.6 s longer end card. PASS.
+**Result: qa_passed with music v2.**

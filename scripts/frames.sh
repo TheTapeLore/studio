@@ -41,7 +41,7 @@ PY
 fi
 
 # the last frame
-ffmpeg -loglevel error -y -sseof -0.05 -i "$VIDEO" -frames:v 1 -update 1 "$OUT/zz-last.png"
+ffmpeg -nostdin -loglevel error -y -sseof -0.1 -i "$VIDEO" -frames:v 1 -update 1 "$OUT/zz-last.png"
 
 if [ "${SHEET:-0}" = "1" ]; then
   python3 - "$OUT" <<'PY'

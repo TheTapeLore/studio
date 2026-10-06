@@ -14,7 +14,7 @@ Checks (FAIL blocks the render, WARN needs a human look):
   compliance: sources present and complete; data ends >= 90 days before today; simulations seeded;
               banned phrases and emoji (config/platforms.yaml) absent from title, hook, captions, headlines
 """
-import datetime, json, os, re, sys
+import datetime, json, math, os, re, sys
 import yaml
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -125,6 +125,21 @@ def lint(spec, today=None):
         E.append("simulation without a fixed seed")
     if fmt == "whatif" and not any(b.get("kind") == "assumptions" or b.get("component") == "AssumptionsPanel" for b in beats):
         E.append("whatif must state its assumptions on screen (an `assumptions` beat)")
+    # music: the score loops seamlessly only if the video is a whole number of bars at the pillar's tempo
+    if spec.get("score") is not False:
+        try:
+            sys.path.insert(0, os.path.join(ROOT, "scripts", "sound"))
+            from score import GENRES
+            sc = spec.get("score") if isinstance(spec.get("score"), dict) else {}
+            g = GENRES.get(sc.get("genre") or spec.get("pillar"))
+            if g:
+                bar = 240 / g["bpm"]
+                bars = dur / bar
+                if abs(bars - round(bars)) > 0.02:
+                    W.append(f"duration {dur}s is {bars:.2f} bars of {g['name']} ({g['bpm']:.1f} BPM): lengthen the end beat to "
+                             f"{math.ceil(bars) * bar:.2f}s total for a seamless loop")
+        except ImportError:
+            pass
     if spec.get("pillar") == "leverage":
         W.append("leverage: confirm the losing side has equal prominence (rule 3) when you view the frames")
     texts = [spec.get("title", ""), spec.get("hook", ""), spec.get("takeaway", "")]

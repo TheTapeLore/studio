@@ -57,3 +57,10 @@ Frames every 2 s (exact timestamps) + beat boundaries, contact sheets viewed for
 6. Distinct: PASS.
 
 **Result: qa_passed after 2 passes.**
+
+## Delivery
+- Actions run https://github.com/TheTapeLore/studio/actions/runs/37506977740: lint, render (CI re-render from the
+  spec), validate, Release https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-06-a with
+  L0001-4x5.mp4, L0001-9x16.mp4, L0001-thumb.png, L0001-cover.png. Status `released`.
+- The run's registry push-back failed (rendered files left the checkout dirty, so `pull --rebase` refused) while the
+  step still reported success. Fixed in render.yml (`--autostash`, explicit failure); status recorded from the session.

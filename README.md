@@ -97,7 +97,7 @@ gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # rend
 ### Lore 001
 - Spec, data, stills and QA log: `episodes/L0001/` (QA passed; see `qa.md`).
 - Copy to paste: `publish/L0001/x.md`, `instagram.md`, `youtube.md`; thumbnail and cover in `publish/L0001/`.
-- Videos: GitHub Release `batch-2026-10-06-a` (created by the render workflow).
+- Videos: GitHub Release [batch-2026-10-06-a](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-06-a) (MP4s, thumbnail, cover), created by the render workflow. Registry status: `released`.
 
 ### What you must do by hand
 1. **Merge this branch** into `main` (the render workflow runs from whatever branch it is dispatched on, but `main` should hold the studio).

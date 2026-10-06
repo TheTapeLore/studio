@@ -89,4 +89,6 @@ jobs:
           git add content/registry.json
           git diff --cached --quiet && exit 0
           git commit -m "Registry: batch $BATCH released"
-          for i in 1 2 3; do git pull --rebase -q origin "$REF" && git push origin "HEAD:$REF" && break; sleep 5; done
+          # renders leave modified files in the checkout (thumb/cover copies): autostash them, and fail if the push never lands
+          for i in 1 2 3; do git pull --rebase --autostash -q origin "$REF" && git push origin "HEAD:$REF" && exit 0; sleep 5; done
+          echo "::error::could not push the registry update to $REF"; exit 1

@@ -1,12 +1,29 @@
 {
  "id": "L0001",
+ "song": {
+  "id": "L0001",
+  "key": "A minor",
+  "bpm": 120.0,
+  "genre": "melodic house",
+  "groove": "four",
+  "progression": [
+   "i",
+   "VI",
+   "III",
+   "VII"
+  ],
+  "lead": "pluck",
+  "bass": "rolling",
+  "arp": "broken",
+  "swing": 0.0
+ },
  "genre": "melodic house",
  "bpm": 120.0,
  "bars": 31.0,
  "loop_aligned": true,
  "lufs": -16.8,
  "true_peak_db": -2.8,
- "generator": "scripts/sound/score.py (v3)",
+ "generator": "scripts/sound/score.py (v4)",
  "arrangement": [
   {
    "bar": 1,
@@ -266,7 +283,7 @@
    "chord": "i",
    "energy": 3,
    "drums": "full",
-   "melody": "A1",
+   "melody": "logo1",
    "label": "end card"
   },
   {
@@ -275,7 +292,7 @@
    "chord": "VI",
    "energy": 3,
    "drums": "full",
-   "melody": "A2",
+   "melody": "logo2",
    "label": "end card"
   },
   {
@@ -292,7 +309,7 @@
   {
    "t": 0.0,
    "bar": 1,
-   "cue": "hook: full groove + the logo melody from frame 0"
+   "cue": "hook: full groove + the song's hook from frame 0"
   },
   {
    "t": 5.5,
@@ -387,12 +404,17 @@
   {
    "t": 48.0,
    "bar": 25,
-   "cue": "chorus: both hook phrases, the breakout lands at the end"
+   "cue": "chorus: the hook from its bar 3 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 56.0,
+   "bar": 29,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
   },
   {
    "t": 58.0,
    "bar": 29,
-   "cue": "the wire snaps on the breakout note"
+   "cue": "the wire snaps on the logo's breakout note"
   },
   {
    "t": 60.0,

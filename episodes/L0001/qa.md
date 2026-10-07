@@ -113,3 +113,9 @@ continuous groove (LRA 3.9 LU), ringing final chord, −14.4 LUFS. Pace assessed
 - Loop seam rendered across the end: snare roll → frame-0 hit, continuous. PASS.
 - Final mix, both aspects: **−14.1 LUFS, −2.9 dBTP**. PASS.
 **Result: qa_passed with music v3.**
+
+## Note: music v4 (2026-10-07, no re-render needed)
+- Song memory introduced: this episode's song is frozen in `song.json` (A minor, 120 BPM, i VI III VII, the v3 hook).
+  Its first phrase is now the channel's sonic logo, played on every later end card in that song's key.
+- Regression: `score.py L0001` under v4 writes a WAV byte-identical to the released v3 score (`cmp` clean), so the
+  released videos stay valid. score.json now labels bars 29–30 `logo1/logo2` (same notes as before).

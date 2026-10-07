@@ -1,0 +1,2523 @@
+{
+ "duration_s": 133.4,
+ "vertex_beats": [
+  0.0,
+  0.75,
+  1.5,
+  2.0,
+  2.5,
+  3.0,
+  6.022222222222222
+ ],
+ "segments": [
+  {
+   "t": 0.0,
+   "dur": 22.0,
+   "label": "Lore 001 (released)",
+   "song": {
+    "id": "L0001",
+    "key": "A minor",
+    "bpm": 120.0,
+    "genre": "melodic house",
+    "groove": "four",
+    "progression": [
+     "i",
+     "VI",
+     "III",
+     "VII"
+    ],
+    "lead": "pluck",
+    "bass": "rolling",
+    "arp": "broken",
+    "swing": 0.0
+   },
+   "mode": "minor",
+   "keypc": 9,
+   "beat": 0.5,
+   "melody": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 0,
+     "len": 3,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 3,
+     "len": 3,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 6,
+     "len": 2,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 8,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 10,
+     "len": 2,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 0,
+     "len": 8,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 8,
+     "len": 8,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 5,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 0,
+     "len": 3,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 3,
+     "len": 3,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 6,
+     "len": 2,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 8,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 10,
+     "len": 2,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 0,
+     "len": 8,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 8,
+     "len": 8,
+     "semis": 2,
+     "breakout": false
+    }
+   ],
+   "form": [
+    "A",
+    "B",
+    "A",
+    "B"
+   ],
+   "logo": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    }
+   ],
+   "bars": [
+    {
+     "m": 0,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 1,
+     "logo": null,
+     "chord": "VI",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "III",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "III",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 4,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 5,
+     "logo": null,
+     "chord": "VI",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 0,
+     "logo": 0,
+     "chord": "i",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 1,
+     "logo": 1,
+     "chord": "VI",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "III",
+     "melody": true,
+     "ci": 2
+    }
+   ],
+   "hook_quality": 1.179,
+   "max_similarity": 0.0
+  },
+  {
+   "t": 22.6,
+   "dur": 20.5333,
+   "label": "a future risk episode",
+   "song": {
+    "id": "NEXT1",
+    "key": "F dorian",
+    "bpm": 128.57,
+    "genre": "melodic house",
+    "groove": "four-broken",
+    "progression": [
+     "i",
+     "IV",
+     "i",
+     "IV"
+    ],
+    "lead": "bell",
+    "bass": "rolling",
+    "arp": "none",
+    "swing": 0.045
+   },
+   "mode": "dorian",
+   "keypc": 5,
+   "beat": 0.466667,
+   "melody": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 2,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 4,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 6,
+     "semis": 9,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 6,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 6,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 2,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 4,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 10,
+     "len": 2,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 12,
+     "len": 4,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 0,
+     "len": 6,
+     "semis": 9,
+     "breakout": true
+    },
+    {
+     "bar": 3,
+     "step": 6,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 10,
+     "len": 6,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 3,
+     "len": 3,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 6,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 8,
+     "len": 2,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 0,
+     "len": 6,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 5,
+     "step": 6,
+     "len": 4,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 10,
+     "len": 6,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 2,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 4,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 10,
+     "len": 2,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 12,
+     "len": 4,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 0,
+     "len": 6,
+     "semis": 9,
+     "breakout": true
+    },
+    {
+     "bar": 7,
+     "step": 6,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 10,
+     "len": 6,
+     "semis": 12,
+     "breakout": false
+    }
+   ],
+   "form": [
+    "A",
+    "A'",
+    "B",
+    "A''"
+   ],
+   "logo": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    }
+   ],
+   "bars": [
+    {
+     "m": 0,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 1,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 4,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 5,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 6,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 7,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 0,
+     "logo": 0,
+     "chord": "i",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 1,
+     "logo": 1,
+     "chord": "vi",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 2
+    }
+   ],
+   "hook_quality": 1.5,
+   "max_similarity": 0.304
+  },
+  {
+   "t": 43.7333,
+   "dur": 22.0,
+   "label": "a future setups episode",
+   "song": {
+    "id": "NEXT2",
+    "key": "E minor",
+    "bpm": 120.0,
+    "genre": "melodic techno",
+    "groove": "four-ghost",
+    "progression": [
+     "i",
+     "iv",
+     "VI",
+     "V"
+    ],
+    "lead": "glide",
+    "bass": "sub",
+    "arp": "broken",
+    "swing": 0.0
+   },
+   "mode": "minor",
+   "keypc": 4,
+   "beat": 0.5,
+   "melody": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 2,
+     "len": 4,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": -4,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 6,
+     "semis": 5,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 6,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 6,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 2,
+     "len": 4,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 6,
+     "len": 2,
+     "semis": -4,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 8,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 10,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 12,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 0,
+     "len": 6,
+     "semis": 7,
+     "breakout": true
+    },
+    {
+     "bar": 3,
+     "step": 6,
+     "len": 4,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 10,
+     "len": 6,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 2,
+     "len": 2,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 4,
+     "len": 2,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 6,
+     "len": 4,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 0,
+     "len": 6,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 5,
+     "step": 6,
+     "len": 4,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 10,
+     "len": 6,
+     "semis": 8,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 2,
+     "len": 4,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 6,
+     "len": 2,
+     "semis": -4,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 8,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 10,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 12,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 0,
+     "len": 6,
+     "semis": 7,
+     "breakout": true
+    },
+    {
+     "bar": 7,
+     "step": 6,
+     "len": 4,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 10,
+     "len": 6,
+     "semis": 2,
+     "breakout": false
+    }
+   ],
+   "form": [
+    "A",
+    "A'",
+    "B",
+    "A''"
+   ],
+   "logo": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    }
+   ],
+   "bars": [
+    {
+     "m": 0,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 1,
+     "logo": null,
+     "chord": "iv",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "VI",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "V",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 4,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 5,
+     "logo": null,
+     "chord": "iv",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 6,
+     "logo": null,
+     "chord": "VI",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 7,
+     "logo": null,
+     "chord": "V",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 0,
+     "logo": 0,
+     "chord": "i",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 1,
+     "logo": 1,
+     "chord": "VI",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "VI",
+     "melody": true,
+     "ci": 2
+    }
+   ],
+   "hook_quality": 1.533,
+   "max_similarity": 0.421
+  },
+  {
+   "t": 66.3333,
+   "dur": 15.4,
+   "label": "a future leverage episode",
+   "song": {
+    "id": "NEXT3",
+    "key": "Db dorian",
+    "bpm": 171.43,
+    "genre": "liquid drum & bass",
+    "groove": "dnb",
+    "progression": [
+     "IV",
+     "VII",
+     "i",
+     "i"
+    ],
+    "lead": "supersaw",
+    "bass": "sub",
+    "arp": "up",
+    "swing": 0.0
+   },
+   "mode": "dorian",
+   "keypc": 1,
+   "beat": 0.35,
+   "melody": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 14,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 6,
+     "semis": 5,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 6,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 8,
+     "len": 8,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 0,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 3,
+     "len": 3,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 6,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 10,
+     "len": 2,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 12,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 14,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 0,
+     "len": 6,
+     "semis": 7,
+     "breakout": true
+    },
+    {
+     "bar": 3,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 8,
+     "len": 8,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 0,
+     "len": 3,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 3,
+     "len": 1,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 4,
+     "len": 4,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 8,
+     "len": 3,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 11,
+     "len": 5,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 0,
+     "len": 6,
+     "semis": 14,
+     "breakout": true
+    },
+    {
+     "bar": 5,
+     "step": 6,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 8,
+     "len": 8,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 0,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 3,
+     "len": 3,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 6,
+     "len": 4,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 10,
+     "len": 2,
+     "semis": -2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 12,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 14,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 0,
+     "len": 6,
+     "semis": 7,
+     "breakout": true
+    },
+    {
+     "bar": 7,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 8,
+     "len": 8,
+     "semis": 0,
+     "breakout": false
+    }
+   ],
+   "form": [
+    "A",
+    "A'",
+    "B",
+    "A''"
+   ],
+   "logo": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    }
+   ],
+   "bars": [
+    {
+     "m": 0,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 1,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 4,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 5,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 6,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 7,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 0,
+     "logo": 0,
+     "chord": "i",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 1,
+     "logo": 1,
+     "chord": "vi",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 2
+    }
+   ],
+   "hook_quality": 1.568,
+   "max_similarity": 0.518
+  },
+  {
+   "t": 82.3333,
+   "dur": 29.3333,
+   "label": "a future operator episode",
+   "song": {
+    "id": "NEXT4",
+    "key": "B dorian",
+    "bpm": 90.0,
+    "genre": "lo-fi hip hop",
+    "groove": "hiphop-lazy",
+    "progression": [
+     "i",
+     "v",
+     "VII",
+     "IV"
+    ],
+    "lead": "square",
+    "bass": "sub",
+    "arp": "broken",
+    "swing": 0.086
+   },
+   "mode": "dorian",
+   "keypc": 11,
+   "beat": 0.666667,
+   "melody": [
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 3,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 11,
+     "len": 3,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 14,
+     "len": 2,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 3,
+     "semis": 14,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 3,
+     "len": 3,
+     "semis": 12,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 6,
+     "len": 2,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 8,
+     "len": 8,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 3,
+     "len": 3,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 6,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 8,
+     "len": 3,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 11,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 14,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 0,
+     "len": 3,
+     "semis": 9,
+     "breakout": true
+    },
+    {
+     "bar": 3,
+     "step": 3,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 8,
+     "len": 8,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 0,
+     "len": 4,
+     "semis": 12,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 4,
+     "len": 2,
+     "semis": 14,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 6,
+     "len": 2,
+     "semis": 14,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 8,
+     "len": 3,
+     "semis": 12,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 11,
+     "len": 5,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 0,
+     "len": 3,
+     "semis": 19,
+     "breakout": true
+    },
+    {
+     "bar": 5,
+     "step": 3,
+     "len": 3,
+     "semis": 15,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 6,
+     "len": 2,
+     "semis": 12,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 8,
+     "len": 8,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 3,
+     "len": 3,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 6,
+     "len": 2,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 8,
+     "len": 3,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 11,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 14,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 0,
+     "len": 3,
+     "semis": 9,
+     "breakout": true
+    },
+    {
+     "bar": 7,
+     "step": 3,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 8,
+     "len": 8,
+     "semis": 0,
+     "breakout": false
+    }
+   ],
+   "form": [
+    "A",
+    "A'",
+    "B",
+    "A''"
+   ],
+   "logo": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 3,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 10,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    }
+   ],
+   "bars": [
+    {
+     "m": 0,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 1,
+     "logo": null,
+     "chord": "v",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 4,
+     "logo": null,
+     "chord": "i",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 5,
+     "logo": null,
+     "chord": "v",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 6,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 7,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 0,
+     "logo": 0,
+     "chord": "i",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 1,
+     "logo": 1,
+     "chord": "vi",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "VII",
+     "melody": true,
+     "ci": 2
+    }
+   ],
+   "hook_quality": 1.568,
+   "max_similarity": 0.432
+  },
+  {
+   "t": 112.2667,
+   "dur": 20.5333,
+   "label": "a future selection episode",
+   "song": {
+    "id": "NEXT5",
+    "key": "Db major",
+    "bpm": 128.57,
+    "genre": "garage house",
+    "groove": "garage",
+    "progression": [
+     "vi",
+     "IV",
+     "I",
+     "V"
+    ],
+    "lead": "bell",
+    "bass": "octave",
+    "arp": "up",
+    "swing": 0.166
+   },
+   "mode": "major",
+   "keypc": 1,
+   "beat": 0.466667,
+   "melody": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": -1,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": -3,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 4,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 11,
+     "len": 5,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 6,
+     "semis": 9,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 6,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 6,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 3,
+     "len": 3,
+     "semis": -1,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 6,
+     "len": 2,
+     "semis": -3,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 8,
+     "len": 2,
+     "semis": 4,
+     "breakout": false
+    },
+    {
+     "bar": 2,
+     "step": 11,
+     "len": 5,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 0,
+     "len": 6,
+     "semis": 7,
+     "breakout": true
+    },
+    {
+     "bar": 3,
+     "step": 6,
+     "len": 4,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 3,
+     "step": 10,
+     "len": 6,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 0,
+     "len": 4,
+     "semis": 4,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 4,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 6,
+     "len": 2,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 8,
+     "len": 3,
+     "semis": 4,
+     "breakout": false
+    },
+    {
+     "bar": 4,
+     "step": 11,
+     "len": 5,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 0,
+     "len": 6,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 5,
+     "step": 6,
+     "len": 4,
+     "semis": 11,
+     "breakout": false
+    },
+    {
+     "bar": 5,
+     "step": 10,
+     "len": 6,
+     "semis": 9,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 0,
+     "len": 2,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 3,
+     "len": 3,
+     "semis": -1,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 6,
+     "len": 2,
+     "semis": -3,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 8,
+     "len": 2,
+     "semis": 4,
+     "breakout": false
+    },
+    {
+     "bar": 6,
+     "step": 11,
+     "len": 5,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 0,
+     "len": 6,
+     "semis": 7,
+     "breakout": true
+    },
+    {
+     "bar": 7,
+     "step": 6,
+     "len": 4,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 7,
+     "step": 10,
+     "len": 6,
+     "semis": 2,
+     "breakout": false
+    }
+   ],
+   "form": [
+    "A",
+    "A'",
+    "B",
+    "A''"
+   ],
+   "logo": [
+    {
+     "bar": 0,
+     "step": 0,
+     "len": 3,
+     "semis": 7,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 3,
+     "len": 3,
+     "semis": 0,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 6,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 8,
+     "len": 2,
+     "semis": 2,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 10,
+     "len": 2,
+     "semis": 5,
+     "breakout": false
+    },
+    {
+     "bar": 0,
+     "step": 12,
+     "len": 4,
+     "semis": 4,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 0,
+     "len": 10,
+     "semis": 12,
+     "breakout": true
+    },
+    {
+     "bar": 1,
+     "step": 10,
+     "len": 2,
+     "semis": 11,
+     "breakout": false
+    },
+    {
+     "bar": 1,
+     "step": 12,
+     "len": 4,
+     "semis": 7,
+     "breakout": false
+    }
+   ],
+   "bars": [
+    {
+     "m": 0,
+     "logo": null,
+     "chord": "vi",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 1,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "I",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 3,
+     "logo": null,
+     "chord": "V",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 4,
+     "logo": null,
+     "chord": "vi",
+     "melody": true,
+     "ci": 0
+    },
+    {
+     "m": 5,
+     "logo": null,
+     "chord": "IV",
+     "melody": true,
+     "ci": 1
+    },
+    {
+     "m": 6,
+     "logo": null,
+     "chord": "I",
+     "melody": true,
+     "ci": 2
+    },
+    {
+     "m": 7,
+     "logo": null,
+     "chord": "V",
+     "melody": true,
+     "ci": 3
+    },
+    {
+     "m": 0,
+     "logo": 0,
+     "chord": "I",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 1,
+     "logo": 1,
+     "chord": "vi",
+     "melody": true,
+     "ci": null
+    },
+    {
+     "m": 2,
+     "logo": null,
+     "chord": "I",
+     "melody": true,
+     "ci": 2
+    }
+   ],
+   "hook_quality": 1.58,
+   "max_similarity": 0.501
+  }
+ ]
+}

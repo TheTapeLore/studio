@@ -38,8 +38,8 @@ export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; tit
   lore_no,
   next,
   sfx = true,
-  drawAt = 0.15,
-  vertexAt = null,
+  drawAt: drawAtProp,
+  vertexAt: vertexAtProp = null,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -48,7 +48,11 @@ export const EndCard: React.FC<{ lore_no?: number; next?: { lore_no: number; tit
   const ep = useEpisode();
   const n = lore_no ?? ep?.spec.lore_no ?? 0;
   const nx = next ?? ep?.spec.next ?? null;
-  // drawAt lets the score put the wire snap on a beat (scripts/sound/score.py reads the same prop)
+  // The mark draws on the sonic logo's notes: the spec may fix the timing, otherwise the score publishes it at the
+  // song's tempo (score.json end_card), so the wire snaps on the logo's breakout note. Without a score: a plain draw.
+  const auto = vertexAtProp ? null : ep?.score?.end_card ?? null;
+  const vertexAt = vertexAtProp ?? auto?.vertexAt ?? null;
+  const drawAt = drawAtProp ?? auto?.drawAt ?? 0.15;
   const snapS = vertexAt ? drawAt + markSnapFromVertices(vertexAt) : markSnapSeconds(drawAt, 1.0);
   const t1 = prog(frame, fps, snapS + 0.15, 0.35);
   const t2 = prog(frame, fps, snapS + 0.45, 0.4);

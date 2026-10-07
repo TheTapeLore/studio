@@ -5,6 +5,7 @@ import { FPS } from "./tokens";
 import { EPISODES } from "./episodes";
 import { Aspect, Episode } from "./lib/spec";
 import { Gallery, galleryFrames } from "./gallery/Gallery";
+import { SongSampler, samplerFrames } from "./gallery/SongSampler";
 import { GALLERY } from "./gallery/entries";
 import { Cover, FORMAT_COMPONENTS, Thumbnail } from "./formats";
 import { SAMPLES } from "./samples";
@@ -63,6 +64,7 @@ export const Root: React.FC = () => (
       <Composition id="gallery" component={Gallery} defaultProps={{ guides: true, segments: SEGMENTS }} fps={FPS} durationInFrames={galleryFrames(FPS)} width={1080} height={1350} />
       <Composition id="gallery-9x16" component={Gallery} defaultProps={{ guides: true, segments: SEGMENTS }} fps={FPS} durationInFrames={galleryFrames(FPS)} width={1080} height={1920} />
       <Composition id="gallery-16x9" component={Gallery} defaultProps={{ guides: true, segments: SEGMENTS }} fps={FPS} durationInFrames={galleryFrames(FPS)} width={1920} height={1080} />
+      <Composition id="song-sampler" component={SongSampler} fps={FPS} durationInFrames={samplerFrames(FPS)} width={1080} height={1350} />
       <Composition id="smoke" component={Smoke} fps={FPS} durationInFrames={2 * FPS} width={1080} height={1350} />
     </Folder>
   </>

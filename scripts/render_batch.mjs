@@ -130,14 +130,15 @@ const prepareData = (id) => {
   execFileSync("python3", [path.join(ROOT, "scripts", "prepare_data.py"), id], { stdio: "inherit" });
 };
 
-/** Compose the music bed from the spec (scripts/sound/score.py) when it is missing or older than spec/data. */
+/** Compose the episode's song from its spec + song.json (scripts/sound/score.py) when missing or older than its inputs. */
 const prepareScore = (id) => {
   const dir = path.join(ROOT, "episodes", id);
   const spec = readJson(path.join(dir, "spec.json"));
   if (spec.score === false) return;
   const wav = path.join(ENGINE, "public", "score", `${id}.wav`);
   const mtime = (f) => (fs.existsSync(f) ? fs.statSync(f).mtimeMs : 0);
-  const newest = Math.max(mtime(path.join(dir, "spec.json")), mtime(path.join(dir, "data.json")), mtime(path.join(ROOT, "scripts", "sound", "score.py")));
+  const sound = path.join(ROOT, "scripts", "sound");
+  const newest = Math.max(...[path.join(dir, "spec.json"), path.join(dir, "data.json"), path.join(dir, "song.json"), path.join(sound, "score.py"), path.join(sound, "song.py")].map(mtime));
   if (fs.existsSync(wav) && fs.existsSync(path.join(dir, "score.json")) && mtime(wav) >= newest) return;
   log(`score ${id}: composing from the spec`);
   execFileSync("python3", [path.join(ROOT, "scripts", "sound", "score.py"), id], { stdio: ["ignore", "ignore", "inherit"] });

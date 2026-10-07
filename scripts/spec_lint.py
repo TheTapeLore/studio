@@ -125,21 +125,30 @@ def lint(spec, today=None):
         E.append("simulation without a fixed seed")
     if fmt == "whatif" and not any(b.get("kind") == "assumptions" or b.get("component") == "AssumptionsPanel" for b in beats):
         E.append("whatif must state its assumptions on screen (an `assumptions` beat)")
-    # music: the score loops seamlessly only if the video is a whole number of bars at the pillar's tempo
+    # music: every episode has its own song (song.json, the song memory). Specs are timed in whole bars of ITS tempo,
+    # the video loops seamlessly only if it is a whole number of bars, and the end card must hold the 2-bar sonic logo.
     if spec.get("score") is not False:
-        try:
-            sys.path.insert(0, os.path.join(ROOT, "scripts", "sound"))
-            from score import GENRES
-            sc = spec.get("score") if isinstance(spec.get("score"), dict) else {}
-            g = GENRES.get(sc.get("genre") or spec.get("pillar"))
-            if g:
-                bar = 240 / g["bpm"]
-                bars = dur / bar
-                if abs(bars - round(bars)) > 0.02:
-                    W.append(f"duration {dur}s is {bars:.2f} bars of {g['name']} ({g['bpm']:.1f} BPM): lengthen the end beat to "
-                             f"{math.ceil(bars) * bar:.2f}s total for a seamless loop")
-        except ImportError:
-            pass
+        sys.path.insert(0, os.path.join(ROOT, "scripts", "sound"))
+        sid = spec.get("id", "")
+        sp = os.path.join(ROOT, "episodes", sid, "song.json")
+        if not os.path.exists(sp):
+            E.append(f"no song.json: run `python scripts/sound/song.py {sid}` (designs and freezes this episode's song), "
+                     f"time the spec to its bars, and commit song.json with the spec")
+        else:
+            sg = json.load(open(sp))
+            bar = 240 / sg["bpm"]
+            bars = dur / bar
+            if abs(bars - round(bars)) > 0.02:
+                W.append(f"duration {dur}s is {bars:.2f} bars of this song ({sg['bpm']:.1f} BPM, bar {bar:.4f}s): make it "
+                         f"{math.ceil(bars) * bar:.4f}s for a seamless loop")
+            for b in beats:
+                if abs(b["t"] / bar - round(b["t"] / bar)) > 0.02:
+                    W.append(f"beat '{b.get('kind')}' at {b['t']}s is off the bar grid (bar {bar:.4f}s): cuts land on downbeats")
+                if b.get("kind") == "end" and b["dur"] < 2 * bar + 1.0 - 1e-6:
+                    E.append(f"end beat {b['dur']}s is too short for the sonic logo (2 bars = {2 * bar:.2f}s) plus the next-Lore "
+                             f"line: make it at least {math.ceil((2 * bar + 1.0) / bar) * bar:.4f}s")
+            if not sg.get("frozen"):
+                W.append("song.json is not frozen (song memory): re-run song.py or set frozen")
     if spec.get("pillar") == "leverage":
         W.append("leverage: confirm the losing side has equal prominence (rule 3) when you view the frames")
     texts = [spec.get("title", ""), spec.get("hook", ""), spec.get("takeaway", "")]

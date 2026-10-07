@@ -486,11 +486,17 @@ def glide(m, dur, vel, prev=None):
 LEADS = {"pluck": lead_note, "supersaw": supersaw, "square": square_lead, "bell": bell, "glide": glide}
 
 
-def _rms(x):
-    return float(np.sqrt(np.mean(x ** 2)))
+def _phrase_lufs(fn):
+    x = np.zeros(int(3.0 * SR))
+    for i, m in enumerate((69, 72, 76, 74, 81, 79)):
+        sig = fn(m, 0.4, 1.0)
+        j = int(i * 0.45 * SR)
+        x[j:j + len(sig)] += sig[: len(x) - j]
+    return lufs(x)
 
 
-LEAD_GAIN = {k: (1.0 if k == "pluck" else _rms(lead_note(69, 0.5, 1)) / _rms(fn(69, 0.5, 1))) for k, fn in LEADS.items()}
+# every lead patch sits at the pluck's loudness (BS.1770, so a bright bell is not louder than a hollow square)
+LEAD_GAIN = {k: (1.0 if k == "pluck" else 10 ** ((_phrase_lufs(lead_note) - _phrase_lufs(fn)) / 20)) for k, fn in LEADS.items()}
 
 
 def pad_chord(notes, dur):
@@ -619,7 +625,8 @@ def registers(song):
     return root, lead
 
 
-def render(S):
+def render(S, stems=None):
+    """Mix the arrangement. `stems` (a dict) receives the pre-master buses for QA (lead audibility, balance)."""
     sg = S.song
     n = int(round(S.dur * SR))
     root, lead_root = registers(sg)
@@ -762,6 +769,8 @@ def render(S):
             pump[i:i + L] = np.minimum(pump[i:i + L], 1 - 0.6 * np.exp(-np.arange(L) / (0.075 * SR)))
     lead_bus = delay(lead, S.beat * 0.75)
     music = drums + bass * pump + chords * pump + lead_bus * (0.6 + 0.4 * pump)
+    if stems is not None:
+        stems.update(drums=drums, bass=bass * pump, chords=chords * pump, lead=lead_bus * (0.6 + 0.4 * pump))
     music += reverb(chords * 0.5 + lead_bus * 0.6 + drums * 0.08) * 0.35
     if S.cutoff:
         def fn(t):

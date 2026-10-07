@@ -5,6 +5,7 @@ Song designer + song memory: every Lore gets its own song, and no two songs feel
   python scripts/sound/song.py L0002              -> design (or show) episodes/L0002/song.json, frozen once written
   python scripts/sound/song.py --audit            -> variety report across every song in the library
   python scripts/sound/song.py --preview risk 4   -> design 4 hypothetical next songs for a pillar (nothing written)
+  python scripts/sound/song.py L0002 --redesign   -> a different song for an unreleased episode
 
 The signature (constant across the channel)
   - the SONIC LOGO: the mark's price path as nine notes (three shrinking dips, then the breakout), played in each song's
@@ -416,7 +417,18 @@ if __name__ == "__main__":
     else:
         eid = a[0]
         spec = json.load(open(os.path.join(ROOT, "episodes", eid, "spec.json")))
-        s = load_or_design(eid, spec["pillar"])
+        if "--redesign" in a:      # only before release: a released episode's song is part of the record
+            reg = json.load(open(os.path.join(ROOT, "content", "registry.json")))
+            entry = next((e for e in reg.get("entries", reg if isinstance(reg, list) else []) if e.get("id") == eid), {})
+            if entry.get("status") in ("released", "published"):
+                sys.exit(f"{eid} is {entry['status']}: its song is frozen")
+            old = load_or_design(eid, spec["pillar"], write=False)
+            s = design(eid, spec["pillar"], seed_extra=int(old.get("redesigns", 0)) + 1)
+            s["redesigns"] = int(old.get("redesigns", 0)) + 1
+            with open(os.path.join(ROOT, "episodes", eid, "song.json"), "w") as f:
+                json.dump(s, f, indent=1)
+        else:
+            s = load_or_design(eid, spec["pillar"])
         print(describe(s))
         print(f"   bar = {240 / s['bpm']:.4f}s ({7200 / s['bpm']:.1f} frames at 30 fps): time the spec in whole bars")
         show_hook(s)

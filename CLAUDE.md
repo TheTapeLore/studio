@@ -44,7 +44,8 @@ anatomy · council · whatif (simulation lab) · replay (model-book replay with 
 7. Required disclaimer in every Instagram caption and YouTube description (see config/platforms.yaml).
 8. Simulations state their assumptions on screen; synthetic data is labelled "simulated".
 9. No copyrighted music, footage, charts or images. Sound is generated: cues by scripts/sound/gen_cues.py, the music
-   bed by scripts/sound/score.py (composed from each spec). Never add licensed, library or sampled music.
+   songs by scripts/sound/song.py + score.py (designed per episode, arranged by its spec). Never add licensed, library or
+   sampled music.
 
 ## Brand system (brand/BRAND.md, brand/tokens.json)
 Colours: Prussian #0F2A47 (base) · Abyss #081A2E (depth) · Blueline #2F5D8A (grid, hairlines) · Tape #EAF0F2 (ink)
@@ -94,18 +95,27 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - Render stills first and LOOK at them. Then full renders, one per command, in the background
   (`BASH_MAX_TIMEOUT_MS` is raised in the environment). Sample frames with ffmpeg and view them in QA.
 - New components must use tokens, fit the design system, and be added to the gallery composition.
-- Music (the Tape Machine v3, `scripts/sound/score.py <id>`, run automatically by render_batch): every video is a
-  SONG: one hook, one continuous groove. The hook is the logo (the mark's path as a two-bar melody: three shrinking
-  dips, then the breakout), answered by a second phrase, over a four-chord loop (i–VI–III–VII) with a four-on-the-floor
-  pump. Risk = melodic house 120 BPM in A minor (2.0 s bars, 15 frames per beat); each pillar has its own tempo/feel.
-  The data changes the ARRANGEMENT, never the clock: losses = descending runs in key (12 semitones per 100%), depth =
-  darker chords + half-time + the breakout note withheld, climbs = builds that drop where the arrow lands, charts = a
-  filter sweep (tripwire snap = drop into the chorus), myths = breakdowns, rules = the full chorus, the end card draws
-  the mark vertex-by-vertex on the hook's notes (EndCard `vertexAt`) and snaps on the breakout downbeat.
-  TIME SPECS IN WHOLE BARS and put key moments on beats (digAt/climbAt, chart revealDur, myth factAt); spec_lint
-  warns when a video is not loop-aligned. QA reads `episodes/<id>/score.json` (bar-by-bar arrangement + cues).
-  New components get an interpreter in score.py (else a default groove by beat kind). Override with
-  `"score": {"genre": "...", "gain_db": n}`; opt out with `"score": false`. Mix: ~-14 LUFS, true peak <= -1 dBTP.
+- Music (the Tape Machine v4): every video is its OWN SONG, and no two songs feel alike.
+  1. Design the song first: `python scripts/sound/song.py <id>` writes `episodes/<id>/song.json` (key, mode, tempo,
+     four-chord progression, an 8-bar hook A A' B A'', groove, lead/bass/arp, swing) and prints the bar length. The
+     SONG MEMORY enforces variety: differ from the last 3 songs in key+mode, the last 4 in progression, the last 2 in
+     lead, the previous one in groove+tempo, and the hook must score < 0.55 similarity against EVERY earlier hook.
+     song.json is frozen once committed (the registry for music); `--redesign` only before release.
+  2. The signature never changes: the SONIC LOGO (the mark's path as nine notes: three shrinking dips, then the
+     breakout) plays on every end card in the song's own key while the mark draws vertex by vertex on its notes; the
+     breakout note is the wire snap. Every hook also ends its phrases with a breakout leap on a downbeat.
+  3. One continuous groove: one tempo, one key, the song's chord loop, a pulse with a sidechain pump. The data changes
+     the ARRANGEMENT, never the clock: losses = descending runs in key (12 semitones per 100%), depth = the mode's
+     depth ladder (darker chords) + half-time + breakout notes withheld, climbs = builds that drop where the arrow
+     lands, charts = a filter sweep (tripwire snap = drop into the chorus), myths = breakdowns, rules = the chorus
+     (hook bars B A''), end card = the sonic logo, last bar builds into frame 0 (seamless loop).
+  4. TIME SPECS IN WHOLE BARS OF THE SONG'S TEMPO (song.py prints the bar; key moments on beats: digAt/climbAt, chart
+     revealDur, myth factAt). End beat >= 2 bars + 1 s and no `vertexAt` (the score publishes it at the song's tempo).
+     spec_lint fails without song.json and warns on loop/grid misses. `score.py <id> --report` prints the arrangement;
+     QA reads `episodes/<id>/score.json`. `python scripts/sound/sampler.py` + the `song-sampler` composition audition
+     the next songs. render_batch composes automatically. Opt out with `"score": false`; trim with
+     `"score": {"gain_db": n}`. New components get an interpreter in score.py (else a default groove by beat kind).
+     Mix: ~-14 LUFS, true peak <= -1 dBTP.
 - Quality loop: up to 3 passes per entry, logged in episodes/<id>/qa.md. Nothing ships with a failing check.
 
 ## Delivery
@@ -134,3 +144,6 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
   beat-driven (one electronic/hip-hop genre per pillar), drops on reveals, seamless loops; the piano bed is retired.
   v3 (founder: "a score needs a tune and one continuous motion"; reference: the 128 BPM motion reel): a song with
   the logo as the hook, one unbroken groove, picture cut to the bar grid. Tape-stops and random effects are retired.
+- 2026-10-07: Music v4 (founder: "the song shouldn't feel repetitive across our videos... catchy and in a groove but
+  songs should change"): a new song per episode (song.py + song memory, see Production rules); the sonic logo stays
+  constant as the channel's signature. Lore 001 keeps its song (its first phrase became the logo).

@@ -43,17 +43,19 @@ Follow CLAUDE.md exactly. Work autonomously; stop only for credentials or spendi
   -> episodes/<id>/stills/, and VIEW them. Fix before full render. Full renders: `node scripts/render_batch.mjs batches/<batch>.json`.
 - Full renders: `engine/out/<id>-4x5.mp4` and `<id>-9x16.mp4`, one command per render, in the background.
   Thumbnail (1280x720) and cover (1080x1920) from Remotion stills into publish/<id>/. Status `rendered`.
-- Music: render_batch composes the beat from the spec (scripts/sound/score.py). Run `python scripts/sound/score.py
-  <id> --report`: read the cue sheet against the beats (tape-stops on losses, drops on reveals, the riff on the end
-  card) and fix the end beat if it says the video is not loop-aligned. A component without an interpreter gets a
-  default groove by beat kind; add one when it matters.
+- Music: design each episode's song BEFORE timing the spec: `python scripts/sound/song.py <id>` (writes and freezes
+  episodes/<id>/song.json, prints the bar length). Time beats in whole bars of that tempo; end beat >= 2 bars + 1 s,
+  no `vertexAt`. render_batch composes the score. Run `python scripts/sound/score.py <id> --report`: read the cue
+  sheet against the beats (falls on losses, drops on reveals, the sonic logo on the end card, the wire snap on its
+  breakout note) and fix anything off the grid. `python scripts/sound/song.py --audit` shows the library's variety.
+  Commit song.json with the spec. A component without an interpreter gets a default groove by beat kind.
 
 ## 7. QA loop (max 3 passes per entry; log every pass in episodes/<id>/qa.md)
 Extract frames every 2s and at every beat boundary (`SHEET=1 scripts/frames.sh engine/out/<id>-<aspect>.mp4`), VIEW them, and score:
 1. Truth: every claim matches a source; numbers recomputed from data/sim.
 2. Compliance: the 9 rules in CLAUDE.md.
 3. Clarity: one idea; a first-time viewer gets it muted.
-4. Brand: tokens only, Sodium once per frame, TapeStrip intro/outro, snap on breakout.
+4. Brand: tokens only, Sodium once per frame, TapeStrip intro/outro, snap on breakout, sonic logo on the end card.
 5. Craft: safe zones, caption timing, no overlaps/clipping, contrast, smooth motion, audio peaks <= -1 dBFS.
 6. Distinct: still not a repeat after seeing it rendered.
 Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it, mark backlog item `blocked`, explain.

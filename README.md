@@ -72,7 +72,7 @@ Studio built and Lore 001 produced (2026-10-06). Delivery mode: **actions** (see
 | Metaphors | `engine/components/metaphors` | All 14 in `content/metaphors.yaml` (status now `built`) + PitCurve. Every number on screen is computed (recovery math, Black–Scholes, sizing, exits, margin). Abstract legend emblems only. |
 | Formats | `engine/formats` | One spec-driven composition per format (anatomy, council, whatif, replay, failure, lexicon, desknotes, legendcard) at 1080x1350 and 1080x1920, plus `chapter` at 1920x1080. Thumbnail (1280x720) and cover (1080x1920) are `<Still>`s. Demo specs for each in `engine/samples`. |
 | Gallery | compositions `gallery`, `gallery-9x16`, `gallery-16x9` | Every component in the real frame with safe-zone guides. |
-| Music | `scripts/sound/score.py` → `engine/public/score` | The Tape Machine v3: every video is a song. The hook is the logo's path as a melody; one continuous groove (risk = melodic house, 120 BPM, A minor); the data arranges it (falls, darker chords, withheld breakout note, builds and drops, filter sweeps). Picture is cut to the bar grid and loops seamlessly. `python scripts/sound/score.py L0001 --report` prints the bar-by-bar arrangement. |
+| Music | `scripts/sound/song.py` + `score.py` → `engine/public/score` | The Tape Machine v4: every Lore gets its own song. `song.py <id>` designs it (key, mode, tempo, chords, an 8-bar hook, groove, lead/bass/arp) and freezes it in `episodes/<id>/song.json`; the song memory keeps each new song away from recent keys, progressions, sounds and grooves and from every earlier hook. The constant signature is the sonic logo: the mark's path as nine notes, played on every end card in the song's key while the mark draws, its breakout note on the wire snap. `score.py` arranges the song from the data (falls, darker chords, withheld breakout notes, builds and drops, filter sweeps) in one continuous groove; picture is cut to the bar grid and loops seamlessly. `song.py --audit` reports variety; `sampler.py` + the `song-sampler` composition audition the next songs. |
 | Sound | `scripts/sound/gen_cues.py` → `engine/public/sfx` | snap, tick, click, whoosh, tape-in, tape-out, dig, rise. Pure numpy synthesis, BS.1770 loudness, true peak ≤ −1.2 dBTP. No samples, no music. |
 | Simulations | `sims/risk_per_trade.py` | Seeded numpy template for /sim: writes `episodes/<id>/sim.json` (downsampled runs + per-run outcomes + assumptions + analytic check). Its demo output drives the whatif sample. |
 | Tooling | `scripts/` | `render_batch.mjs` (resumable), `frames.sh` (QA frames + contact sheets), `spec_lint.py`, `prepare_data.py`. |
@@ -90,6 +90,9 @@ node scripts/render_batch.mjs batches/2026-10-06-a.json       # MP4s + thumb + c
 node scripts/render_batch.mjs --gallery                       # one still per component -> engine/out/gallery
 node scripts/render_batch.mjs --comp gallery --out engine/out/gallery.mp4
 SHEET=1 scripts/frames.sh engine/out/L0001-9x16.mp4           # QA frames + contact sheets
+python scripts/sound/song.py L0002                            # design + freeze an episode's song (prints the bar length)
+python scripts/sound/score.py L0001 --report                  # bar-by-bar arrangement of the score
+python scripts/sound/sampler.py && node scripts/render_batch.mjs --comp song-sampler --out engine/out/song-sampler.mp4
 python scripts/sound/gen_cues.py                              # regenerate the sound cues
 python scripts/validate_publish.py --write-md publish/L0001   # platform limits + copy-paste files
 gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # render + release in Actions

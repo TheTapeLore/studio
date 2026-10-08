@@ -9,7 +9,8 @@
     "video_4x5": "release:L0001-4x5.mp4",
     "video_9x16": "release:L0001-9x16.mp4",
     "thumb": "thumb.png",
-    "cover": "cover.png"
+    "cover": "cover.png",
+    "captions": "captions.srt"
   },
   "x": {
     "post": "Down 50%? Cool. Now you just need +100% to get back to even.\n\nNot a typo. You fell from $10,000, but you climb back from $5,000.\n\nLore 001 · The Pit",

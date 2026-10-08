@@ -73,7 +73,8 @@ Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it,
   Description: the hook in the first two lines, 2–3 lines of value, prerequisites/next as "Lore NNN, title", sources,
   the disclaimer, <= 3 hashtags.
   `tags` (<= 500 chars total), `playlist` = pillar name.
-- `files`: video_4x5, video_9x16 (prefix `release:` when they live in the Release), thumb, cover. `duration_s`, `aspect_primary`.
+- `files`: video_4x5, video_9x16 (prefix `release:` when they live in the Release), thumb, cover, captions
+  (`captions.srt`, written from the spec by `--write-md` via scripts/make_srt.py, same timing as on screen). `duration_s`, `aspect_primary`.
 - Run `python scripts/validate_publish.py --write-md publish/<id>` until PASS (it also runs voice_check). Then read the
   copy out loud once more.
 

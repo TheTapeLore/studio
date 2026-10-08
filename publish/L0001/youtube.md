@@ -1,7 +1,8 @@
 # YouTube — L0001
 
 Short: release:L0001-9x16.mp4  
-Thumbnail: thumb.png
+Thumbnail: thumb.png  
+Subtitles: captions.srt (Studio > Subtitles > Add language: English > Upload file > With timing)
 
 ## Title
 

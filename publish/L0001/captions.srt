@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:03,999
+Down 50%? Cool. Now you just need +100%.
+
+2
+00:00:04,000 --> 00:00:07,332
+Start with $10,000. One bad stretch: $5,000.
+
+3
+00:00:07,333 --> 00:00:11,025
+Now $5,000 has to do all the climbing.
+
+4
+00:00:11,026 --> 00:00:13,999
+$5,000 back on $5,000? That's +100%.
+
+5
+00:00:14,000 --> 00:00:17,698
+Small dips? The climb is barely longer.
+
+6
+00:00:17,699 --> 00:00:21,796
+At −50%, the climb is double the fall.
+
+7
+00:00:21,797 --> 00:00:25,097
+Past that, it gets ugly. Fast.
+
+8
+00:00:25,098 --> 00:00:27,999
+−90% needs +900%. Bring snacks.
+
+9
+00:00:28,000 --> 00:00:31,497
+Real life: the Nasdaq, 2000 to 2002.
+
+10
+00:00:31,498 --> 00:00:36,125
+It fell 78% in about two and a half years.
+
+11
+00:00:36,126 --> 00:00:39,999
+Getting back needed +353%. That took fifteen years.
+
+12
+00:00:40,000 --> 00:00:43,516
+We've all thought this one.
+
+13
+00:00:43,517 --> 00:00:47,999
+Nope. That still leaves you down 25%.
+
+14
+00:00:48,000 --> 00:00:52,203
+Small pits, short climbs. Boring is the point.
+
+15
+00:00:52,204 --> 00:00:55,999
+That's why this library starts with risk.
+
+16
+00:00:58,200 --> 00:01:01,949
+Lore 001. Next: Lore 002, 35% winners can beat 60% winners

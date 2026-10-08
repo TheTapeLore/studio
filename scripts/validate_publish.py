@@ -14,6 +14,7 @@ import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import voice_check
+import make_srt
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CFG = yaml.safe_load(open(os.path.join(ROOT, "config", "platforms.yaml")))
@@ -100,6 +101,8 @@ def validate(pkg):
 
 def write_md(pkg):
     m = json.load(open(os.path.join(pkg, "meta.json")))
+    if os.path.exists(os.path.join(ROOT, "episodes", m["id"], "spec.json")):
+        make_srt.write(m["id"])
     x, ig, yt = m.get("x", {}), m.get("instagram", {}), m.get("youtube", {})
     f = m.get("files", {})
     with open(os.path.join(pkg, "x.md"), "w") as o:
@@ -110,7 +113,8 @@ def write_md(pkg):
         o.write(f"# Instagram — {m['id']}\n\nReel: {f.get('video_9x16','')}  \nFeed/carousel: {f.get('video_4x5','')}  \n"
                 f"Cover: {f.get('cover','')} (cover frame at {ig.get('cover_frame_s','')}s)\n\n## Caption\n\n{ig.get('caption','')}\n\n## Alt text\n\n{ig.get('alt_text','')}\n")
     with open(os.path.join(pkg, "youtube.md"), "w") as o:
-        o.write(f"# YouTube — {m['id']}\n\nShort: {f.get('video_9x16','')}  \nThumbnail: {f.get('thumb','')}\n\n## Title\n\n{yt.get('title','')}\n\n"
+        o.write(f"# YouTube — {m['id']}\n\nShort: {f.get('video_9x16','')}  \nThumbnail: {f.get('thumb','')}  \n"
+                f"Subtitles: captions.srt (Studio > Subtitles > Add language: English > Upload file > With timing)\n\n## Title\n\n{yt.get('title','')}\n\n"
                 f"## Description\n\n{yt.get('description','')}\n\n## Tags\n\n{', '.join(yt.get('tags', []))}\n\n"
                 f"Playlist: {yt.get('playlist','')}  \nCategory: {CFG['youtube']['category']}  \nMade for kids: No\n")
 

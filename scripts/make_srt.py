@@ -6,7 +6,8 @@ Subtitles for upload (YouTube, and anywhere else that takes .srt), from the spec
 
 The captions are burned into the video too (feeds autoplay muted); the SRT is for accessibility, search and
 auto-translation. Cue timing mirrors engine/components/captions/timing.ts: a beat's cards share the beat in
-proportion to each card's minimum time (0.35 s/word + 0.8 s). The end card's line is added as the last cue.
+proportion to each card's minimum time (0.35 s/word + 0.8 s). A myth card's myth is added to its first cue, and the
+end card's line is added as the last cue.
 validate_publish.py --write-md runs this for every package.
 """
 import json, os, re, sys
@@ -29,9 +30,15 @@ def cues(spec):
         if cards:
             need = [0.35 * words(c) + 0.8 for c in cards]
             t = b["t"]
-            for c, n in zip(cards, need):
+            # a myth card shows the myth only on the card; subtitles need it too (screen readers, search), so the
+            # beat's first cue carries it as its first line
+            myth = (b.get("props") or {}).get("myth") if (b.get("component") == "MythCard" or b.get("kind") == "misconception") else None
+            for i, (c, n) in enumerate(zip(cards, need)):
                 d = b["dur"] * n / sum(need)
-                out.append((t, t + d, clean(c)))
+                text = clean(c)
+                if myth and i == 0 and clean(myth).lower() not in text.lower():
+                    text = f"\"{clean(myth)}\"\n{text}"
+                out.append((t, t + d, text))
                 t += d
         elif b.get("kind") == "end" and spec.get("next"):
             # the end card's text appears just after the wire snaps (~2 s in) and holds to the end

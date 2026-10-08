@@ -119,3 +119,16 @@ continuous groove (LRA 3.9 LU), ringing final chord, −14.4 LUFS. Pace assessed
   Its first phrase is now the channel's sonic logo, played on every later end card in that song's key.
 - Regression: `score.py L0001` under v4 writes a WAV byte-identical to the released v3 score (`cmp` clean), so the
   released videos stay valid. score.json now labels bars 29–30 `logo1/logo2` (same notes as before).
+
+## Pass 6: voice v2 + the new snap (founder, 2026-10-08: "snap feels a little funny"; "voice feels too AI generated")
+- Snap: the old twang fell in pitch (reads as a cartoon fail). New snap = crack + upward whip + a chime rising a fourth
+  onto the tonic (E5 → A5 here, in the song's key), short echo. In the 4x5 mix the A5 band jumps ~40x at 36.0 s (Nasdaq
+  reclaim) and 58.0 s (end card, on the logo's breakout note). PASS.
+- Voice: every caption, card line, thumbnail/cover line and all social copy rewritten per content/VOICE.md (hook = a
+  feeling + the number; jokes tied to the lesson: "Cool.", "Bring snacks.", "Boring is the point"). voice_check: PASS
+  (spec_lint and validate_publish). Read aloud: PASS.
+- Truth for the new lines: "fifteen years" = 2000-03-10 close high → 2015-04-23 first close above it = 15.1 years;
+  "One bad stretch: $5,000" = the 50% example; "That still leaves you down 25%" = 7,500 / 10,000 − 1. PASS.
+- Stills viewed before the full render: fixed a myth caption that only repeated the card, a rule subline that wrapped
+  and repeated the caption, and a thumbnail line that crowded the pit. Full 4x5 frames (44 + 5 sheets): PASS.
+- Mix 4x5: −14.2 LUFS, peak −3.2 dBFS. PASS.

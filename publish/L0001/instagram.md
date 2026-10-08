@@ -6,15 +6,26 @@ Cover: cover.png (cover frame at 1.5s)
 
 ## Caption
 
-Lose 50% and you need +100% just to break even. That's loss recovery math, and it's why risk comes first.
+Down 50%? Cool. Now you just need +100% to get back to even.
 
-A loss is measured from where you started. The climb back is measured from what's left. Start with $10,000 and lose half: $5,000 left. Getting back needs another $5,000, which is +100% of what you have.
+We know. Rude.
 
-The deeper the pit, the faster the climb grows. −10% needs +11%. −25% needs +33%. −75% needs +300%. −90% needs +900%.
+Start with $10,000 and lose half. You fell $5,000 from a pile of $10,000. But now you climb back from a pile of $5,000, so the same $5,000 is +100% of what you've got.
 
-A real pit: the Nasdaq Composite closed at 5,048.62 on 10 March 2000 and at 1,114.11 on 9 October 2002, a 78% fall. Getting back needed +353%. It closed above the old high on 23 April 2015.
+And the deeper the hole, the worse it gets:
+−10% needs +11%
+−25% needs +33%
+−50% needs +100%
+−75% needs +300%
+−90% needs +900% (bring snacks)
 
-Lore 001 · The Pit. Next: Lore 002, why 35% winners can beat 60% winners.
+Real life: the Nasdaq closed at 5,048.62 on 10 March 2000 and at 1,114.11 on 9 October 2002. Down 78%. Getting back needed +353%, and it didn't close above that old high until 23 April 2015. Fifteen years.
+
+So the rule is boring on purpose: keep the pit shallow.
+
+Lore 001 · The Pit. Next up, Lore 002: why 35% winners can beat 60% winners.
+
+Send this to the friend who says "it'll come back."
 
 Education only. Not investment advice. Historical charts; past results don't predict future ones.
 

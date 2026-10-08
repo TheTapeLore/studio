@@ -1,0 +1,47 @@
+# AI tells we never write (content/VOICE.md). Checked by scripts/voice_check.py from spec_lint.py (on-screen text)
+# and validate_publish.py (social copy). Phrases are case-insensitive whole-word matches.
+slop_phrases:
+  - delve
+  - delves
+  - unlock
+  - unlocks
+  - unleash
+  - game-changer
+  - game changer
+  - navigate the
+  - navigating the
+  - landscape
+  - journey
+  - elevate
+  - seamless
+  - seamlessly
+  - robust
+  - here's the thing
+  - let's dive
+  - dive in
+  - deep dive
+  - buckle up
+  - in today's world
+  - in today's fast-paced
+  - at the end of the day
+  - the power of
+  - a testament to
+  - when it comes to
+  - crucial
+  - ever-evolving
+  - harness
+  - empower
+  - realm
+  - tapestry
+  - in conclusion
+  - it's important to note
+  - it's worth noting
+  - more than just
+  - not just
+  - ever wondered
+patterns:            # regexes, case-insensitive
+  - "\\b(it'?s|this is|that'?s|isn'?t) not (just |only )?(about )?[^.!?]{1,40}[,;] (it'?s|but)\\b"   # not X, it's Y
+  - "\\bthe (result|catch|kicker|truth|answer|secret|twist)\\?"                                          # rhetorical setup
+em_dash:
+  captions_max: 0    # per caption card / on-screen string
+  post_max: 1        # per social post or caption

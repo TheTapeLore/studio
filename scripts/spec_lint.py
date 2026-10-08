@@ -155,6 +155,19 @@ def lint(spec, today=None):
     for b in beats:
         texts += [b.get("caption") or "", b.get("headline") or ""] + list(b.get("captions") or [])
     blob = " ".join(texts)
+    # voice (content/VOICE.md): no AI tells in anything shown on screen
+    import voice_check
+    shown = [x for x in texts[1:] if x]
+    for b in beats:
+        pr = b.get("props") or {}
+        shown += [v for k, v in pr.items() if isinstance(v, str) and k in ("myth", "fact", "text", "sub", "note", "label", "quote")]
+    for k in ("thumb", "cover"):
+        shown += list((spec.get(k) or {}).get("lines") or []) + [((spec.get(k) or {}).get("props") or {}).get("note") or ""]
+    for x in shown:
+        for prob in voice_check.check(x, "caption"):
+            E.append(f"voice: {prob} in \"{x[:60]}\"")
+    if not spec.get("emotion"):
+        W.append("no `emotion` in the spec: name the one feeling this video lands (content/VOICE.md)")
     for p in CFG["banned_phrases"]:
         if p.lower() in blob.lower():
             E.append(f"banned phrase '{p}'")

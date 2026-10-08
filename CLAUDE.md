@@ -26,11 +26,18 @@ Details: content/pillars.yaml, content/metaphors.yaml. Formats: content/formats.
 anatomy · council · whatif (simulation lab) · replay (model-book replay with poll) · failure (failure files)
 · lexicon (one term, 15s) · desknotes (founder's own lessons) · legendcard. Specs: content/formats.yaml.
 
-## Voice
-- Calm, exact, plain. Sentence case. "We". Grade-8 reading level. One idea per entry.
-- Concrete numbers over adjectives. Show, then say.
+## Voice (full guide + research: content/VOICE.md)
+- A sharp friend who trades, explaining something that once cost them money: warm, dry, a bit funny, exact with
+  numbers. "You" for the viewer, "we" for the channel. Contractions, short lines, plain words. One idea per entry.
+- Hook with a feeling + the number inside 1.5 s, over the payoff visual (e.g. "Down 50%? Cool. Now you just need
+  +100%."). Every spec names one `emotion`; the music and the snap pay it off.
+- Humor is the lesson wearing a joke: one or two lines per video, tied to the concept. Laugh at the pain (ours,
+  everyone's), never at the viewer, a named person or a company. Specific beats general. Have a take.
+- No AI tells: `scripts/voice_check.py` (run by spec_lint and validate_publish) blocks "not just / it's not X, it's Y",
+  stock phrases (delve, unlock, journey, crucial ...), rhetorical "The result?" setups and em dashes in captions.
+  Then read every line out loud.
 - Never: hype words, rocket/money emojis, P&L, "guru" tone, urgency bait, clickbait that the video doesn't pay off.
-- Hook = the payoff visual + a question inside 1.5s. Ending = tripwire snap, then "Lore N. Next: Lore N+1 — <title>".
+- Ending = tripwire snap, then "Lore N. Next: Lore N+1 — <title>".
 - Credit legends generously; paraphrase their ideas; never invent or embellish quotes.
 
 ## Compliance (hard rules — a violation blocks release)
@@ -147,3 +154,7 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - 2026-10-07: Music v4 (founder: "the song shouldn't feel repetitive across our videos... catchy and in a groove but
   songs should change"): a new song per episode (song.py + song memory, see Production rules); the sonic logo stays
   constant as the channel's signature. Lore 001 keeps its song (its first phrase became the logo).
+- 2026-10-08: Voice v2 (founder: "the voice feels too AI generated... make it as human as possible, add humor or any
+  other emotion that can instantly hook the audience"): content/VOICE.md + voice_check. The snap is now a reward sound
+  (crack, upward whip, a chime rising a fourth onto the tonic) tuned to each song's key; the old falling twang read as
+  a cartoon fail. Lore 001 rewritten, re-rendered and re-released.

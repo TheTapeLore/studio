@@ -5,14 +5,14 @@ Thumbnail: thumb.png
 
 ## Title
 
-Loss recovery math: why a 50% loss needs +100% | Lore 001
+Down 50%? You need +100% to get back | Lore 001
 
 ## Description
 
-A 50% loss needs a +100% gain to break even. The fall is measured from where you started; the climb back is measured from what's left.
-Every number is computed: −10% needs +11%, −25% needs +33%, −75% needs +300%, −90% needs +900%. A real example: the Nasdaq Composite fell 78% (March 2000 to October 2002) and needed +353% to get back. That took until April 2015.
+Down 50%? Cool. Now you need +100% just to get back to even. You fall from what you had, but you climb back from what's left.
+The deeper the hole, the worse it gets: −10% needs +11%, −25% needs +33%, −75% needs +300%, −90% needs +900%. Real life: the Nasdaq Composite fell 78% from March 2000 to October 2002 and needed +353% to get back. That took until April 2015. Fifteen years.
 
-Next: Lore 002 — 35% winners can beat 60% winners
+Next: Lore 002, why 35% winners can beat 60% winners.
 
 Sources: recovery formula (exceljet.net/formulas/required-recovery-rate); Nasdaq Composite daily closes from Yahoo Finance; record close reported by CNN Money and NPR on 23 April 2015.
 

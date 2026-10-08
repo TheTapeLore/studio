@@ -32,6 +32,8 @@ Follow CLAUDE.md exactly. Work autonomously; stop only for credentials or spendi
 - Simulations: `sims/<slug>.py`, fixed seed, writes episodes/<id>/sim.json. Assumptions go on screen.
 
 ## 5. Script
+- Write in the voice of content/VOICE.md: read it first. Name the one `emotion` in the spec. Hook = a feeling + the
+  number. One or two jokes, tied to the lesson. Read every caption out loud; voice_check runs inside spec_lint.
 - beats[] with component + props + caption + sfx. Hook (payoff visual + question) inside 1.5s.
 - One idea. 30–75s (lexicon 12–20s). Captions <= 12 words, >= 0.35s/word + 0.8s on screen.
 - End: tripwire snap -> "Lore N. Next: Lore N+1 — <title>" (an `end` beat + spec `next`). Run
@@ -60,17 +62,20 @@ Extract frames every 2s and at every beat boundary (`SHEET=1 scripts/frames.sh e
 6. Distinct: still not a repeat after seeing it rendered.
 Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it, mark backlog item `blocked`, explain.
 
-## 8. Package (per entry: publish/<id>/meta.json)
-- `x`: post <= 280 chars: hook line, one-sentence insight, "Lore NNN · <title>". Optional first reply with
-  "Go deeper: Lore NNN". Council/whatif may add a `thread` (each <= 280).
-- `instagram`: caption opens with the hook (first 125 chars), 2–4 short paragraphs teaching the idea in words,
-  the disclaimer line, then <= 5 hashtags (always #TheTapeLore + 3–4 topic tags matched to search terms).
+## 8. Package (per entry: publish/<id>/meta.json). Same voice as the video (content/VOICE.md, "Per platform").
+- `x`: post <= 280 chars: the hook line, then the punchline that makes it click, "Lore NNN · <title>". No hashtags.
+  First reply = the real-world proof, then "Next: Lore NNN · <title>". Council/whatif may add a `thread` (each <= 280).
+- `instagram`: caption opens with the hook (first 125 chars), short paragraphs teaching the idea like you'd tell a
+  friend, numbers as a list, one light line, a useful send/save line (never "follow for more"), the disclaimer,
+  then <= 5 hashtags (always #TheTapeLore + 3–4 topic tags matched to search terms).
   `alt_text` describing the visual. `cover_frame_s`.
-- `youtube`: title = searchable keyword phrase first, then "| Lore NNN" (<= 60 chars ideal, 100 max).
-  Description: 2–3 lines of value, prerequisites/next as "Lore NNN — title", the disclaimer, <= 3 hashtags.
+- `youtube`: title = the feeling + the number in searchable words, then "| Lore NNN" (<= 60 chars ideal, 100 max).
+  Description: the hook in the first two lines, 2–3 lines of value, prerequisites/next as "Lore NNN, title", sources,
+  the disclaimer, <= 3 hashtags.
   `tags` (<= 500 chars total), `playlist` = pillar name.
 - `files`: video_4x5, video_9x16 (prefix `release:` when they live in the Release), thumb, cover. `duration_s`, `aspect_primary`.
-- Run `python scripts/validate_publish.py --write-md publish/<id>` until PASS.
+- Run `python scripts/validate_publish.py --write-md publish/<id>` until PASS (it also runs voice_check). Then read the
+  copy out loud once more.
 
 ## 9. Register
 `registry.py add episodes/<ids>/spec.json`, then `registry.py status <id> qa_passed` for each.

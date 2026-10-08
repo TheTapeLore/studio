@@ -37,12 +37,15 @@ satisfying moment in trading, and the brand repeats it at the end of every video
 1. **TapeStrip**: a Tape-coloured band carrying "LORE 017   RISK & SIZING". It unspools in at the start and
    rolls out at the end of every video, and tops every thumbnail and post.
 2. **Blueprint grid**: 54px at 1080 wide, 16% Blueline.
-3. **Tripwire snap**: any breakout snaps the Sodium line with the snap sound.
+3. **Tripwire snap**: any breakout snaps the Sodium line with the snap sound (crack, upward whip, a chime rising a
+   fourth onto the song's tonic: the channel's reward sound).
 4. **Lore numbering**: three digits, always.
 
 ## Voice
-Calm, exact, plain. Sentence case. "We". Numbers over adjectives. Never hype, never advice, never P&L.
-Good: "Lose half and you need to double just to get back." Bad: "This one secret will 10x your account!!!"
+A sharp friend who trades: warm, dry, a bit funny, exact with numbers. Sentence case. Never hype, never advice,
+never P&L. Full guide and the research behind it: content/VOICE.md.
+Good: "Down 50%? Cool. Now you just need +100%." Bad: "This one secret will 10x your account!!!" Also bad (AI tells):
+"It's not just about losses, it's about recovery. Let's dive in."
 
 ## Asset index (brand/assets)
 - logo/: marks (4 colourways, 1024), lockups (on Prussian, transparent for dark, transparent for light)

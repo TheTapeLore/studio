@@ -12,6 +12,9 @@ Exit code 1 if any package fails.
 import json, os, re, sys
 import yaml
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import voice_check
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CFG = yaml.safe_load(open(os.path.join(ROOT, "config", "platforms.yaml")))
 URL = re.compile(r"https?://\S+")
@@ -23,6 +26,9 @@ def hashtags(text):
     return re.findall(r"(?<!\w)#\w+", text)
 
 def scan_banned(label, text, errs):
+    """Hype/advice phrases and banned emoji (platforms.yaml), plus the AI tells in content/VOICE.md (voice.yaml)."""
+    for prob in voice_check.check(text, "post"):
+        errs.append(f"{label}: voice: {prob}")
     low = text.lower()
     for p in CFG["banned_phrases"]:
         if p.lower() in low:
@@ -59,6 +65,7 @@ def validate(pkg):
     if x.get("reply") and x_len(x["reply"]) > CFG["x"]["post_max_chars"]: errs.append("x.reply too long")
     if dur > CFG["x"]["video_max_seconds"]: errs.append(f"video {dur}s exceeds X limit")
     scan_banned("x.post", post, errs)
+    if x.get("reply"): scan_banned("x.reply", x["reply"], errs)
 
     # Instagram
     ig = m.get("instagram") or {}

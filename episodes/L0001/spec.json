@@ -8,8 +8,8 @@
   "format": "anatomy",
   "concept_key": "risk.math-of-losses.recovery-asymmetry",
   "title": "The Pit: why a 50% loss needs +100%",
-  "hook": "Lose half. Now you must double just to break even.",
-  "takeaway": "A loss is measured from where you started, but the climb back is measured from what is left. So the climb is always the bigger percentage, and it grows faster the deeper the pit.",
+  "hook": "Down 50%? Cool. Now you just need +100%.",
+  "takeaway": "You fall from what you had, but you climb back from what's left. That's why the climb is always the bigger percentage, and why it gets ugly fast the deeper you dig.",
   "question": null,
   "legends": [],
   "duration_s": 62.0,
@@ -34,7 +34,7 @@
         "climbDur": 0.5,
         "sfx": false
       },
-      "caption": "Lose half. What does it take to get **back**?"
+      "caption": "Down 50%? Cool. Now you just need **+100%**."
     },
     {
       "t": 4.0,
@@ -52,9 +52,9 @@
         "sfx": false
       },
       "captions": [
-        "Start with $10,000. Lose half.",
-        "Now $5,000 is all that's left.",
-        "Climbing back $5,000 from there is **+100%**."
+        "Start with $10,000. One bad stretch: $5,000.",
+        "Now $5,000 has to do all the climbing.",
+        "$5,000 back on $5,000? That's **+100%**."
       ]
     },
     {
@@ -106,10 +106,10 @@
         "sfx": false
       },
       "captions": [
-        "Small pits: the climb is barely bigger.",
-        "Halfway down, the climb is double the fall.",
-        "Deeper still, the climb runs away from you.",
-        "−90% needs +900%. Ten times the fall."
+        "Small dips? The climb is barely longer.",
+        "At −50%, the climb is double the fall.",
+        "Past that, it gets ugly. Fast.",
+        "−90% needs +900%. Bring snacks."
       ]
     },
     {
@@ -151,9 +151,9 @@
         ]
       },
       "captions": [
-        "A real pit: the Nasdaq, 2000 to 2002.",
-        "It fell 78% in two and a half years.",
-        "Getting back needed +353%. That took until 2015."
+        "Real life: the Nasdaq, 2000 to 2002.",
+        "It fell 78% in about two and a half years.",
+        "Getting back needed +353%. That took fifteen years."
       ]
     },
     {
@@ -162,13 +162,13 @@
       "kind": "misconception",
       "component": "MythCard",
       "props": {
-        "myth": "Down 50%? Up 50% gets it back.",
-        "fact": "Up 50% from $5,000 is [[$7,500]]. Still down 25%.",
+        "myth": "Down 50%? I'll just make 50% back.",
+        "fact": "50% up from $5,000 is [[$7,500]]. Still down 25%.",
         "factAt": 4.0
       },
       "captions": [
-        "The common mistake: up 50% undoes down 50%.",
-        "It doesn't. You'd still be down 25%."
+        "\"Down 50%? I'll just make 50% back.\"",
+        "Nope. That still leaves you down 25%."
       ]
     },
     {
@@ -178,11 +178,11 @@
       "component": "RuleCard",
       "props": {
         "text": "Keep the pit [[shallow]].",
-        "sub": "Small losses, short climbs."
+        "sub": "Small losses. Short climbs. Boring on purpose."
       },
       "captions": [
-        "Small losses keep the climb back short.",
-        "That's why risk comes first here."
+        "Small pits, short climbs. Boring is the point.",
+        "That's why this library starts with risk."
       ]
     },
     {
@@ -255,29 +255,30 @@
   },
   "thumb": {
     "lines": [
-      "A 50% loss",
-      "[[needs +100%]]",
-      "to recover"
-    ],
-    "component": "ThePit",
-    "props": {
-      "lossPct": 0.5,
-      "note": "Same distance. Twice the percentage.",
-      "sfx": false
-    }
-  },
-  "cover": {
-    "lines": [
-      "The Pit:",
-      "−50% needs",
+      "Down 50%?",
+      "Now you need",
       "[[+100%]]"
     ],
     "component": "ThePit",
     "props": {
       "lossPct": 0.5,
-      "note": "Same distance. Twice the percentage.",
+      "note": "Same hole. Twice the climb.",
       "sfx": false
     }
   },
-  "status": "released"
+  "cover": {
+    "lines": [
+      "Down 50%?",
+      "Now you need",
+      "[[+100%]]"
+    ],
+    "component": "ThePit",
+    "props": {
+      "lossPct": 0.5,
+      "note": "Same hole. Twice the climb.",
+      "sfx": false
+    }
+  },
+  "status": "released",
+  "emotion": "dread, then relief: the gut drop of a 50% loss, the sting of how far back up it is, then the calm of a rule that keeps the pit shallow"
 }

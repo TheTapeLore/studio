@@ -167,7 +167,7 @@
         "factAt": 4.0
       },
       "captions": [
-        "\"Down 50%? I'll just make 50% back.\"",
+        "We've all thought this one.",
         "Nope. That still leaves you down 25%."
       ]
     },
@@ -178,7 +178,7 @@
       "component": "RuleCard",
       "props": {
         "text": "Keep the pit [[shallow]].",
-        "sub": "Small losses. Short climbs. Boring on purpose."
+        "sub": "Boring on purpose."
       },
       "captions": [
         "Small pits, short climbs. Boring is the point.",
@@ -256,7 +256,7 @@
   "thumb": {
     "lines": [
       "Down 50%?",
-      "Now you need",
+      "You need",
       "[[+100%]]"
     ],
     "component": "ThePit",
@@ -269,7 +269,7 @@
   "cover": {
     "lines": [
       "Down 50%?",
-      "Now you need",
+      "You need",
       "[[+100%]]"
     ],
     "component": "ThePit",

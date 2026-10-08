@@ -36,6 +36,7 @@ TOKENS = json.load(open(os.path.join(ROOT, "brand", "tokens.json")))
 MUSIC_LUFS = -16.0
 sys.path.insert(0, os.path.dirname(__file__))
 from gen_cues import lufs, true_peak_db, sweep_bp  # same BS.1770 meter as the cues
+import gen_cues
 import song as songlib
 
 rng = np.random.default_rng(11)
@@ -864,6 +865,9 @@ def main():
     out = os.path.join(ROOT, "engine", "public", "score")
     os.makedirs(out, exist_ok=True)
     write_wav(os.path.join(out, f"{eid}.wav"), mix)
+    # the tripwire snap in this song's key: its chime lands on the tonic (the logo's breakout note), E5..D#6
+    tonic = 76 + ((S.song["key"] - 4) % 12)
+    gen_cues.write_wav(os.path.join(out, f"{eid}-snap.wav"), gen_cues.master(gen_cues.snap(tonic).astype(np.float64)))
     if song is not None:
         print(f"audition only: wrote engine/public/score/{eid}.wav (score.json untouched)")
         return
@@ -877,7 +881,7 @@ def main():
         sheet["end_card"] = S.end_card
     with open(os.path.join(ROOT, "episodes", eid, "score.json"), "w") as f:
         json.dump(sheet, f, indent=1)
-    print(f"wrote engine/public/score/{eid}.wav and episodes/{eid}/score.json")
+    print(f"wrote engine/public/score/{eid}.wav, {eid}-snap.wav (snap chime on {songlib.KEY_NAMES[S.song['key']]}) and episodes/{eid}/score.json")
 
 
 if __name__ == "__main__":

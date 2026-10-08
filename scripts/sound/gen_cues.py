@@ -9,7 +9,8 @@ Targets: about -14 LUFS (ITU-R BS.1770 K-weighted, integrated over the cue's act
 (4x oversampled) at or below -1 dBFS. Short transients hit the peak ceiling before -14 LUFS; the ceiling wins.
 
 Cues
-  snap      the tripwire breaking: a dry crack, a bright wire twang that drops in pitch, a low recoil thump
+  snap      the tripwire breaking = the reward: a crack, an upward whip, a two-note chime rising a fourth onto the
+            tonic, a quick echo. Default in A; each episode gets one in its song's key (score.py -> score/<id>-snap.wav)
   tick      a counter tick (numbers counting, rows appearing)
   click     a soft UI click (cards, options)
   whoosh    band-passed air sweeping up (transitions)
@@ -155,16 +156,43 @@ def master(x, fade_ms=4):
 
 
 # ---------- cues ----------
-def snap():
-    t = t_axis(0.55)
-    crack = noise(len(t)) * env(t, 0.0004, 0.006)
-    crack = filt(crack, "hp", 2500)
-    f0 = 1480 * (1 - 0.16 * (1 - np.exp(-t / 0.05)))
-    phase = 2 * np.pi * np.cumsum(f0) / SR
-    twang = (np.sin(phase) + 0.45 * np.sin(2.01 * phase) + 0.2 * np.sin(3.03 * phase)) * env(t, 0.001, 0.09)
-    thump = np.sin(2 * np.pi * np.cumsum(95 * np.exp(-t / 0.08) + 45) / SR) * env(t, 0.002, 0.05)
-    recoil = filt(noise(len(t)), "bp", 5200, q=2.5) * env(t - 0.03, 0.002, 0.03) * (t > 0.03)
-    return 1.0 * crack + 0.35 * twang + 0.55 * thump + 0.25 * recoil
+SNAP_TONIC = 81   # A5. The default file (samples, gallery); every episode gets one in its song's key (score.py)
+
+
+def _chime(t, f, start, vel, ring):
+    """A bright reward chime: a harmonic FM bell (ratio 2) with a short odd-harmonic glint on the attack."""
+    u = np.maximum(t - start, 0)
+    on = t >= start
+    idx = 2.6 * np.exp(-u / 0.05) + 0.35
+    bell = np.sin(2 * np.pi * f * u + idx * np.sin(2 * np.pi * 2 * f * u))
+    glint = sum(np.sin(2 * np.pi * f * h * u) / h for h in (1, 3, 5) if f * h < 15000) * np.exp(-u / 0.035)
+    sparkle = 0.18 * np.sin(2 * np.pi * 2 * f * u) * np.exp(-u / 0.12)
+    return (bell + 0.45 * glint + sparkle) * env(u, 0.0015, ring) * on * vel
+
+
+def snap(tonic=SNAP_TONIC):
+    """The tripwire snap, the channel's reward sound. The wire cracks (dry noise + a small thump), whips UP as it
+    recoils, and a two-note chime rises a fourth onto the tonic (the fifth, then the octave: the coin interval) with a
+    quick echo. Every pitch moves up: a falling pitch reads as failure."""
+    r = np.random.default_rng(tonic)           # own noise stream: the other cues stay byte-identical
+    noise_ = lambda k: r.standard_normal(k)
+    if tonic == SNAP_TONIC:
+        noise(2 * int(0.55 * SR))              # the shared stream advances as the old snap's did
+    t = t_axis(0.95)
+    crack = filt(noise_(len(t)), "hp", 3200) * env(t, 0.0003, 0.0045)
+    thump = np.sin(2 * np.pi * np.cumsum(55 + 60 * np.exp(-t / 0.02)) / SR) * env(t, 0.001, 0.03)
+    whip = np.zeros(len(t))
+    n = int(0.05 * SR)
+    whip[:n] = sweep_bp(noise_(n), 1600, 9000, q=2.2) * np.sin(np.pi * np.arange(n) / n) ** 2
+    f2 = 440.0 * 2 ** ((tonic - 69) / 12)
+    f1 = f2 * 2 ** (-5 / 12)                   # the fifth below: a rising fourth into the tonic
+    chime = _chime(t, f1, 0.0, 0.55, 0.07) + _chime(t, f2, 0.075, 1.0, 0.26)
+    echo = np.zeros(len(t))
+    for k, g in ((1, 0.32), (2, 0.12)):        # a short echo of the landing note: the sparkle you want again
+        d = int((0.075 + 0.14 * k) * SR)
+        echo[d:] += g * _chime(t, f2, 0.0, 1.0, 0.18)[: len(t) - d]
+    echo = filt(echo, "lp", 6000)
+    return 0.9 * crack + 0.5 * thump + 0.22 * whip + 0.5 * (chime + echo)
 
 
 def tick():

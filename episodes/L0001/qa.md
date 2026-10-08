@@ -132,3 +132,4 @@ continuous groove (LRA 3.9 LU), ringing final chord, −14.4 LUFS. Pace assessed
 - Stills viewed before the full render: fixed a myth caption that only repeated the card, a rule subline that wrapped
   and repeated the caption, and a thumbnail line that crowded the pit. Full 4x5 frames (44 + 5 sheets): PASS.
 - Mix 4x5: −14.2 LUFS, peak −3.2 dBFS. PASS.
+- 9x16: frames (44 + sheets) viewed, safe zones clear; −14.2 LUFS, peak −3.2 dBFS. PASS. **Result: qa_passed (pass 6).**

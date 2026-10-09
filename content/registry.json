@@ -63,10 +63,11 @@
           "L0003"
         ]
       },
-      "status": "qa_passed",
+      "status": "released",
       "batch": "2026-10-09-a",
       "created": "2026-10-09",
-      "updated": "2026-10-09"
+      "updated": "2026-10-09",
+      "release": "batch-2026-10-09-a"
     }
   ]
 }

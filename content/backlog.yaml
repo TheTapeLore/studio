@@ -24,7 +24,8 @@ items:
   priority: big_bet
   search_terms:
   - win rate vs risk reward
-  status: open
+  status: taken
+  taken: L0002
 - id: B003
   season: 1
   order: 3

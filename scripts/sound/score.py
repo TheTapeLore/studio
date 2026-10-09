@@ -93,12 +93,14 @@ class Arrangement:
         self.ducks = []
         self.cues = []
         self.end_card = None
+        self.sim = None
 
     def bar_of(self, t):
-        return max(0, min(self.nbars - 1, int(t / self.bar + 1e-6)))
+        # tolerant to times rounded in the spec (4 decimals): 26.1333 s is the start of bar 14 at 1.8667 s bars
+        return max(0, min(self.nbars - 1, int(t / self.bar + 1e-3)))
 
     def bars_in(self, t0, t1):
-        return range(self.bar_of(t0), self.bar_of(t1 - 1e-3) + 1)
+        return range(self.bar_of(t0), self.bar_of(t1 - 0.01 * self.bar) + 1)
 
     def ev(self, t, kind, **p):
         self.events.append((t, kind, p))
@@ -348,7 +350,83 @@ def i_default(S, b, t0, t1, data):
         S.ev(0, "impact", size=0.7)
 
 
-INTERPRETERS = {"ThePit": i_thepit, "CandleChart": i_candlechart, "Anatomy": i_candlechart, "MythCard": i_myth,
+def i_duel(S, b, t0, t1, data):
+    """Two scoreboards race (Duel). The hook plays while the hit rate looks good for the wrong trader; the breakout
+    is withheld while the payoff trader sits underwater; the music DROPS on the trade where the payoff trader takes
+    the lead for good (the same moment the component turns that total Sodium)."""
+    p = b.get("props", {})
+    lanes = p.get("lanes")
+    if lanes:
+        a, c = lanes[0]["trades"], lanes[1]["trades"]
+    else:
+        d = (S.sim or {}).get("duel") or {}
+        a, c = d.get("right", []), d.get("wrong", [])
+    ca = cc = 0
+    lead = None
+    for i in range(min(len(a), len(c))):
+        ca += a[i]; cc += c[i]
+        lead = (lead if lead is not None else i) if cc > ca else None
+    if lead is None:
+        return i_default(S, b, t0, t1, data)
+    drop = t0 + p.get("startAt", 0.3) + lead * p.get("step", 0.45) + 0.12
+    if abs(drop / S.bar - round(drop / S.bar)) > 0.03:
+        S.cue(drop, f"warning: the lead flips off the bar grid (set step so trade {lead + 1} lands on a bar line)")
+    drop_bar = S.bar_of(drop + 1e-3)
+    for k in S.bars_in(t0, t1):
+        bar = S.bars[k]
+        if k < 2:
+            bar.energy, bar.label = 4, "hook: the hit rate looks great"
+        elif k < drop_bar:
+            bar.energy, bar.drums, bar.label = 3, "full", "the payoff trader underwater"
+        else:
+            bar.energy, bar.label = 4, "the lead flips: chorus"
+    S.melody(t0, S.bar_of(t0) * S.bar + 2 * S.bar)
+    S.melody(S.bar_of(t0) * S.bar + 2 * S.bar, drop_bar * S.bar, withhold=True, gain=0.85)
+    S.melody(drop_bar * S.bar, t1)
+    S.ev(t0, "impact", size=0.7)
+    build(S, max(t0 + 2 * S.bar, drop_bar * S.bar - S.bar), drop_bar * S.bar, f"trade {lead + 1}: the lead flips")
+    S.anchor(drop_bar * S.bar)
+    S.cue(t0, "hook: full groove + the song's hook from frame 0")
+
+
+def i_runsfan(S, b, t0, t1, data):
+    """Many simulated runs. A fan that ends down sinks the harmony (darker chords, breakout withheld); a fan that
+    ends up gets a build into a drop on its first bar."""
+    k = b.get("props", {}).get("simKey", "runs")
+    sim = S.sim or {}
+    med = sim.get(f"{k}_median")
+    if not med and sim.get(k):
+        med = np.median(np.array(sim[k]), axis=0).tolist()
+    if not med:
+        return i_default(S, b, t0, t1, data)
+    m = med[-1] - 1
+    if m < 0:
+        L = min(0.9, abs(m) * 2.5)
+        for kk in S.bars_in(t0, t1):
+            bar = S.bars[kk]
+            bar.deg, bar.energy, bar.drums, bar.label = S.depth_deg(L), 3, "half", f"runs end {fmt(m)}: sinking"
+        S.melody(t0, t1, withhold=True, gain=0.8)
+        S.cue(t0, f"runs median {fmt(m)} -> {S.name(S.depth_deg(L))}, half-time, breakout withheld")
+    else:
+        for kk in S.bars_in(t0, t1):
+            S.bars[kk].energy, S.bars[kk].label = 4, f"runs end {fmt(m)}: lift"
+        S.melody(t0, t1)
+        if t0 >= S.bar:
+            build(S, t0 - S.bar, t0, f"runs median {fmt(m)}")
+        S.anchor(t0)
+
+
+def i_distribution(S, b, t0, t1, data):
+    """The bad tail of a distribution (the cost of the idea): a breakdown, hook without its breakout."""
+    ks = list(S.bars_in(t0, t1))
+    for j, kk in enumerate(ks):
+        bar = S.bars[kk]
+        bar.energy, bar.drums, bar.label = (1 if j < len(ks) - 1 else 2), "break", "the cost: breakdown"
+    S.melody(t0, t1, withhold=True, gain=0.6)
+    S.cue(t0, "distribution: breakdown, breakout withheld")
+
+
+INTERPRETERS = {"ThePit": i_thepit, "Duel": i_duel, "RunsFan": i_runsfan, "Distribution": i_distribution, "CandleChart": i_candlechart, "Anatomy": i_candlechart, "MythCard": i_myth,
                 "RuleCard": i_rule, "EndCard": i_end}
 KIND_DEFAULT = {"end": "EndCard", "misconception": "MythCard", "rule": "RuleCard", "the_rule": "RuleCard"}
 
@@ -810,8 +888,9 @@ def write_wav(path, mix):
         w.writeframes(pcm.tobytes())
 
 
-def compose_spec(spec, song, data=None):
+def compose_spec(spec, song, data=None, sim=None):
     S = Arrangement(spec["duration_s"], song)
+    S.sim = sim
     for b in spec["beats"]:
         comp = b.get("component") or KIND_DEFAULT.get(b.get("kind"))
         INTERPRETERS.get(comp, i_default)(S, b, b["t"], b["t"] + b["dur"], data)
@@ -830,8 +909,10 @@ def compose(eid, song=None):
     spec = json.load(open(os.path.join(ROOT, "episodes", eid, "spec.json")))
     dp = os.path.join(ROOT, "episodes", eid, "data.json")
     data = json.load(open(dp)) if os.path.exists(dp) else None
+    sp = os.path.join(ROOT, "episodes", eid, "sim.json")
+    sim = json.load(open(sp)) if os.path.exists(sp) else None
     song = song or songlib.load_or_design(eid, spec["pillar"])
-    return spec, compose_spec(spec, song, data)
+    return spec, compose_spec(spec, song, data, sim)
 
 
 def summary(S):

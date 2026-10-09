@@ -11,6 +11,7 @@ export const COMPONENTS: Record<string, React.FC<any>> = {
   ThePit: M.ThePit,
   PitCurve: M.PitCurve,
   RTower: M.RTower,
+  Duel: M.Duel,
   Seesaw: M.Seesaw,
   MarketWeather: M.MarketWeather,
   TheRace: M.TheRace,

@@ -138,7 +138,7 @@ const prepareScore = (id) => {
   const wav = path.join(ENGINE, "public", "score", `${id}.wav`);
   const mtime = (f) => (fs.existsSync(f) ? fs.statSync(f).mtimeMs : 0);
   const sound = path.join(ROOT, "scripts", "sound");
-  const newest = Math.max(...[path.join(dir, "spec.json"), path.join(dir, "data.json"), path.join(dir, "song.json"), path.join(sound, "score.py"), path.join(sound, "song.py")].map(mtime));
+  const newest = Math.max(...[path.join(dir, "spec.json"), path.join(dir, "data.json"), path.join(dir, "sim.json"), path.join(dir, "song.json"), path.join(sound, "score.py"), path.join(sound, "song.py")].map(mtime));
   const snapWav = path.join(ENGINE, "public", "score", `${id}-snap.wav`);
   const sound2 = mtime(path.join(sound, "gen_cues.py"));
   if (fs.existsSync(wav) && fs.existsSync(snapWav) && fs.existsSync(path.join(dir, "score.json")) && mtime(wav) >= Math.max(newest, sound2)) return;

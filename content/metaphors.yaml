@@ -17,6 +17,8 @@ metaphors:
     visual: "See brand/assets samples: red arrow down, Sodium arrow up, same distance, labels -50% / +100%.", props: [lossPct, showTable]}
   RTower: {pillar: risk, status: built, meaning: "Asymmetry: losers are single 1R blocks below the line; winners stack as tall towers above.",
     visual: "Ember outlined blocks below baseline, Sodium blocks stacking above; running total of R.", props: [trades, winRate, avgWinR]}
+  Duel: {pillar: risk, status: built, meaning: "Win rate vs payoff: two scoreboards race; the hit rate says one thing, the money says another.",
+    visual: "Two lanes of trades: Lichen wins up, Ember losses down, height = dollars; win-rate counters and running totals; the leader's total turns Sodium.", props: [lanes, startAt, step]}
   Seesaw: {pillar: risk, status: built, meaning: "Position sizing: wider stop means smaller size so the risk stays equal.",
     visual: "A balance beam: stop distance on one side, shares on the other; the fulcrum is your fixed risk %.", props: [accountRiskPct, stopDistance, price]}
   FiveExits: {pillar: exits, status: built, meaning: "Same winner, five exit rules drawn at once; your rule decides how much trend you keep.",

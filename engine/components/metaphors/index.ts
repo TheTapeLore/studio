@@ -1,6 +1,7 @@
 export { ThePit } from "./ThePit";
 export { PitCurve } from "./PitCurve";
 export { RTower } from "./RTower";
+export { Duel } from "./Duel";
 export { Seesaw } from "./Seesaw";
 export { MarketWeather } from "./MarketWeather";
 export { TheRace } from "./TheRace";

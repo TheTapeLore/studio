@@ -17,12 +17,16 @@ export interface DistributionProps {
   badSide?: "low" | "high";
   range?: [number, number];
   drawAt?: number;
+  /** "pct" (default: returns, drawdowns) or "count" (e.g. a losing streak, with `unit` after the number). */
+  format?: "pct" | "count";
+  unit?: string;
 }
 
 const q = (s: number[], p: number) => s[Math.min(s.length - 1, Math.max(0, Math.round((s.length - 1) * p)))];
 
 /** Histogram of simulated outcomes with the median and the bad 5% tail marked — both always shown. */
-export const Distribution: React.FC<DistributionProps> = ({ values, simKey = "final", bins = 30, label = "OUTCOME PER RUN", badSide = "low", range, drawAt = 0.2 }) => {
+export const Distribution: React.FC<DistributionProps> = ({ values, simKey = "final", bins = 30, label = "OUTCOME PER RUN", badSide = "low", range, drawAt = 0.2, format = "pct", unit = "" }) => {
+  const F = (v: number) => (format === "count" ? `${Math.round(v)}${unit}` : fmtPct(v, 0));
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { u } = useLayout();
@@ -53,20 +57,20 @@ export const Distribution: React.FC<DistributionProps> = ({ values, simKey = "fi
       })}
       <line x1={0} x2={w} y1={h - padB} y2={h - padB} stroke={C.blueline} strokeWidth={2 * u} />
       <text x={0} y={h - padB + 40 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs}>
-        {fmtPct(lo, 0)}
+        {F(lo)}
       </text>
       <text x={w} y={h - padB + 40 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs} textAnchor="end">
-        {fmtPct(hi, 0)}
+        {F(format === "count" ? hi - (hi - lo) / bins : hi)}
       </text>
       <text x={w / 2} y={h - padB + 76 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs} textAnchor="middle">
         {`${label} · ${V.length.toLocaleString("en-US")} RUNS`}
       </text>
       <g opacity={marks} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.1}>
         <line x1={X(med)} x2={X(med)} y1={padT - 10 * u} y2={h - padB} stroke={C.tape} strokeWidth={4 * u} />
-        <text x={X(med) + 10 * u} y={padT} fill={C.tape}>{`MEDIAN ${fmtPct(med, 0)}`}</text>
+        <text x={X(med) + 10 * u} y={padT} fill={C.tape}>{`MEDIAN ${F(med)}`}</text>
         <line x1={X(tail)} x2={X(tail)} y1={padT + 40 * u} y2={h - padB} stroke={C.ember} strokeWidth={4 * u} />
         <text x={X(tail) + (badSide === "low" ? 10 : -10) * u} y={padT + 40 * u} fill={C.ember} textAnchor={badSide === "low" ? "start" : "end"}>
-          {`WORST 5% ${fmtPct(tail, 0)}`}
+          {`WORST 5% ${F(tail)}`}
         </text>
       </g>
     </svg>

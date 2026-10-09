@@ -1,0 +1,215 @@
+{
+  "id": "L0002",
+  "lore_no": 2,
+  "slug": "mostly-wrong",
+  "batch": "2026-10-09-a",
+  "pillar": "risk",
+  "cluster": "expectancy",
+  "format": "whatif",
+  "concept_key": "risk.expectancy.win-rate-vs-payoff",
+  "title": "35% winners can beat 60% winners",
+  "hook": "60% winners vs 35% winners. Guess who's losing.",
+  "takeaway": "How often you win is only half the math. A 60% win rate with small wins and big losses loses money; a 35% win rate with small losses and big wins makes it. The price of the second one is long losing streaks, so plan for them.",
+  "question": "Can a 35% win rate beat a 60% win rate?",
+  "emotion": "disbelief, then relief: the 'wait, what?' of a 60% winner losing money, then the relief that being wrong a lot is fine when the losses stay small",
+  "legends": [],
+  "duration_s": 61.6,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "beats": [
+    {
+      "t": 0.0,
+      "dur": 11.2,
+      "kind": "hook",
+      "component": "Duel",
+      "props": {
+        "startAt": 0.3,
+        "step": 0.4698
+      },
+      "captions": [
+        "60% winners vs 35% winners. Guess who's losing.",
+        "Mostly Wrong loses 13 of 20. Ouch.",
+        "And still finishes $1,200 ahead. Huh."
+      ]
+    },
+    {
+      "t": 11.2,
+      "dur": 7.4667,
+      "kind": "assumptions",
+      "component": "AssumptionsPanel",
+      "props": {
+        "title": "Assumptions · simulated",
+        "items": [
+          "Simulated: 1,000 runs of 100 trades each, seed 7",
+          "Mostly Right: wins 60%. +$100 a win, −$200 a loss",
+          "Mostly Wrong: wins 35%. +$300 a win, −$100 a loss",
+          "$10,000 account. Fixed dollar risk, no compounding",
+          "Every trade independent. No costs, slippage or gaps"
+        ]
+      },
+      "captions": [
+        "Luck? We ran both 1,000 times.",
+        "Same coin flips. Only the rules differ."
+      ]
+    },
+    {
+      "t": 18.6667,
+      "dur": 7.4667,
+      "kind": "runs",
+      "component": "RunsFan",
+      "props": {
+        "simKey": "runs_right",
+        "label": "MOSTLY RIGHT · 1,000 RUNS × 100 TRADES · SIMULATED",
+        "yRange": [
+          0.4,
+          2.05
+        ],
+        "dur": 4.5
+      },
+      "captions": [
+        "Mostly Right, 1,000 times. Median: −20%.",
+        "Only 8% of runs end up."
+      ]
+    },
+    {
+      "t": 26.1333,
+      "dur": 7.4667,
+      "kind": "runs",
+      "component": "RunsFan",
+      "props": {
+        "simKey": "runs_wrong",
+        "label": "MOSTLY WRONG · 1,000 RUNS × 100 TRADES · SIMULATED",
+        "yRange": [
+          0.4,
+          2.05
+        ],
+        "dur": 4.5
+      },
+      "captions": [
+        "Mostly Wrong, same flips. Median: +40%.",
+        "97% of runs end up."
+      ]
+    },
+    {
+      "t": 33.6,
+      "dur": 7.4667,
+      "kind": "lesson",
+      "component": "RuleCard",
+      "props": {
+        "label": "Average result per trade",
+        "text": "Mostly Right −$20. Mostly Wrong [[+$40]].",
+        "sub": "60% × $100 − 40% × $200 = −$20. 35% × $300 − 65% × $100 = +$40."
+      },
+      "captions": [
+        "Per trade, on average: −$20 vs +$40.",
+        "How often you win is half of it."
+      ]
+    },
+    {
+      "t": 41.0667,
+      "dur": 7.4667,
+      "kind": "distribution",
+      "component": "Distribution",
+      "props": {
+        "simKey": "streak_wrong",
+        "label": "MOSTLY WRONG · LONGEST LOSING STREAK",
+        "badSide": "high",
+        "format": "count",
+        "unit": " IN A ROW",
+        "range": [
+          4,
+          24
+        ],
+        "bins": 20
+      },
+      "captions": [
+        "Mostly Wrong's usual worst streak: 9 losses.",
+        "In a row. Feels awful. Plan for it."
+      ]
+    },
+    {
+      "t": 48.5333,
+      "dur": 7.4667,
+      "kind": "rule",
+      "component": "RuleCard",
+      "props": {
+        "text": "Score the [[money]], not the hit rate.",
+        "sub": "Small losses. Let the winners pay."
+      },
+      "captions": [
+        "Being right feels great. It doesn't pay rent.",
+        "Count the dollars, not the wins."
+      ]
+    },
+    {
+      "t": 56.0,
+      "dur": 5.6,
+      "kind": "end"
+    }
+  ],
+  "simulation": {
+    "script": "sims/win_rate_vs_payoff.py",
+    "seed": 7,
+    "params": {
+      "runs": 1000,
+      "trades": 100
+    }
+  },
+  "sources": [
+    {
+      "title": "Expectancy in Trading: The Metric That Actually Predicts Profitability (TradeZella)",
+      "url": "https://www.tradezella.com/blog/blog-trading-expectancy",
+      "used_for": "expectancy = win rate × average win − loss rate × average loss"
+    },
+    {
+      "title": "What Is Expectancy in Trading? (Heygotrade)",
+      "url": "https://heygotrade.com/en/blog/what-is-expectancy-in-trading",
+      "used_for": "a high win rate can still have negative expectancy when losses are larger than wins"
+    },
+    {
+      "title": "sims/win_rate_vs_payoff.py (The Tape Lore, seed 7)",
+      "url": "https://github.com/TheTapeLore/studio/blob/main/sims/win_rate_vs_payoff.py",
+      "used_for": "every simulated number: medians, share of runs up, losing streaks, the 20-trade duel"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0001"
+    ],
+    "next": [
+      "L0003"
+    ]
+  },
+  "next": {
+    "lore_no": 3,
+    "title": "R: the only unit a trader needs"
+  },
+  "thumb": {
+    "lines": [
+      "Wins 60%.",
+      "Still loses",
+      "[[money]]."
+    ],
+    "component": "Duel",
+    "props": {
+      "step": 0.3
+    }
+  },
+  "cover": {
+    "lines": [
+      "Wins 60%.",
+      "Still loses",
+      "[[money]]."
+    ],
+    "component": "Duel",
+    "props": {
+      "step": 0.3
+    }
+  },
+  "tape": {
+    "label": "Mostly Wrong"
+  },
+  "status": "scripted"
+}

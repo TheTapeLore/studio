@@ -50,12 +50,12 @@ export const RunsFan: React.FC<RunsFanProps> = ({ runs, simKey = "runs", dur = 4
   const X = (i: number) => padL + (i / (n - 1)) * (w - padL - 10 * u);
   const Y = (v: number) => padT + (h - padT - padB) * (1 - (v - lo) / (hi - lo));
   const path = (r: number[]) => r.slice(0, vis).map((v, i) => `${i ? "L" : "M"}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join("");
-  const med: number[] = [], tail: number[] = [];
-  for (let i = 0; i < n; i++) {
-    const col = R.map((r) => r[i]);
-    med.push(quantile(col, 0.5));
-    tail.push(quantile(col, 0.05));
-  }
+  // the sim may publish the median / worst-5% paths over every run (`<simKey>_median`, `<simKey>_tail5`): use them,
+  // so the labels match the full population and not just the runs drawn
+  const full = (k: string) => (runs ? undefined : (ep?.sim?.[`${simKey}_${k}`] as number[] | undefined));
+  const med: number[] = full("median")?.slice() ?? [], tail: number[] = full("tail5")?.slice() ?? [];
+  for (let i = 0; med.length < n && i < n; i++) med.push(quantile(R.map((r) => r[i]), 0.5));
+  for (let i = 0; tail.length < n && i < n; i++) tail.push(quantile(R.map((r) => r[i]), 0.05));
   const fs = SIZE.tape * u;
   const ticks = [lo, 1, hi].filter((v, i, a) => a.indexOf(v) === i);
   return (

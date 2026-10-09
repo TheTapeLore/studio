@@ -161,8 +161,10 @@ def chord(mode, deg):
 
 def depth_ladder(mode):
     """Chords from home to darkest, for the pit: minor-ish modes sink to bII then V; major borrows from minor."""
-    if mode in ("minor", "dorian"):
+    if mode == "minor":
         return [0, 5, 3, "bII", "V"]
+    if mode == "dorian":               # dorian's own IV is major and its vi is diminished: borrow the dark ones from minor
+        return [0, "bVI", "iv", "bII", "V"]
     return [0, 5, "iv", "bVI", "V"]
 
 

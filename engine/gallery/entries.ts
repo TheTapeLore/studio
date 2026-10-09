@@ -12,6 +12,7 @@ export const GALLERY: GalleryEntry[] = [
   { name: "ThePit · sweep + table", component: "ThePit", props: { lossPct: 0.9, fromLossPct: 0.1, showTable: true, sweepDur: 3, enter: false } },
   { name: "PitCurve", component: "PitCurve", props: { lossPct: 0.75, fromLossPct: 0.1 } },
   { name: "RTower", component: "RTower", props: { winRate: 0.35, avgWinR: 3, n: 20, seed: 7 } },
+  { name: "Duel (win rate vs payoff)", component: "Duel", props: { step: 0.3 }, secs: 5 },
   { name: "Seesaw", component: "Seesaw", props: { account: 10000, accountRiskPct: 0.01, stopDistance: [1, 2, 4], hold: 1.3 } },
   { name: "MarketWeather · tailwind", component: "MarketWeather", props: { regime: "tailwind", windStrength: 0.8, period: "SIMULATED" } },
   { name: "MarketWeather · storm", component: "MarketWeather", props: { regime: "storm", windStrength: 0.6, distributionDays: 6 } },

@@ -13,7 +13,7 @@ Jesse Livermore's pivotal point, in 24 seconds | Lore 004
 Jesse Livermore: at 14 he posted stock prices for $5 a week, and later made fortunes and lost them more than once.
 His edge, from his own 1940 book: wait for the pivotal point, act when price crosses it, then sit tight.
 
-Two more rules from How to Trade in Stocks: never average a loss, and add only to a position that's working. Our Sodium tripwire, the line that snaps in every setup we draw, is his pivotal point.
+Two more rules from How to Trade in Stocks: never average a loss, and add only to a position that's working. The amber line that snaps in every setup we draw is his pivotal point.
 
 Next: Lore 005, The Seesaw: wider stop, smaller size.
 

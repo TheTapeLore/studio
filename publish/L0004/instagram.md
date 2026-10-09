@@ -15,7 +15,7 @@ What he wrote down, paraphrased:
 2. Never average a loss. Add only to a winner.
 3. Sit tight once you're right. That's the hard part.
 
-Our Sodium tripwire, the line that snaps in every setup we draw, is his pivotal point.
+The amber line that snaps in every setup we draw? That's his pivotal point.
 
 Sources: How to Trade in Stocks (Livermore, 1940); Reminiscences of a Stock Operator (Lefèvre, 1923).
 

@@ -44,3 +44,10 @@ Frames viewed: card push-in, the pivotal point, end card; −14.3 LUFS, −2.71 
 trim (> 0.125 in). Note for the physical deck: the decorative Sodium frame sits 22 px inside the trim, inside the
 cut tolerance of most printers; check it on the proof (see /print-cards; legal review first).
 **Result: qa_passed after 1 pass.**
+
+## Pass 2 (copy, caught on the final read before release)
+"Our Sodium tripwire?" used our internal colour name, which viewers don't know. Caption now "The line that snaps in
+our setups? His pivotal point." (9 words, 3.95 s needed, timed by lint); X reply, Instagram caption and YouTube
+description say "amber line/tripwire". Frame checked in 9x16 (two lines, inside the caption band). Release run
+cancelled and re-dispatched with the fix.
+**Result: qa_passed after 2 passes.**

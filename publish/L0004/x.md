@@ -14,7 +14,7 @@ Lore 004 · Legend 01: Jesse Livermore
 
 ## First reply
 
-Every Sodium tripwire in this library is his pivotal point: the level price has to cross before you act.
+Every amber tripwire that snaps in our setups is his pivotal point: the level price has to cross before you act.
 
 His other rule we keep coming back to: never average a loss.
 

@@ -1,0 +1,41 @@
+{
+  "id": "L0005",
+  "lore_no": 5,
+  "title": "The Seesaw: wider stop, smaller size",
+  "batch": "2026-10-09-b",
+  "duration_s": 46.6667,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0005-4x5.mp4",
+    "video_9x16": "release:L0005-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Always buy 100 shares? Nice round number.\n\nStop $1 away: $100 at risk.\nStop $4 away: $400 at risk.\n\nSame shares, four times the risk. Flip it: pick the risk first, then let the stop pick the size.\n\nLore 005 · The Seesaw: wider stop, smaller size",
+    "reply": "Shares = risk ÷ stop distance, rounded down.\n\n$10,000 account, 1% risk = $100. Stop $1 away: 100 shares. $2: 50 shares. $4: 25 shares. Same $100 every time.\n\nNext: Lore 006 · Risk 0.5% vs 2% per trade: 1,000 runs"
+  },
+  "instagram": {
+    "caption": "Always buy 100 shares? Nice round number. With a $4 stop that's $400 on the line, not $100.\n\nA fixed share count lets the stop decide your risk. Flip it: decide the risk first, then let the stop decide the size.\n\nThe math on a $10,000 account risking 1% ($100):\nStop $1 away: 100 shares\nStop $2 away: 50 shares\nStop $4 away: 25 shares\nShares = risk ÷ stop distance. Round down.\n\nFull size on a wide stop: that's the scary one. Size down and it's still $100.\n\nYour 100-share habit can retire.\n\nLore 005 · The Seesaw: wider stop, smaller size. Next up, Lore 006: risk 0.5% vs 2% per trade, 1,000 runs.\n\nSend this to the friend who buys the same size on every trade.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #PositionSizing #RiskManagement #StopLoss #TradingEducation",
+    "alt_text": "Animated seesaw on a dark blue grid. On the left arm sits an amber block labelled $100, the risk budget, 1% of $10,000. On the right arm, a stack of white blocks (100 shares) sits on a ruler marked $1 to $4 of stop distance. As the stack slides out to $2 and $4 with the same 100 shares, the beam tips and the at-risk number turns red: $200, then $400. Then the sizing is flipped: at $2 half the blocks fly off, leaving 50 shares, and at $4 only 25 shares remain; each time the beam wobbles and levels at $100 at risk. Cards follow: shares equal risk divided by stop distance, $100 divided by $4 is 25 shares, round down; the myth 'a wide stop means big risk' struck out; and the rule: pick the risk, the stop picks the size.",
+    "cover_frame_s": 4.2
+  },
+  "youtube": {
+    "title": "Position sizing formula: wider stop, smaller size | Lore 005",
+    "description": "Always buy 100 shares? With a $4 stop, that's $400 at risk instead of $100.\nPick the risk first, then let the stop pick the size: shares = risk ÷ stop distance.\n\nOn a $10,000 account risking 1% ($100): a $1 stop is 100 shares, $2 is 50, $4 is 25. Round down. The risk stays $100 wherever the stop goes. Full size on a wide stop is the scary one.\n\nBefore this: Lore 003, R: the only unit a trader needs.\nNext: Lore 006, Risk 0.5% vs 2% per trade: 1,000 runs.\n\nSources: position size = (account × risk %) ÷ (entry − stop) (tradezella.com/tools/position-size-calculator; 5paisa.com position sizing guide).\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #PositionSizing #Trading",
+    "tags": [
+      "position sizing formula",
+      "position sizing",
+      "how many shares to buy",
+      "stop loss position size",
+      "risk per trade",
+      "1% risk rule",
+      "risk management trading",
+      "stop distance",
+      "the tape lore",
+      "lore 005"
+    ],
+    "playlist": "Risk & sizing"
+  }
+}

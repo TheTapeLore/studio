@@ -67,7 +67,14 @@ export const CarouselSlide: React.FC<{ episode: Episode; index: number }> = ({ e
         <Paper>
           <TapeStrip text={`${loreLabel(s.lore_no)}   ${(PILLAR_NAMES[s.pillar] ?? s.pillar).toUpperCase()}`} inAt={null} right={`${index + 1}/${slidesOf(episode).length}`} />
           <Finished>
-            {slide.headline ? (
+            {slide.headline && !slide.component ? (
+              // a type-only slide: the line is the visual, centred, with its source line under it
+              <div style={{ position: "absolute", left: L.stage.x, top, width: L.stage.w, height: bottom - top, display: "flex", flexDirection: "column", justifyContent: "center", gap: 44 }}>
+                <div style={{ height: 6, width: 160, background: C.blueline }} />
+                <Headline text={slide.headline} size={SIZE.hero * 1.05} />
+                {slide.sub ? <div style={{ fontFamily: FONT.body, fontSize: SIZE.caption * 0.88, lineHeight: 1.3, color: C.tape, textWrap: "pretty" }}>{slide.sub}</div> : null}
+              </div>
+            ) : slide.headline ? (
               <div style={{ position: "absolute", left: L.stage.x, top, width: L.stage.w }}>
                 <Headline text={slide.headline} size={SIZE.h1 * 0.92} />
               </div>
@@ -82,7 +89,7 @@ export const CarouselSlide: React.FC<{ episode: Episode; index: number }> = ({ e
               </Stage>
             ) : null}
           </Finished>
-          {slide.sub ? (
+          {slide.sub && slide.component ? (
             <div style={{ position: "absolute", left: L.stage.x, width: L.stage.w, top: H - L.safe.bottom - 130, fontFamily: FONT.body, fontSize: SIZE.caption * 0.78, lineHeight: 1.25, color: C.tape }}>
               {slide.sub}
             </div>

@@ -233,14 +233,14 @@
       "props": {
         "startAt": 0.3,
         "step": 0.17,
-        "label": "20 SIMULATED TRADES · COUNTED IN R",
+        "label": "20 SIMULATED TRADES",
         "convert": [
           {
-            "label": "1R = $100 (1% OF $10,000)",
+            "label": "$10K ACCOUNT · 1R = $100",
             "risk": 100
           },
           {
-            "label": "1R = $10,000 (1% OF $1M)",
+            "label": "$1M ACCOUNT · 1R = $10K",
             "risk": 10000
           }
         ],

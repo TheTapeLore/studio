@@ -48,9 +48,10 @@ def validate(pkg):
     disc = CFG["required_disclaimer"]
 
     # files
-    for k, f in (m.get("files") or {}).items():
-        if f and not f.startswith("release:") and not os.path.exists(os.path.join(pkg, f)):
-            warns.append(f"file '{f}' ({k}) not in package folder (fine if it lives in the GitHub Release)")
+    for k, fs in (m.get("files") or {}).items():
+        for f in (fs if isinstance(fs, list) else [fs]):   # e.g. a carousel is a list of slides
+            if f and not f.startswith("release:") and not os.path.exists(os.path.join(pkg, f)):
+                warns.append(f"file '{f}' ({k}) not in package folder (fine if it lives in the GitHub Release)")
     dur = m.get("duration_s", 0)
 
     # X

@@ -11,6 +11,7 @@
  *
  * Options: --force (re-render), --concurrency N (default: half the CPUs), --quiet
  * Output: engine/out/<id>-4x5.mp4, <id>-9x16.mp4, <id>-thumb.png, <id>-cover.png; thumb/cover copied to publish/<id>/.
+ * Legend Cards also get card-front/back (+ print/ with bleed) and carousel-N.png in publish/<id>/.
  */
 import { createRequire } from "node:module";
 import { execFileSync, spawnSync } from "node:child_process";
@@ -165,6 +166,13 @@ const runBatch = async (batchPath) => {
     for (const a of aspects) jobs.push(["video", `${id}-${a}`, path.join(OUT, `${id}-${a}.mp4`)]);
     jobs.push(["still", `${id}-thumb`, path.join(OUT, `${id}-thumb.png`), 0, path.join(ROOT, "publish", id, "thumb.png")]);
     jobs.push(["still", `${id}-cover`, path.join(OUT, `${id}-cover.png`), 0, path.join(ROOT, "publish", id, "cover.png")]);
+    // Legend Cards (spec.card): digital front/back + print files with bleed; carousels (spec.carousel): one PNG per slide
+    if (spec.card) {
+      for (const [comp, file] of [["card-front", "card-front-750x1050.png"], ["card-back", "card-back-750x1050.png"], ["print-front", "print/card-front-825x1125.png"], ["print-back", "print/card-back-825x1125.png"]])
+        jobs.push(["still", `${id}-${comp}`, path.join(OUT, `${id}-${comp}.png`), 0, path.join(ROOT, "publish", id, file)]);
+    }
+    (spec.carousel ?? []).forEach((_, i) =>
+      jobs.push(["still", `${id}-slide-${i + 1}`, path.join(OUT, `${id}-slide-${i + 1}.png`), 0, path.join(ROOT, "publish", id, `carousel-${i + 1}.png`)]));
   }
   log(`batch ${batch.batch}: ${ids.length} episode(s), ${jobs.length} job(s), concurrency ${CONCURRENCY}`);
   let n = 0;

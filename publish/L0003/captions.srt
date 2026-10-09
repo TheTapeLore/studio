@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:04,430
+You made $500. Proud? Depends what you risked.
+
+2
+00:00:04,431 --> 00:00:07,999
+Risked $100: +5R. Risked $2,000: +0.25R.
+
+3
+00:00:08,000 --> 00:00:11,999
+R is what you lose if the stop hits.
+
+4
+00:00:12,000 --> 00:00:15,999
+Entry $50, stop $48, 50 shares: 1R = $100.
+
+5
+00:00:16,000 --> 00:00:20,227
+Now measure with it. $58 is +4R.
+
+6
+00:00:20,228 --> 00:00:23,999
+Stopped out instead? −1R. Every time.
+
+7
+00:00:24,000 --> 00:00:27,723
+20 trades, counted in R. Every loser: −1R.
+
+8
+00:00:27,724 --> 00:00:29,275
+Total: +3.5R.
+
+9
+00:00:29,276 --> 00:00:33,723
+$350 on a small account. $35,000 on a big one.
+
+10
+00:00:33,724 --> 00:00:35,999
+R doesn't care which.
+
+11
+00:00:36,000 --> 00:00:39,645
+"Lost $300? Eh, one bad trade."
+−3R? Your stop was more of a suggestion.
+
+12
+00:00:39,646 --> 00:00:43,999
+Or the price gapped past it. Either way, find out.
+
+13
+00:00:44,000 --> 00:00:48,965
+Dollars say how much. R says how well.
+
+14
+00:00:48,966 --> 00:00:51,999
+Same ruler, every trade.
+
+15
+00:00:54,200 --> 00:00:57,949
+Lore 003. Next: Lore 004, Legend 01: Jesse Livermore

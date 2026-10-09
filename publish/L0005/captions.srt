@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,212
+Always buy 100 shares? Nice round number.
+
+2
+00:00:04,213 --> 00:00:09,332
+Stop $4 away? Now $400 is on the line.
+
+3
+00:00:09,333 --> 00:00:12,819
+Flip it. Fix the risk first: $100.
+
+4
+00:00:12,820 --> 00:00:15,554
+Stop $2 away? 50 shares.
+
+5
+00:00:15,556 --> 00:00:18,666
+$4 away? 25 shares. Still $100.
+
+6
+00:00:18,667 --> 00:00:23,598
+Risk divided by stop distance. That's the formula.
+
+7
+00:00:23,599 --> 00:00:26,132
+Round down. Always.
+
+8
+00:00:26,133 --> 00:00:30,592
+"A wide stop means big risk."
+Full size on a wide stop? That's the scary one.
+
+9
+00:00:30,593 --> 00:00:33,599
+Size down and it's still $100.
+
+10
+00:00:33,600 --> 00:00:38,136
+Pick the risk. Let the stop pick the size.
+
+11
+00:00:38,137 --> 00:00:41,066
+Your 100-share habit can retire.
+
+12
+00:00:43,133 --> 00:00:46,616
+Lore 005. Next: Lore 006, Risk 0.5% vs 2% per trade: 1,000 runs

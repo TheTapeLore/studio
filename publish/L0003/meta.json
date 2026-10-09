@@ -1,0 +1,42 @@
+{
+  "id": "L0003",
+  "lore_no": 3,
+  "title": "R: the only unit a trader needs",
+  "batch": "2026-10-09-b",
+  "duration_s": 58.0,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0003-4x5.mp4",
+    "video_9x16": "release:L0003-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "You made $500. Nice?\n\nRisked $100 to make it: +5R.\nRisked $2,000 to make it: +0.25R.\n\nSame dollars. Very different trade. R is what you lose if your stop hits, and it's the only ruler that measures every trade the same way.\n\nLore 003 · R: the only unit a trader needs",
+    "reply": "1R = (entry − stop) × shares. Entry $50, stop $48, 50 shares: 1R = $100. Price at $58 is +4R.\n\nA loss bigger than −1R means the stop moved or price gapped through it. Find out which.\n\nNext: Lore 004 · Legend 01: Jesse Livermore"
+  },
+  "instagram": {
+    "caption": "You made $500. Proud? Depends what you risked. On $100 risk that's +5R. On $2,000 it's +0.25R.\n\nR is what you lose if your stop gets hit. You set it before you buy, then you measure everything with it.\n\nHow to get 1R:\n1R = (entry − stop) × shares\nEntry $50, stop $48, 50 shares: 1R = $100\nPrice gets to $58: that's +4R\nStopped out instead: −1R\n\nWe counted 20 simulated trades in R: every loser was −1R, the total was +3.5R. That's $350 if 1R is $100, or $35,000 if 1R is $10,000. R doesn't care which account it is.\n\nIf a loss ever shows up as −3R, your stop was more of a suggestion. Or price gapped past it. Either way, find out why.\n\nLore 003 · R: the only unit a trader needs. Next up, Lore 004: Legend 01, Jesse Livermore.\n\nSave this for the next time a trade feels big or small and you're not sure which.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #RMultiple #PositionSizing #TradingEducation",
+    "alt_text": "Animated explainer on a dark blue grid. Two columns each show the same green +$500 bar. Beside the first, a ruler of five small segments, each 1R = $100, reads +5R. Beside the second, one tall segment of 1R = $2,000 reads +0.25R. A price line then starts at an entry of $50 with a red stop zone down to $48, labelled 1R = $100. The price climbs to $58 and four ruler segments stack up beside the chart, +1R to +4R; a dashed red branch shows the stop-out alternative at −1R, −$100. A tower of 20 simulated trades follows: every loser is an identical red −1R block, winners stack green blocks up to 6R, total +3.5R, shown as +$350 for a $10,000 account and +$35,000 for a $1 million account. A myth card strikes out 'Lost $300? Eh, one bad trade' and shows −3R. The rule: count R, not dollars.",
+    "cover_frame_s": 2.6
+  },
+  "youtube": {
+    "title": "Made $500. Good trade? R-multiples explained | Lore 003",
+    "description": "You made $500. On $100 risk that's +5R. On $2,000 risk it's +0.25R. Same dollars, very different trade.\nR is what you lose if your stop gets hit: (entry − stop) × shares, set before you buy.\n\nMeasure every result with that one ruler. Entry $50, stop $48, 50 shares: 1R = $100, and $58 is +4R. Losers should all be −1R; a −3R means the stop moved or price gapped through it. Counting in R also makes accounts comparable: +3.5R is $350 on a $10,000 account risking 1% and $35,000 on $1,000,000.\n\nBefore this: Lore 002, 35% winners can beat 60% winners.\nNext: Lore 004, Legend 01: Jesse Livermore.\n\nSources: R-multiples as popularised by Van K. Tharp, Trade Your Way to Financial Freedom (1998); R-multiple framework (luxalgo.com/library/concept/r-multiple-framework); stop orders can fill below the stop in fast markets (finra.org, investor.gov). The 20 trades are simulated: sims/r_multiples.py, seed 3 (github.com/TheTapeLore/studio).\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #Trading",
+    "tags": [
+      "r multiple trading",
+      "r multiple",
+      "what is R in trading",
+      "risk reward ratio",
+      "position sizing",
+      "stop loss",
+      "van tharp r multiple",
+      "trading risk management",
+      "expectancy in R",
+      "the tape lore",
+      "lore 003"
+    ],
+    "playlist": "Risk & sizing"
+  }
+}

@@ -57,9 +57,10 @@ export const RTower: React.FC<RTowerProps> = ({ trades, winRate = 0.35, avgWinR 
   const headH = 170 * u;
   const footH = 120 * u;
   const slot = w / N;
-  const unit = Math.min(slot * 0.95, (h - headH - footH) / (maxUp + 1.25));
+  // blocks may be taller than wide: the tower fills the stage height
+  const unit = Math.min(slot * 2.4, (h - headH - footH) / (maxUp + 1.25));
   const base = headH + unit * (maxUp + 0.15);
-  const bw = Math.min(slot * 0.8, unit * 1.1);
+  const bw = slot * 0.8;
   let total = 0, wins = 0, placed = 0;
   const blocks: React.ReactNode[] = [];
   list.forEach((rv, i) => {
@@ -112,10 +113,10 @@ export const RTower: React.FC<RTowerProps> = ({ trades, winRate = 0.35, avgWinR 
         <g opacity={conv}>
           {convert.map((c, i) => (
             <g key={i}>
-              <text x={w} y={(72 + i * 58) * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.9} textAnchor="end">
+              <text x={w} y={(28 + i * 74) * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.95} textAnchor="end">
                 {c.label}
               </text>
-              <text x={w} y={(100 + i * 58) * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.25} textAnchor="end">
+              <text x={w} y={(70 + i * 74) * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={SIZE.label * u * 1.2} textAnchor="end">
                 {`${total >= 0 ? "+" : "−"}${fmtMoney(Math.abs(total * c.risk))}`}
               </text>
             </g>

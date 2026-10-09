@@ -85,7 +85,7 @@ class Arrangement:
         self.dur = dur
         self.beat = 60 / song["bpm"]
         self.bar = 4 * self.beat
-        self.nbars = int(math.ceil(dur / self.bar - 1e-6))
+        self.nbars = int(math.ceil(dur / self.bar - 1e-3))   # specs round times to 4 decimals
         self.bars = [Bar() for _ in range(self.nbars)]
         self.anchors = {0: 0}      # bar -> hook bar it restarts on (every drop lands on the top of the hook)
         self.events = []           # (t, kind, params): fills, risers, impacts, rolls
@@ -426,8 +426,132 @@ def i_distribution(S, b, t0, t1, data):
     S.cue(t0, "distribution: breakdown, breakout withheld")
 
 
+def i_rcompare(S, b, t0, t1, data):
+    """The same dollars measured with different rulers (RCompare). Full groove from frame 0; a one-bar build drops
+    exactly when the R readouts land (revealAt, on a bar line)."""
+    reveal = t0 + b.get("props", {}).get("revealAt", 2.0)
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = 4, "hook: two rulers" if k < S.bar_of(reveal) else "the R readouts land"
+    S.melody(t0, t1)
+    S.ev(t0, "impact", size=0.7)
+    if abs(reveal / S.bar - round(reveal / S.bar)) > 0.03:
+        S.cue(reveal, "warning: the R readouts land off the bar grid (set revealAt to a bar)")
+    if reveal - t0 >= S.bar - 1e-6:
+        build(S, reveal - S.bar, reveal, "the rulers draw")
+    S.anchor(reveal)
+    S.cue(t0, "hook: full groove + the song's hook from frame 0")
+
+
+def i_rruler(S, b, t0, t1, data):
+    """R as a ruler (RRuler). Defining 1R: a quiet set-up (hats, pad, breakout withheld). Measuring: a build while the
+    price climbs, dropping on the bar where it lands at its high (the last +R segment stamps); the dashed stop-out
+    ghost gets a short fall of its own."""
+    p = b.get("props", {})
+    off = p.get("timeOffset", 0.0)
+    path = p.get("path") or [[0, 50], [8.4, 50.3], [13.6, 58.0], [16, 58.0]]
+    measure = t0 + p.get("measureAt", 99) - off
+    if not (t0 <= measure < t1):
+        for k in S.bars_in(t0, t1):
+            S.bars[k].energy, S.bars[k].drums, S.bars[k].label = 3, "half", "1R defined: set-up"
+        S.melody(t0, t1, withhold=True, gain=0.8)
+        S.ev(t0 + p.get("zoneAt", 1.0) - off, "impact", size=0.5) if t0 <= t0 + p.get("zoneAt", 1.0) - off < t1 else None
+        S.cue(t0, "1R defined: half-time groove, breakout withheld")
+        return
+    top = max(path, key=lambda kv: (kv[1], -kv[0]))
+    land = t0 + top[0] - off
+    if abs(land / S.bar - round(land / S.bar)) > 0.03:
+        S.cue(land, "warning: the climb lands off the bar grid (time the path's high to a bar line)")
+    land_bar = S.bar_of(land + 1e-3)
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = (3, "measuring: the climb") if k < land_bar else (4, "+R lands: drop")
+    S.melody(t0, land_bar * S.bar, withhold=True, gain=0.9)
+    S.melody(land_bar * S.bar, t1)
+    build(S, max(t0, land_bar * S.bar - 2 * S.bar), land_bar * S.bar, "the price climbs the ruler")
+    S.anchor(land_bar * S.bar)
+    g = p.get("ghost")
+    if g:
+        g_end = t0 + g["at"] - off + g.get("dur", 1.0)
+        if t0 < g_end <= t1:
+            fall_fill(S, g_end, 0.1)
+            S.cue(g_end, "the stop-out ghost: −1R, a short fall")
+
+
+def i_rtower(S, b, t0, t1, data):
+    """Trades counted in R (RTower): the groove counts the trades in; a one-bar build lands on the first bar line after
+    the last trade is placed (the total), then the chorus energy carries the dollar conversion."""
+    p = b.get("props", {})
+    n = len(p.get("trades") or (S.sim or {}).get("trades") or [0] * p.get("n", 20))
+    step = p.get("step") or p.get("dur", 4) / max(1, n)
+    done = t0 + p.get("startAt", 0.2) + n * step
+    land_bar = min(S.bar_of(t1 - 0.01), int(math.ceil(done / S.bar - 1e-3)))
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = (3, "trades counted in") if k < land_bar else (4, "the total in R")
+    S.melody(t0, t1)
+    if land_bar * S.bar - S.bar >= t0:
+        build(S, land_bar * S.bar - S.bar, land_bar * S.bar, "the last trades land")
+    S.anchor(land_bar * S.bar)
+
+
+def i_seesaw(S, b, t0, t1, data):
+    """Position sizing as a lever (Seesaw). Mode "shares" (a fixed share count): each wider stop tips the beam and the
+    risk multiplies, so the harmony sinks like a loss (depth = 1 − 1/risk multiple) with a fall on each tip and the
+    breakout withheld. Mode "risk": each move wobbles and re-levels: a small impact on the level, groove intact."""
+    p = b.get("props", {})
+    stops = p.get("stopDistance", [1, 2, 4])
+    stops = stops if isinstance(stops, list) else [stops]
+    mode, start, hold = p.get("mode", "risk"), p.get("startAt", 0.6), p.get("hold", 2.4)
+    hook = b.get("kind") == "hook"
+    if hook:
+        S.ev(t0, "impact", size=0.7)
+    if mode == "shares":
+        marks = [(t0, 0.0)] + [(t0 + start + (i - 1) * hold + 0.6, 1 - stops[0] / stops[i]) for i in range(1, len(stops))]
+        for j, (ta, L) in enumerate(marks):
+            tb = marks[j + 1][0] if j + 1 < len(marks) else t1
+            if j:
+                fall_fill(S, ta, L)
+            for k in S.bars_in(ta, tb):
+                bar = S.bars[k]
+                bar.deg = S.depth_deg(L) if L > 0 else None
+                bar.energy = 4 if L == 0 else 3
+                bar.label = f"risk x{stops[j] / stops[0]:g}"
+            S.melody(ta, tb, withhold=L > 0, gain=1.0 if L == 0 else 0.8)
+            S.cue(ta, f"risk x{stops[j] / stops[0]:g}" + (f" -> {S.name(S.depth_deg(L))}, breakout withheld" if L else ": level, the hook"))
+        return
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = (4 if hook else 3), "sized to the risk: level"
+    S.melody(t0, t1)
+    for i in range(1, len(stops)):
+        lv = t0 + start + (i - 1) * hold + 1.35
+        if lv < t1:
+            S.ev(lv, "impact", size=0.45)
+            S.cue(lv, f"stop ${stops[i]:g}: shares re-sized, the beam levels")
+
+
+# PivotStep.tsx PATH: the line crosses the wire at 52.997% of its length
+PIVOT_CROSS_FRAC = 0.529974
+
+
+def i_pivotstep(S, b, t0, t1, data):
+    """A legend's pivotal point as our tripwire (PivotStep): WAIT = a breakdown under the wire (breakout withheld),
+    a one-bar build, and the drop on the snap; SIT TIGHT = the chorus."""
+    p = b.get("props", {})
+    snap = t0 + p.get("drawAt", 0.2) + PIVOT_CROSS_FRAC * p.get("drawDur", 4.0)
+    if abs(snap / S.bar - round(snap / S.bar)) > 0.03:
+        S.cue(snap, "warning: the pivotal point snaps off the bar grid (adjust drawDur)")
+    sb = S.bar_of(snap + 1e-3)
+    for k in S.bars_in(t0, t1):
+        bar = S.bars[k]
+        bar.energy, bar.drums, bar.label = (2, "break", "wait: under the wire") if k < sb else (4, "full", "the snap: sit tight")
+    S.melody(t0, sb * S.bar, withhold=True, gain=0.7)
+    S.melody(sb * S.bar, t1)
+    build(S, max(t0, sb * S.bar - S.bar), sb * S.bar, "price reaches the pivotal point")
+    S.anchor(sb * S.bar)
+    S.cue(snap, "the pivotal point snaps (tripwire)")
+
+
 INTERPRETERS = {"ThePit": i_thepit, "Duel": i_duel, "RunsFan": i_runsfan, "Distribution": i_distribution, "CandleChart": i_candlechart, "Anatomy": i_candlechart, "MythCard": i_myth,
-                "RuleCard": i_rule, "EndCard": i_end}
+                "RuleCard": i_rule, "EndCard": i_end,
+                "RCompare": i_rcompare, "RRuler": i_rruler, "RTower": i_rtower, "Seesaw": i_seesaw, "PivotStep": i_pivotstep}
 KIND_DEFAULT = {"end": "EndCard", "misconception": "MythCard", "rule": "RuleCard", "the_rule": "RuleCard"}
 
 

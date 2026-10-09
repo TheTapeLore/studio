@@ -26,6 +26,8 @@ export interface LegendCardProps {
   back?: boolean;
   /** Print file: square corners (the cutter rounds them), the card fills its box. */
   print?: boolean;
+  /** A slow push-in onto part of the card (seconds; focusY 0..1 down the card), clipped to the stage. */
+  zoom?: { at: number; dur: number; scale: number; focusY: number } | null;
 }
 
 const TW = 750, TH = 1050;
@@ -33,7 +35,7 @@ const TW = 750, TH = 1050;
 const typed = (s: string, p: number) => s.slice(0, Math.round(s.length * p));
 
 /** The collectible Legend Card, matching brand/assets/cards. Abstract emblem only (compliance rule 5). */
-export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-step", animate = true, width, back = false, print = false }) => {
+export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-step", animate = true, width, back = false, print = false, zoom = null }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { w, h } = useStage();
@@ -71,7 +73,20 @@ export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-
     );
   }
   let fieldT = 1.5;
-  return (
+  const zp = zoom && animate ? prog(frame, fps, zoom.at, zoom.dur, "standard") : 0;
+  const zs = 1 + ((zoom?.scale ?? 1) - 1) * zp;
+  const fy = frame0.top + (zoom?.focusY ?? 0.5) * frame0.height;
+  // keep the focus point at the stage centre as it scales
+  const ty = zp * (h / 2 - fy);
+  const wrap = (node: React.ReactNode) =>
+    zoom ? (
+      <div style={{ position: "absolute", left: 0, top: 0, width: w, height: h, overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, transform: `translateY(${ty}px) scale(${zs})`, transformOrigin: `${w / 2}px ${fy}px` }}>{node}</div>
+      </div>
+    ) : (
+      node
+    );
+  return wrap(
     <div style={{ ...frame0, borderRadius: radius, background: C.prussian, overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 22 * k, border: `${3 * k}px solid ${C.sodium}`, borderRadius: 22 * k }} />
       <div style={{ position: "absolute", left: 22 * k, top: 52 * k, width: (TW - 44) * k * at(0, 0.5), height: 46 * k, background: C.tape, overflow: "hidden" }}>

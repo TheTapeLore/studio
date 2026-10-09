@@ -1,0 +1,154 @@
+{
+ "id": "L0004",
+ "song": {
+  "id": "L0004",
+  "key": "B minor",
+  "bpm": 90.0,
+  "genre": "boom bap",
+  "groove": "hiphop-lazy",
+  "progression": [
+   "iv",
+   "i",
+   "VII",
+   "VI"
+  ],
+  "lead": "glide",
+  "bass": "sub",
+  "arp": "none",
+  "swing": 0.088
+ },
+ "genre": "boom bap",
+ "bpm": 90.0,
+ "bars": 9.0,
+ "loop_aligned": true,
+ "lufs": -16.8,
+ "true_peak_db": -4.2,
+ "generator": "scripts/sound/score.py (v4)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "emblem"
+  },
+  {
+   "bar": 2,
+   "t": 2.667,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "emblem"
+  },
+  {
+   "bar": 3,
+   "t": 5.333,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "emblem"
+  },
+  {
+   "bar": 4,
+   "t": 8.0,
+   "chord": "VI",
+   "energy": 2,
+   "drums": "break",
+   "melody": "A'2-",
+   "label": "wait: under the wire"
+  },
+  {
+   "bar": 5,
+   "t": 10.667,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "the snap: sit tight"
+  },
+  {
+   "bar": 6,
+   "t": 13.333,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "the snap: sit tight"
+  },
+  {
+   "bar": 7,
+   "t": 16.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 8,
+   "t": 18.667,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 9,
+   "t": 21.333,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "end card"
+  }
+ ],
+ "cues": [
+  {
+   "t": 8.0,
+   "bar": 4,
+   "cue": "price reaches the pivotal point: build 1.0 bars"
+  },
+  {
+   "t": 10.67,
+   "bar": 5,
+   "cue": "DROP"
+  },
+  {
+   "t": 10.67,
+   "bar": 5,
+   "cue": "the pivotal point snaps (tripwire)"
+  },
+  {
+   "t": 16.0,
+   "bar": 7,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 18.67,
+   "bar": 8,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 21.33,
+   "bar": 9,
+   "cue": "loop build: the last bar resolves into frame 0"
+  }
+ ],
+ "end_card": {
+  "drawAt": 0.0,
+  "vertexAt": [
+   0.0,
+   0.5,
+   1.0,
+   1.3333,
+   1.6667,
+   2.0,
+   4.0148
+  ]
+ }
+}

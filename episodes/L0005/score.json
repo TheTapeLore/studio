@@ -1,0 +1,338 @@
+{
+ "id": "L0005",
+ "song": {
+  "id": "L0005",
+  "key": "F# minor",
+  "bpm": 128.57,
+  "genre": "melodic house",
+  "groove": "four",
+  "progression": [
+   "i",
+   "iv",
+   "VI",
+   "V"
+  ],
+  "lead": "bell",
+  "bass": "syncopated",
+  "arp": "updown",
+  "swing": 0.058
+ },
+ "genre": "melodic house",
+ "bpm": 128.57,
+ "bars": 25.0,
+ "loop_aligned": true,
+ "lufs": -16.7,
+ "true_peak_db": -3.8,
+ "generator": "scripts/sound/score.py (v4)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "risk x1"
+  },
+  {
+   "bar": 2,
+   "t": 1.867,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2-",
+   "label": "risk x2"
+  },
+  {
+   "bar": 3,
+   "t": 3.733,
+   "chord": "bII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1-",
+   "label": "risk x4"
+  },
+  {
+   "bar": 4,
+   "t": 5.6,
+   "chord": "bII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2-",
+   "label": "risk x4"
+  },
+  {
+   "bar": 5,
+   "t": 7.467,
+   "chord": "bII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1-",
+   "label": "risk x4"
+  },
+  {
+   "bar": 6,
+   "t": 9.333,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B2",
+   "label": "sized to the risk: level"
+  },
+  {
+   "bar": 7,
+   "t": 11.2,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "sized to the risk: level"
+  },
+  {
+   "bar": 8,
+   "t": 13.067,
+   "chord": "V",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "sized to the risk: level"
+  },
+  {
+   "bar": 9,
+   "t": 14.933,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "sized to the risk: level"
+  },
+  {
+   "bar": 10,
+   "t": 16.8,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "sized to the risk: level"
+  },
+  {
+   "bar": 11,
+   "t": 18.667,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 12,
+   "t": 20.533,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 13,
+   "t": 22.4,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 14,
+   "t": 24.267,
+   "chord": "V",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 15,
+   "t": 26.133,
+   "chord": "iv",
+   "energy": 1,
+   "drums": "break",
+   "melody": "A1-",
+   "label": "myth: breakdown"
+  },
+  {
+   "bar": 16,
+   "t": 28.0,
+   "chord": "i",
+   "energy": 1,
+   "drums": "break",
+   "melody": "A2-",
+   "label": "myth: breakdown"
+  },
+  {
+   "bar": 17,
+   "t": 29.867,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "the math lands"
+  },
+  {
+   "bar": 18,
+   "t": 31.733,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "the math lands"
+  },
+  {
+   "bar": 19,
+   "t": 33.6,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 20,
+   "t": 35.467,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 21,
+   "t": 37.333,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 22,
+   "t": 39.2,
+   "chord": "V",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 23,
+   "t": 41.067,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 24,
+   "t": 42.933,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 25,
+   "t": 44.8,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "end card"
+  }
+ ],
+ "cues": [
+  {
+   "t": 0,
+   "bar": 1,
+   "cue": "risk x1: level, the hook"
+  },
+  {
+   "t": 1.4,
+   "bar": 1,
+   "cue": "loss \u221250%: 4-note fall, 6.0 semitones down"
+  },
+  {
+   "t": 1.87,
+   "bar": 2,
+   "cue": "risk x2 -> iv, breakout withheld"
+  },
+  {
+   "t": 3.03,
+   "bar": 2,
+   "cue": "loss \u221275%: 6-note fall, 9.0 semitones down"
+  },
+  {
+   "t": 3.73,
+   "bar": 3,
+   "cue": "risk x4 -> bII, breakout withheld"
+  },
+  {
+   "t": 13.07,
+   "bar": 8,
+   "cue": "stop $2: shares re-sized, the beam levels"
+  },
+  {
+   "t": 16.8,
+   "bar": 10,
+   "cue": "stop $4: shares re-sized, the beam levels"
+  },
+  {
+   "t": 18.67,
+   "bar": 11,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 26.13,
+   "bar": 15,
+   "cue": "myth: breakdown, hook without its breakout"
+  },
+  {
+   "t": 29.87,
+   "bar": 17,
+   "cue": "the math lands: groove back"
+  },
+  {
+   "t": 33.6,
+   "bar": 19,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 41.07,
+   "bar": 23,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 42.93,
+   "bar": 24,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 44.8,
+   "bar": 25,
+   "cue": "loop build: the last bar resolves into frame 0"
+  }
+ ],
+ "end_card": {
+  "drawAt": 0.0,
+  "vertexAt": [
+   0.0,
+   0.35,
+   0.7,
+   0.9333,
+   1.1667,
+   1.4,
+   2.8104
+  ]
+ }
+}

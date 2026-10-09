@@ -35,8 +35,7 @@ const at = (path: [number, number][], t: number) => {
     if (t <= path[i][0]) {
       const [t0, p0] = path[i - 1], [t1, p1] = path[i];
       const f = (t - t0) / Math.max(1e-6, t1 - t0);
-      const s = f * f * (3 - 2 * f);
-      return p0 + (p1 - p0) * s;
+      return p0 + (p1 - p0) * f;
     }
   }
   return path[path.length - 1][1];
@@ -121,7 +120,7 @@ export const RRuler: React.FC<RRulerProps> = ({
           <line x1={x0} y1={y0} x2={xm} y2={ym} stroke={C.ember} strokeWidth={5 * u} strokeDasharray={`${12 * u} ${9 * u}`} strokeLinecap="round" />
           <circle cx={xm} cy={ym} r={9 * u} fill={C.ember} />
           <g opacity={lab}>
-            <text x={x1 + 18 * u} y={y1 + 12 * u} fill={C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.label * u * 1.5}>
+            <text x={x1 - 12 * u} y={y1 + 64 * u} fill={C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.label * u * 1.5}>
               {`${fmtR(-1)} · ${fmtMoney(-oneR)}`}
             </text>
           </g>
@@ -144,7 +143,7 @@ export const RRuler: React.FC<RRulerProps> = ({
         <rect x={plot.x} y={y(entry)} width={plot.w * zone} height={y(stop) - y(entry)} fill={hexA(C.ember, 0.16)} />
         <line x1={plot.x} x2={plot.x + plot.w * zone} y1={y(stop)} y2={y(stop)} stroke={C.ember} strokeWidth={4 * u} />
         <line x1={plot.x} x2={plot.x + plot.w * zone} y1={y(entry)} y2={y(entry)} stroke={C.tape} strokeWidth={3 * u} strokeDasharray={`${10 * u} ${8 * u}`} />
-        <text x={plot.x + 14 * u} y={y(entry) - 14 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>
+        <text x={plot.x + plot.w - 10 * u} y={y(entry) - 14 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end" letterSpacing={TYPE.mono.tracking}>
           {`ENTRY $${entry}`}
         </text>
         <text x={plot.x + 14 * u} y={y(stop) + 34 * u} fill={C.ember} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>

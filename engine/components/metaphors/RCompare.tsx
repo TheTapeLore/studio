@@ -35,8 +35,8 @@ export const RCompare: React.FC<RCompareProps> = ({ gain = 500, risks = [100, 20
   const rs = risks.map((r) => gain / r);
   const best = rs.indexOf(Math.max(...rs));
   const maxRisk = Math.max(...risks);
-  const headH = 120 * u;
-  const footH = 150 * u;
+  const headH = 110 * u;
+  const footH = 140 * u;
   const plotH = h - headH - footH;
   // the tallest ruler (the biggest 1R) fills the plot; the gain bar is drawn to the same dollar scale
   const pxPerDollar = plotH / Math.max(maxRisk, gain);

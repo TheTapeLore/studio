@@ -58,13 +58,13 @@ export const Seesaw: React.FC<SeesawProps> = ({
   const sharesNow = Math.round(lerp(prevShares, newShares, resize));
   const atRisk = sharesNow * stopNow;
   const r = atRisk / budget;
-  // tilt: 8° per doubling of the risk, capped; a damped wobble when it re-levels
+  // tilt: 6° per doubling of the risk, capped so the stack never sinks through the floor; a damped wobble when it re-levels
   const settleT = into - 1.35;
   const wobble = k > 0 && mode === "risk" && settleT > 0 ? Math.exp(-3.5 * settleT) * Math.sin(11 * settleT) * 2.2 : 0;
-  const tilt = clamp(8 * Math.log2(Math.max(r, 1e-3)), -16, 16) + wobble;
+  const tilt = clamp(6 * Math.log2(Math.max(r, 1e-3)), -11, 11) + wobble;
 
   const cx = w / 2;
-  const by = h * 0.6;
+  const by = h * 0.62;
   const Lh = Math.min(w * 0.46, 430 * u);
   const maxStop = Math.max(...stops, 4);
   const posOf = (s: number) => Lh * 0.12 + (Lh * 0.8 * s) / maxStop;
@@ -113,12 +113,12 @@ export const Seesaw: React.FC<SeesawProps> = ({
       <text x={w} y={40 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end" letterSpacing={TYPE.mono.tracking}>
         AT RISK
       </text>
-      <text x={w} y={40 * u + SIZE.h2 * u * 0.95} fill={over ? C.ember : C.tape} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.h2 * u * 1.05} textAnchor="end">
+      <text x={w} y={62 * u + SIZE.h2 * u * 0.8} fill={over ? C.ember : C.tape} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.h2 * u * 1.05} textAnchor="end">
         {fmtMoney(Math.round(atRisk))}
       </text>
       {/* fulcrum */}
       <path d={`M${cx},${by} L${cx - 54 * u},${by + 100 * u} L${cx + 54 * u},${by + 100 * u} Z`} fill={hexA(C.blueline, 0.5)} stroke={C.tape} strokeWidth={3 * u} strokeLinejoin="round" />
-      <line x1={cx - Lh * 1.05} x2={cx + Lh * 1.05} y1={by + 100 * u} y2={by + 100 * u} stroke={C.blueline} strokeWidth={3 * u} />
+      <line x1={cx - Lh * 1.08} x2={cx + Lh * 1.08} y1={by + 100 * u} y2={by + 100 * u} stroke={C.blueline} strokeWidth={3 * u} />
       <g transform={`rotate(${tilt} ${cx} ${by})`}>
         <rect x={cx - Lh} y={by - 14 * u} width={2 * Lh} height={14 * u} rx={7 * u} fill={C.tape} />
         {/* stop-distance ruler on the right arm */}
@@ -146,7 +146,7 @@ export const Seesaw: React.FC<SeesawProps> = ({
           {`${fmtNum(sharesNow)} SH`}
         </text>
       </g>
-      <text x={cx + Lh * 0.52} y={by + 150 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.85} textAnchor="middle" letterSpacing={TYPE.mono.tracking}>
+      <text x={cx + Lh * 0.52} y={by + 190 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.85} textAnchor="middle" letterSpacing={TYPE.mono.tracking}>
         STOP DISTANCE PER SHARE
       </text>
     </svg>

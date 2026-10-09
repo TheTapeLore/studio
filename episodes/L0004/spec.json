@@ -52,7 +52,13 @@
           "read": "How to Trade in Stocks (1940)"
         },
         "emblem": "pivot-step",
-        "animate": true
+        "animate": true,
+        "zoom": {
+          "at": 4.3,
+          "dur": 3.2,
+          "scale": 1.5,
+          "focusY": 0.74
+        }
       },
       "captions": [
         "Legend 01. At 14: posting stock prices, $5 a week.",

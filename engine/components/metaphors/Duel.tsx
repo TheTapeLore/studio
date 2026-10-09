@@ -36,7 +36,7 @@ export const duelVerdict = (a: number[], b: number[]) => {
 
 /**
  * Win rate vs payoff, as a race of two scoreboards. Each lane places its trades one by one: wins rise in Lichen,
- * losses hang in Ember, bar height = dollars. The win-rate counter says one thing; the running total says another.
+ * losses hang in Ember, bar height = dollars. The win rate (shown from frame 0) says one thing; the running total says another.
  * The moment the second lane takes the lead for good, its total turns Sodium (the one highlight) and the first
  * lane's total goes Ember. score.py drops the music on that same trade.
  */
@@ -74,16 +74,12 @@ export const Duel: React.FC<DuelProps> = ({ lanes, startAt = 0.3, step = 0.45 })
       {L.map((lane, li) => {
         const y0 = li * (laneH + gap);
         const base = y0 + headH + half;
-        let total = 0, wins = 0, done = 0;
+        let total = 0;
         const bars: React.ReactNode[] = [];
         lane.trades.forEach((v, i) => {
           const a = clamp((t - startAt - i * step) / 0.22);
           if (a <= 0) return;
-          done++;
-          if (a >= 1) {
-            total += v;
-            if (v > 0) wins++;
-          }
+          if (a >= 1) total += v;
           const bh = Math.abs(v) * unit * a;
           const x = i * slot + slot * 0.14;
           const bw = slot * 0.72;
@@ -95,8 +91,8 @@ export const Duel: React.FC<DuelProps> = ({ lanes, startAt = 0.3, step = 0.45 })
             ),
           );
         });
-        const settled = Math.max(1, lane.trades.filter((_, i) => t - startAt - i * step >= 0.22).length);
-        const rate = done ? wins / settled : 0;
+        // the win rate is the lane's identity (known from frame 0); only the money unfolds
+        const rate = lane.trades.filter((v) => v > 0).length / Math.max(1, lane.trades.length);
         const winner = li === 1;
         const totalColor = flip > 0 ? (winner ? C.sodium : C.ember) : C.tape;
         const tx = barsW + 34 * u;

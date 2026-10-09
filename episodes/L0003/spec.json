@@ -33,8 +33,8 @@
           100,
           2000
         ],
-        "barsAt": 0.1,
-        "rulersAt": 0.5,
+        "barsAt": -0.5,
+        "rulersAt": 0.3,
         "revealAt": 2.0
       },
       "captions": [
@@ -122,7 +122,7 @@
           ]
         ],
         "timeOffset": 0,
-        "zoneAt": 1.0,
+        "zoneAt": 0.4,
         "measureAt": 99
       },
       "captions": [
@@ -212,7 +212,7 @@
           ]
         ],
         "timeOffset": 8,
-        "zoneAt": 1.0,
+        "zoneAt": 0.4,
         "measureAt": 8.2,
         "ghost": {
           "at": 12.5,
@@ -366,5 +366,5 @@
       ]
     }
   },
-  "status": "planned"
+  "status": "qa_passed"
 }

@@ -65,7 +65,8 @@ const progressPrinter = (label) => {
  * Master bus. Cues are mastered one by one (gen_cues.py) and the score is a quiet bed (score.py), but overlaps, the
  * renderer's mix and AAC overshoot (~2 dB) can still push the encoded track over the ceiling. So: measure the
  * integrated loudness, apply one static gain to reach -14 LUFS (short-form platforms normalise around -14), then a
- * brick-wall limiter at -4 dBFS so the encoded true peak lands near -2 dBTP (CLAUDE.md rule: <= -1).
+ * brick-wall limiter at -4 dBFS so the encoded true peak lands near -2 dBTP (CLAUDE.md rule: <= -1); if the encoded
+ * true peak still lands above -1.5 dBTP, the limiter is pulled down by the excess and the audio encoded again.
  * Video is stream-copied, never re-encoded.
  */
 const MASTER_LUFS = -14;
@@ -75,15 +76,33 @@ const integrated = (file) => {
   const m = [...(r.stderr || "").matchAll(/I:\s+(-?[\d.]+) LUFS/g)].pop();
   return m ? Number(m[1]) : null;
 };
+/** Encoded true peak (dBTP) from ffmpeg's loudnorm analysis. */
+const truePeak = (file) => {
+  const r = spawnSync("ffmpeg", ["-nostdin", "-hide_banner", "-i", file, "-af", "loudnorm=print_format=json", "-f", "null", "-"], { encoding: "utf8" });
+  const m = (r.stderr || "").match(/"input_tp"\s*:\s*"(-?[\d.]+)"/);
+  return m ? Number(m[1]) : null;
+};
+const TP_TARGET = -1.5; // CLAUDE.md: <= -1 dBTP; aim lower so AAC overshoot never lands on the line
 const masterAudio = (part, out) => {
   const tmp = out.replace(/\.mp4$/, ".master.mp4");
   const I = integrated(part);
   const gain = I === null || I < -60 ? 0 : Math.max(-6, Math.min(8, MASTER_LUFS - I));
-  execFileSync("ffmpeg", ["-nostdin", "-loglevel", "error", "-y", "-i", part, "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
-    "-af", `volume=${gain.toFixed(2)}dB,alimiter=limit=0.631:attack=2:release=60:level=false`, "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
+  const encode = (limitDb) =>
+    execFileSync("ffmpeg", ["-nostdin", "-loglevel", "error", "-y", "-i", part, "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
+      "-af", `volume=${gain.toFixed(2)}dB,alimiter=limit=${Math.pow(10, limitDb / 20).toFixed(4)}:attack=2:release=60:level=false`, "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
+  let limit = -4;
+  encode(limit);
+  // AAC can overshoot the limiter by 2-3 dB on bright leads: if the encoded true peak is over the target, pull the
+  // limiter down by the excess and encode again (renders already under the target are untouched).
+  let tp = truePeak(tmp);
+  if (tp !== null && tp > TP_TARGET) {
+    limit -= tp - TP_TARGET + 0.2;
+    encode(limit);
+    tp = truePeak(tmp);
+  }
   fs.renameSync(tmp, out);
   fs.unlinkSync(part);
-  log(`audio ${path.basename(out)}: ${I === null ? "?" : I.toFixed(1)} LUFS -> gain ${gain.toFixed(1)} dB, limiter -4 dBFS`);
+  log(`audio ${path.basename(out)}: ${I === null ? "?" : I.toFixed(1)} LUFS -> gain ${gain.toFixed(1)} dB, limiter ${limit.toFixed(1)} dBFS, true peak ${tp === null ? "?" : tp.toFixed(2)} dBTP`);
 };
 
 export const renderVideo = async (id, out) => {

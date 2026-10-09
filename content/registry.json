@@ -68,6 +68,97 @@
       "created": "2026-10-09",
       "updated": "2026-10-09",
       "release": "batch-2026-10-09-a"
+    },
+    {
+      "id": "L0003",
+      "lore_no": 3,
+      "slug": "the-ruler",
+      "pillar": "risk",
+      "cluster": "r-multiples",
+      "format": "anatomy",
+      "concept_key": "risk.r-multiples.what-is-r",
+      "title": "R: the only unit a trader needs",
+      "hook": "You made $500. Proud? Depends what you risked.",
+      "takeaway": "R is what you lose if your stop gets hit: (entry − stop) × shares, fixed before you buy. Measure every result with that ruler. A $500 win is +5R on $100 risk and +0.25R on $2,000. Losers should all be −1R; anything bigger means the stop moved or price gapped.",
+      "data": null,
+      "legends": [],
+      "question": null,
+      "simulation": {
+        "script": "sims/r_multiples.py",
+        "seed": 3,
+        "params": {
+          "trades": 20,
+          "win_rate": 0.4
+        }
+      },
+      "links": {
+        "prerequisites": [
+          "L0002"
+        ],
+        "next": [
+          "L0004"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-09-b",
+      "created": "2026-10-09",
+      "updated": "2026-10-09"
+    },
+    {
+      "id": "L0004",
+      "lore_no": 4,
+      "slug": "legend-01-livermore",
+      "pillar": "legends",
+      "cluster": "legend-cards",
+      "format": "legendcard",
+      "concept_key": "legends.card.livermore",
+      "title": "Legend 01: Jesse Livermore",
+      "hook": "Legend 01. At 14: posting stock prices, $5 a week.",
+      "takeaway": "Livermore's edge was patience at a level: wait for the pivotal point, act when price crosses it, then sit tight. He made fortunes and lost them, so read the risk lessons as closely as the wins. Our Sodium tripwire is his pivotal point.",
+      "data": null,
+      "legends": [
+        "Jesse Livermore"
+      ],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [],
+        "next": [
+          "L0005"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-09-b",
+      "created": "2026-10-09",
+      "updated": "2026-10-09"
+    },
+    {
+      "id": "L0005",
+      "lore_no": 5,
+      "slug": "the-seesaw",
+      "pillar": "risk",
+      "cluster": "position-sizing",
+      "format": "anatomy",
+      "concept_key": "risk.position-sizing.seesaw",
+      "title": "The Seesaw: wider stop, smaller size",
+      "hook": "Always buy 100 shares? Nice round number.",
+      "takeaway": "Fix the risk first (say 1% of the account), then let the stop set the size: shares = risk ÷ stop distance, rounded down. A wider stop means fewer shares and the same dollars at risk. Buying the same share count every time lets your stop decide your risk instead.",
+      "data": null,
+      "legends": [],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [
+          "L0003"
+        ],
+        "next": [
+          "L0006"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-09-b",
+      "created": "2026-10-09",
+      "updated": "2026-10-09"
     }
   ]
 }

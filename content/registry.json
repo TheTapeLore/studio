@@ -33,6 +33,40 @@
       "created": "2026-10-06",
       "updated": "2026-10-08",
       "release": "batch-2026-10-06-a"
+    },
+    {
+      "id": "L0002",
+      "lore_no": 2,
+      "slug": "mostly-wrong",
+      "pillar": "risk",
+      "cluster": "expectancy",
+      "format": "whatif",
+      "concept_key": "risk.expectancy.win-rate-vs-payoff",
+      "title": "35% winners can beat 60% winners",
+      "hook": "60% winners vs 35% winners. Guess who's losing.",
+      "takeaway": "How often you win is only half the math. A 60% win rate with small wins and big losses loses money; a 35% win rate with small losses and big wins makes it. The price of the second one is long losing streaks, so plan for them.",
+      "legends": [],
+      "question": "Can a 35% win rate beat a 60% win rate?",
+      "simulation": {
+        "script": "sims/win_rate_vs_payoff.py",
+        "seed": 7,
+        "params": {
+          "runs": 1000,
+          "trades": 100
+        }
+      },
+      "links": {
+        "prerequisites": [
+          "L0001"
+        ],
+        "next": [
+          "L0003"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-09-a",
+      "created": "2026-10-09",
+      "updated": "2026-10-09"
     }
   ]
 }

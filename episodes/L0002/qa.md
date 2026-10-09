@@ -42,3 +42,21 @@ vs Lore 001; different key, mode, tempo, progression, lead and groove).
 - Rule 7: disclaimer in the Instagram caption and the YouTube description. Rule 9: music and sound generated.
 - Voice: hook = feeling + number ("Guess who's losing."); humor tied to the lesson ("Ouch.", "Huh.", "It doesn't pay
   rent."); never at a real person. voice_check PASS.
+
+## Pass 1 (full render 4x5, then fixes)
+- Frames every 2 s + beat boundaries, contact sheets viewed. Found: the hook's first frames read "WINS 0%" / "$0"
+  (weak opening). Fix: the win rate is each lane's identity and shows from frame 0; by 1.5 s the screen reads
+  "Mostly Right +$300 vs Mostly Wrong −$300" under "Guess who's losing." Re-rendered.
+- Found on 9x16: the "WORST 5% +8%" label sat on its own red path. Fix: dark halo behind fan labels. Re-rendered.
+
+## Pass 2 (full re-render, 4x5 + 9x16 + thumbnail + cover)
+1. Truth: PASS (table above; every number re-read on screen).
+2. Compliance: PASS (simulated label on the tape for the whole video, assumptions before results, the cost shown,
+   sources, disclaimer, generated sound).
+3. Clarity: PASS. One idea (win rate is half the math); muted, captions + totals + fans carry it.
+4. Brand: PASS. One Sodium per frame (the leader's total, the +$40, "money", the end-card wire); TapeStrip in/out;
+   snap on the end card in E (E5 chime measured at 57.9 s, no A5 bleed).
+5. Craft: PASS. Safe zones in both aspects, captions timed (lint), no overlaps after the fixes, loudness
+   −14.1 LUFS / −2.4 dBFS peak (4x5 and 9x16).
+6. Distinct: PASS. First What If Lab, new metaphor (Duel), new song (E dorian 128.6 BPM, square lead).
+**Result: qa_passed after 2 passes.**

@@ -110,9 +110,9 @@ gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # rend
 
 ### Lore 003–005 · batch 2026-10-09-b
 - Lore 003 · R: the only unit a trader needs (anatomy; sim `sims/r_multiples.py`, seed 3). Lore 004 · Legend 01: Jesse
-  Livermore (Legend Card; fact sheet `content/legends/livermore.md`). Lore 005 · The Seesaw: wider stop, smaller size.
+  Livermore (Legend story, 101 s, rebuilt after founder review; fact sheet `content/legends/livermore.md`). Lore 005 · The Seesaw: wider stop, smaller size.
 - Specs, songs, stills, QA logs: `episodes/L0003..L0005/`. Copy, thumbnails, covers, subtitles: `publish/L0003..L0005/`;
-  Lore 004 also has the card front/back, print files (`print/`, with bleed) and a 5-slide carousel (`carousel-1..5.png`).
+  Lore 004 also has the card front/back, print files (`print/`, with bleed) and a 6-slide carousel (`carousel-1..6.png`).
 - Videos: GitHub Release [batch-2026-10-09-b](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-09-b).
   Report and posting slots: `batches/2026-10-09-b-report.md`. Registry status: `released`.
 

@@ -243,7 +243,7 @@ export const AssumptionsPanel: React.FC<{ items: string[]; title?: string }> = (
           return (
             <div key={i} style={{ opacity: p, display: "flex", gap: 22 * u, padding: `${20 * u}px 0`, borderBottom: `${1 * u}px solid ${hexA(C.blueline, 0.6)}` }}>
               <div style={{ fontFamily: FONT.mono, fontSize: SIZE.label * u * 0.8, color: C.mist, paddingTop: 8 * u }}>{String(i + 1).padStart(2, "0")}</div>
-              <div style={{ fontFamily: FONT.body, fontSize: SIZE.caption * u * 0.78, color: C.tape, lineHeight: 1.2 }}>
+              <div style={{ fontFamily: FONT.body, fontSize: SIZE.caption * u * 0.78, color: C.tape, lineHeight: 1.2, textWrap: "pretty" }}>
                 <RichText text={it} />
               </div>
             </div>

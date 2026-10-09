@@ -39,7 +39,8 @@ export const Distribution: React.FC<DistributionProps> = ({ values, simKey = "fi
   const counts = Array(bins).fill(0);
   for (const v of V) counts[Math.min(bins - 1, Math.max(0, Math.floor(((v - lo) / (hi - lo || 1)) * bins)))]++;
   const max = Math.max(...counts);
-  const padB = 90 * u, padT = 60 * u;
+  const padB = 90 * u, padT = 70 * u;
+  const barTop = padT + 64 * u; // bars stay under the two labels
   const bw = w / bins;
   const X = (v: number) => ((v - lo) / (hi - lo || 1)) * w;
   const med = q(s, 0.5);
@@ -47,12 +48,18 @@ export const Distribution: React.FC<DistributionProps> = ({ values, simKey = "fi
   const grow = prog(frame, fps, drawAt, 1.0, "draw");
   const marks = prog(frame, fps, drawAt + 1.0, 0.4);
   const fs = SIZE.tape * u;
+  const charW = fs * 1.1 * 0.64; // Martian Mono 600 advance, label size
+  const place = (x: number, text: string, prefer: "start" | "end") => {
+    const tw = text.length * charW;
+    const side = prefer === "end" ? (x - 10 * u - tw < 0 ? "start" : "end") : x + 10 * u + tw > w ? "end" : "start";
+    return { x: x + (side === "start" ? 10 : -10) * u, textAnchor: side } as const;
+  };
   return (
     <svg width={w} height={h} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
       {counts.map((c, i) => {
         const x0 = lo + ((hi - lo) * i) / bins;
         const bad = badSide === "low" ? x0 + (hi - lo) / bins <= tail : x0 >= tail;
-        const bh = ((h - padT - padB) * c * grow) / (max || 1);
+        const bh = ((h - barTop - padB) * c * grow) / (max || 1);
         return <rect key={i} x={i * bw + 1.5 * u} y={h - padB - bh} width={bw - 3 * u} height={bh} fill={bad ? hexA(C.ember, 0.85) : hexA(C.mist, 0.55)} />;
       })}
       <line x1={0} x2={w} y1={h - padB} y2={h - padB} stroke={C.blueline} strokeWidth={2 * u} />
@@ -67,9 +74,11 @@ export const Distribution: React.FC<DistributionProps> = ({ values, simKey = "fi
       </text>
       <g opacity={marks} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.1}>
         <line x1={X(med)} x2={X(med)} y1={padT - 10 * u} y2={h - padB} stroke={C.tape} strokeWidth={4 * u} />
-        <text x={X(med) + 10 * u} y={padT} fill={C.tape}>{`MEDIAN ${F(med)}`}</text>
+        {/* labels point away from each other (the median's toward the bulk, the tail's toward its own side) and
+            flip sides rather than leave the chart */}
+        <text {...place(X(med), `MEDIAN ${F(med)}`, badSide === "low" ? "start" : "end")} y={padT} fill={C.tape}>{`MEDIAN ${F(med)}`}</text>
         <line x1={X(tail)} x2={X(tail)} y1={padT + 40 * u} y2={h - padB} stroke={C.ember} strokeWidth={4 * u} />
-        <text x={X(tail) + (badSide === "low" ? 10 : -10) * u} y={padT + 40 * u} fill={C.ember} textAnchor={badSide === "low" ? "start" : "end"}>
+        <text {...place(X(tail), `WORST 5% ${F(tail)}`, badSide === "low" ? "end" : "start")} y={padT + 40 * u} fill={C.ember}>
           {`WORST 5% ${F(tail)}`}
         </text>
       </g>

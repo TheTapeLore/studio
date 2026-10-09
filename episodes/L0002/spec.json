@@ -99,11 +99,11 @@
       "component": "RuleCard",
       "props": {
         "label": "Average result per trade",
-        "text": "Mostly Right −$20. Mostly Wrong [[+$40]].",
-        "sub": "60% × $100 − 40% × $200 = −$20. 35% × $300 − 65% × $100 = +$40."
+        "text": "−$20 vs [[+$40]].",
+        "sub": "Mostly Right: 60% × $100 − 40% × $200. Mostly Wrong: 35% × $300 − 65% × $100."
       },
       "captions": [
-        "Per trade, on average: −$20 vs +$40.",
+        "Right loses $20 a trade. Wrong makes $40.",
         "How often you win is half of it."
       ]
     },
@@ -190,7 +190,7 @@
     "lines": [
       "Wins 60%.",
       "Still loses",
-      "[[money]]."
+      "money."
     ],
     "component": "Duel",
     "props": {
@@ -201,7 +201,7 @@
     "lines": [
       "Wins 60%.",
       "Still loses",
-      "[[money]]."
+      "money."
     ],
     "component": "Duel",
     "props": {

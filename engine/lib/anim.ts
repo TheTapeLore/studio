@@ -59,7 +59,11 @@ export const fmtNum = (x: number, digits = 0) =>
 export const fmtMoney = (x: number, digits = 0) => `${x < 0 ? "−" : ""}$${fmtNum(Math.abs(x), digits)}`;
 
 /** Split "text [[sodium]] text" into parts. */
-export const parseMarks = (s: string) => {
+/** Keep a sign glued to its number when text wraps ("−$200" never splits into "−" / "$200"): a word joiner. */
+export const glueSigns = (s: string) => s.replace(/([−+–])(?=[$\d])/g, "$1\u2060");
+
+export const parseMarks = (raw: string) => {
+  const s = glueSigns(raw);
   const out: { text: string; hi: boolean }[] = [];
   const re = /\[\[(.+?)\]\]/g;
   let last = 0;

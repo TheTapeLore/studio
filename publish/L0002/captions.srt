@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:04,134
+60% winners vs 35% winners. Guess who's losing.
+
+2
+00:00:04,135 --> 00:00:07,868
+Mostly Wrong loses 13 of 20. Ouch.
+
+3
+00:00:07,869 --> 00:00:11,199
+And still finishes $1,200 ahead. Huh.
+
+4
+00:00:11,200 --> 00:00:14,720
+Luck? We ran both 1,000 times.
+
+5
+00:00:14,721 --> 00:00:18,666
+Same coin flips. Only the rules differ.
+
+6
+00:00:18,667 --> 00:00:22,399
+Mostly Right, 1,000 times. Median: −20%.
+
+7
+00:00:22,400 --> 00:00:26,132
+Only 8% of runs end up.
+
+8
+00:00:26,133 --> 00:00:30,105
+Mostly Wrong, same flips. Median: +40%.
+
+9
+00:00:30,106 --> 00:00:33,599
+97% of runs end up.
+
+10
+00:00:33,600 --> 00:00:37,332
+Right loses $20 a trade. Wrong makes $40.
+
+11
+00:00:37,333 --> 00:00:41,066
+How often you win is half of it.
+
+12
+00:00:41,067 --> 00:00:44,608
+Mostly Wrong's usual worst streak: 9 losses.
+
+13
+00:00:44,609 --> 00:00:48,532
+In a row. Feels awful. Plan for it.
+
+14
+00:00:48,533 --> 00:00:52,668
+Being right feels great. It doesn't pay rent.
+
+15
+00:00:52,669 --> 00:00:55,999
+Count the dollars, not the wins.
+
+16
+00:00:58,200 --> 00:01:01,549
+Lore 002. Next: Lore 003, R: the only unit a trader needs

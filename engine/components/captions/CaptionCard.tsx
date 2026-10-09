@@ -1,4 +1,5 @@
 import React from "react";
+import { glueSigns } from "../../lib/anim";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { C, FONT, SIZE, hexA } from "../../tokens";
 import { prog } from "../../lib/anim";
@@ -7,7 +8,7 @@ import { Rect, useLayout } from "../layout/layout";
 /** Render **bold** spans. */
 export const RichText: React.FC<{ text: string; boldColor?: string }> = ({ text, boldColor }) => (
   <>
-    {text.split(/(\*\*.+?\*\*)/g).map((part, i) =>
+    {glueSigns(text).split(/(\*\*.+?\*\*)/g).map((part, i) =>
       part.startsWith("**") ? (
         <span key={i} style={{ fontWeight: 700, color: boldColor }}>
           {part.slice(2, -2)}

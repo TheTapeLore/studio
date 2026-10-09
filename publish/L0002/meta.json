@@ -1,0 +1,41 @@
+{
+  "id": "L0002",
+  "lore_no": 2,
+  "title": "35% winners can beat 60% winners",
+  "batch": "2026-10-09-a",
+  "duration_s": 61.6,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0002-4x5.mp4",
+    "video_9x16": "release:L0002-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Mostly Right wins 60% of trades. Mostly Wrong wins 35%.\n\nWe simulated both 1,000 times. Mostly Right usually ends down 20%. Mostly Wrong usually ends up 40%.\n\nBeing right feels great. It doesn't pay rent.\n\nLore 002 · 35% winners can beat 60% winners",
+    "reply": "The math, per trade: 60% × $100 − 40% × $200 = −$20. And 35% × $300 − 65% × $100 = +$40.\n\nThe cost: Mostly Wrong's usual worst run is 9 losses in a row. Plan for it before it happens.\n\nNext: Lore 003 · R: the only unit a trader needs"
+  },
+  "instagram": {
+    "caption": "A 60% win rate that loses money. A 35% win rate that makes it. Meet Mostly Right and Mostly Wrong.\n\nMostly Right wins 60% of trades. Small wins ($100), big losses ($200). Feels great most days.\nMostly Wrong wins 35%. Small losses ($100), big wins ($300). Feels terrible most days.\n\nWe ran both 1,000 times (simulated, 100 trades each, same coin flips):\nMostly Right: median −20%. Only 8% of runs end up.\nMostly Wrong: median +40%. 97% of runs end up.\n\nPer trade, Mostly Right averages −$20 and Mostly Wrong averages +$40. How often you win is half the math. How much you win and lose is the other half.\n\nThe honest part: Mostly Wrong's usual worst streak is 9 losses in a row, and some runs hit 14. Trade like that and you'd better have planned for it.\n\nBeing right feels great. It doesn't pay rent.\n\nLore 002 · 35% winners can beat 60% winners. Next up, Lore 003: R, the only unit a trader needs.\n\nSend this to the friend who keeps bragging about their win rate.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #TradingEducation #WinRate #Expectancy",
+    "alt_text": "Animated simulation on a dark blue grid, labelled simulated. Two lanes of 20 trades: Mostly Right, with green bars for $100 wins and red bars for $200 losses, wins 60% and ends at minus $400; Mostly Wrong, with red $100 losses and tall green $300 wins, wins 35% and ends at plus $800. A list of assumptions follows. Two fans of 1,000 simulated runs show Mostly Right's median ending down 20% and Mostly Wrong's ending up 40%, each with its worst 5% path in red. A card shows minus $20 versus plus $40 per trade with the formula. A histogram shows Mostly Wrong's longest losing streak per run: median 9 in a row, worst 5% 14 in a row. The rule: score the money, not the hit rate.",
+    "cover_frame_s": 9.6
+  },
+  "youtube": {
+    "title": "Wins 60%, still loses money: win rate vs payoff | Lore 002",
+    "description": "Mostly Right wins 60% of trades and still loses money. Mostly Wrong wins 35% and makes it. Below: the math, and the cost.\nWe simulated both traders 1,000 times (100 trades each, same coin flips): Mostly Right's median run ends down 20%, Mostly Wrong's ends up 40%. Per trade: 60% × $100 − 40% × $200 = −$20, and 35% × $300 − 65% × $100 = +$40. The cost of being Mostly Wrong: a usual worst streak of 9 losses in a row.\n\nBefore this: Lore 001, why a 50% loss needs +100%.\nNext: Lore 003, R: the only unit a trader needs.\n\nSources: expectancy formula (tradezella.com/blog/blog-trading-expectancy; heygotrade.com/en/blog/what-is-expectancy-in-trading); simulation: sims/win_rate_vs_payoff.py, seed 7 (github.com/TheTapeLore/studio). Simulated results, not real trades.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #Trading",
+    "tags": [
+      "win rate vs risk reward",
+      "trading expectancy",
+      "win rate trading",
+      "risk reward ratio",
+      "positive expectancy",
+      "losing streaks trading",
+      "trading simulation",
+      "risk management trading",
+      "the tape lore",
+      "lore 002"
+    ],
+    "playlist": "Risk & sizing"
+  }
+}

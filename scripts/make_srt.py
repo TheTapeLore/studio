@@ -41,9 +41,11 @@ def cues(spec):
                 out.append((t, t + d, text))
                 t += d
         elif b.get("kind") == "end" and spec.get("next"):
-            # the end card's text appears just after the wire snaps (~2 s in) and holds to the end
+            # the end card's text appears just after the wire snaps: on the sonic logo's breakout, beat 4 of the song
             nx = spec["next"]
-            out.append((b["t"] + 2.2, b["t"] + b["dur"] - 0.05,
+            sp = os.path.join(ROOT, "episodes", spec["id"], "song.json")
+            beat = 60 / json.load(open(sp))["bpm"] if os.path.exists(sp) else 0.5
+            out.append((b["t"] + 4 * beat + 0.2, b["t"] + b["dur"] - 0.05,
                         f"Lore {spec['lore_no']:03d}. Next: Lore {nx['lore_no']:03d}, {nx['title']}"))
     return out
 

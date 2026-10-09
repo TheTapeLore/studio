@@ -36,7 +36,8 @@ formats:
     beats: [the_line, the_story, the_change, end]
     deliverables: [x_post_or_thread, optional_video, optional_ig_carousel]
   legendcard:
-    what: "A collectible card for one legend with an abstract emblem; reveal video + carousel."
-    duration_s: [15, 25]
-    beats: [tape_in, emblem_draws, fields_type_on, snap]
+    what: "Legend story: who they were, the record, why they earned the name legend, their method, how they lost (with
+      the causes), their rules, then the collectible card. Respectful, sourced, and every line teaches something."
+    duration_s: [60, 110]
+    beats: [title, who, record, why_legend, method, mistakes, lessons, card, end]
     deliverables: [card_front, card_back, print_files, video_4x5, video_9x16, ig_carousel]

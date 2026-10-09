@@ -97,7 +97,7 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 
 ## Production rules
 - Captions: max 12 words per card; on screen >= 0.35s/word + 0.8s. Burned in (feeds autoplay muted).
-- Duration 30–75s for shorts. Lexicon 12–20s. Chapters (YouTube long-form) 8–15 min, 16:9.
+- Duration 30–75s for shorts. Lexicon 12–20s. Legend stories 60–110s. Chapters (YouTube long-form) 8–15 min, 16:9.
 - Respect safe zones in config/platforms.yaml. Render 4x5 (X, IG feed) and 9x16 (Reels, Shorts).
 - Render stills first and LOOK at them. Then full renders, one per command, in the background
   (`BASH_MAX_TIMEOUT_MS` is raised in the environment). Sample frames with ffmpeg and view them in QA.
@@ -123,6 +123,12 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
      the next songs. render_batch composes automatically. Opt out with `"score": false`; trim with
      `"score": {"gain_db": n}`. New components get an interpreter in score.py (else a default groove by beat kind).
      Mix: ~-14 LUFS, true peak <= -1 dBTP.
+- Teach, don't allude (the clarity gate): every spec has `learn` (2-5 plain sentences a first-time viewer can say back)
+  and a `glossary` for every term in config/clarity.yaml it shows, defined on screen. No studio words on screen or in
+  copy (Sodium, Blueline ...), no titles inside captions, no note-style shorthand: full sentences that say what a
+  number means and why an event happened. `scripts/clarity_check.py` runs in spec_lint; the human read goes in the
+  qa.md `## Clarity` section (learn points found on screen + a first-time viewer's restatement + PASS), and
+  validate_publish blocks the release without it.
 - Quality loop: up to 3 passes per entry, logged in episodes/<id>/qa.md. Nothing ships with a failing check.
 
 ## Delivery
@@ -158,3 +164,9 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
   other emotion that can instantly hook the audience"): content/VOICE.md + voice_check. The snap is now a reward sound
   (crack, upward whip, a chime rising a fourth onto the tonic) tuned to each song's key; the old falling twang read as
   a cartoon fail. Lore 001 rewritten, re-rendered and re-released.
+- 2026-10-09: Clarity gate (founder: "our channel's main goal is to educate... have a quality check for whether the
+  content is easily understandable by the audience and whether they learn a thing or two"). `learn` + `glossary` in
+  every spec, scripts/clarity_check.py, qa.md Clarity section required for release, VOICE.md "Teach, don't allude".
+  Legend videos are Legend stories (60-110 s): who, the record, why they earned the name, the method, the mistakes
+  with their causes, their rules, the card. Legends get respect; their mistakes are taught, never mocked. Lore 004
+  rebuilt to this standard and re-released.

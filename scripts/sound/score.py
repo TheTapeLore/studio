@@ -549,9 +549,58 @@ def i_pivotstep(S, b, t0, t1, data):
     S.cue(snap, "the pivotal point snaps (tripwire)")
 
 
+def i_fortuneline(S, b, t0, t1, data):
+    """A legend's career line (FortuneLine). Wins: a build that drops on the bar where the win lands (or an impact
+    when it lands between bars). Losses: a fall into the loss, then darker chords, half-time and the breakout withheld,
+    each loss deeper than the last. Milestones only: the groove carries on."""
+    p = b.get("props", {})
+    rv = p.get("reveal") or {}
+    y0, y1 = rv.get("from", 0), rv.get("to", 0)
+    at, dur = rv.get("at", 0.2), rv.get("dur", 4)
+    focus = {f["year"]: f["at"] for f in p.get("focus") or []}
+    marks = []
+    for e in p.get("events") or []:
+        if e["kind"] == "note":
+            continue
+        if e["year"] in focus:
+            te = t0 + focus[e["year"]]
+        elif y0 < e["year"] <= y1 and y1 > y0 and e["kind"] in (p.get("show") or ["win", "loss", "note"]):
+            te = t0 + at + dur * (e["year"] - y0) / (y1 - y0)
+        else:
+            continue
+        if t0 <= te < t1:
+            marks.append((te, e))
+    marks.sort(key=lambda m: m[0])
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = 3, "his story"
+    S.melody(t0, t1)
+    depth = 0.25
+    for te, e in marks:
+        if e["kind"] == "win":
+            near = round(te / S.bar) * S.bar
+            if abs(te - near) < 0.12 * S.bar and near - S.bar >= t0:
+                build(S, near - S.bar, near, f"{e['year']}: {e['label'].lower()}")
+                S.anchor(near)
+                for k in S.bars_in(near, t1):
+                    S.bars[k].energy, S.bars[k].deg, S.bars[k].drums, S.bars[k].label = 4, None, "full", f"{e['year']}: the win"
+                S.melody(near, t1)
+            else:
+                S.ev(te, "impact", size=0.7)
+                S.cue(te, f"{e['year']}: {e['label'].lower()} (impact)")
+        else:
+            depth = min(0.9, depth + 0.2)
+            fall_fill(S, te, depth)
+            for k in S.bars_in(te, t1):
+                bar = S.bars[k]
+                bar.deg, bar.energy, bar.drums, bar.label = S.depth_deg(depth), 2 if depth > 0.6 else 3, "half", f"{e['year']}: {e['label'].lower()}"
+            S.melody(te, t1, withhold=True, gain=0.75)
+            S.cue(te, f"{e['year']}: {e['label'].lower()} -> {S.name(S.depth_deg(depth))}, half-time, breakout withheld")
+
+
 INTERPRETERS = {"ThePit": i_thepit, "Duel": i_duel, "RunsFan": i_runsfan, "Distribution": i_distribution, "CandleChart": i_candlechart, "Anatomy": i_candlechart, "MythCard": i_myth,
                 "RuleCard": i_rule, "EndCard": i_end,
-                "RCompare": i_rcompare, "RRuler": i_rruler, "RTower": i_rtower, "Seesaw": i_seesaw, "PivotStep": i_pivotstep}
+                "RCompare": i_rcompare, "RRuler": i_rruler, "RTower": i_rtower, "Seesaw": i_seesaw, "PivotStep": i_pivotstep,
+                "FortuneLine": i_fortuneline, "ListCard": i_rule}
 KIND_DEFAULT = {"end": "EndCard", "misconception": "MythCard", "rule": "RuleCard", "the_rule": "RuleCard"}
 
 

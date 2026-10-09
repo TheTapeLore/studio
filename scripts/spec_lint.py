@@ -13,6 +13,8 @@ Checks (FAIL blocks the render, WARN needs a human look):
   hook: first beat starts at 0 with a visual and a caption; ends with an `end` beat and a `next` entry
   compliance: sources present and complete; data ends >= 90 days before today; simulations seeded;
               banned phrases and emoji (config/platforms.yaml) absent from title, hook, captions, headlines
+  clarity (scripts/clarity_check.py): `learn` points, no studio words, jargon defined on screen, no titles or
+              note-style shorthand in captions, reading level
 """
 import datetime, json, math, os, re, sys
 import yaml
@@ -166,6 +168,11 @@ def lint(spec, today=None):
     for x in shown:
         for prob in voice_check.check(x, "caption"):
             E.append(f"voice: {prob} in \"{x[:60]}\"")
+    # clarity (config/clarity.yaml): a first-time viewer understands it and learns something
+    import clarity_check
+    cE, cW = clarity_check.check(spec)
+    E += cE
+    W += cW
     if not spec.get("emotion"):
         W.append("no `emotion` in the spec: name the one feeling this video lands (content/VOICE.md)")
     for p in CFG["banned_phrases"]:

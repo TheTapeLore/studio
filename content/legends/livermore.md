@@ -27,6 +27,29 @@ Sodium pivotal-point diamond). Abstract only: no photo, likeness, signature or v
 - **Sitting tight.** In *Reminiscences*, the narrator says the big money came from his sitting, not his thinking;
   being right is common, being right and sitting tight is rare. Also: never argue with the tape. (Lefèvre, 1923.)
 
+## Why he's a legend (sourced, used in Lore 004)
+- Self-taught: he traded from price action alone, what is now called technical analysis (Wikipedia).
+- He profited from both great crashes of his era: the 1907 panic (about $1 million in a single day, Wikipedia; other
+  accounts give about $3 million over the following weeks) and the 1929 crash (approximately $100 million, reported).
+- In 1907 J.P. Morgan asked him to stop short selling, and he did (Wikipedia); in *Reminiscences* the narrator stops
+  and buys for the long side that day.
+- His story is still a trading classic: *Reminiscences of a Stock Operator* (1923) remains in print; Wiley's 2009
+  annotated edition has a foreword by Paul Tudor Jones; Alan Greenspan called it "a font of investing wisdom"
+  (Wikipedia: Reminiscences of a Stock Operator).
+
+## How he lost fortunes (causes, his own account first)
+- **Tips over his own judgment.** 1908: he followed cotton trader Teddy Price's advice to buy cotton and lost most of
+  his 1907 profits (Wikipedia). *Reminiscences* tells it as "Percy Thomas": he kept buying cotton to keep it from going
+  down, 440,000 bales, and lost nearly all he had made; the lesson he drew: no tip beats your own judgment.
+- **Adding to a loser.** That same episode broke his later rule "never average losses" (How to Trade in Stocks, 1940).
+- **Impatience.** "The Million Dollar Blunder" (1940, ch. VI): he bought cotton before it reached his pivotal point,
+  five times in six weeks, losing about $200,000; after he gave up, it rose 500 points.
+- **Money outside the market.** He lost every cent he put into ventures outside Wall Street: Florida real estate, oil
+  wells, aircraft manufacturing, inventions (1940, ch. IV).
+- **Over-trading and getting rich too fast** are the warnings he wrote down for others (1940, ch. IV).
+- Bankruptcy filings: 1915 (after the cotton losses) and 1934 (Wikipedia: "for the third time"; other sources list two
+  filings, so we say "more than once"). Exactly how he lost the fortune by 1934 is not known.
+
 ## Key reads
 - Jesse L. Livermore, *How to Trade in Stocks* (1940).
 - Edwin Lefèvre, *Reminiscences of a Stock Operator* (1923).
@@ -37,5 +60,5 @@ Sodium pivotal-point diamond). Abstract only: no photo, likeness, signature or v
 - His death was a suicide; we don't use it for hooks or jokes.
 
 ## How we used it
-Lore 004 reveal video, card front/back + print files, and a 5-slide Instagram carousel. The Sodium tripwire in our
-brand is drawn as his pivotal point (credited on screen).
+Lore 004 Legend story (101 s), card front/back + print files, and a 6-slide Instagram carousel. The snapping tripwire in our
+brand is drawn from his pivotal point (the method beat shows it snapping).

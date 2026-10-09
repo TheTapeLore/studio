@@ -8,14 +8,23 @@
   "format": "legendcard",
   "concept_key": "legends.card.livermore",
   "title": "Legend 01: Jesse Livermore",
-  "hook": "Legend 01. At 14: posting stock prices, $5 a week.",
-  "takeaway": "Livermore's edge was patience at a level: wait for the pivotal point, act when price crosses it, then sit tight. He made fortunes and lost them, so read the risk lessons as closely as the wins. The amber tripwire that snaps in our setups is his pivotal point.",
+  "hook": "Made $1 million in a day. Went bankrupt more than once.",
+  "takeaway": "Jesse Livermore taught himself to read markets from prices, won big in the 1907 panic and the 1929 crash, and built his method around the pivotal point: wait for a key price to break, add only while the trade works, then sit tight. He lost fortunes by breaking those rules: following a friend's cotton tips, buying more as cotton fell, and putting money into businesses outside trading. His 1940 rules are the lessons those losses paid for.",
+  "learn": [
+    "Who Jesse Livermore was: a self-taught trader who made fortunes in the 1907 panic and the 1929 crash, and why traders still call him a legend.",
+    "His pivotal point: wait for a key price to break before buying, add only while the trade works, then sit tight.",
+    "Why he lost his fortunes: he followed a friend's tips, kept buying a falling market, and lost money in businesses outside trading.",
+    "His rules: don't jump in early, never add to a loser, trust your rules over tips, take some profit out."
+  ],
+  "glossary": {
+    "pivotal point": "a price that starts the move"
+  },
   "question": null,
-  "emotion": "respect with a wink: awe at the patience, a wry nod to the fortunes he lost",
+  "emotion": "awe at a $1 million day, the wince of watching a master break his own rules, then respect: his losses became the rules we still use",
   "legends": [
     "Jesse Livermore"
   ],
-  "duration_s": 24.0,
+  "duration_s": 101.3333,
   "aspects": [
     "4x5",
     "9x16"
@@ -37,9 +46,543 @@
   },
   "beats": [
     {
-      "t": 0.0,
-      "dur": 8.0,
-      "kind": "emblem",
+      "t": 0,
+      "dur": 5.3333,
+      "kind": "hook",
+      "component": "LegendTitle",
+      "props": {
+        "no": "01",
+        "name": "Jesse Livermore",
+        "years": "1877 – 1940",
+        "markets": "Stocks and commodities",
+        "emblem": "pivot-step"
+      },
+      "captions": [
+        "Made $1 million in a day. Went bankrupt more than once."
+      ]
+    },
+    {
+      "t": 5.3333,
+      "dur": 10.6667,
+      "kind": "who",
+      "component": "FortuneLine",
+      "props": {
+        "events": [
+          {
+            "year": 1891,
+            "label": "PRICE-BOARD JOB AT 14",
+            "kind": "note"
+          },
+          {
+            "year": 1907,
+            "label": "PANIC: +$1M IN A DAY",
+            "kind": "win"
+          },
+          {
+            "year": 1908,
+            "label": "FOLLOWED COTTON TIPS",
+            "kind": "loss"
+          },
+          {
+            "year": 1915,
+            "label": "BANKRUPT",
+            "kind": "loss"
+          },
+          {
+            "year": 1929,
+            "label": "CRASH: ~$100M (REPORTED)",
+            "kind": "win"
+          },
+          {
+            "year": 1934,
+            "label": "BANKRUPT AGAIN",
+            "kind": "loss"
+          }
+        ],
+        "path": [
+          [
+            1891,
+            0.04
+          ],
+          [
+            1897,
+            0.08
+          ],
+          [
+            1901,
+            0.05
+          ],
+          [
+            1902,
+            0.12
+          ],
+          [
+            1906,
+            0.16
+          ],
+          [
+            1907,
+            0.5
+          ],
+          [
+            1908,
+            0.12
+          ],
+          [
+            1912,
+            0.1
+          ],
+          [
+            1915,
+            0.0
+          ],
+          [
+            1916,
+            0.22
+          ],
+          [
+            1922,
+            0.28
+          ],
+          [
+            1925,
+            0.38
+          ],
+          [
+            1928,
+            0.55
+          ],
+          [
+            1929,
+            0.97
+          ],
+          [
+            1931,
+            0.75
+          ],
+          [
+            1933,
+            0.3
+          ],
+          [
+            1934,
+            0.0
+          ],
+          [
+            1940,
+            0.04
+          ]
+        ],
+        "years": [
+          1888,
+          1948
+        ],
+        "reveal": {
+          "from": 1891,
+          "to": 1906,
+          "at": 0.3,
+          "dur": 9.0
+        },
+        "show": [
+          "note"
+        ],
+        "focus": []
+      },
+      "captions": [
+        "At 14, his job was writing stock prices on a big board.",
+        "He studied how they moved. At 15, he made his first trade."
+      ]
+    },
+    {
+      "t": 16.0,
+      "dur": 10.6667,
+      "kind": "record",
+      "component": "FortuneLine",
+      "transition": "cut",
+      "peak": true,
+      "props": {
+        "events": [
+          {
+            "year": 1891,
+            "label": "PRICE-BOARD JOB AT 14",
+            "kind": "note"
+          },
+          {
+            "year": 1907,
+            "label": "PANIC: +$1M IN A DAY",
+            "kind": "win"
+          },
+          {
+            "year": 1908,
+            "label": "FOLLOWED COTTON TIPS",
+            "kind": "loss"
+          },
+          {
+            "year": 1915,
+            "label": "BANKRUPT",
+            "kind": "loss"
+          },
+          {
+            "year": 1929,
+            "label": "CRASH: ~$100M (REPORTED)",
+            "kind": "win"
+          },
+          {
+            "year": 1934,
+            "label": "BANKRUPT AGAIN",
+            "kind": "loss"
+          }
+        ],
+        "path": [
+          [
+            1891,
+            0.04
+          ],
+          [
+            1897,
+            0.08
+          ],
+          [
+            1901,
+            0.05
+          ],
+          [
+            1902,
+            0.12
+          ],
+          [
+            1906,
+            0.16
+          ],
+          [
+            1907,
+            0.5
+          ],
+          [
+            1908,
+            0.12
+          ],
+          [
+            1912,
+            0.1
+          ],
+          [
+            1915,
+            0.0
+          ],
+          [
+            1916,
+            0.22
+          ],
+          [
+            1922,
+            0.28
+          ],
+          [
+            1925,
+            0.38
+          ],
+          [
+            1928,
+            0.55
+          ],
+          [
+            1929,
+            0.97
+          ],
+          [
+            1931,
+            0.75
+          ],
+          [
+            1933,
+            0.3
+          ],
+          [
+            1934,
+            0.0
+          ],
+          [
+            1940,
+            0.04
+          ]
+        ],
+        "years": [
+          1888,
+          1948
+        ],
+        "reveal": {
+          "from": 1906,
+          "to": 1930,
+          "at": 0.2,
+          "dur": 5.355
+        },
+        "show": [
+          "note"
+        ],
+        "focus": [
+          {
+            "year": 1907,
+            "at": 0.35
+          },
+          {
+            "year": 1929,
+            "at": 5.333
+          }
+        ]
+      },
+      "captions": [
+        "In 1907's panic, he bet on falling prices and made $1 million.",
+        "In 1929 he bet on the crash again. About $100 million, reportedly."
+      ]
+    },
+    {
+      "t": 26.6667,
+      "dur": 13.3333,
+      "kind": "why_legend",
+      "component": "ListCard",
+      "props": {
+        "label": "Why he's a legend",
+        "items": [
+          {
+            "text": "He taught himself to read markets from prices alone.",
+            "sub": "What traders now call technical analysis."
+          },
+          {
+            "text": "In 1907, J.P. Morgan asked him to stop selling. He did.",
+            "sub": "Mid-panic, with the market at his mercy."
+          },
+          {
+            "text": "A century on, traders still study his story.",
+            "sub": "Reminiscences of a Stock Operator (1923), still in print."
+          }
+        ],
+        "at": [
+          0.3,
+          5.05,
+          9.7
+        ]
+      },
+      "captions": [
+        "Why a legend? He taught himself to read markets from prices alone.",
+        "In 1907, J.P. Morgan asked him to stop selling. He did.",
+        "A century on, traders still study his story."
+      ]
+    },
+    {
+      "t": 40.0,
+      "dur": 13.3333,
+      "kind": "method",
+      "component": "PivotStep",
+      "props": {
+        "drawAt": 0.3,
+        "drawDur": 9.497,
+        "labels": [
+          "WAIT",
+          "ACT",
+          "SIT TIGHT"
+        ],
+        "adds": [
+          560,
+          690
+        ]
+      },
+      "captions": [
+        "His key idea: the pivotal point, a price that starts the move.",
+        "He bought on the break, then added only while it kept rising.",
+        "Then he sat tight."
+      ]
+    },
+    {
+      "t": 53.3333,
+      "dur": 18.6667,
+      "kind": "mistakes",
+      "component": "FortuneLine",
+      "props": {
+        "events": [
+          {
+            "year": 1891,
+            "label": "PRICE-BOARD JOB AT 14",
+            "kind": "note"
+          },
+          {
+            "year": 1907,
+            "label": "PANIC: +$1M IN A DAY",
+            "kind": "win"
+          },
+          {
+            "year": 1908,
+            "label": "FOLLOWED COTTON TIPS",
+            "kind": "loss"
+          },
+          {
+            "year": 1915,
+            "label": "BANKRUPT",
+            "kind": "loss"
+          },
+          {
+            "year": 1929,
+            "label": "CRASH: ~$100M (REPORTED)",
+            "kind": "win"
+          },
+          {
+            "year": 1934,
+            "label": "BANKRUPT AGAIN",
+            "kind": "loss"
+          }
+        ],
+        "path": [
+          [
+            1891,
+            0.04
+          ],
+          [
+            1897,
+            0.08
+          ],
+          [
+            1901,
+            0.05
+          ],
+          [
+            1902,
+            0.12
+          ],
+          [
+            1906,
+            0.16
+          ],
+          [
+            1907,
+            0.5
+          ],
+          [
+            1908,
+            0.12
+          ],
+          [
+            1912,
+            0.1
+          ],
+          [
+            1915,
+            0.0
+          ],
+          [
+            1916,
+            0.22
+          ],
+          [
+            1922,
+            0.28
+          ],
+          [
+            1925,
+            0.38
+          ],
+          [
+            1928,
+            0.55
+          ],
+          [
+            1929,
+            0.97
+          ],
+          [
+            1931,
+            0.75
+          ],
+          [
+            1933,
+            0.3
+          ],
+          [
+            1934,
+            0.0
+          ],
+          [
+            1940,
+            0.04
+          ]
+        ],
+        "years": [
+          1888,
+          1948
+        ],
+        "reveal": {
+          "from": 1930,
+          "to": 1940,
+          "at": 13.6,
+          "dur": 3.6
+        },
+        "show": [
+          "win"
+        ],
+        "focus": [
+          {
+            "year": 1908,
+            "at": 4.75
+          },
+          {
+            "year": 1915,
+            "at": 9.9
+          },
+          {
+            "year": 1934,
+            "at": 15.05
+          }
+        ]
+      },
+      "captions": [
+        "So how did he lose it? By breaking his own rules.",
+        "In 1908 he followed a friend's cotton tips instead of the market.",
+        "Cotton kept falling. He kept buying. Most of his fortune went.",
+        "He also lost every cent he put into outside businesses."
+      ]
+    },
+    {
+      "t": 72.0,
+      "dur": 16.0,
+      "kind": "lessons",
+      "component": "ListCard",
+      "props": {
+        "label": "His rules, paid for in losses",
+        "items": [
+          {
+            "text": "Wait for the pivotal point. Don't jump in early.",
+            "sub": "Buying cotton too soon once cost him about $200,000."
+          },
+          {
+            "text": "Add only to a trade that's working. Never to a loser.",
+            "sub": "How to Trade in Stocks (1940): never average losses."
+          },
+          {
+            "text": "Trust your own rules over anyone's tips.",
+            "sub": "His 1908 cotton lesson."
+          },
+          {
+            "text": "Take some profit out after a big win.",
+            "sub": "He drew out cash after his best trades."
+          }
+        ],
+        "at": [
+          0.4,
+          6.0,
+          8.95,
+          10.9
+        ]
+      },
+      "captions": [
+        "In 1940 he wrote down his rules. Most cost him dearly.",
+        "Don't jump early. Never add to a loser.",
+        "Trust your rules, not tips. Take some profit out.",
+        "Learning them here costs less."
+      ]
+    },
+    {
+      "t": 88.0,
+      "dur": 5.3333,
+      "kind": "card",
       "component": "LegendCard",
       "props": {
         "legend": {
@@ -52,41 +595,14 @@
           "read": "How to Trade in Stocks (1940)"
         },
         "emblem": "pivot-step",
-        "animate": true,
-        "zoom": {
-          "at": 4.3,
-          "dur": 3.2,
-          "scale": 1.5,
-          "focusY": 0.74
-        }
+        "animate": true
       },
       "captions": [
-        "Legend 01. At 14: posting stock prices, $5 a week.",
-        "He made fortunes and lost them. Study both."
+        "Legend card 01. Learn from his wins, and from his misses."
       ]
     },
     {
-      "t": 8.0,
-      "dur": 8.0,
-      "kind": "fields",
-      "component": "PivotStep",
-      "peak": true,
-      "props": {
-        "drawAt": 0.3,
-        "drawDur": 4.4655,
-        "labels": [
-          "WAIT",
-          "ACT",
-          "SIT TIGHT"
-        ]
-      },
-      "captions": [
-        "Wait for the pivotal point. Act. Sit tight.",
-        "The line that snaps in our setups? His pivotal point."
-      ]
-    },
-    {
-      "t": 16.0,
+      "t": 93.3333,
       "dur": 8.0,
       "kind": "end"
     }
@@ -97,17 +613,22 @@
     {
       "title": "Wikipedia: Jesse Livermore",
       "url": "https://en.wikipedia.org/wiki/Jesse_Livermore",
-      "used_for": "born 1877, Shrewsbury MA; at 14 (1891) a board boy posting quotes at Paine Webber in Boston for $5 a week; stocks and commodities; big wins (1907 panic, 1929) and bankruptcy filings (1915, 1934); died 1940"
+      "used_for": "1877-1940; 1891, age 14, board boy posting stock quotes ($5/week); 1892, first bucket-shop trade at 15; 1907 panic: $1 million in a single day; J.P. Morgan asked him to stop short selling; 1908: followed Teddy Price's advice to buy cotton and lost most of his 1907 profits; bankruptcy filings 1915 and 1934; 1929: approximately $100 million; his trades were based on what is now called technical analysis"
     },
     {
-      "title": "Jesse L. Livermore, How to Trade in Stocks (Duell, Sloan & Pearce, 1940), ch. V 'The Pivotal Point' (first-edition record: Bauman Rare Books)",
+      "title": "Jesse L. Livermore, How to Trade in Stocks (Duell, Sloan & Pearce, 1940), first-edition record: Bauman Rare Books",
       "url": "https://www.baumanrarebooks.com/rare-books/livermore-jesse-l/how-to-trade-in-stocks/104516.aspx",
-      "used_for": "his own method, paraphrased: waiting with patience for the pivotal point before trading, then sitting tight; a stock that does not perform after crossing it is a danger signal; never average losses; no second trade if the first shows a loss"
+      "used_for": "his own words, paraphrased: ch. V the pivotal point (wait for it, then sit tight); ch. VI 'The Million Dollar Blunder' (bought cotton before the pivotal point five times in six weeks, lost about $200,000); ch. II and IV never average losses, add only at higher prices; ch. IV he lost every cent he put into ventures outside Wall Street (Florida real estate, oil wells, aircraft) and drew out cash after successful deals; tips and over-trading as the speculator's enemies"
     },
     {
       "title": "Edwin Lefèvre, Reminiscences of a Stock Operator (1923), Project Gutenberg #60979",
       "url": "https://www.gutenberg.org/ebooks/60979",
-      "used_for": "the semi-fictional account of Livermore (narrator Larry Livingston): the big money came from sitting tight, not from thinking; never argue with the tape (paraphrased)"
+      "used_for": "the semi-fictional account of his career (narrator Larry Livingston): kept buying cotton on a friend's analysis as it fell and lost nearly everything he had made; in the 1907 panic stopped selling when asked and bought for the long side"
+    },
+    {
+      "title": "Wikipedia: Reminiscences of a Stock Operator",
+      "url": "https://en.wikipedia.org/wiki/Reminiscences_of_a_Stock_Operator",
+      "used_for": "the book remains in print; Wiley annotated edition (2009) with a foreword by Paul Tudor Jones; Alan Greenspan called it 'a font of investing wisdom'"
     }
   ],
   "links": {
@@ -122,44 +643,265 @@
   },
   "thumb": {
     "lines": [
-      "Legend 01",
-      "Jesse",
-      "Livermore"
+      "Livermore",
+      "won big,",
+      "lost big."
     ],
-    "component": "LegendCard",
+    "component": "FortuneLine",
     "props": {
-      "legend": {
-        "no": "01",
-        "name": "Jesse Livermore",
-        "era": "1890s – 1940",
-        "markets": "Stocks and commodities",
-        "edge": "Waited for the pivotal point, then sat tight.",
-        "habit": "Added only to a winner. Never averaged a loss.",
-        "read": "How to Trade in Stocks (1940)"
+      "events": [
+        {
+          "year": 1891,
+          "label": "PRICE-BOARD JOB AT 14",
+          "kind": "note"
+        },
+        {
+          "year": 1907,
+          "label": "PANIC: +$1M IN A DAY",
+          "kind": "win"
+        },
+        {
+          "year": 1908,
+          "label": "FOLLOWED COTTON TIPS",
+          "kind": "loss"
+        },
+        {
+          "year": 1915,
+          "label": "BANKRUPT",
+          "kind": "loss"
+        },
+        {
+          "year": 1929,
+          "label": "CRASH: ~$100M (REPORTED)",
+          "kind": "win"
+        },
+        {
+          "year": 1934,
+          "label": "BANKRUPT AGAIN",
+          "kind": "loss"
+        }
+      ],
+      "path": [
+        [
+          1891,
+          0.04
+        ],
+        [
+          1897,
+          0.08
+        ],
+        [
+          1901,
+          0.05
+        ],
+        [
+          1902,
+          0.12
+        ],
+        [
+          1906,
+          0.16
+        ],
+        [
+          1907,
+          0.5
+        ],
+        [
+          1908,
+          0.12
+        ],
+        [
+          1912,
+          0.1
+        ],
+        [
+          1915,
+          0.0
+        ],
+        [
+          1916,
+          0.22
+        ],
+        [
+          1922,
+          0.28
+        ],
+        [
+          1925,
+          0.38
+        ],
+        [
+          1928,
+          0.55
+        ],
+        [
+          1929,
+          0.97
+        ],
+        [
+          1931,
+          0.75
+        ],
+        [
+          1933,
+          0.3
+        ],
+        [
+          1934,
+          0.0
+        ],
+        [
+          1940,
+          0.04
+        ]
+      ],
+      "years": [
+        1888,
+        1948
+      ],
+      "reveal": {
+        "from": 1940,
+        "to": 1940,
+        "at": 0,
+        "dur": 0.1
       },
-      "emblem": "pivot-step",
-      "animate": false
+      "show": [
+        "win",
+        "loss"
+      ],
+      "note": ""
     }
   },
   "cover": {
     "lines": [
-      "Legend 01",
-      "Jesse",
-      "Livermore"
+      "Livermore",
+      "won big,",
+      "lost big."
     ],
-    "component": "LegendCard",
+    "sub": "What made him a legend, and what broke him.",
+    "component": "FortuneLine",
     "props": {
-      "legend": {
-        "no": "01",
-        "name": "Jesse Livermore",
-        "era": "1890s – 1940",
-        "markets": "Stocks and commodities",
-        "edge": "Waited for the pivotal point, then sat tight.",
-        "habit": "Added only to a winner. Never averaged a loss.",
-        "read": "How to Trade in Stocks (1940)"
+      "events": [
+        {
+          "year": 1891,
+          "label": "PRICE-BOARD JOB AT 14",
+          "kind": "note"
+        },
+        {
+          "year": 1907,
+          "label": "PANIC: +$1M IN A DAY",
+          "kind": "win"
+        },
+        {
+          "year": 1908,
+          "label": "FOLLOWED COTTON TIPS",
+          "kind": "loss"
+        },
+        {
+          "year": 1915,
+          "label": "BANKRUPT",
+          "kind": "loss"
+        },
+        {
+          "year": 1929,
+          "label": "CRASH: ~$100M (REPORTED)",
+          "kind": "win"
+        },
+        {
+          "year": 1934,
+          "label": "BANKRUPT AGAIN",
+          "kind": "loss"
+        }
+      ],
+      "path": [
+        [
+          1891,
+          0.04
+        ],
+        [
+          1897,
+          0.08
+        ],
+        [
+          1901,
+          0.05
+        ],
+        [
+          1902,
+          0.12
+        ],
+        [
+          1906,
+          0.16
+        ],
+        [
+          1907,
+          0.5
+        ],
+        [
+          1908,
+          0.12
+        ],
+        [
+          1912,
+          0.1
+        ],
+        [
+          1915,
+          0.0
+        ],
+        [
+          1916,
+          0.22
+        ],
+        [
+          1922,
+          0.28
+        ],
+        [
+          1925,
+          0.38
+        ],
+        [
+          1928,
+          0.55
+        ],
+        [
+          1929,
+          0.97
+        ],
+        [
+          1931,
+          0.75
+        ],
+        [
+          1933,
+          0.3
+        ],
+        [
+          1934,
+          0.0
+        ],
+        [
+          1940,
+          0.04
+        ]
+      ],
+      "years": [
+        1888,
+        1948
+      ],
+      "reveal": {
+        "from": 1940,
+        "to": 1940,
+        "at": 0,
+        "dur": 0.1
       },
-      "emblem": "pivot-step",
-      "animate": false
+      "show": [
+        "win",
+        "loss"
+      ],
+      "note": "SKETCH · NOT TO SCALE"
     }
   },
   "carousel": [
@@ -167,26 +909,204 @@
       "component": "LegendCard"
     },
     {
-      "headline": "Wait for the pivotal point.",
+      "headline": "Why he's a legend",
+      "component": "ListCard",
+      "props": {
+        "items": [
+          {
+            "text": "He taught himself to read markets from prices alone.",
+            "sub": "What traders now call technical analysis."
+          },
+          {
+            "text": "In 1907, J.P. Morgan asked him to stop selling. He did.",
+            "sub": "Mid-panic, with the market at his mercy."
+          },
+          {
+            "text": "A century on, traders still study his story.",
+            "sub": "Reminiscences of a Stock Operator (1923), still in print."
+          }
+        ],
+        "at": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "headline": "His key idea: the pivotal point.",
       "component": "PivotStep",
       "props": {
         "sfx": false,
         "drawAt": 0,
-        "drawDur": 0.1
+        "drawDur": 0.1,
+        "adds": [
+          560,
+          690
+        ]
       },
-      "sub": "He traded when price reached the level that decides the move, and said patience there was what made him money."
+      "sub": "A price that starts the move. He waited for it, bought on the break, and added only while the trade kept working."
     },
     {
-      "headline": "Never average a loss.",
-      "sub": "His rule in How to Trade in Stocks (1940): if the first trade shows a loss, don't make a second one. He added only to a winner."
+      "headline": "How he lost his fortunes",
+      "component": "FortuneLine",
+      "props": {
+        "events": [
+          {
+            "year": 1891,
+            "label": "PRICE-BOARD JOB AT 14",
+            "kind": "note"
+          },
+          {
+            "year": 1907,
+            "label": "PANIC: +$1M IN A DAY",
+            "kind": "win"
+          },
+          {
+            "year": 1908,
+            "label": "FOLLOWED COTTON TIPS",
+            "kind": "loss"
+          },
+          {
+            "year": 1915,
+            "label": "BANKRUPT",
+            "kind": "loss"
+          },
+          {
+            "year": 1929,
+            "label": "CRASH: ~$100M (REPORTED)",
+            "kind": "win"
+          },
+          {
+            "year": 1934,
+            "label": "BANKRUPT AGAIN",
+            "kind": "loss"
+          }
+        ],
+        "path": [
+          [
+            1891,
+            0.04
+          ],
+          [
+            1897,
+            0.08
+          ],
+          [
+            1901,
+            0.05
+          ],
+          [
+            1902,
+            0.12
+          ],
+          [
+            1906,
+            0.16
+          ],
+          [
+            1907,
+            0.5
+          ],
+          [
+            1908,
+            0.12
+          ],
+          [
+            1912,
+            0.1
+          ],
+          [
+            1915,
+            0.0
+          ],
+          [
+            1916,
+            0.22
+          ],
+          [
+            1922,
+            0.28
+          ],
+          [
+            1925,
+            0.38
+          ],
+          [
+            1928,
+            0.55
+          ],
+          [
+            1929,
+            0.97
+          ],
+          [
+            1931,
+            0.75
+          ],
+          [
+            1933,
+            0.3
+          ],
+          [
+            1934,
+            0.0
+          ],
+          [
+            1940,
+            0.04
+          ]
+        ],
+        "years": [
+          1888,
+          1948
+        ],
+        "reveal": {
+          "from": 1940,
+          "to": 1940,
+          "at": 0,
+          "dur": 0.1
+        },
+        "show": [
+          "win",
+          "loss"
+        ]
+      },
+      "sub": "He followed a friend's cotton tips and kept buying as it fell. He also lost every cent he put into businesses outside trading."
     },
     {
-      "headline": "Then sit tight.",
-      "sub": "Reminiscences of a Stock Operator (1923): being right early is common. Sitting tight while you're right is the rare part."
+      "headline": "His rules, paid for in losses",
+      "component": "ListCard",
+      "props": {
+        "items": [
+          {
+            "text": "Wait for the pivotal point. Don't jump in early.",
+            "sub": "Buying cotton too soon once cost him about $200,000."
+          },
+          {
+            "text": "Add only to a trade that's working. Never to a loser.",
+            "sub": "How to Trade in Stocks (1940): never average losses."
+          },
+          {
+            "text": "Trust your own rules over anyone's tips.",
+            "sub": "His 1908 cotton lesson."
+          },
+          {
+            "text": "Take some profit out after a big win.",
+            "sub": "He drew out cash after his best trades."
+          }
+        ],
+        "at": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
     },
     {
       "headline": "Which legend [[next]]?",
-      "sub": "O'Neil, Minervini, Darvas, Weinstein, Loeb. Tell us who you want on the next card."
+      "sub": "O'Neil, Minervini, Darvas, Weinstein, Loeb. Tell us who you want on card 02."
     }
   ],
   "status": "qa_passed"

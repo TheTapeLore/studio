@@ -287,3 +287,46 @@ export const TitleCard: React.FC<{ kicker?: string; title: string; sub?: string 
     </div>
   );
 };
+
+/**
+ * A short numbered list revealed item by item (a legend's rules, the reasons behind a claim). Each item is a full,
+ * plain sentence; `sub` lines say where it comes from. The newest item's number is the frame's one Sodium.
+ * `at` = seconds each item appears (default: every `step` s from `start`), so items can land with their captions.
+ */
+export const ListCard: React.FC<{ label?: string; items: { text: string; sub?: string }[]; at?: number[]; start?: number; step?: number }> = ({
+  label,
+  items,
+  at,
+  start = 0.3,
+  step = 1.2,
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const { u } = useLayout();
+  const t = frame / fps;
+  const times = items.map((_, i) => at?.[i] ?? start + i * step);
+  const newest = times.reduce((k, s, i) => (t >= s ? i : k), -1);
+  const n = items.length;
+  const fs = SIZE.caption * u * (n > 3 ? 0.74 : 0.82);
+  return (
+    <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      {label ? <MonoLabel>{label}</MonoLabel> : null}
+      <div style={{ marginTop: 22 * u, borderTop: `${2 * u}px solid ${C.blueline}` }}>
+        {items.map((it, i) => {
+          const p = prog(frame, fps, times[i], 0.35);
+          return (
+            <div key={i} style={{ opacity: 0.12 + 0.88 * p, display: "flex", gap: 24 * u, padding: `${(n > 3 ? 16 : 22) * u}px 0`, borderBottom: `${1 * u}px solid ${hexA(C.blueline, 0.6)}` }}>
+              <div style={{ fontFamily: FONT.display, fontWeight: 900, fontSize: fs * 1.25, lineHeight: 1, width: fs * 1.1, color: i === newest ? C.sodium : C.mist }}>{i + 1}</div>
+              <div style={{ flex: 1, transform: `translateX(${(1 - p) * 18 * u}px)` }}>
+                <div style={{ fontFamily: FONT.body, fontWeight: 700, fontSize: fs, color: C.tape, lineHeight: 1.18, textWrap: "pretty" }}>
+                  <RichText text={it.text} />
+                </div>
+                {it.sub ? <div style={{ marginTop: 6 * u, fontFamily: FONT.body, fontSize: fs * 0.62, color: C.mist, lineHeight: 1.25 }}>{it.sub}</div> : null}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};

@@ -3,7 +3,7 @@
   "lore_no": 4,
   "title": "Legend 01: Jesse Livermore",
   "batch": "2026-10-09-b",
-  "duration_s": 24.0,
+  "duration_s": 101.3333,
   "aspect_primary": "9x16",
   "files": {
     "video_4x5": "release:L0004-4x5.mp4",
@@ -20,30 +20,32 @@
       "carousel-2.png",
       "carousel-3.png",
       "carousel-4.png",
-      "carousel-5.png"
+      "carousel-5.png",
+      "carousel-6.png"
     ]
   },
   "x": {
-    "post": "Legend 01: Jesse Livermore.\n\nAt 14 he posted stock prices for $5 a week. Later he made fortunes and lost them, more than once.\n\nHis edge, in his own 1940 book: wait for the pivotal point, then sit tight.\n\nLore 004 · Legend 01: Jesse Livermore",
-    "reply": "Every amber tripwire that snaps in our setups is his pivotal point: the level price has to cross before you act.\n\nHis other rule we keep coming back to: never average a loss.\n\nNext: Lore 005 · The Seesaw: wider stop, smaller size"
+    "post": "Jesse Livermore made $1 million in one day in 1907 and went bankrupt more than once.\n\nThe wins came from his rules: wait for the pivotal point, buy the break, add only while it works, sit tight.\n\nThe losses came from breaking them.\n\nLore 004 · Legend 01: Jesse Livermore",
+    "reply": "The big break of his rules: in 1908 he followed a friend's cotton tips and kept buying as cotton fell. It cost him most of his fortune.\n\nHis 1940 rule: never add to a loser.\n\nNext: Lore 005 · The Seesaw: wider stop, smaller size"
   },
   "instagram": {
-    "caption": "Legend 01: Jesse Livermore. At 14 he posted stock prices for $5 a week. Swipe for the card and his three rules.\n\nHe traded stocks and commodities from the 1890s to 1940, made fortunes and lost them more than once. So study both halves.\n\nWhat he wrote down, paraphrased:\n1. Wait for the pivotal point, the level that decides the move. Then act.\n2. Never average a loss. Add only to a winner.\n3. Sit tight once you're right. That's the hard part.\n\nThe amber line that snaps in every setup we draw? That's his pivotal point.\n\nSources: How to Trade in Stocks (Livermore, 1940); Reminiscences of a Stock Operator (Lefèvre, 1923).\n\nWhich legend should get card 02? Tell us below.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #JesseLivermore #TradingPsychology #StockMarketHistory #TradingEducation",
-    "alt_text": "Animated reveal of a collectible card on a dark blue grid. The card, framed in amber, reads Legend 01, 1890s to 1940, Jesse Livermore. Its emblem is an abstract white line that runs flat, then steps up through an amber diamond. Fields: Markets, stocks and commodities. Edge, waited for the pivotal point, then sat tight. Habit, added only to a winner, never averaged a loss. Key read, How to Trade in Stocks (1940). The view pushes in on the fields. Then an illustration: a white line chops under an amber line labelled pivotal point (wait), steps through it as the amber line snaps (act), and keeps rising (sit tight). Labelled illustration, not a chart.",
-    "cover_frame_s": 3.8
+    "caption": "Jesse Livermore made $1 million in one day in 1907. He also went bankrupt more than once. Both halves are worth learning.\n\nWhy traders still call him a legend:\n1. He taught himself to read markets from prices alone, what we now call technical analysis.\n2. He made fortunes in the two great crashes of his time, 1907 and 1929 (about $100 million, reportedly).\n3. In 1907, with the market at his mercy, J.P. Morgan asked him to stop selling. He stopped.\n4. A century later, his story, Reminiscences of a Stock Operator, is still read by traders.\n\nHow he won: he waited for the pivotal point, a price that starts the move. He bought when price broke through it, added more only while the trade kept working, then sat tight.\n\nHow he lost: he broke his own rules. In 1908 he followed a friend's cotton tips instead of the market, and kept buying as cotton fell. He lost most of his fortune. He also lost every cent he put into businesses outside trading. He filed for bankruptcy in 1915 and again in 1934.\n\nThe rules he wrote down in 1940, paid for in losses:\n1. Wait for the pivotal point. Don't jump in early.\n2. Add only to a trade that's working. Never to a loser.\n3. Trust your own rules over anyone's tips.\n4. Take some profit out after a big win.\n\nLearning them here costs less. Save this one.\n\nSources: How to Trade in Stocks (Livermore, 1940); Reminiscences of a Stock Operator (Lefèvre, 1923); Wikipedia biography.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #JesseLivermore #TradingPsychology #StockMarketHistory #TradingRules",
+    "alt_text": "Animated story on a dark blue grid. A title card shows an abstract emblem (a flat line stepping up through an amber diamond), a white tag reading Legend 01, the name Jesse Livermore, and 1877 to 1940, stocks and commodities. A sketched line of his fortune, labelled not to scale, runs from 1891 (price-board job at 14) up to a spike in 1907 (panic, plus 1 million dollars in a day) and a peak in 1929 (crash, about 100 million dollars reported). A list explains why he is a legend: self-taught from prices, J.P. Morgan asked him to stop selling in 1907 and he did, and his story is still studied a century later. An illustration shows his pivotal point: a line chops under an amber level (wait), breaks through it as the level snaps (act), and keeps rising with two add markers (sit tight). The fortune line returns with red markers for his losses: 1908, followed cotton tips; 1915, bankrupt; 1934, bankrupt again. A numbered list gives his rules: wait for the pivotal point, never add to a loser, trust your rules over tips, take some profit out. The video ends on his collectible card.",
+    "cover_frame_s": 1.6
   },
   "youtube": {
-    "title": "Jesse Livermore's pivotal point, in 24 seconds | Lore 004",
-    "description": "Jesse Livermore: at 14 he posted stock prices for $5 a week, and later made fortunes and lost them more than once.\nHis edge, from his own 1940 book: wait for the pivotal point, act when price crosses it, then sit tight.\n\nTwo more rules from How to Trade in Stocks: never average a loss, and add only to a position that's working. The amber line that snaps in every setup we draw is his pivotal point.\n\nNext: Lore 005, The Seesaw: wider stop, smaller size.\n\nSources: Jesse L. Livermore, How to Trade in Stocks (Duell, Sloan & Pearce, 1940), ch. V The Pivotal Point; Edwin Lefèvre, Reminiscences of a Stock Operator (1923, gutenberg.org/ebooks/60979); biography: en.wikipedia.org/wiki/Jesse_Livermore. Paraphrased. The emblem is abstract; no affiliation implied.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #JesseLivermore #Trading",
+    "title": "How Jesse Livermore made millions and lost them | Lore 004",
+    "description": "Jesse Livermore made $1 million in one day in 1907, and went bankrupt more than once. Here's what made him a legend, and the mistakes that cost him.\nHe won by waiting for the pivotal point (a price that starts the move), buying the break, adding only while the trade worked, and sitting tight. He lost by breaking those rules: in 1908 he followed a friend's cotton tips and kept buying as it fell.\n\nWhy a legend: self-taught from prices alone, profitable in both great crashes of his era (1907 and 1929), asked by J.P. Morgan to stop selling in 1907 (he did), and his story is still a trading classic 100 years on.\n\nHis rules (How to Trade in Stocks, 1940): wait for the pivotal point; never add to a loser; trust your rules over tips; take some profit out after a big win.\n\nNext: Lore 005, The Seesaw: wider stop, smaller size.\n\nSources: Jesse L. Livermore, How to Trade in Stocks (Duell, Sloan & Pearce, 1940); Edwin Lefèvre, Reminiscences of a Stock Operator (1923, gutenberg.org/ebooks/60979); en.wikipedia.org/wiki/Jesse_Livermore. The fortune line is a sketch, not to scale; figures are as reported. Paraphrased. The emblem is abstract; no affiliation implied.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #JesseLivermore #Trading",
     "tags": [
       "jesse livermore",
+      "jesse livermore story",
       "livermore pivotal point",
       "how to trade in stocks",
       "reminiscences of a stock operator",
       "trading legends",
-      "stock market history",
-      "sit tight trading",
+      "trading mistakes",
       "never average down",
+      "stock market history",
       "the tape lore",
       "lore 004"
     ],

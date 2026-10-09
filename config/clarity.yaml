@@ -1,0 +1,61 @@
+# Clarity gate (founder, 2026-10-09: "have a quality check for whether the content is easily understandable by the
+# audience and whether they learn a thing or two from that video"). Checked by scripts/clarity_check.py, run from
+# spec_lint.py (on-screen text) and validate_publish.py (social copy + the qa.md Clarity section).
+# Audience (content/STRATEGY.md): self-directed traders 1-5 years in. Basic words (stock, shares, stop, risk, win rate,
+# profit, loss) need no definition; everything in `jargon` does, on screen, in plain words.
+
+# Words only the studio uses. Never on screen, never in copy.
+internal_words: [Sodium, Prussian, Abyss, Blueline, Lichen, TapeStrip, "tape strip", "Tape Machine", "sonic logo"]
+internal_words_case_sensitive: [Ember, Mist]
+
+# Terms a viewer must be told the meaning of, in the same video, in plain words. A spec that shows one needs a
+# `glossary` entry {term: definition} and that definition must appear in the captions or on-screen text.
+# Each entry is a regex (case-insensitive) -> the glossary key it needs.
+jargon:
+  "pivotal points?": pivotal point
+  "(?<![\\w$])[+−-]?\\d*(\\.\\d+)?R(?![\\w])": R
+  "r-multiples?": R
+  "expectancy": expectancy
+  "drawdowns?": drawdown
+  "\\bshort(ing|ed)\\b|\\bshort (sell|sale|position|seller)s?\\b|\\b(go|went|going|sold|sell) short\\b": short
+  "margin call": margin call
+  "on margin": margin
+  "leverage(d)?": leverage
+  "breakouts?": breakout
+  "\\bbases?\\b": base
+  "vcp": VCP
+  "cup (with|and) handle": cup with handle
+  "theta": theta
+  "implied volatility|\\bIV\\b": implied volatility
+  "delta|gamma|vega": greeks
+  "distribution days?": distribution day
+  "follow-through day": follow-through day
+  "\\bADR\\b": ADR
+  "relative strength|RS line": relative strength
+  "stage analysis|stage [1-4]": stages
+  "pyramid(ing)?": pyramiding
+  "averag(e|ing) down": averaging down
+  "bucket shops?": bucket shop
+  "tape reading": tape reading
+  "line of least resistance": line of least resistance
+  "short squeeze": short squeeze
+  "contango|backwardation": futures curve
+
+# Titles belong on a title card, never inside a caption ("Legend 01. At 14: ..." mixed a title with a fact).
+caption_title_prefix: "^(legend|lore|part|chapter|card)\\s+\\d+[.:]"
+# Shorthand that reads like notes, not speech: a number or a 1-3 word opener followed by a colon and a fragment
+# ("At 14: posting stock prices, $5 a week"). Write the sentence out.
+caption_shorthand: "^(\\w+\\s){0,2}\\d[\\d,.$%]*\\s*:\\s"
+
+readability:
+  # Flesch-Kincaid grade of the whole caption script; captions are short, so grade 7 is the bar for "a friend
+  # explaining it across a desk". Above `warn` = WARN, above `fail` = FAIL.
+  script_grade_warn: 7.0
+  script_grade_fail: 9.0
+  caption_grade_warn: 10.0
+
+learn:
+  min_items: 2
+  max_items: 5
+  min_words: 6
+  max_words: 40

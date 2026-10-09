@@ -3,7 +3,7 @@
 import React from "react";
 import { Lockup, Mark } from "./brand";
 import { CandleChart, Distribution, RunsFan } from "./charts";
-import { AssumptionsPanel, EndCard, MythCard, PollCard, QuoteCard, RuleCard, StatCard, TermCard, TitleCard } from "./layout/cards";
+import { AssumptionsPanel, EndCard, ListCard, MythCard, PollCard, QuoteCard, RuleCard, StatCard, TermCard, TitleCard } from "./layout/cards";
 import * as M from "./metaphors";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,6 +27,8 @@ export const COMPONENTS: Record<string, React.FC<any>> = {
   CouncilArc: M.CouncilArc,
   LegendCard: M.LegendCard,
   PivotStep: M.PivotStep,
+  LegendTitle: M.LegendTitle,
+  FortuneLine: M.FortuneLine,
   CandleChart,
   RunsFan,
   Distribution,
@@ -38,6 +40,7 @@ export const COMPONENTS: Record<string, React.FC<any>> = {
   QuoteCard,
   StatCard,
   AssumptionsPanel,
+  ListCard,
   TitleCard,
   Mark,
   Lockup,

@@ -211,5 +211,10 @@
   "tape": {
     "label": "Mostly Wrong"
   },
-  "status": "scripted"
+  "status": "scripted",
+  "learn": [
+    "Win rate alone doesn't decide profit: a 60% winner loses money when its losses are bigger than its wins.",
+    "Average result per trade = win rate × average win − loss rate × average loss.",
+    "Small losses with big wins means long losing streaks, so plan for them before they come."
+  ]
 }

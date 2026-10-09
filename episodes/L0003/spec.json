@@ -366,5 +366,13 @@
       ]
     }
   },
-  "status": "qa_passed"
+  "status": "qa_passed",
+  "learn": [
+    "R is what you lose if your stop is hit: (entry − stop) × shares, fixed before you buy.",
+    "Results in R show how good a trade was: $500 is +5R on $100 of risk but only +0.25R on $2,000.",
+    "Every loss should be about −1R; a bigger one means the stop moved or price gapped past it."
+  ],
+  "glossary": {
+    "R": "what you lose if the stop hits"
+  }
 }

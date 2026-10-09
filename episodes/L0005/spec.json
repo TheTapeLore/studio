@@ -180,5 +180,10 @@
       "hold": 1
     }
   },
-  "status": "qa_passed"
+  "status": "qa_passed",
+  "learn": [
+    "Pick your dollar risk first, then let the stop distance decide how many shares to buy.",
+    "Shares = risk ÷ stop distance, rounded down: $100 ÷ $4 = 25 shares.",
+    "Buying the same number of shares every time makes your risk change with every stop."
+  ]
 }

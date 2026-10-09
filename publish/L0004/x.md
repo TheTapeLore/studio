@@ -4,18 +4,18 @@ Video: release:L0004-4x5.mp4
 
 ## Post
 
-Legend 01: Jesse Livermore.
+Jesse Livermore made $1 million in one day in 1907 and went bankrupt more than once.
 
-At 14 he posted stock prices for $5 a week. Later he made fortunes and lost them, more than once.
+The wins came from his rules: wait for the pivotal point, buy the break, add only while it works, sit tight.
 
-His edge, in his own 1940 book: wait for the pivotal point, then sit tight.
+The losses came from breaking them.
 
 Lore 004 · Legend 01: Jesse Livermore
 
 ## First reply
 
-Every amber tripwire that snaps in our setups is his pivotal point: the level price has to cross before you act.
+The big break of his rules: in 1908 he followed a friend's cotton tips and kept buying as cotton fell. It cost him most of his fortune.
 
-His other rule we keep coming back to: never average a loss.
+His 1940 rule: never add to a loser.
 
 Next: Lore 005 · The Seesaw: wider stop, smaller size

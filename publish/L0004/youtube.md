@@ -6,18 +6,20 @@ Subtitles: captions.srt (Studio > Subtitles > Add language: English > Upload fil
 
 ## Title
 
-Jesse Livermore's pivotal point, in 24 seconds | Lore 004
+How Jesse Livermore made millions and lost them | Lore 004
 
 ## Description
 
-Jesse Livermore: at 14 he posted stock prices for $5 a week, and later made fortunes and lost them more than once.
-His edge, from his own 1940 book: wait for the pivotal point, act when price crosses it, then sit tight.
+Jesse Livermore made $1 million in one day in 1907, and went bankrupt more than once. Here's what made him a legend, and the mistakes that cost him.
+He won by waiting for the pivotal point (a price that starts the move), buying the break, adding only while the trade worked, and sitting tight. He lost by breaking those rules: in 1908 he followed a friend's cotton tips and kept buying as it fell.
 
-Two more rules from How to Trade in Stocks: never average a loss, and add only to a position that's working. The amber line that snaps in every setup we draw is his pivotal point.
+Why a legend: self-taught from prices alone, profitable in both great crashes of his era (1907 and 1929), asked by J.P. Morgan to stop selling in 1907 (he did), and his story is still a trading classic 100 years on.
+
+His rules (How to Trade in Stocks, 1940): wait for the pivotal point; never add to a loser; trust your rules over tips; take some profit out after a big win.
 
 Next: Lore 005, The Seesaw: wider stop, smaller size.
 
-Sources: Jesse L. Livermore, How to Trade in Stocks (Duell, Sloan & Pearce, 1940), ch. V The Pivotal Point; Edwin Lefèvre, Reminiscences of a Stock Operator (1923, gutenberg.org/ebooks/60979); biography: en.wikipedia.org/wiki/Jesse_Livermore. Paraphrased. The emblem is abstract; no affiliation implied.
+Sources: Jesse L. Livermore, How to Trade in Stocks (Duell, Sloan & Pearce, 1940); Edwin Lefèvre, Reminiscences of a Stock Operator (1923, gutenberg.org/ebooks/60979); en.wikipedia.org/wiki/Jesse_Livermore. The fortune line is a sketch, not to scale; figures are as reported. Paraphrased. The emblem is abstract; no affiliation implied.
 
 Education only. Not investment advice. Historical charts; past results don't predict future ones.
 
@@ -25,7 +27,7 @@ Education only. Not investment advice. Historical charts; past results don't pre
 
 ## Tags
 
-jesse livermore, livermore pivotal point, how to trade in stocks, reminiscences of a stock operator, trading legends, stock market history, sit tight trading, never average down, the tape lore, lore 004
+jesse livermore, jesse livermore story, livermore pivotal point, how to trade in stocks, reminiscences of a stock operator, trading legends, trading mistakes, never average down, stock market history, the tape lore, lore 004
 
 Playlist: Legends  
 Category: Education  

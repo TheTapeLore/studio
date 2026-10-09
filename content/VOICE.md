@@ -42,6 +42,30 @@ Most of this is practitioner evidence, not lab science; our own retention number
 8. **Still never:** hype, advice, P&L, urgency, guru tone, rocket/money emojis, a hook the video doesn't pay off, or a
    joke at a real person's expense. Every compliance rule in CLAUDE.md still applies.
 
+## Teach, don't allude (the clarity gate, 2026-10-09)
+Founder: "Our channel's main goal is to educate the audience and sentences like these defeat the very purpose."
+A line can be warm, dry and funny and still teach nothing. Every video must leave a first-time viewer able to say
+something they couldn't before: that list is the spec's `learn` field, written before the captions.
+
+1. **Write sentences, not notes.** "At 14: posting stock prices, $5 a week" is a note to ourselves. "At 14, his job was
+   writing stock prices on a big board" is a sentence anyone can follow.
+2. **Titles live on title cards.** "Legend 01" gets its own tag on screen; a caption never starts with it.
+3. **Say why, then what to take from it.** "He made fortunes and lost them. Study both." points at a lesson without
+   giving it. Say how he made them (the method), how he lost them (the cause, in his own account first), and the rule
+   that came out of it.
+4. **Define every term the moment it appears**, in plain words, on screen ("the pivotal point, a price that starts the
+   move"). Basic words (stock, shares, stop, risk, win rate) are fine for our audience; config/clarity.yaml lists the
+   rest. Never use our studio words (Sodium, Blueline ...): say "the line that snaps".
+5. **Every number needs its meaning.** "$1 million in one day", then why it matters.
+6. **Respect.** A legend's mistakes don't shrink the legacy; they are the most useful part of it. Teach them plainly,
+   never mock them.
+
+| Before | After |
+|---|---|
+| Legend 01. At 14: posting stock prices, $5 a week. | (title card: LEGEND 01 · JESSE LIVERMORE) At 14, his job was writing stock prices on a big board. |
+| He made fortunes and lost them. Study both. | In 1908 he followed a friend's cotton tips instead of the market. Cotton kept falling. He kept buying. Most of his fortune went. |
+| Our Sodium tripwire? That's his pivotal point. | His key idea: the pivotal point, a price that starts the move. |
+
 ## AI tells we don't write (checked by `scripts/voice_check.py`, config in `config/voice.yaml`)
 - "It's not X, it's Y" / "not just" / "more than just".
 - Stock phrases: delve, unlock, unleash, game-changer, navigate the, landscape, journey, elevate, seamless, robust,

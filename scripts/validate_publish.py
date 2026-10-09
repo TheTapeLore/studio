@@ -15,6 +15,7 @@ import yaml
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import voice_check
 import make_srt
+import clarity_check
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CFG = yaml.safe_load(open(os.path.join(ROOT, "config", "platforms.yaml")))
@@ -27,9 +28,12 @@ def hashtags(text):
     return re.findall(r"(?<!\w)#\w+", text)
 
 def scan_banned(label, text, errs):
-    """Hype/advice phrases and banned emoji (platforms.yaml), plus the AI tells in content/VOICE.md (voice.yaml)."""
+    """Hype/advice phrases and banned emoji (platforms.yaml), the AI tells in content/VOICE.md (voice.yaml), and
+    studio-only words the audience doesn't know (config/clarity.yaml)."""
     for prob in voice_check.check(text, "post"):
         errs.append(f"{label}: voice: {prob}")
+    for prob in clarity_check.check_copy(text):
+        errs.append(f"{label}: {prob}")
     low = text.lower()
     for p in CFG["banned_phrases"]:
         if p.lower() in low:
@@ -46,6 +50,11 @@ def validate(pkg):
     m = json.load(open(mp))
     lore = f"Lore {int(m.get('lore_no', 0)):03d}"
     disc = CFG["required_disclaimer"]
+
+    # clarity gate: the human read in episodes/<id>/qa.md ("## Clarity": learn points found on screen, a first-time
+    # viewer's restatement, PASS). Nothing is released without it.
+    for prob in clarity_check.qa_clarity(m.get("id", os.path.basename(os.path.normpath(pkg)))):
+        errs.append(prob)
 
     # files
     for k, fs in (m.get("files") or {}).items():

@@ -1,19 +1,83 @@
 1
-00:00:00,000 --> 00:00:04,353
-Legend 01. At 14: posting stock prices, $5 a week.
+00:00:00,000 --> 00:00:05,332
+Made $1 million in a day. Went bankrupt more than once.
 
 2
-00:00:04,354 --> 00:00:07,999
-He made fortunes and lost them. Study both.
+00:00:05,333 --> 00:00:10,666
+At 14, his job was writing stock prices on a big board.
 
 3
-00:00:08,000 --> 00:00:11,645
-Wait for the pivotal point. Act. Sit tight.
+00:00:10,667 --> 00:00:15,999
+He studied how they moved. At 15, he made his first trade.
 
 4
-00:00:11,646 --> 00:00:15,999
-The line that snaps in our setups? His pivotal point.
+00:00:16,000 --> 00:00:21,332
+In 1907's panic, he bet on falling prices and made $1 million.
 
 5
-00:00:18,867 --> 00:00:23,949
+00:00:21,333 --> 00:00:26,666
+In 1929 he bet on the crash again. About $100 million, reportedly.
+
+6
+00:00:26,667 --> 00:00:31,697
+Why a legend? He taught himself to read markets from prices alone.
+
+7
+00:00:31,698 --> 00:00:36,376
+In 1907, J.P. Morgan asked him to stop selling. He did.
+
+8
+00:00:36,377 --> 00:00:39,999
+A century on, traders still study his story.
+
+9
+00:00:40,000 --> 00:00:45,463
+His key idea: the pivotal point, a price that starts the move.
+
+10
+00:00:45,464 --> 00:00:50,928
+He bought on the break, then added only while it kept rising.
+
+11
+00:00:50,929 --> 00:00:53,332
+Then he sat tight.
+
+12
+00:00:53,333 --> 00:00:57,999
+So how did he lose it? By breaking his own rules.
+
+13
+00:00:58,000 --> 00:01:03,017
+In 1908 he followed a friend's cotton tips instead of the market.
+
+14
+00:01:03,018 --> 00:01:07,684
+Cotton kept falling. He kept buying. Most of his fortune went.
+
+15
+00:01:07,685 --> 00:01:11,999
+He also lost every cent he put into outside businesses.
+
+16
+00:01:12,000 --> 00:01:17,043
+In 1940 he wrote down his rules. Most cost him dearly.
+
+17
+00:01:17,044 --> 00:01:20,948
+Don't jump early. Never add to a loser.
+
+18
+00:01:20,949 --> 00:01:25,233
+Trust your rules, not tips. Take some profit out.
+
+19
+00:01:25,234 --> 00:01:27,999
+Learning them here costs less.
+
+20
+00:01:28,000 --> 00:01:33,332
+Legend card 01. Learn from his wins, and from his misses.
+
+21
+00:01:36,200 --> 00:01:41,282
 Lore 004. Next: Lore 005, The Seesaw: wider stop, smaller size

@@ -19,29 +19,29 @@
  },
  "genre": "boom bap",
  "bpm": 90.0,
- "bars": 9.0,
+ "bars": 38.0,
  "loop_aligned": true,
- "lufs": -16.8,
- "true_peak_db": -4.2,
+ "lufs": -16.9,
+ "true_peak_db": -3.6,
  "generator": "scripts/sound/score.py (v4)",
  "arrangement": [
   {
    "bar": 1,
    "t": 0.0,
    "chord": "iv",
-   "energy": 3,
+   "energy": 4,
    "drums": "full",
    "melody": "A1",
-   "label": "emblem"
+   "label": "hook"
   },
   {
    "bar": 2,
    "t": 2.667,
    "chord": "i",
-   "energy": 3,
+   "energy": 4,
    "drums": "full",
    "melody": "A2",
-   "label": "emblem"
+   "label": "hook"
   },
   {
    "bar": 3,
@@ -50,43 +50,43 @@
    "energy": 3,
    "drums": "full",
    "melody": "A'1",
-   "label": "emblem"
+   "label": "his story"
   },
   {
    "bar": 4,
    "t": 8.0,
    "chord": "VI",
-   "energy": 2,
-   "drums": "break",
-   "melody": "A'2-",
-   "label": "wait: under the wire"
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "his story"
   },
   {
    "bar": 5,
    "t": 10.667,
    "chord": "iv",
-   "energy": 4,
+   "energy": 3,
    "drums": "full",
-   "melody": "A1",
-   "label": "the snap: sit tight"
+   "melody": "B1",
+   "label": "his story"
   },
   {
    "bar": 6,
    "t": 13.333,
    "chord": "i",
-   "energy": 4,
+   "energy": 3,
    "drums": "full",
-   "melody": "A2",
-   "label": "the snap: sit tight"
+   "melody": "B2",
+   "label": "his story"
   },
   {
    "bar": 7,
    "t": 16.0,
-   "chord": "i",
+   "chord": "VII",
    "energy": 3,
    "drums": "full",
-   "melody": "logo1",
-   "label": "end card"
+   "melody": "A''1",
+   "label": "his story"
   },
   {
    "bar": 8,
@@ -94,12 +94,273 @@
    "chord": "VI",
    "energy": 3,
    "drums": "full",
-   "melody": "logo2",
-   "label": "end card"
+   "melody": "A''2",
+   "label": "his story"
   },
   {
    "bar": 9,
    "t": 21.333,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "1929: the win"
+  },
+  {
+   "bar": 10,
+   "t": 24.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "1929: the win"
+  },
+  {
+   "bar": 11,
+   "t": 26.667,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 12,
+   "t": 29.333,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 13,
+   "t": 32.0,
+   "chord": "VII",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 14,
+   "t": 34.667,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 15,
+   "t": 37.333,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 16,
+   "t": 40.0,
+   "chord": "i",
+   "energy": 2,
+   "drums": "break",
+   "melody": "A2-",
+   "label": "wait: under the wire"
+  },
+  {
+   "bar": 17,
+   "t": 42.667,
+   "chord": "VII",
+   "energy": 2,
+   "drums": "break",
+   "melody": "A'1-",
+   "label": "wait: under the wire"
+  },
+  {
+   "bar": 18,
+   "t": 45.333,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "the snap: sit tight"
+  },
+  {
+   "bar": 19,
+   "t": 48.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "the snap: sit tight"
+  },
+  {
+   "bar": 20,
+   "t": 50.667,
+   "chord": "VII",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "the snap: sit tight"
+  },
+  {
+   "bar": 21,
+   "t": 53.333,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "his story"
+  },
+  {
+   "bar": 22,
+   "t": 56.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "half",
+   "melody": "A1-",
+   "label": "1908: followed cotton tips"
+  },
+  {
+   "bar": 23,
+   "t": 58.667,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "half",
+   "melody": "A2-",
+   "label": "1908: followed cotton tips"
+  },
+  {
+   "bar": 24,
+   "t": 61.333,
+   "chord": "bII",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A1-",
+   "label": "1915: bankrupt"
+  },
+  {
+   "bar": 25,
+   "t": 64.0,
+   "chord": "bII",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A2-",
+   "label": "1915: bankrupt"
+  },
+  {
+   "bar": 26,
+   "t": 66.667,
+   "chord": "V",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A1-",
+   "label": "1934: bankrupt again"
+  },
+  {
+   "bar": 27,
+   "t": 69.333,
+   "chord": "V",
+   "energy": 2,
+   "drums": "half",
+   "melody": "A2-",
+   "label": "1934: bankrupt again"
+  },
+  {
+   "bar": 28,
+   "t": 72.0,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 29,
+   "t": 74.667,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 30,
+   "t": 77.333,
+   "chord": "VII",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 31,
+   "t": 80.0,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 32,
+   "t": 82.667,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 33,
+   "t": 85.333,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 34,
+   "t": 88.0,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "card"
+  },
+  {
+   "bar": 35,
+   "t": 90.667,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "card"
+  },
+  {
+   "bar": 36,
+   "t": 93.333,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 37,
+   "t": 96.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 38,
+   "t": 98.667,
    "chord": "VII",
    "energy": 3,
    "drums": "full",
@@ -109,33 +370,88 @@
  ],
  "cues": [
   {
-   "t": 8.0,
-   "bar": 4,
-   "cue": "price reaches the pivotal point: build 1.0 bars"
-  },
-  {
-   "t": 10.67,
-   "bar": 5,
-   "cue": "DROP"
-  },
-  {
-   "t": 10.67,
-   "bar": 5,
-   "cue": "the pivotal point snaps (tripwire)"
-  },
-  {
-   "t": 16.0,
+   "t": 16.35,
    "bar": 7,
-   "cue": "sonic logo: the mark's nine notes in this song's key"
+   "cue": "1907: panic: +$1m in a day (impact)"
   },
   {
    "t": 18.67,
    "bar": 8,
-   "cue": "the wire snaps on the logo's breakout note"
+   "cue": "1929: crash: ~$100m (reported): build 1.0 bars"
   },
   {
    "t": 21.33,
    "bar": 9,
+   "cue": "DROP"
+  },
+  {
+   "t": 26.67,
+   "bar": 11,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 42.67,
+   "bar": 17,
+   "cue": "price reaches the pivotal point: build 1.0 bars"
+  },
+  {
+   "t": 45.33,
+   "bar": 18,
+   "cue": "DROP"
+  },
+  {
+   "t": 45.33,
+   "bar": 18,
+   "cue": "the pivotal point snaps (tripwire)"
+  },
+  {
+   "t": 57.42,
+   "bar": 22,
+   "cue": "loss \u221245%: 4-note fall, 5.4 semitones down"
+  },
+  {
+   "t": 58.08,
+   "bar": 22,
+   "cue": "1908: followed cotton tips -> iv, half-time, breakout withheld"
+  },
+  {
+   "t": 62.4,
+   "bar": 24,
+   "cue": "loss \u221265%: 5-note fall, 7.8 semitones down"
+  },
+  {
+   "t": 63.23,
+   "bar": 24,
+   "cue": "1915: bankrupt -> bII, half-time, breakout withheld"
+  },
+  {
+   "t": 67.22,
+   "bar": 26,
+   "cue": "loss \u221285%: 7-note fall, 10.2 semitones down"
+  },
+  {
+   "t": 68.38,
+   "bar": 26,
+   "cue": "1934: bankrupt again -> V, half-time, breakout withheld"
+  },
+  {
+   "t": 72.0,
+   "bar": 28,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 93.33,
+   "bar": 36,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 96.0,
+   "bar": 37,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 98.67,
+   "bar": 38,
    "cue": "loop build: the last bar resolves into frame 0"
   }
  ],

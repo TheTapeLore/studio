@@ -17,4 +17,6 @@ export { InnerChart } from "./InnerChart";
 export { CouncilArc } from "./CouncilArc";
 export { LegendCard } from "./LegendCard";
 export { PivotStep } from "./PivotStep";
+export { LegendTitle } from "./LegendTitle";
+export { FortuneLine } from "./FortuneLine";
 export { Emblem, EMBLEMS } from "./emblems";

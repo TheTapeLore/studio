@@ -15,6 +15,8 @@ export interface PivotStepProps {
   wireLabel?: string;
   sfx?: boolean;
   note?: string;
+  /** Path x positions (0..1000) where he added to the winner: a marker + ADD label as the line passes. */
+  adds?: number[];
 }
 
 // The idea as a path in a 1000 x 600 box (y down): chop under the line, one decisive step through it, a long run.
@@ -42,6 +44,7 @@ export const PivotStep: React.FC<PivotStepProps> = ({
   wireLabel = "PIVOTAL POINT",
   sfx = true,
   note = "ILLUSTRATION · NOT A CHART",
+  adds = [],
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -98,9 +101,28 @@ export const PivotStep: React.FC<PivotStepProps> = ({
         {wireLabel}
       </text>
       <polyline points={pts.map(([x, y]) => `${X(x).toFixed(1)},${Y(y).toFixed(1)}`).join(" ")} fill="none" stroke={C.tape} strokeWidth={11 * u} strokeLinejoin="round" strokeLinecap="round" />
+      {adds.map((ax) => {
+        // the add sits on the path at x = ax
+        const i = PATH.findIndex(([x]) => x >= ax);
+        if (i <= 0) return null;
+        const [x0p, y0p] = PATH[i - 1], [x1p, y1p] = PATH[i];
+        const f = (ax - x0p) / Math.max(1e-6, x1p - x0p);
+        const ay = y0p + (y1p - y0p) * f;
+        const lenAt = acc[i - 1] + (acc[i] - acc[i - 1]) * f;
+        const a = clamp((L - lenAt) / 40);
+        if (a <= 0) return null;
+        return (
+          <g key={ax} opacity={a}>
+            <circle cx={X(ax)} cy={Y(ay)} r={11 * u} fill={C.abyss} stroke={C.tape} strokeWidth={4 * u} />
+            <text x={X(ax)} y={Y(ay) + 46 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.9} textAnchor="middle" letterSpacing={TYPE.mono.tracking}>
+              ADD
+            </text>
+          </g>
+        );
+      })}
       {lab(0, 220, 500, acc[3])}
       {lab(1, crossX + 70, WIRE_Y + 62, crossLen)}
-      {lab(2, 800, 230, acc[13])}
+      {lab(2, 905, 165, acc[16])}
       {note ? (
         <text x={w} y={h - 8 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={fs * 0.8} textAnchor="end" letterSpacing={TYPE.mono.tracking} opacity={0.8}>
           {note}

@@ -34,3 +34,12 @@ Lore 003's tempo and groove; max hook similarity 0.48).
 ## Pass 1, 9x16
 Frames viewed (hook tips, re-levels, cards, end card): safe zones respected, no overlaps; −14.1 LUFS, −3.48 dBTP.
 **Result: qa_passed after 1 pass.**
+
+## Clarity (gate added 2026-10-09; read again muted, as a first-time viewer)
+- Learn 1, "pick your dollar risk first": beat 2 ("Flip it. Fix the risk first: $100.") with the counterweight labelled
+  RISK BUDGET 1% OF $10,000.
+- Learn 2, "shares = risk ÷ stop distance": the math card, with $100 ÷ $4 = 25 shares worked on screen.
+- Learn 3, "the same share count makes risk change with every stop": the hook, the beam tipping as $100 → $400.
+- No jargon beyond basic words (stop, shares, risk); no studio words.
+- First-time viewer restatement: "Decide how many dollars I'm willing to lose, then divide by how far my stop is."
+**Clarity: PASS.**

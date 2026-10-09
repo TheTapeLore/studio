@@ -280,5 +280,10 @@
     }
   },
   "status": "released",
-  "emotion": "dread, then relief: the gut drop of a 50% loss, the sting of how far back up it is, then the calm of a rule that keeps the pit shallow"
+  "emotion": "dread, then relief: the gut drop of a 50% loss, the sting of how far back up it is, then the calm of a rule that keeps the pit shallow",
+  "learn": [
+    "A 50% loss needs a 100% gain to get back to even, because you climb back from what's left.",
+    "The deeper the loss, the faster the climb back grows: a 90% loss needs a 900% gain.",
+    "The Nasdaq fell 78% from 2000 to 2002 and took about fifteen years to get back."
+  ]
 }

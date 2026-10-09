@@ -114,8 +114,8 @@
       "format": "legendcard",
       "concept_key": "legends.card.livermore",
       "title": "Legend 01: Jesse Livermore",
-      "hook": "Legend 01. At 14: posting stock prices, $5 a week.",
-      "takeaway": "Livermore's edge was patience at a level: wait for the pivotal point, act when price crosses it, then sit tight. He made fortunes and lost them, so read the risk lessons as closely as the wins. Our Sodium tripwire is his pivotal point.",
+      "hook": "Made $1 million in a day. Went bankrupt more than once.",
+      "takeaway": "Jesse Livermore taught himself to read markets from prices, won big in the 1907 panic and the 1929 crash, and built his method around the pivotal point: wait for a key price to break, add only while the trade works, then sit tight. He lost fortunes by breaking those rules: following a friend's cotton tips, buying more as cotton fell, and putting money into businesses outside trading. His 1940 rules are the lessons those losses paid for.",
       "data": null,
       "legends": [
         "Jesse Livermore"
@@ -128,7 +128,7 @@
           "L0005"
         ]
       },
-      "status": "released",
+      "status": "qa_passed",
       "batch": "2026-10-09-b",
       "created": "2026-10-09",
       "updated": "2026-10-09",

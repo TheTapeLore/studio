@@ -32,10 +32,15 @@ Follow CLAUDE.md exactly. Work autonomously; stop only for credentials or spendi
 - Simulations: `sims/<slug>.py`, fixed seed, writes episodes/<id>/sim.json. Assumptions go on screen.
 
 ## 5. Script
+- Teach first (content/VOICE.md, "Teach, don't allude"). Before any caption, write the spec's `learn` list: 2-5 plain
+  sentences a first-time viewer could say back after watching. Every beat must serve one of them. Define every
+  jargon term on screen in plain words (spec `glossary`; config/clarity.yaml lists the terms). No studio words
+  (Sodium, Blueline ...), no titles inside captions, no note-style shorthand ("At 14: posting prices"): full sentences.
+  For every number, say what it means; for every event, say why it happened and what to take from it.
 - Write in the voice of content/VOICE.md: read it first. Name the one `emotion` in the spec. Hook = a feeling + the
   number. One or two jokes, tied to the lesson. Read every caption out loud; voice_check runs inside spec_lint.
 - beats[] with component + props + caption + sfx. Hook (payoff visual + question) inside 1.5s.
-- One idea. 30–75s (lexicon 12–20s). Captions <= 12 words, >= 0.35s/word + 0.8s on screen.
+- One idea. 30–75s (lexicon 12–20s; Legend stories 60–110s). Captions <= 12 words, >= 0.35s/word + 0.8s on screen.
 - End: tripwire snap -> "Lore N. Next: Lore N+1 — <title>" (an `end` beat + spec `next`). Run
   `python scripts/spec_lint.py episodes/<id>/spec.json` until PASS. Set status `scripted`.
 
@@ -56,7 +61,11 @@ Follow CLAUDE.md exactly. Work autonomously; stop only for credentials or spendi
 Extract frames every 2s and at every beat boundary (`SHEET=1 scripts/frames.sh engine/out/<id>-<aspect>.mp4`), VIEW them, and score:
 1. Truth: every claim matches a source; numbers recomputed from data/sim.
 2. Compliance: the 9 rules in CLAUDE.md.
-3. Clarity: one idea; a first-time viewer gets it muted.
+3. Clarity and learning (the founder's gate, 2026-10-09): `clarity_check` passes inside spec_lint; then a real read.
+   Watch muted as a first-time viewer in the target audience: can you find every `learn` point on screen, would each
+   line make sense to someone who never saw the channel, does every number come with what it means? Write the
+   `## Clarity` section in qa.md: each learn point with the beat that teaches it, the first-time viewer's one-line
+   restatement, anything you rewrote, and PASS. validate_publish blocks the release without it.
 4. Brand: tokens only, Sodium once per frame, TapeStrip intro/outro, snap on breakout, sonic logo on the end card.
 5. Craft: safe zones, caption timing, no overlaps/clipping, contrast, smooth motion, audio peaks <= -1 dBFS.
 6. Distinct: still not a repeat after seeing it rendered.

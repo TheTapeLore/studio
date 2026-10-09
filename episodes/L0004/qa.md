@@ -1,53 +1,77 @@
-# QA — L0004 Legend 01: Jesse Livermore
+# QA — L0004 Legend 01: Jesse Livermore (rebuilt 2026-10-09)
 
-Batch 2026-10-09-b · legendcard · legends · 24.0 s (9 bars) · 4x5 + 9x16 · card front/back, print files, 5-slide carousel
-Song: B minor, 90 BPM boom bap (hiphop-lazy, swing 0.088), iv i VII VI, glide lead (max hook similarity 0.40).
+Batch 2026-10-09-b · legendcard (Legend story) · legends · 101.3 s (38 bars) · 4x5 + 9x16 · card front/back, print
+files, 6-slide carousel. Song unchanged (frozen): B minor, 90 BPM boom bap, iv i VII VI, glide lead.
 
-## Research
-- Fact sheet: content/legends/livermore.md (every fact sourced; contested points flagged). Roster updated
-  (content/legends.yaml: verified, card L0004).
-- Method lines checked against the text of his 1940 book (ch. V "The Pivotal Point": patience to wait for the pivotal
-  point, then sit tight; ch. II: no second trade if the first shows a loss, never average losses) and Project
-  Gutenberg's Reminiscences (1923: "my sitting", never argue with the tape). Everything on screen is paraphrased; no
-  quotes are used.
+## Why it was rebuilt (founder review of the first release)
+The 24 s card reveal was too short and taught nothing: "Legend 01" and "At 14:" shared a caption, "At 14: posting
+stock prices, $5 a week" read as notes, and "He made fortunes and lost them. Study both." pointed at a lesson without
+giving it. It also never said why he is called a legend. The new cut is a Legend story: title, who, the record, why a
+legend, the method, the mistakes with their causes, his rules, the card. The engine and the playbooks changed with it
+(clarity gate, see CLAUDE.md and content/VOICE.md "Teach, don't allude").
 
-## Pre-render
-- spec_lint PASS · registry check PASS · validate_publish PASS (X 242/280, title 57 chars).
-- Stills viewed. Fixed: the card's field text was too small to read on a phone in 4x5 (the card is bound by the
-  stage height): a slow push-in onto the fields (4.3 s, ×1.5, clipped to the stage). Carousel type-only slides were
-  empty in the middle: now centred type slides with the source line under the headline.
+## Research (content/legends/livermore.md)
+- His own 1940 book read for causes: ch. VI "The Million Dollar Blunder" (impatience: bought cotton before his pivotal
+  point five times in six weeks, about $200,000 lost), ch. IV (lost every cent put into outside ventures; drew out cash
+  after wins; tips and over-trading), ch. II and IV (never average losses), ch. V (the pivotal point).
+- Reminiscences (1923): the cotton episode (kept buying a falling market on a friend's analysis, lost nearly all) and
+  the 1907 day (stopped selling when asked, bought).
+- Wikipedia (biography + the book's page): 1891 board boy; first trade at 15; 1907 $1M in a single day; J.P. Morgan
+  asked him to stop short selling; 1908 Teddy Price cotton losses; bankruptcies 1915 and 1934; 1929 about $100M;
+  Reminiscences still in print, Paul Tudor Jones foreword (2009), Greenspan's praise.
+- Disagreements handled: bankruptcy count differs between sources (two vs three): we say "more than once". The 1929
+  figure is "reportedly". The fortune line is labelled "sketch, not to scale".
 
 ## Truth
 | On screen | Source |
 |---|---|
-| Legend 01, 1890s – 1940, stocks and commodities | Wikipedia (born 1877, traded from the 1890s, died 1940) |
-| At 14, posting stock prices, $5 a week | Wikipedia (1891, board boy at Paine Webber, Boston, $5/week) |
-| Made fortunes and lost them | Wikipedia (1907 and 1929 gains; bankruptcy filings 1915 and 1934) |
-| Edge: waited for the pivotal point, then sat tight | How to Trade in Stocks (1940), ch. V |
-| Habit: added only to a winner, never averaged a loss | How to Trade in Stocks (1940), ch. II and IV |
-| Key read: How to Trade in Stocks (1940) | first edition, Duell, Sloan & Pearce, 1940 |
+| Made $1 million in a day (1907 panic, betting on falling prices) | Wikipedia ("$1 million in a single day") |
+| Went bankrupt more than once (1915, 1934) | Wikipedia + second biography source |
+| At 14, writing stock prices on a big board; first trade at 15 | Wikipedia (1891 board boy; 1892 first bucket-shop trade) |
+| 1929: about $100 million, reportedly | Wikipedia ("approximately $100 million") |
+| Taught himself to read markets from prices alone (technical analysis) | Wikipedia |
+| 1907: J.P. Morgan asked him to stop selling. He did. | Wikipedia; Reminiscences |
+| A century on, traders still study his story | Reminiscences in print; 2009 annotated edition |
+| Pivotal point: a price that starts the move; buy the break; add only while it rises; sit tight | How to Trade in Stocks, ch. V-VI |
+| 1908: followed a friend's cotton tips; kept buying as it fell; most of his fortune went | Wikipedia (Teddy Price); Reminiscences |
+| Lost every cent he put into outside businesses | How to Trade in Stocks, ch. IV |
+| Rules: don't jump early (about $200,000 cotton blunder); never add to a loser; your rules over tips; take some profit out | How to Trade in Stocks, ch. II, IV, VI |
+
+## Clarity
+- Learn 1, who he was and why a legend: title card + "who" + "record" beats (14 → board job, 15 → first trade, 1907 and
+  1929 wins drawn on the fortune line) and the "Why he's a legend" list (self-taught; J.P. Morgan; still studied).
+- Learn 2, the pivotal point: defined in the caption ("a price that starts the move"), drawn: WAIT under the line,
+  ACT as it snaps, two ADD markers, SIT TIGHT.
+- Learn 3, why he lost: three causes, each in a plain sentence (friend's tips, kept buying the fall, outside
+  businesses), each marked on the fortune line (1908, 1915, 1934).
+- Learn 4, his rules: four numbered rules, each with the loss that taught it.
+- clarity_check: PASS (no studio words, the one jargon term defined on screen, no titles or shorthand in captions,
+  script grade 2.1). LEGEND 01 sits alone on the title card; no caption starts with it.
+- First-time viewer restatement: "Livermore was a self-taught trader who made millions by waiting for a key price
+  and riding the move, then lost them by following tips and buying more as cotton fell; his rules are what those
+  losses taught him."
+**Clarity: PASS.**
 
 ## Compliance
-- Rule 5: abstract emblem only (pivot-step); no photo, likeness, voice or signature; no implied affiliation (stated in
-  the YouTube description). Rule 6: sources in the spec. PivotStep is labelled "ILLUSTRATION · NOT A CHART".
-- Respectful voice: the fortunes lost are a lesson ("Study both."), never a joke; his death is not mentioned.
+Education only; abstract emblem (rule 5), no likeness; sources in the spec (rule 6); the fortune line and the pivotal
+point are labelled as sketch / illustration; disclaimer in IG + YouTube (rule 7); song generated (rule 9). Respect:
+mistakes taught plainly, never mocked; his death not mentioned.
 
-## Pass 1 (full render 4x5)
-1. Truth: PASS. 2. Compliance: PASS. 3. Clarity: PASS (card, then the idea drawn as wait / act / sit tight).
-4. Brand: PASS (TapeStrip in/out, the pivotal point snaps with the snap at 10.67 s, a bar line where the music drops;
-   sonic logo and wire snap on the end card at 18.67 s). 5. Craft: PASS (−14.3 LUFS, −2.7 dBFS; captions timed;
-   the push-in keeps the fields inside the stage). 6. Distinct: PASS (first Legend Card).
+## Pass 1 (full render 4x5 + 9x16)
+- Frames every 2 s + beat boundaries viewed in both aspects. Loudness −14.1 LUFS, true peak −3.45 dBTP.
+- Music: full groove on the title; impact on 1907; build into the 1929 win (drop on bar 9, 21.33 s, as the caption
+  "In 1929..." starts); chorus on "why a legend"; breakdown under the wire, drop on the pivotal-point snap (45.33 s);
+  a fall into each loss (1908, 1915, 1934) with darker chords; chorus on his rules; sonic logo and wire snap on the
+  end card (96.0 s).
+- Stills fixes before this render: loss labels piled on the baseline (now lanes under the year axis with leader
+  lines; each beat shows only the events it talks about); ADD collided with SIT TIGHT; "BROKE" under the line's end.
+- Found in the render: the rules list sat ghosted for 5 s before its first rule lit. Fix: rule 1 appears with the
+  first line, the others with their captions (0.4 / 6.0 / 8.95 / 10.9 s). Checked with stills; the Release renders
+  include it.
 
-## Pass 1, 9x16
-Frames viewed: card push-in, the pivotal point, end card; −14.3 LUFS, −2.71 dBTP. Card, print files and carousel
-(5 slides) viewed: print files are 825×1125 with Prussian/Abyss bleed and square corners; text sits ≥ 62 px inside the
-trim (> 0.125 in). Note for the physical deck: the decorative Sodium frame sits 22 px inside the trim, inside the
-cut tolerance of most printers; check it on the proof (see /print-cards; legal review first).
-**Result: qa_passed after 1 pass.**
-
-## Pass 2 (copy, caught on the final read before release)
-"Our Sodium tripwire?" used our internal colour name, which viewers don't know. Caption now "The line that snaps in
-our setups? His pivotal point." (9 words, 3.95 s needed, timed by lint); X reply, Instagram caption and YouTube
-description say "amber line/tripwire". Frame checked in 9x16 (two lines, inside the caption band). Release run
-cancelled and re-dispatched with the fix.
+## Pass 2
+1. Truth: PASS. 2. Compliance: PASS. 3. Clarity and learning: PASS (above). 4. Brand: PASS (one Sodium per frame:
+   the emblem diamond, the pivotal-point line, the newest rule number; TapeStrip in/out; snap on the pivotal point and
+   on the end card). 5. Craft: PASS (captions timed by lint, three-line captions fit 9x16, labels clear).
+   6. Distinct: PASS (first Legend story; new components LegendTitle, FortuneLine, ListCard).
 **Result: qa_passed after 2 passes.**

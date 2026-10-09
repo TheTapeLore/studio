@@ -20,7 +20,7 @@ export const FORMATS: Record<string, FormatDef> = {
   failure: { key: "failure", label: "Failure Files", duration: [35, 60], tapeRight: () => "FAILURE FILE" },
   lexicon: { key: "lexicon", label: "Lexicon", duration: [12, 20], tapeRight: () => "LEXICON" },
   desknotes: { key: "desknotes", label: "Desk Notes", duration: [20, 45], tapeRight: () => "DESK NOTES" },
-  legendcard: { key: "legendcard", label: "Legend Card", duration: [15, 25], tapeRight: () => "COUNCIL OF LEGENDS" },
+  legendcard: { key: "legendcard", label: "Legend Card", duration: [60, 110], tapeRight: () => "COUNCIL OF LEGENDS" },
   chapter: { key: "chapter", label: "Chapter", duration: [480, 900], tapeRight: () => "CHAPTER" },
 };
 

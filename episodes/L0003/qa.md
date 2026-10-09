@@ -57,3 +57,14 @@ Song: Bb dorian, 120 BPM melodic house (four-ghost), i III IV VII, supersaw lead
    (limiter −4.7 dBFS). The Release renders run the same script. 6. Distinct: PASS (first R-multiples entry, new
    metaphors RCompare and RRuler).
 **Result: qa_passed after 2 passes.**
+
+## Clarity (gate added 2026-10-09; read again muted, as a first-time viewer)
+- Learn 1, "R is what you lose if your stop is hit": beat 2 says it in those words and draws the entry-to-stop zone
+  labelled 1R = $100.
+- Learn 2, "results in R show how good a trade was": the hook (+5R vs +0.25R on the same $500) and beat 3 (+4R at $58).
+- Learn 3, "every loss should be about −1R": beat 3 ("Stopped out instead? −1R. Every time."), the tower (every loser the
+  same block) and the myth card (−3R means the stop moved or price gapped).
+- Jargon: R is defined on screen (glossary). No studio words. One soft spot noted: the hook shows "+5R" 8 s before R is
+  defined; kept, because the contrast is the hook and the definition follows at once.
+- First-time viewer restatement: "R is how much I'd lose if my stop hits; I should count every result in those units."
+**Clarity: PASS.**

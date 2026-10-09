@@ -60,7 +60,7 @@ Every entry lands as: videos in the GitHub Release `batch-<id>`, and copy in `pu
 - Yahoo data is fine for education; consider a licensed data source if the channel is monetised.
 
 ## Status
-Studio built and Lore 001 produced (2026-10-06). Delivery mode: **actions** (see CLAUDE.md).
+Studio built (2026-10-06). Released: Lore 001 (The Pit), Lore 002 (Mostly Wrong, 2026-10-09). Delivery mode: **actions** (see CLAUDE.md).
 
 ### What was built
 | Part | Where | Notes |
@@ -103,7 +103,12 @@ gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # rend
 - Copy to paste: `publish/L0001/x.md`, `instagram.md`, `youtube.md`; thumbnail, cover and subtitles (`captions.srt`) in `publish/L0001/`.
 - Videos: GitHub Release [batch-2026-10-06-a](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-06-a) (MP4s, thumbnail, cover), created by the render workflow. Registry status: `released`.
 
+### Lore 002 · 35% winners can beat 60% winners (What If Lab)
+- Spec, simulation (`sims/win_rate_vs_payoff.py`, seed 7), song and QA log: `episodes/L0002/` (QA passed).
+- Copy to paste, thumbnail, cover and subtitles: `publish/L0002/`.
+- Videos: GitHub Release [batch-2026-10-09-a](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-09-a). Registry status: `released`.
+
 ### What you must do by hand
-1. **Upload Lore 001** from the Release and `publish/L0001/*.md`. Claude never posts.
+1. **Upload Lore 001 and Lore 002** from their Releases and `publish/<id>/*.md` (post 001 first: 002's description links back to it). Claude never posts.
 2. **Check the Remotion licence** (remotion.dev/license) before monetising or hiring: it is free for individuals and very small companies; larger teams need a company licence. That is a money decision for you.
 3. Nothing else needs credentials. Cloud sessions cannot create Releases themselves (HTTP 403 for this session type), which is why delivery runs through Actions with the workflow's own token.

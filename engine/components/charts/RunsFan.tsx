@@ -86,7 +86,7 @@ export const RunsFan: React.FC<RunsFanProps> = ({ runs, simKey = "runs", dur = 4
       {showMedian ? <path d={path(med)} fill="none" stroke={C.tape} strokeWidth={5 * u} strokeLinejoin="round" /> : null}
       </g>
       {p > 0.98 ? (
-        <g fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.1}>
+        <g fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.1} stroke={C.abyss} strokeWidth={8 * u} strokeLinejoin="round" style={{ paintOrder: "stroke" }}>
           {showMedian ? (
             <text x={w} y={Y(med[n - 1]) - 14 * u} fill={C.tape} textAnchor="end">
               {`MEDIAN ${fmtPct(med[n - 1] - 1, 0)}`}

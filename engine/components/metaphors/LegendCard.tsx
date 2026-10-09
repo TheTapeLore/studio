@@ -24,6 +24,8 @@ export interface LegendCardProps {
   /** Pixel width; default fits the stage. The card is 750×1050 (2.5×3.5 in at 300 dpi). */
   width?: number;
   back?: boolean;
+  /** Print file: square corners (the cutter rounds them), the card fills its box. */
+  print?: boolean;
 }
 
 const TW = 750, TH = 1050;
@@ -31,7 +33,7 @@ const TW = 750, TH = 1050;
 const typed = (s: string, p: number) => s.slice(0, Math.round(s.length * p));
 
 /** The collectible Legend Card, matching brand/assets/cards. Abstract emblem only (compliance rule 5). */
-export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-step", animate = true, width, back = false }) => {
+export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-step", animate = true, width, back = false, print = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { w, h } = useStage();
@@ -45,6 +47,7 @@ export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-
     ["Habit", legend.habit],
     ["Key read", legend.read],
   ];
+  const radius = print ? 0 : 34 * k;
   const frame0 = {
     position: "absolute" as const,
     left: (w - TW * k) / 2,
@@ -54,7 +57,7 @@ export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-
   };
   if (back) {
     return (
-      <div style={{ ...frame0, borderRadius: 34 * k, background: C.abyss, overflow: "hidden" }}>
+      <div style={{ ...frame0, borderRadius: radius, background: C.abyss, overflow: "hidden" }}>
         {Array.from({ length: 13 }).map((_, r) => (
           <div key={r} style={{ position: "absolute", left: 0, right: 0, top: (r * 86 + 40) * k, height: 2 * k, background: C.blueline, opacity: 0.5 }} />
         ))}
@@ -69,7 +72,7 @@ export const LegendCard: React.FC<LegendCardProps> = ({ legend, emblem = "pivot-
   }
   let fieldT = 1.5;
   return (
-    <div style={{ ...frame0, borderRadius: 34 * k, background: C.prussian, overflow: "hidden" }}>
+    <div style={{ ...frame0, borderRadius: radius, background: C.prussian, overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 22 * k, border: `${3 * k}px solid ${C.sodium}`, borderRadius: 22 * k }} />
       <div style={{ position: "absolute", left: 22 * k, top: 52 * k, width: (TW - 44) * k * at(0, 0.5), height: 46 * k, background: C.tape, overflow: "hidden" }}>
         <div style={{ position: "absolute", left: 28 * k, top: 0, height: 46 * k, display: "flex", alignItems: "center", fontFamily: FONT.mono, fontWeight: 600, fontSize: 15 * k, letterSpacing: TYPE.mono.tracking, color: C.prussian, whiteSpace: "pre" }}>

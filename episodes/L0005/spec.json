@@ -1,0 +1,184 @@
+{
+  "id": "L0005",
+  "lore_no": 5,
+  "slug": "the-seesaw",
+  "batch": "2026-10-09-b",
+  "pillar": "risk",
+  "cluster": "position-sizing",
+  "format": "anatomy",
+  "concept_key": "risk.position-sizing.seesaw",
+  "title": "The Seesaw: wider stop, smaller size",
+  "hook": "Always buy 100 shares? Nice round number.",
+  "takeaway": "Fix the risk first (say 1% of the account), then let the stop set the size: shares = risk ÷ stop distance, rounded down. A wider stop means fewer shares and the same dollars at risk. Buying the same share count every time lets your stop decide your risk instead.",
+  "question": null,
+  "emotion": "'oh no, that's me': the habit of a round share count, then relief as the beam levels",
+  "legends": [],
+  "duration_s": 46.6667,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "The Seesaw"
+  },
+  "new_angle": "Lore 003 defined 1R; this entry keeps 1R the same dollar amount when the stop moves, by changing the share count.",
+  "beats": [
+    {
+      "t": 0,
+      "dur": 9.3333,
+      "kind": "hook",
+      "component": "Seesaw",
+      "props": {
+        "mode": "shares",
+        "shares": 100,
+        "stopDistance": [
+          1,
+          2,
+          4
+        ],
+        "startAt": 0.9,
+        "hold": 3.5
+      },
+      "captions": [
+        "Always buy 100 shares? Nice round number.",
+        "Stop $4 away? Now $400 is on the line."
+      ]
+    },
+    {
+      "t": 9.3333,
+      "dur": 9.3333,
+      "kind": "build",
+      "component": "Seesaw",
+      "props": {
+        "mode": "risk",
+        "stopDistance": [
+          1,
+          2,
+          4
+        ],
+        "startAt": 2.8,
+        "hold": 3.0
+      },
+      "captions": [
+        "Flip it. Fix the risk first: $100.",
+        "Stop $2 away? 50 shares.",
+        "$4 away? 25 shares. Still $100."
+      ]
+    },
+    {
+      "t": 18.6667,
+      "dur": 7.4667,
+      "kind": "lesson",
+      "component": "RuleCard",
+      "props": {
+        "label": "The math",
+        "text": "Shares = [[risk]] ÷ stop distance.",
+        "sub": "$100 ÷ $4 = 25 shares. Round down."
+      },
+      "captions": [
+        "Risk divided by stop distance. That's the formula.",
+        "Round down. Always."
+      ]
+    },
+    {
+      "t": 26.1333,
+      "dur": 7.4667,
+      "kind": "misconception",
+      "component": "MythCard",
+      "props": {
+        "myth": "A wide stop means big risk.",
+        "fact": "Size down and it's the same [[$100]].",
+        "factAt": 3.7333
+      },
+      "captions": [
+        "Full size on a wide stop? That's the scary one.",
+        "Size down and it's still $100."
+      ]
+    },
+    {
+      "t": 33.6,
+      "dur": 7.4667,
+      "kind": "rule",
+      "component": "RuleCard",
+      "props": {
+        "text": "Pick the [[risk]]. The stop picks the size.",
+        "sub": "Same $100, wherever the stop goes."
+      },
+      "captions": [
+        "Pick the risk. Let the stop pick the size.",
+        "Your 100-share habit can retire."
+      ]
+    },
+    {
+      "t": 41.0667,
+      "dur": 5.6,
+      "kind": "end"
+    }
+  ],
+  "data": null,
+  "simulation": null,
+  "sources": [
+    {
+      "title": "TradeZella: Position size calculator",
+      "url": "https://www.tradezella.com/tools/position-size-calculator",
+      "used_for": "position size = (account × risk %) ÷ (entry − stop); e.g. $250 ÷ $5 = 50 shares"
+    },
+    {
+      "title": "5paisa: Position sizing explained",
+      "url": "https://www.5paisa.com/stock-market-guide/online-trading/position-sizing",
+      "used_for": "a wider stop means fewer shares for the same dollar risk; round down to whole shares"
+    },
+    {
+      "title": "LuxAlgo Library: R-multiple framework",
+      "url": "https://www.luxalgo.com/library/concept/r-multiple-framework/",
+      "used_for": "1R = entry-to-stop distance × position size, the link to Lore 003"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0003"
+    ],
+    "next": [
+      "L0006"
+    ]
+  },
+  "next": {
+    "lore_no": 6,
+    "title": "Risk 0.5% vs 2% per trade: 1,000 runs"
+  },
+  "thumb": {
+    "lines": [
+      "Wider stop?",
+      "Smaller",
+      "size."
+    ],
+    "component": "Seesaw",
+    "props": {
+      "mode": "risk",
+      "stopDistance": [
+        1,
+        4
+      ],
+      "startAt": 0.2,
+      "hold": 1
+    }
+  },
+  "cover": {
+    "lines": [
+      "Wider stop?",
+      "Smaller",
+      "size."
+    ],
+    "component": "Seesaw",
+    "props": {
+      "mode": "risk",
+      "stopDistance": [
+        1,
+        4
+      ],
+      "startAt": 0.2,
+      "hold": 1
+    }
+  },
+  "status": "planned"
+}

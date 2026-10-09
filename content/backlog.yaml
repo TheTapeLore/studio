@@ -37,7 +37,7 @@ items:
   priority: quick_win
   search_terms:
   - r multiple trading
-  status: open
+  status: "taken: L0003"
 - id: B004
   season: 1
   order: 4
@@ -49,7 +49,7 @@ items:
   priority: quick_win
   search_terms:
   - jesse livermore
-  status: open
+  status: "taken: L0004"
 - id: B005
   season: 1
   order: 5
@@ -61,7 +61,7 @@ items:
   priority: quick_win
   search_terms:
   - position sizing formula
-  status: open
+  status: "taken: L0005"
 - id: B006
   season: 1
   order: 6

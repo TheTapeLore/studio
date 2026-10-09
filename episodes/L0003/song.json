@@ -1,0 +1,351 @@
+{
+ "mode": "dorian",
+ "key": 10,
+ "progression": [
+  0,
+  2,
+  3,
+  6
+ ],
+ "bpm": 120.0,
+ "groove": "four-ghost",
+ "lead": "supersaw",
+ "bass": "rolling",
+ "arp": "up",
+ "swing": 0.031,
+ "form": [
+  "A",
+  "A'",
+  "B",
+  "A''"
+ ],
+ "chorus_at": 4,
+ "melody": [
+  {
+   "bar": 0,
+   "step": 3,
+   "len": 3,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 6,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 8,
+   "len": 3,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 11,
+   "len": 3,
+   "semis": -2,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 14,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 0,
+   "len": 3,
+   "semis": 7,
+   "breakout": true
+  },
+  {
+   "bar": 1,
+   "step": 3,
+   "len": 3,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 6,
+   "len": 2,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 8,
+   "len": 8,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 3,
+   "len": 3,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 6,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 8,
+   "len": 3,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 11,
+   "len": 3,
+   "semis": -2,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 14,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 0,
+   "len": 3,
+   "semis": 10,
+   "breakout": true
+  },
+  {
+   "bar": 3,
+   "step": 3,
+   "len": 3,
+   "semis": 9,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 6,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 8,
+   "len": 8,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 0,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 2,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 4,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 10,
+   "len": 2,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 12,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 0,
+   "len": 3,
+   "semis": 15,
+   "breakout": true
+  },
+  {
+   "bar": 5,
+   "step": 3,
+   "len": 3,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 6,
+   "len": 2,
+   "semis": 9,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 8,
+   "len": 8,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 3,
+   "len": 3,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 6,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 8,
+   "len": 3,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 11,
+   "len": 3,
+   "semis": -2,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 14,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 0,
+   "len": 3,
+   "semis": 10,
+   "breakout": true
+  },
+  {
+   "bar": 7,
+   "step": 3,
+   "len": 3,
+   "semis": 9,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 6,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 8,
+   "len": 8,
+   "semis": 14,
+   "breakout": false
+  }
+ ],
+ "material": {
+  "motif_cell": [
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    8,
+    3
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    14,
+    2
+   ]
+  ],
+  "close_cell": [
+   [
+    0,
+    3
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    8,
+    8
+   ]
+  ],
+  "b_cell": [
+   [
+    0,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    4
+   ]
+  ],
+  "contour": "turn",
+  "b_contour": "pedal"
+ },
+ "hook_quality": 1.568,
+ "max_similarity": 0.43,
+ "id": "L0003",
+ "pillar": "risk",
+ "genre": "melodic house",
+ "key_name": "Bb dorian",
+ "designed_by": "scripts/sound/song.py",
+ "frozen": true
+}

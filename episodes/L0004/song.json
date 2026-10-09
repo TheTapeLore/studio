@@ -1,0 +1,330 @@
+{
+ "mode": "minor",
+ "key": 11,
+ "progression": [
+  3,
+  0,
+  6,
+  5
+ ],
+ "bpm": 90.0,
+ "groove": "hiphop-lazy",
+ "lead": "glide",
+ "bass": "sub",
+ "arp": "none",
+ "swing": 0.088,
+ "form": [
+  "A",
+  "A'",
+  "B",
+  "A''"
+ ],
+ "chorus_at": 4,
+ "melody": [
+  {
+   "bar": 0,
+   "step": 2,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 4,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 6,
+   "len": 4,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 10,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 12,
+   "len": 4,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 0,
+   "len": 3,
+   "semis": 12,
+   "breakout": true
+  },
+  {
+   "bar": 1,
+   "step": 3,
+   "len": 3,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 6,
+   "len": 10,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 2,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 4,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 6,
+   "len": 4,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 10,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 12,
+   "len": 4,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 0,
+   "len": 3,
+   "semis": 12,
+   "breakout": true
+  },
+  {
+   "bar": 3,
+   "step": 3,
+   "len": 3,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 6,
+   "len": 10,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 0,
+   "len": 3,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 3,
+   "len": 3,
+   "semis": 14,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 6,
+   "len": 4,
+   "semis": 14,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 10,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 12,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 14,
+   "len": 2,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 0,
+   "len": 3,
+   "semis": 19,
+   "breakout": true
+  },
+  {
+   "bar": 5,
+   "step": 3,
+   "len": 3,
+   "semis": 15,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 6,
+   "len": 10,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 2,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 4,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 6,
+   "len": 4,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 10,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 12,
+   "len": 4,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 0,
+   "len": 3,
+   "semis": 12,
+   "breakout": true
+  },
+  {
+   "bar": 7,
+   "step": 3,
+   "len": 3,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 6,
+   "len": 10,
+   "semis": 12,
+   "breakout": false
+  }
+ ],
+ "material": {
+  "motif_cell": [
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    4
+   ]
+  ],
+  "close_cell": [
+   [
+    0,
+    3
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    10
+   ]
+  ],
+  "b_cell": [
+   [
+    0,
+    3
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    2
+   ],
+   [
+    14,
+    2
+   ]
+  ],
+  "contour": "fall-rise",
+  "b_contour": "fall-rise (inverted)"
+ },
+ "hook_quality": 1.58,
+ "max_similarity": 0.339,
+ "id": "L0004",
+ "pillar": "legends",
+ "genre": "boom bap",
+ "key_name": "B minor",
+ "designed_by": "scripts/sound/song.py",
+ "frozen": true
+}

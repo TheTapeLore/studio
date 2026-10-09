@@ -8,6 +8,7 @@ import { Gallery, galleryFrames } from "./gallery/Gallery";
 import { SongSampler, samplerFrames } from "./gallery/SongSampler";
 import { GALLERY } from "./gallery/entries";
 import { Cover, FORMAT_COMPONENTS, Thumbnail } from "./formats";
+import { CardFace, CarouselSlide, slidesOf } from "./formats/CardStills";
 import { SAMPLES } from "./samples";
 import { Lockup, Paper, TapeStrip } from "./components/brand";
 import { Sfx } from "./components/layout/Sfx";
@@ -44,6 +45,17 @@ const episodeComps = (ep: Episode, idPrefix: string) => {
       ))}
       <Still id={`${idPrefix}-thumb`} component={Thumbnail} defaultProps={{ episode: ep }} width={1280} height={720} />
       <Still id={`${idPrefix}-cover`} component={Cover} defaultProps={{ episode: ep }} width={1080} height={1920} />
+      {(ep.spec as { card?: unknown }).card ? (
+        <>
+          <Still id={`${idPrefix}-card-front`} component={CardFace} defaultProps={{ episode: ep }} width={750} height={1050} />
+          <Still id={`${idPrefix}-card-back`} component={CardFace} defaultProps={{ episode: ep, back: true }} width={750} height={1050} />
+          <Still id={`${idPrefix}-print-front`} component={CardFace} defaultProps={{ episode: ep, print: true }} width={825} height={1125} />
+          <Still id={`${idPrefix}-print-back`} component={CardFace} defaultProps={{ episode: ep, back: true, print: true }} width={825} height={1125} />
+        </>
+      ) : null}
+      {slidesOf(ep).map((_, i) => (
+        <Still key={`s${i}`} id={`${idPrefix}-slide-${i + 1}`} component={CarouselSlide} defaultProps={{ episode: ep, index: i }} width={1080} height={1350} />
+      ))}
     </>
   );
 };

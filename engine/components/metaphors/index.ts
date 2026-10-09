@@ -1,6 +1,8 @@
 export { ThePit } from "./ThePit";
 export { PitCurve } from "./PitCurve";
 export { RTower } from "./RTower";
+export { RCompare } from "./RCompare";
+export { RRuler } from "./RRuler";
 export { Duel } from "./Duel";
 export { Seesaw } from "./Seesaw";
 export { MarketWeather } from "./MarketWeather";
@@ -14,4 +16,5 @@ export { PayoffDiagram } from "./PayoffDiagram";
 export { InnerChart } from "./InnerChart";
 export { CouncilArc } from "./CouncilArc";
 export { LegendCard } from "./LegendCard";
+export { PivotStep } from "./PivotStep";
 export { Emblem, EMBLEMS } from "./emblems";

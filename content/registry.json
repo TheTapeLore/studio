@@ -99,10 +99,11 @@
           "L0004"
         ]
       },
-      "status": "qa_passed",
+      "status": "released",
       "batch": "2026-10-09-b",
       "created": "2026-10-09",
-      "updated": "2026-10-09"
+      "updated": "2026-10-09",
+      "release": "batch-2026-10-09-b"
     },
     {
       "id": "L0004",
@@ -127,10 +128,11 @@
           "L0005"
         ]
       },
-      "status": "qa_passed",
+      "status": "released",
       "batch": "2026-10-09-b",
       "created": "2026-10-09",
-      "updated": "2026-10-09"
+      "updated": "2026-10-09",
+      "release": "batch-2026-10-09-b"
     },
     {
       "id": "L0005",
@@ -155,10 +157,11 @@
           "L0006"
         ]
       },
-      "status": "qa_passed",
+      "status": "released",
       "batch": "2026-10-09-b",
       "created": "2026-10-09",
-      "updated": "2026-10-09"
+      "updated": "2026-10-09",
+      "release": "batch-2026-10-09-b"
     }
   ]
 }

@@ -1,0 +1,263 @@
+{
+  "id": "L0009",
+  "lore_no": 9,
+  "slug": "averaging-down",
+  "batch": "2026-10-10-a",
+  "pillar": "risk",
+  "cluster": "failure-files",
+  "format": "failure",
+  "concept_key": "risk.failure.averaging-down",
+  "title": "Failure File: averaging down a loser",
+  "hook": "Down 28% from its high. Bargain, right?",
+  "takeaway": "Averaging down means buying more as a stock falls. In Cisco's 2000-2002 fall, a buyer adding $10,000 after every further 20% drop had $50,000 in by March 2001, worth about $17,500 at the 2002 low. Each buy went into a trade already losing. One buy with a stop 8% below it would have cost about $800. Never add to a loser.",
+  "learn": [
+    "Averaging down means buying more of a stock as it falls.",
+    "In Cisco's 2000 to 2002 fall, five $10,000 buys turned $50,000 into about $17,500 at the low.",
+    "Every new buy went into a trade that was already losing, so one bad trade became five times bigger.",
+    "One buy with a stop 8% below it would have cost about $800: never add to a loser."
+  ],
+  "glossary": {
+    "averaging down": "buying more as it falls"
+  },
+  "question": null,
+  "emotion": "\"oh no, that's me\": the slow sink of a 'bargain' that keeps getting cheaper",
+  "legends": [
+    "Jesse Livermore",
+    "William O'Neil"
+  ],
+  "duration_s": 58.0,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "Averaging down"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 8.0,
+      "kind": "looks_perfect",
+      "component": "AverageDown",
+      "props": {
+        "firstPct": 0.25,
+        "stepPct": 0.2,
+        "maxBuys": 5,
+        "amount": 10000,
+        "reveal": {
+          "from": "1999-06-01",
+          "to": "2000-04-14",
+          "at": 0.2,
+          "dur": 2.6
+        },
+        "showAvg": false
+      },
+      "captions": [
+        "Down 28% from its high. Bargain, right?",
+        "Weeks earlier it was the world's most valuable company."
+      ]
+    },
+    {
+      "t": 8.0,
+      "dur": 8.0,
+      "kind": "build",
+      "component": "AverageDown",
+      "transition": "cut",
+      "props": {
+        "firstPct": 0.25,
+        "stepPct": 0.2,
+        "maxBuys": 5,
+        "amount": 10000,
+        "reveal": {
+          "from": "2000-04-14",
+          "to": "2001-03-30",
+          "at": 0.2,
+          "dur": 5.5
+        }
+      },
+      "captions": [
+        "Every 20% lower, our buyer added another $10,000.",
+        "Five buys. $50,000 in by March 2001."
+      ]
+    },
+    {
+      "t": 16.0,
+      "dur": 8.0,
+      "kind": "breaks",
+      "component": "AverageDown",
+      "transition": "cut",
+      "props": {
+        "firstPct": 0.25,
+        "stepPct": 0.2,
+        "maxBuys": 5,
+        "amount": 10000,
+        "reveal": {
+          "from": "2001-03-30",
+          "to": "2002-10-04",
+          "at": 0.2,
+          "dur": 3.4
+        }
+      },
+      "captions": [
+        "By October 2002 it was down 88% from the top.",
+        "The $50,000 was worth about $17,500."
+      ]
+    },
+    {
+      "t": 24.0,
+      "dur": 10.0,
+      "kind": "tells",
+      "component": "AverageDown",
+      "transition": "cut",
+      "props": {
+        "firstPct": 0.25,
+        "stepPct": 0.2,
+        "maxBuys": 5,
+        "amount": 10000,
+        "reveal": {
+          "from": "2002-10-04",
+          "to": "2002-10-04",
+          "at": 0,
+          "dur": 0.1
+        },
+        "tellsAt": 0.3
+      },
+      "captions": [
+        "The clues were there. Every bounce topped out lower.",
+        "And every new buy went into a trade already losing."
+      ]
+    },
+    {
+      "t": 34.0,
+      "dur": 8.0,
+      "kind": "misconception",
+      "component": "MythCard",
+      "props": {
+        "myth": "Averaging down lowers my cost.",
+        "fact": "It lowers your average price. It [[raises]] what you can lose.",
+        "factAt": 4.0
+      },
+      "captions": [
+        "Buying more as it falls is called averaging down.",
+        "It lowers your average price. And grows the bet."
+      ]
+    },
+    {
+      "t": 42.0,
+      "dur": 10.0,
+      "kind": "the_rule",
+      "component": "AverageDown",
+      "props": {
+        "firstPct": 0.25,
+        "stepPct": 0.2,
+        "maxBuys": 5,
+        "amount": 10000,
+        "reveal": {
+          "from": "2002-10-04",
+          "to": "2002-10-04",
+          "at": 0,
+          "dur": 0.1
+        },
+        "showReadout": false,
+        "showAvg": false,
+        "stopAt": 0.4
+      },
+      "captions": [
+        "One buy and a stop 8% below it? Out for $800.",
+        "Never add to a loser. Livermore and O'Neil agree."
+      ]
+    },
+    {
+      "t": 52.0,
+      "dur": 6.0,
+      "kind": "end"
+    }
+  ],
+  "data": {
+    "symbol": "CSCO",
+    "start": "1999-06-01",
+    "end": "2003-06-30",
+    "interval": "1wk",
+    "source": "yfinance"
+  },
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Yahoo Finance: Cisco Systems (CSCO) price history, via yfinance (split- and dividend-adjusted)",
+      "url": "https://finance.yahoo.com/quote/CSCO/history/",
+      "used_for": "weekly closes 1999-06 to 2003-06; high in the week of 2000-03-24; buys computed by the rule (first at −28% on 2000-04-14, then 2000-12-22, 2001-02-09, 2001-03-02, 2001-03-30); low week 2002-10-04 (−88%); value of the five buys at the low $17,542; an 8% stop under the first buy hit on the week of 2000-10-27 (about −$800, assuming a fill at the stop)"
+    },
+    {
+      "title": "Wikipedia: Cisco",
+      "url": "https://en.wikipedia.org/wiki/Cisco",
+      "used_for": "in late March 2000 Cisco became the most valuable company in the world, over $500 billion; it lost about 80% of its value by 2002"
+    },
+    {
+      "title": "Jesse L. Livermore, How to Trade in Stocks (1940), ch. II (first-edition record: Bauman Rare Books)",
+      "url": "https://www.baumanrarebooks.com/rare-books/livermore-jesse-l/how-to-trade-in-stocks/104516.aspx",
+      "used_for": "never average losses; no second trade if the first shows a loss"
+    },
+    {
+      "title": "Wikipedia: CAN SLIM (William O'Neil)",
+      "url": "https://en.wikipedia.org/wiki/CAN_SLIM",
+      "used_for": "cut all losses at no more than 7% or 8% below the buy point, with no exceptions"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0001",
+      "L0004"
+    ],
+    "next": [
+      "L0010"
+    ]
+  },
+  "next": {
+    "lore_no": 10,
+    "title": "Legend 02: William O'Neil"
+  },
+  "thumb": {
+    "lines": [
+      "It got",
+      "cheaper.",
+      "[[So did you.]]"
+    ],
+    "component": "AverageDown",
+    "props": {
+      "firstPct": 0.25,
+      "stepPct": 0.2,
+      "maxBuys": 5,
+      "amount": 10000,
+      "reveal": {
+        "from": "2002-10-04",
+        "to": "2002-10-04",
+        "at": 0,
+        "dur": 0.1
+      },
+      "title": "CISCO · 2000–2002"
+    }
+  },
+  "cover": {
+    "lines": [
+      "It got",
+      "cheaper.",
+      "[[So did you.]]"
+    ],
+    "sub": "Averaging down, on a real chart.",
+    "component": "AverageDown",
+    "props": {
+      "firstPct": 0.25,
+      "stepPct": 0.2,
+      "maxBuys": 5,
+      "amount": 10000,
+      "reveal": {
+        "from": "2002-10-04",
+        "to": "2002-10-04",
+        "at": 0,
+        "dur": 0.1
+      },
+      "title": "CISCO · 2000–2002"
+    }
+  },
+  "status": "scripted"
+}

@@ -1,0 +1,151 @@
+{
+  "id": "L0008",
+  "lore_no": 8,
+  "slug": "expectancy",
+  "batch": "2026-10-10-a",
+  "pillar": "risk",
+  "cluster": "expectancy",
+  "format": "lexicon",
+  "concept_key": "risk.lexicon.expectancy",
+  "title": "Expectancy in 15 seconds",
+  "hook": "Got an edge? One number answers that.",
+  "takeaway": "Expectancy is what you make or lose per trade, on average. In R: add up every result and divide by the number of trades. Above zero, you have an edge; below zero, you don't.",
+  "learn": [
+    "Expectancy is what you make or lose per trade, on average.",
+    "To get it in R, add up every trade's result and divide by the number of trades: +3.5R over 20 trades is +0.18R.",
+    "Above zero means you have an edge; below zero means you don't."
+  ],
+  "glossary": {
+    "expectancy": "what you make or lose per trade, on average",
+    "R": "what you lose if the stop hits"
+  },
+  "question": null,
+  "emotion": "the click of one number summing up a whole trading record",
+  "legends": [],
+  "duration_s": 18.6667,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "Expectancy"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 3.7333,
+      "kind": "term",
+      "component": "TermCard",
+      "props": {
+        "term": "Expectancy",
+        "kind": "noun"
+      },
+      "captions": [
+        "Got an edge? One number answers that."
+      ]
+    },
+    {
+      "t": 3.7333,
+      "dur": 5.6,
+      "kind": "picture",
+      "component": "RTower",
+      "props": {
+        "startAt": 0.2,
+        "step": 0.18,
+        "label": "20 SIMULATED TRADES · 1R = WHAT YOU LOSE IF THE STOP HITS"
+      },
+      "captions": [
+        "20 trades, +3.5R in total. That's +0.18R per trade."
+      ]
+    },
+    {
+      "t": 9.3333,
+      "dur": 3.7333,
+      "kind": "definition",
+      "component": "TermCard",
+      "props": {
+        "term": "Expectancy",
+        "kind": "noun",
+        "definition": "What you make or lose **per trade**, on average.",
+        "defAt": 0.1
+      },
+      "captions": [
+        "Above zero: an edge. Below zero: none."
+      ]
+    },
+    {
+      "t": 13.0667,
+      "dur": 5.6,
+      "kind": "end"
+    }
+  ],
+  "new_angle": "Lore 002 computed the average result per trade in dollars without naming it; this names it (expectancy) and measures it in R (Lore 003), as a 15-second reference.",
+  "data": null,
+  "simulation": {
+    "script": "sims/r_multiples.py",
+    "seed": 3,
+    "params": {
+      "trades": 20,
+      "win_rate": 0.4
+    }
+  },
+  "sources": [
+    {
+      "title": "LuxAlgo Library: R-multiple framework",
+      "url": "https://www.luxalgo.com/library/concept/r-multiple-framework/",
+      "used_for": "expectancy = the mean R per trade; equivalently win rate × average win in R − loss rate × average loss in R"
+    },
+    {
+      "title": "TradeZella: Expectancy in trading",
+      "url": "https://www.tradezella.com/blog/blog-trading-expectancy",
+      "used_for": "expectancy = win rate × average win − loss rate × average loss; positive means an edge"
+    },
+    {
+      "title": "sims/r_multiples.py (The Tape Lore, seed 3)",
+      "url": "https://github.com/TheTapeLore/studio/blob/main/sims/r_multiples.py",
+      "used_for": "the same 20 simulated trades as Lore 003: +3.5R total, +0.175R per trade (shown as +0.18R)"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0002",
+      "L0003"
+    ],
+    "next": [
+      "L0009"
+    ]
+  },
+  "next": {
+    "lore_no": 9,
+    "title": "Failure File: averaging down a loser"
+  },
+  "thumb": {
+    "lines": [
+      "Expectancy",
+      "in 15",
+      "seconds"
+    ],
+    "component": "TermCard",
+    "props": {
+      "term": "+0.18R",
+      "kind": "per trade",
+      "definition": "What you make or lose **per trade**, on average.",
+      "defAt": 0
+    }
+  },
+  "cover": {
+    "lines": [
+      "Expectancy",
+      "in 15",
+      "seconds"
+    ],
+    "component": "TermCard",
+    "props": {
+      "term": "+0.18R",
+      "kind": "per trade",
+      "definition": "What you make or lose **per trade**, on average.",
+      "defAt": 0
+    }
+  },
+  "status": "scripted"
+}

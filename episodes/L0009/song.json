@@ -1,0 +1,320 @@
+{
+ "mode": "dorian",
+ "key": 0,
+ "progression": [
+  0,
+  2,
+  3,
+  6
+ ],
+ "bpm": 120.0,
+ "groove": "four",
+ "lead": "bell",
+ "bass": "syncopated",
+ "arp": "up",
+ "swing": 0.0,
+ "form": [
+  "A",
+  "A'",
+  "B",
+  "A''"
+ ],
+ "chorus_at": 4,
+ "melody": [
+  {
+   "bar": 0,
+   "step": 2,
+   "len": 2,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 4,
+   "len": 2,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 6,
+   "len": 4,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 10,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 12,
+   "len": 4,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 0,
+   "len": 6,
+   "semis": 7,
+   "breakout": true
+  },
+  {
+   "bar": 1,
+   "step": 6,
+   "len": 4,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 10,
+   "len": 6,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 2,
+   "len": 2,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 4,
+   "len": 2,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 6,
+   "len": 4,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 10,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 12,
+   "len": 4,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 0,
+   "len": 6,
+   "semis": 5,
+   "breakout": true
+  },
+  {
+   "bar": 3,
+   "step": 6,
+   "len": 4,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 10,
+   "len": 6,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 0,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 2,
+   "len": 2,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 4,
+   "len": 4,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 10,
+   "len": 2,
+   "semis": 9,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 12,
+   "len": 4,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 0,
+   "len": 6,
+   "semis": 15,
+   "breakout": true
+  },
+  {
+   "bar": 5,
+   "step": 6,
+   "len": 4,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 10,
+   "len": 6,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 2,
+   "len": 2,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 4,
+   "len": 2,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 6,
+   "len": 4,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 10,
+   "len": 2,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 12,
+   "len": 4,
+   "semis": 0,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 0,
+   "len": 6,
+   "semis": 5,
+   "breakout": true
+  },
+  {
+   "bar": 7,
+   "step": 6,
+   "len": 4,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 10,
+   "len": 6,
+   "semis": 2,
+   "breakout": false
+  }
+ ],
+ "material": {
+  "motif_cell": [
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    4
+   ]
+  ],
+  "close_cell": [
+   [
+    0,
+    6
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    6
+   ]
+  ],
+  "b_cell": [
+   [
+    0,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    4
+   ]
+  ],
+  "contour": "call",
+  "b_contour": "hop"
+ },
+ "hook_quality": 1.5,
+ "max_similarity": 0.471,
+ "id": "L0009",
+ "pillar": "risk",
+ "genre": "melodic house",
+ "key_name": "C dorian",
+ "designed_by": "scripts/sound/song.py",
+ "frozen": true,
+ "redesigns": 2
+}

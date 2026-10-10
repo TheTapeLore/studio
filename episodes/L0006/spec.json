@@ -1,0 +1,249 @@
+{
+  "id": "L0006",
+  "lore_no": 6,
+  "slug": "same-edge-two-sizes",
+  "batch": "2026-10-10-a",
+  "pillar": "risk",
+  "cluster": "position-sizing",
+  "format": "whatif",
+  "concept_key": "risk.sizing.risk-per-trade-drawdown",
+  "title": "Risk 0.5% vs 2% per trade: 1,000 runs",
+  "hook": "Same 200 trades. Worst drop: −6% or −23%.",
+  "takeaway": "With the same trades, risking 2% of the account per trade instead of 0.5% grew faster but made the typical worst drop about four times deeper (−23% vs −6%), because losing streaks hit everyone. Choose the size whose worst drop you could sit through.",
+  "learn": [
+    "Risk per trade is how much of your account you lose when a stop hits.",
+    "With the same trades, risking 2% instead of 0.5% made the typical worst drop about four times deeper: −23% vs −6%.",
+    "Losing streaks happen to everyone: the typical run had 9 losses in a row, which costs about 17% at 2% a trade.",
+    "Pick a risk per trade whose worst drop you could sit through, before the streak arrives."
+  ],
+  "glossary": {
+    "R": "a loss costs 1R"
+  },
+  "question": "Same edge: what changes if you risk 2% instead of 0.5%?",
+  "emotion": "the stomach drop of a −23% hole you didn't see coming, then the calm of choosing your size on purpose",
+  "legends": [],
+  "duration_s": 74.6667,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "Same edge"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 8.5333,
+      "kind": "hook",
+      "component": "TwinPaths",
+      "props": {
+        "startAt": 0.2,
+        "dur": 5.2,
+        "ddAt": 5.6
+      },
+      "captions": [
+        "Same 200 trades. Worst drop: −6% or −23%.",
+        "The only difference: how much each trade risked."
+      ]
+    },
+    {
+      "t": 8.5333,
+      "dur": 8.5333,
+      "kind": "assumptions",
+      "component": "AssumptionsPanel",
+      "props": {
+        "title": "Assumptions · simulated",
+        "items": [
+          "Simulated: 1,000 runs of 200 trades, seed 7",
+          "40% winners. A win pays 2R, a loss costs 1R",
+          "Risk 0.5% or 2% of the account per trade",
+          "Same coin flips for both sizes",
+          "No costs, slippage or gaps"
+        ]
+      },
+      "captions": [
+        "We simulated 1,000 traders. Same edge, two sizes.",
+        "Risk per trade means what you lose when a stop hits."
+      ]
+    },
+    {
+      "t": 17.0667,
+      "dur": 8.5333,
+      "kind": "runs",
+      "component": "TwinPaths",
+      "transition": "cut",
+      "props": {
+        "startAt": -10,
+        "dur": 0.1,
+        "ddAt": -1,
+        "finalAt": 0.3
+      },
+      "captions": [
+        "In this run, 2% grew more: +117% vs +23%.",
+        "It also fell almost four times deeper."
+      ]
+    },
+    {
+      "t": 25.6,
+      "dur": 8.5333,
+      "kind": "runs",
+      "component": "RunsFan",
+      "props": {
+        "simKey": "runs_0.5pct",
+        "label": "RISK 0.5% A TRADE · 1,000 RUNS · SIMULATED",
+        "yRange": [
+          0.55,
+          3.4
+        ],
+        "dur": 4.5
+      },
+      "captions": [
+        "All 1,000 runs at 0.5%. Typical worst drop: −6%.",
+        "The unluckiest 5% still only fell 11%."
+      ]
+    },
+    {
+      "t": 34.1333,
+      "dur": 8.5333,
+      "kind": "runs",
+      "component": "RunsFan",
+      "props": {
+        "simKey": "runs_2pct",
+        "label": "RISK 2% A TRADE · 1,000 RUNS · SIMULATED",
+        "yRange": [
+          0.55,
+          3.4
+        ],
+        "dur": 4.5
+      },
+      "captions": [
+        "At 2%, the typical worst drop was −23%.",
+        "Almost 1 in 5 runs fell over 30% at some point."
+      ]
+    },
+    {
+      "t": 42.6667,
+      "dur": 8.5333,
+      "kind": "distribution",
+      "component": "Distribution",
+      "props": {
+        "simKey": "maxdd_2pct",
+        "label": "RISK 2% A TRADE · DEEPEST DROP PER RUN",
+        "badSide": "low",
+        "bins": 24
+      },
+      "captions": [
+        "The cause? Losing streaks. Typical run: 9 losses in a row.",
+        "At 2% a trade, nine straight losses cost 17%."
+      ]
+    },
+    {
+      "t": 51.2,
+      "dur": 8.5333,
+      "kind": "lesson",
+      "component": "RuleCard",
+      "props": {
+        "label": "The trade-off",
+        "text": "Bigger size, bigger [[drops]].",
+        "sub": "Nine losses in a row: −4% at 0.5%, −17% at 2%."
+      },
+      "captions": [
+        "More risk can grow faster. It also digs deeper pits.",
+        "A −30% pit needs +43% to climb out."
+      ]
+    },
+    {
+      "t": 59.7333,
+      "dur": 8.5333,
+      "kind": "rule",
+      "component": "RuleCard",
+      "props": {
+        "text": "Size for the drop you can [[sit through]].",
+        "sub": "Pick it before the streak, not during it."
+      },
+      "captions": [
+        "You can't pick your losing streaks. You can pick your size.",
+        "Size for the drop you can sit through."
+      ]
+    },
+    {
+      "t": 68.2667,
+      "dur": 6.4,
+      "kind": "end"
+    }
+  ],
+  "new_angle": "Lore 005 kept the dollar risk fixed when the stop moves; this asks how big that fixed risk should be, and shows the cost in drawdowns.",
+  "data": null,
+  "simulation": {
+    "script": "sims/risk_per_trade.py",
+    "seed": 7,
+    "params": {
+      "runs": 1000,
+      "trades": 200,
+      "win_rate": 0.4,
+      "avg_win_r": 2.0,
+      "risk": [
+        0.005,
+        0.02
+      ]
+    }
+  },
+  "sources": [
+    {
+      "title": "sims/risk_per_trade.py (The Tape Lore, seed 7)",
+      "url": "https://github.com/TheTapeLore/studio/blob/main/sims/risk_per_trade.py",
+      "used_for": "every simulated number: medians and worst-5% of the deepest drop (−6.3%/−10.6% at 0.5%, −23.2%/−37.5% at 2%), 18.3% of 2% runs below −30%, median longest losing streak 9, the representative run (+23% vs +117%)"
+    },
+    {
+      "title": "Exceljet: Required recovery rate",
+      "url": "https://exceljet.net/formulas/required-recovery-rate",
+      "used_for": "a −30% loss needs +42.9% to recover (0.3 / 0.7)"
+    },
+    {
+      "title": "5paisa: Position sizing explained",
+      "url": "https://www.5paisa.com/stock-market-guide/online-trading/position-sizing",
+      "used_for": "risk per trade as a percent of the account; common range 0.5% to 2%"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0005",
+      "L0001"
+    ],
+    "next": [
+      "L0007"
+    ]
+  },
+  "next": {
+    "lore_no": 7,
+    "title": "The Council: where does your stop go?"
+  },
+  "thumb": {
+    "lines": [
+      "Same trades.",
+      "−6% or",
+      "[[−23%]]?"
+    ],
+    "component": "TwinPaths",
+    "props": {
+      "startAt": -10,
+      "dur": 0.1,
+      "ddAt": -1
+    }
+  },
+  "cover": {
+    "lines": [
+      "Same trades.",
+      "−6% or",
+      "[[−23%]]?"
+    ],
+    "sub": "The only difference: risk per trade.",
+    "component": "TwinPaths",
+    "props": {
+      "startAt": -10,
+      "dur": 0.1,
+      "ddAt": -1
+    }
+  },
+  "status": "scripted"
+}

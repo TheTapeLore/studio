@@ -14,6 +14,7 @@ Output (consumed by engine components RunsFan / Distribution):
   {"meta": {...}, "summary": {...}, "runs_<risk>": [[equity...] x 60 runs, downsampled to 50 points],
    "values": {"maxdd_<risk>": [...per run...], "final_<risk>": [...per run...]}}
 Analytic check printed with the summary: expectancy per trade in R = wr*avgWin - (1-wr)*1.
+Also: runs_<risk>_median / _tail5 (full-population paths for RunsFan labels) and the longest losing streak.
 """
 import argparse, json, os
 import numpy as np
@@ -46,16 +47,39 @@ def main():
     expectancy = a.win_rate * a.avg_win_r - (1 - a.win_rate)
     out["summary"]["expectancy_r"] = round(expectancy, 3)
     idx = np.linspace(0, a.trades, 50).round().astype(int)
+    eqs, dds = {}, {}
     for risk in a.risk:
         rng = np.random.default_rng(a.seed)  # same coin flips for every risk level: only the sizing differs
         eq, maxdd = simulate(rng, a.runs, a.trades, a.win_rate, a.avg_win_r, risk)
         k = f"{risk * 100:g}pct"
+        eqs[k], dds[k] = eq, maxdd
         out[f"runs_{k}"] = eq[:60, idx].round(4).tolist()
+        # median and worst-5% paths over ALL runs (RunsFan draws 60 runs but labels the full population)
+        out[f"runs_{k}_median"] = np.quantile(eq[:, idx], 0.5, axis=0).round(4).tolist()
+        out[f"runs_{k}_tail5"] = np.quantile(eq[:, idx], 0.05, axis=0).round(4).tolist()
         out["values"][f"maxdd_{k}"] = maxdd.round(4).tolist()
         out["values"][f"final_{k}"] = (eq[:, -1] - 1).round(4).tolist()
         out["summary"][k] = {"median_final": round(float(np.median(eq[:, -1]) - 1), 4),
                              "median_maxdd": round(float(np.median(maxdd)), 4),
-                             "worst5_maxdd": round(float(np.quantile(maxdd, 0.05)), 4)}
+                             "worst5_maxdd": round(float(np.quantile(maxdd, 0.05)), 4),
+                             "worst5_final": round(float(np.quantile(eq[:, -1], 0.05) - 1), 4),
+                             "share_dd_over_30": round(float((maxdd <= -0.30).mean()), 4),
+                             "share_up": round(float((eq[:, -1] > 1).mean()), 4)}
+    # one representative run drawn at every size (TwinPaths): the run whose max drawdown at the largest size is the
+    # median one, so the picture is typical, not cherry-picked
+    big = f"{max(a.risk) * 100:g}pct"
+    j = int(np.argmin(np.abs(dds[big] - np.median(dds[big]))))
+    out["twin"] = {"run": j, "paths": {k: eqs[k][j].round(4).tolist() for k in eqs},
+                   "maxdd": {k: round(float(dds[k][j]), 4) for k in eqs},
+                   "final": {k: round(float(eqs[k][j, -1] - 1), 4) for k in eqs}}
+    out["summary"]["twin"] = {"run": j, "maxdd": out["twin"]["maxdd"], "final": out["twin"]["final"]}
+    # the same coin flips for every risk level, so one streak count describes both
+    wins = np.random.default_rng(a.seed).random((a.runs, a.trades)) < a.win_rate
+    best = np.zeros(a.runs, dtype=int); cur = np.zeros(a.runs, dtype=int)
+    for j in range(a.trades):
+        cur = np.where(~wins[:, j], cur + 1, 0); best = np.maximum(best, cur)
+    out["summary"]["median_longest_losing_streak"] = int(np.median(best))
+    out["summary"]["worst5_longest_losing_streak"] = int(np.quantile(best, 0.95))
     print(json.dumps({"meta": out["meta"], "summary": out["summary"]}, indent=2))
     if a.out and not a.demo:
         os.makedirs(os.path.dirname(a.out), exist_ok=True)

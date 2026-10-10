@@ -26,19 +26,22 @@ export interface CouncilArcProps {
   showAll?: boolean;
   /** Seat ids that agree (lit Tape) vs split (Mist) for the agree/split beats. */
   group?: string[] | null;
+  /** Seconds at which each seat starts speaking (overrides `cycle`), so seats light with their captions. */
+  at?: number[] | null;
 }
 
 /**
  * Legends seated in an arc around one question. Seats are abstract emblem medallions (never likenesses);
  * the question sits at the centre on a Sodium diamond; the speaking seat lights up and its answer appears.
  */
-export const CouncilArc: React.FC<CouncilArcProps> = ({ question, seats, active = -1, cycle = null, showAll = false, group = null }) => {
+export const CouncilArc: React.FC<CouncilArcProps> = ({ question, seats, active = -1, cycle = null, showAll = false, group = null, at = null }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { u } = useLayout();
   const { w, h } = useStage();
   const t = frame / fps;
-  const act = cycle ? Math.min(seats.length - 1, Math.floor(t / cycle)) : active;
+  const act = at ? at.reduce((k, s0, i) => (t >= s0 ? i : k), -1) : cycle ? Math.min(seats.length - 1, Math.floor(t / cycle)) : active;
+  const actStart = at && act >= 0 ? at[act] : cycle ? act * cycle : 0;
   const n = seats.length;
   const R = Math.min(w * 0.42, h * 0.42);
   const cx = w / 2, cy = h * 0.52;
@@ -69,7 +72,7 @@ export const CouncilArc: React.FC<CouncilArcProps> = ({ question, seats, active 
         <div style={{ maxWidth: R * 1.5, textAlign: "center", fontFamily: FONT.display, fontWeight: 900, fontSize: SIZE.h2 * u * 0.82, lineHeight: 1, color: C.tape, opacity: qIn, textWrap: "balance" }}>{question}</div>
       </div>
       {!showAll && act >= 0 && seats[act]?.answer ? (
-        <div style={{ position: "absolute", left: w * 0.06, width: w * 0.88, top: answerTop, textAlign: "center", opacity: prog(frame, fps, cycle ? act * cycle + 0.15 : 0.15, 0.3) }}>
+        <div style={{ position: "absolute", left: w * 0.06, width: w * 0.88, top: answerTop, textAlign: "center", opacity: prog(frame, fps, actStart + 0.15, 0.3) }}>
           <div style={{ fontFamily: FONT.mono, fontSize: SIZE.tape * u, color: C.mist, letterSpacing: "0.14em", textTransform: "uppercase" }}>{seats[act].name} · paraphrased</div>
           <div style={{ marginTop: 14 * u, fontFamily: FONT.body, fontSize: SIZE.caption * u * 0.85, color: C.tape, lineHeight: 1.2, textWrap: "balance" }}>
             <RichText text={seats[act].answer!} />

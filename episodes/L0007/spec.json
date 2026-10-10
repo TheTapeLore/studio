@@ -1,0 +1,296 @@
+{
+  "id": "L0007",
+  "lore_no": 7,
+  "slug": "council-where-stop",
+  "batch": "2026-10-10-a",
+  "pillar": "legends",
+  "cluster": "council",
+  "format": "council",
+  "concept_key": "legends.council.where-stop",
+  "title": "The Council: where does your stop go?",
+  "hook": "Where does your stop go? Five legends, two camps.",
+  "takeaway": "Five legends answer where the stop goes. One camp uses a fixed percent below the buy (O'Neil: 7 to 8%); the other uses the chart (Darvas: just under the range the stock broke out of; Kovner: where the market shouldn't go if you're right, with smaller size). All agree: decide the exit before buying, keep losses small, and go when it hits.",
+  "learn": [
+    "A stop is the price where you sell to take a small loss.",
+    "One camp sets it a fixed percent below the buy (O'Neil: 7 to 8%); the other uses the chart (Darvas: just under the range the stock broke out of).",
+    "All five agree: decide the exit before you buy, keep each loss small, and go when it hits.",
+    "If the right stop is far away, buy fewer shares instead of moving it closer."
+  ],
+  "glossary": {},
+  "question": "Where does your stop go?",
+  "emotion": "the relief of seeing that the greats disagree on the method but agree on the discipline",
+  "legends": [
+    "Jesse Livermore",
+    "William O'Neil",
+    "Nicolas Darvas",
+    "Bruce Kovner",
+    "Ed Seykota"
+  ],
+  "duration_s": 69.6,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "The Council"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 9.6,
+      "kind": "question",
+      "component": "CouncilArc",
+      "props": {
+        "question": "Where does your stop go?",
+        "seats": [
+          {
+            "id": "livermore",
+            "name": "Livermore",
+            "emblem": "pivot-step",
+            "answer": "If it doesn't rise like it should after you buy, get out."
+          },
+          {
+            "id": "oneil",
+            "name": "O'Neil",
+            "emblem": "cup-handle",
+            "answer": "Sell any stock that falls 7 to 8% below what you paid. No exceptions."
+          },
+          {
+            "id": "darvas",
+            "name": "Darvas",
+            "emblem": "box",
+            "answer": "Just under the low of the price range it broke out of."
+          },
+          {
+            "id": "kovner",
+            "name": "Kovner",
+            "emblem": "shield",
+            "answer": "Where the market shouldn't go if you're right. Then trade smaller."
+          },
+          {
+            "id": "seykota",
+            "name": "Seykota",
+            "emblem": "trend",
+            "answer": "Cut losses. Cut losses. Cut losses."
+          }
+        ],
+        "active": -1
+      },
+      "captions": [
+        "Where does your stop go? Five legends, two camps.",
+        "Your stop: the price where you sell and take a small loss."
+      ]
+    },
+    {
+      "t": 9.6,
+      "dur": 24.0,
+      "kind": "seats",
+      "component": "CouncilArc",
+      "transition": "cut",
+      "props": {
+        "question": "Where does your stop go?",
+        "seats": [
+          {
+            "id": "livermore",
+            "name": "Livermore",
+            "emblem": "pivot-step",
+            "answer": "If it doesn't rise like it should after you buy, get out."
+          },
+          {
+            "id": "oneil",
+            "name": "O'Neil",
+            "emblem": "cup-handle",
+            "answer": "Sell any stock that falls 7 to 8% below what you paid. No exceptions."
+          },
+          {
+            "id": "darvas",
+            "name": "Darvas",
+            "emblem": "box",
+            "answer": "Just under the low of the price range it broke out of."
+          },
+          {
+            "id": "kovner",
+            "name": "Kovner",
+            "emblem": "shield",
+            "answer": "Where the market shouldn't go if you're right. Then trade smaller."
+          },
+          {
+            "id": "seykota",
+            "name": "Seykota",
+            "emblem": "trend",
+            "answer": "Cut losses. Cut losses. Cut losses."
+          }
+        ],
+        "at": [
+          0.1,
+          5.2662,
+          10.8902,
+          15.5986,
+          21.2226
+        ]
+      },
+      "captions": [
+        "Livermore watched how a stock acted after he bought.",
+        "O'Neil used a fixed line: a small loss, every time.",
+        "Darvas set his stop the moment he bought.",
+        "Kovner went wider, and bought less to pay for it.",
+        "Seykota kept it short."
+      ]
+    },
+    {
+      "t": 33.6,
+      "dur": 9.6,
+      "kind": "split",
+      "component": "StopMap",
+      "props": {
+        "stops": [
+          {
+            "kind": "pct",
+            "label": "7–8% BELOW YOUR BUY",
+            "who": "O'NEIL",
+            "at": 1.2,
+            "pct": 0.08
+          },
+          {
+            "kind": "chart",
+            "label": "UNDER THE RANGE LOW",
+            "who": "DARVAS · KOVNER",
+            "at": 4.0
+          }
+        ]
+      },
+      "captions": [
+        "Camp one: a fixed percent below your buy.",
+        "Camp two: just under the low of the range it broke out of."
+      ]
+    },
+    {
+      "t": 43.2,
+      "dur": 9.6,
+      "kind": "agree",
+      "component": "ListCard",
+      "props": {
+        "label": "Where all five agree",
+        "items": [
+          {
+            "text": "Decide the exit before you buy.",
+            "sub": "Darvas set it the moment he bought."
+          },
+          {
+            "text": "Keep each loss small.",
+            "sub": "Small losses leave room for the big winners."
+          },
+          {
+            "text": "When it hits, go. Don't argue with it.",
+            "sub": "Livermore: never argue with the tape."
+          }
+        ],
+        "at": [
+          0.3,
+          4.9,
+          6.4
+        ]
+      },
+      "captions": [
+        "Where they all agree: decide the exit before you buy.",
+        "Keep the loss small. And when it hits, go."
+      ]
+    },
+    {
+      "t": 52.8,
+      "dur": 9.6,
+      "kind": "choice",
+      "component": "RuleCard",
+      "props": {
+        "label": "Your move",
+        "text": "Put the stop where you're [[wrong]]. Then size it.",
+        "sub": "Stop far away? Buy fewer shares (Lore 005)."
+      },
+      "captions": [
+        "Pick the price that proves your idea wrong.",
+        "Too far away? Buy fewer shares, like in Lore 005."
+      ]
+    },
+    {
+      "t": 62.4,
+      "dur": 7.2,
+      "kind": "end"
+    }
+  ],
+  "data": null,
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Jesse L. Livermore, How to Trade in Stocks (1940), ch. V 'The Pivotal Point' (first-edition record: Bauman Rare Books)",
+      "url": "https://www.baumanrarebooks.com/rare-books/livermore-jesse-l/how-to-trade-in-stocks/104516.aspx",
+      "used_for": "Livermore, paraphrased: if a stock does not act right after crossing its pivotal point, that is a danger signal to heed"
+    },
+    {
+      "title": "Edwin Lefèvre, Reminiscences of a Stock Operator (1923), Project Gutenberg #60979",
+      "url": "https://www.gutenberg.org/ebooks/60979",
+      "used_for": "'never argue with the tape' (the narrator modelled on Livermore), paraphrased"
+    },
+    {
+      "title": "Wikipedia: CAN SLIM (William O'Neil, Investor's Business Daily)",
+      "url": "https://en.wikipedia.org/wiki/CAN_SLIM",
+      "used_for": "O'Neil: cut all losses at no more than 7% or 8% below the buy point, with no exceptions"
+    },
+    {
+      "title": "Wikipedia: Nicolas Darvas",
+      "url": "https://en.wikipedia.org/wiki/Nicolas_Darvas",
+      "used_for": "Darvas's box method: bought when price broke out of its box and set a stop-loss just under that price at the same time he bought"
+    },
+    {
+      "title": "Nasdaq: How Nicolas Darvas used box theory",
+      "url": "https://www.nasdaq.com/articles/how-nicolas-darvas-used-box-theory-to-20x-his-money",
+      "used_for": "cross-check: Darvas placed stop-loss orders just below the lower boundary of the box"
+    },
+    {
+      "title": "Jack D. Schwager, Market Wizards (1989), Bruce Kovner interview (reader highlights on Goodreads)",
+      "url": "https://www.goodreads.com/notes/18896302-market-wizards/60320854-p-s-suri/7e92eb3d-72c1-4216-ab92-7958ebc8831f",
+      "used_for": "Kovner, paraphrased: a stop placed where it is hard for the market to reach, with fewer contracts so the dollar risk stays the same"
+    },
+    {
+      "title": "Jack D. Schwager, Market Wizards (1989), Ed Seykota interview (as collected by TurtleTrader)",
+      "url": "https://www.turtletrader.com/?p=1161",
+      "used_for": "Seykota, paraphrased: the elements of good trading are cutting losses, cutting losses and cutting losses"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0005",
+      "L0004"
+    ],
+    "next": [
+      "L0008"
+    ]
+  },
+  "next": {
+    "lore_no": 8,
+    "title": "Expectancy in 15 seconds"
+  },
+  "thumb": {
+    "lines": [
+      "Where does",
+      "your stop",
+      "[[go]]?"
+    ],
+    "component": "StopMap",
+    "props": {
+      "note": ""
+    }
+  },
+  "cover": {
+    "lines": [
+      "Where does",
+      "your stop",
+      "[[go]]?"
+    ],
+    "sub": "Five legends. Two camps. One rule they share.",
+    "component": "StopMap",
+    "props": {
+      "note": ""
+    }
+  },
+  "status": "scripted"
+}

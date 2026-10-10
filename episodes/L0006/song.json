@@ -1,0 +1,376 @@
+{
+ "mode": "minor",
+ "key": 10,
+ "progression": [
+  0,
+  5,
+  2,
+  6
+ ],
+ "bpm": 112.5,
+ "groove": "four",
+ "lead": "square",
+ "bass": "sub",
+ "arp": "broken",
+ "swing": 0.0,
+ "form": [
+  "A",
+  "A'",
+  "B",
+  "A''"
+ ],
+ "chorus_at": 4,
+ "melody": [
+  {
+   "bar": 0,
+   "step": 0,
+   "len": 3,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 3,
+   "len": 3,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 6,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 10,
+   "len": 2,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 12,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 14,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 0,
+   "len": 3,
+   "semis": 12,
+   "breakout": true
+  },
+  {
+   "bar": 1,
+   "step": 3,
+   "len": 3,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 6,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 8,
+   "len": 8,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 0,
+   "len": 3,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 3,
+   "len": 3,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 6,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 10,
+   "len": 2,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 12,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 14,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 0,
+   "len": 3,
+   "semis": 14,
+   "breakout": true
+  },
+  {
+   "bar": 3,
+   "step": 3,
+   "len": 3,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 6,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 8,
+   "len": 8,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 0,
+   "len": 2,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 3,
+   "len": 3,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 6,
+   "len": 2,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 8,
+   "len": 2,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 11,
+   "len": 5,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 0,
+   "len": 3,
+   "semis": 15,
+   "breakout": true
+  },
+  {
+   "bar": 5,
+   "step": 3,
+   "len": 3,
+   "semis": 14,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 6,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 8,
+   "len": 8,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 0,
+   "len": 3,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 3,
+   "len": 3,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 6,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 10,
+   "len": 2,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 12,
+   "len": 2,
+   "semis": 8,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 14,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 0,
+   "len": 3,
+   "semis": 14,
+   "breakout": true
+  },
+  {
+   "bar": 7,
+   "step": 3,
+   "len": 3,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 6,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 8,
+   "len": 8,
+   "semis": 14,
+   "breakout": false
+  }
+ ],
+ "material": {
+  "motif_cell": [
+   [
+    0,
+    3
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    2
+   ],
+   [
+    14,
+    2
+   ]
+  ],
+  "close_cell": [
+   [
+    0,
+    3
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    8,
+    8
+   ]
+  ],
+  "b_cell": [
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    8,
+    2
+   ],
+   [
+    11,
+    5
+   ]
+  ],
+  "contour": "turn",
+  "b_contour": "turn (inverted)"
+ },
+ "hook_quality": 1.559,
+ "max_similarity": 0.48,
+ "id": "L0006",
+ "pillar": "risk",
+ "genre": "melodic house",
+ "key_name": "Bb minor",
+ "designed_by": "scripts/sound/song.py",
+ "frozen": true
+}

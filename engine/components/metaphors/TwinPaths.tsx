@@ -49,7 +49,7 @@ export const TwinPaths: React.FC<TwinPathsProps> = ({
   const lo = Math.min(...all, 1) * 0.97, hi = Math.max(...all) * 1.03;
   const fs = SIZE.tape * u;
   const pad = { l: 90 * u, r: 20 * u, t: 70 * u, b: 50 * u };
-  const plotTop = pad.t + 120 * u;
+  const plotTop = pad.t + 168 * u;
   const X = (i: number) => pad.l + ((w - pad.l - pad.r) * i) / (n - 1);
   const Y = (v: number) => plotTop + (h - plotTop - pad.b) * (1 - (v - lo) / (hi - lo));
   const p = clamp((frame / fps - startAt) / dur);
@@ -117,7 +117,7 @@ export const TwinPaths: React.FC<TwinPathsProps> = ({
       })}
       {/* legend: which line is which, its worst drop (Ember, once the markers land) and where it ended */}
       {lines.map((l, li) => {
-        const ly = pad.t + (34 + li * 58) * u;
+        const ly = pad.t + (34 + li * 86) * u;
         return (
           <g key={`g${li}`}>
             <line x1={pad.l + 10 * u} x2={pad.l + 46 * u} y1={ly - fs * 0.35} y2={ly - fs * 0.35} stroke={colors[li]} strokeWidth={widths[li]} />
@@ -128,7 +128,7 @@ export const TwinPaths: React.FC<TwinPathsProps> = ({
               {`${fmtPct(twin.maxdd[l.key], 0)} AT WORST`}
             </text>
             {fin > 0 ? (
-              <text x={w - pad.r} y={ly} fill={colors[li]} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end" opacity={fin}>
+              <text x={pad.l + 60 * u + fs * 14} y={ly + 30 * u} fill={colors[li]} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.95} opacity={fin}>
                 {`ENDED ${fmtPct(twin.final[l.key], 0)}`}
               </text>
             ) : null}

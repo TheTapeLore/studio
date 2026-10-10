@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:04,266
+Same 200 trades. Worst drop: −6% or −23%.
+
+2
+00:00:04,267 --> 00:00:08,532
+The only difference: how much each trade risked.
+
+3
+00:00:08,533 --> 00:00:12,256
+We simulated 1,000 traders. Same edge, two sizes.
+
+4
+00:00:12,257 --> 00:00:17,066
+Risk per trade means what you lose when a stop hits.
+
+5
+00:00:17,067 --> 00:00:21,747
+In this run, 2% grew more: +117% vs +23%.
+
+6
+00:00:21,748 --> 00:00:25,599
+It also fell almost four times deeper.
+
+7
+00:00:25,600 --> 00:00:30,280
+All 1,000 runs at 0.5%. Typical worst drop: −6%.
+
+8
+00:00:30,281 --> 00:00:34,132
+The unluckiest 5% still only fell 11%.
+
+9
+00:00:34,133 --> 00:00:37,856
+At 2%, the typical worst drop was −23%.
+
+10
+00:00:37,857 --> 00:00:42,666
+Almost 1 in 5 runs fell over 30% at some point.
+
+11
+00:00:42,667 --> 00:00:47,475
+Losing streaks: half the runs hit 9 losses in a row.
+
+12
+00:00:47,476 --> 00:00:51,199
+At 2% each, nine straight losses cost 17%.
+
+13
+00:00:51,200 --> 00:00:55,844
+More risk can grow faster. It also digs deeper pits.
+
+14
+00:00:55,845 --> 00:00:59,732
+A −30% pit needs +43% to climb out.
+
+15
+00:00:59,733 --> 00:01:04,542
+You can't pick your losing streaks. You can pick your size.
+
+16
+00:01:04,543 --> 00:01:08,266
+Size for the drop you can sit through.
+
+17
+00:01:10,600 --> 00:01:14,616
+Lore 006. Next: Lore 007, The Council: where does your stop go?

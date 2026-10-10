@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:03,732
+Got an edge? One number answers that.
+
+2
+00:00:03,733 --> 00:00:09,332
+20 trades, +3.5R in total. That's +0.18R per trade.
+
+3
+00:00:09,333 --> 00:00:13,066
+Above zero: an edge. Below zero: none.
+
+4
+00:00:15,133 --> 00:00:18,616
+Lore 008. Next: Lore 009, Failure File: averaging down a loser

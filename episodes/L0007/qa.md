@@ -38,3 +38,18 @@ Song: B dorian, 100 BPM boom bap (hiphop), glide lead; differs from the last 3 i
 - First-time viewer restatement: "Pick the price that proves you wrong before you buy, keep the loss small, and if
   it's far away, buy fewer shares."
 **Clarity: PASS.**
+
+## Pass 1 (full render 4x5 + 9x16)
+Frames every 2 s + every beat boundary viewed in both aspects.
+1. Truth: PASS. 2. Compliance: PASS (PARAPHRASED on the TapeStrip throughout). 3. Clarity: PASS. 4. Brand: PASS
+(one Sodium per frame: the question diamond, then the top of the range, then the rule word; logo + snap on the end
+card). 5. Craft: FAIL in 9x16 only: "TOP OF THE RANGE" touched the buy dot on the narrow stage. Also found: the
+thumbnail and cover used the component's default stop labels ("8%", "BOX LOW") instead of the video's ("7–8%",
+"RANGE LOW"). Audio −14.1 LUFS, −2.9 dBFS peak, −2.85 dBTP. 6. Distinct: PASS.
+
+## Pass 2 (fix)
+StopMap: the range label moved to the right end of its line (empty space in both aspects); the defaults now match
+the video, so thumb and cover agree with it. 9x16 re-rendered and the StopMap beat re-checked (40 s); thumb and
+cover regenerated and viewed. 4x5 checked on renderer stills; sampled again from the release.
+Shorts thumbnail frame 9.0 s (the five emblems around "Where does your stop go?" with the hook caption).
+**Result: qa_passed after 2 passes.**

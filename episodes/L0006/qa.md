@@ -41,3 +41,17 @@ Song: Bb minor, 112.5 BPM house (four), square lead; differs from the last 3 son
 - First-time viewer restatement: "Same trades, but betting 2% instead of 0.5% made the bad stretches four times
   worse. Choose a size you can live with when you lose nine in a row."
 **Clarity: PASS.**
+
+## Pass 1 (full render 4x5 + 9x16)
+Frames every 2 s + every beat boundary viewed in both aspects.
+1. Truth: PASS. 2. Compliance: PASS. 3. Clarity: PASS. 4. Brand: PASS (one Sodium per frame: the rule word;
+Ember for drawdowns and the worst 5%; TapeStrip in/out; logo + snap on the end card). 5. Craft: FAIL in 9x16 only:
+in the cut beat, "−23% AT WORST" ran into "ENDED +117%" on the narrow stage. 4x5 clean. Audio −14.2 LUFS,
+−3.2 dBFS peak, −3.15 dBTP. 6. Distinct: PASS.
+
+## Pass 2 (fix)
+TwinPaths: the end values moved under each legend row's worst-drop number (rows spaced further apart, plot lowered),
+so nothing shares a line. Verified on renderer stills of the cut beat in both aspects and on the regenerated thumb and
+cover; the release videos are rendered from this code by render.yml and sampled again after release.
+Shorts thumbnail frame 6.0 s (both lines with −6% / −23% AT WORST, hook caption).
+**Result: qa_passed after 2 passes.**

@@ -38,8 +38,8 @@ const PATH: [number, number][] = [
 export const StopMap: React.FC<StopMapProps> = ({
   depth = 0.14,
   stops = [
-    { kind: "pct", label: "8% BELOW YOUR BUY", who: "O'NEIL", at: 1.5, pct: 0.08 },
-    { kind: "chart", label: "UNDER THE BOX LOW", who: "DARVAS · KOVNER", at: 3.0 },
+    { kind: "pct", label: "7–8% BELOW YOUR BUY", who: "O'NEIL", at: 1.5, pct: 0.08 },
+    { kind: "chart", label: "UNDER THE RANGE LOW", who: "DARVAS · KOVNER", at: 3.0 },
   ],
   drawAt = 0.2,
   drawDur = 1.6,
@@ -78,7 +78,7 @@ export const StopMap: React.FC<StopMapProps> = ({
       <g opacity={boxA}>
         <rect x={X(0)} y={Y(top)} width={X(560) - X(0)} height={Y(low) - Y(top)} fill={hexA(C.blueline, 0.18)} stroke={hexA(C.blueline, 0.9)} strokeWidth={2 * u} />
         <line x1={X(0)} x2={right} y1={Y(top)} y2={Y(top)} stroke={C.sodium} strokeWidth={4 * u} />
-        <text x={X(10)} y={Y(top) - 14 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>
+        <text x={right} y={Y(top) - 14 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking} textAnchor="end">
           TOP OF THE RANGE
         </text>
         <text x={X(10)} y={Y(low) + 32 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.82} letterSpacing={TYPE.mono.tracking}>

@@ -81,7 +81,9 @@ Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it,
 - `youtube`: title = the feeling + the number in searchable words, then "| Lore NNN" (<= 60 chars ideal, 100 max).
   Description: the hook in the first two lines, 2–3 lines of value, prerequisites/next as "Lore NNN, title", sources,
   the disclaimer, <= 3 hashtags.
-  `tags` (<= 500 chars total), `playlist` = pillar name.
+  `tags` (<= 500 chars total), `playlist` = pillar name. `shorts_frame_s` = the second of the 9x16 video to pick as the
+  Shorts thumbnail (the payoff picture + hook; view that frame). Shorts can't use the 16:9 `thumb.png`: it is for
+  long-form only; Partner Program channels can upload `cover.png` (9:16) instead.
 - `files`: video_4x5, video_9x16 (prefix `release:` when they live in the Release), thumb, cover, captions
   (`captions.srt`, written from the spec by `--write-md` via scripts/make_srt.py, same timing as on screen). `duration_s`, `aspect_primary`.
 - Run `python scripts/validate_publish.py --write-md publish/<id>` until PASS (it also runs voice_check). Then read the

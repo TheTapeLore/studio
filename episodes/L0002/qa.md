@@ -60,3 +60,13 @@ vs Lore 001; different key, mode, tempo, progression, lead and groove).
    −14.1 LUFS / −2.4 dBFS peak (4x5 and 9x16).
 6. Distinct: PASS. First What If Lab, new metaphor (Duel), new song (E dorian 128.6 BPM, square lead).
 **Result: qa_passed after 2 passes.**
+
+## Clarity (gate added 2026-10-09; read again muted, as a first-time viewer, after release)
+- Learn 1, "win rate alone doesn't decide profit": the duel (60% winner ends −$400, 35% winner +$800) and both fans.
+- Learn 2, "average result per trade = win rate × average win − loss rate × average loss": the math card with both
+  formulas worked (−$20 vs +$40).
+- Learn 3, "small losses and big wins mean long losing streaks": the streak distribution (usual worst 9 in a row).
+- No undefined jargon (the formula is spelled out instead of saying "expectancy"); no studio words. Shorts thumbnail
+  frame: 2.0 s (both lanes with win rates and running totals).
+- First-time viewer restatement: "A high win rate can still lose money if the losses are bigger than the wins."
+**Clarity: PASS.**

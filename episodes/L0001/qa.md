@@ -133,3 +133,11 @@ continuous groove (LRA 3.9 LU), ringing final chord, −14.4 LUFS. Pace assessed
   and repeated the caption, and a thumbnail line that crowded the pit. Full 4x5 frames (44 + 5 sheets): PASS.
 - Mix 4x5: −14.2 LUFS, peak −3.2 dBFS. PASS.
 - 9x16: frames (44 + sheets) viewed, safe zones clear; −14.2 LUFS, peak −3.2 dBFS. PASS. **Result: qa_passed (pass 6).**
+
+## Clarity (gate added 2026-10-09; read again muted, as a first-time viewer, after release)
+- Learn 1, "a 50% loss needs a 100% gain": the hook and beat 2 ($10,000 → $5,000; "$5,000 has to do all the climbing").
+- Learn 2, "deeper losses need much bigger climbs": the sweep with the table, ending "−90% needs +900%".
+- Learn 3, "the Nasdaq fell 78% and took fifteen years to get back": the chart beat, numbers on screen and in captions.
+- No jargon beyond basic words; no studio words. Shorts thumbnail frame: 2.0 s (the pit with −50% / +100%).
+- First-time viewer restatement: "Losing half means I need to double what's left just to get back to even."
+**Clarity: PASS.**

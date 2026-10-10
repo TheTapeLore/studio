@@ -1,7 +1,8 @@
 # YouTube — L0004
 
 Short: release:L0004-9x16.mp4  
-Thumbnail: thumb.png  
+Shorts thumbnail: when you upload in the YouTube app, pick the frame at 2.0 s (it can't be changed after upload). Once the channel can upload custom Shorts thumbnails (desktop, YouTube Partner Program), upload cover.png (1080x1920) instead.  
+Long-form thumbnail (16:9, not for Shorts): thumb.png  
 Subtitles: captions.srt (Studio > Subtitles > Add language: English > Upload file > With timing)
 
 ## Title

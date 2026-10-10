@@ -64,8 +64,11 @@ def readme(batch, metas):
         lines.append(f"  X: {eid}-4x5.mp4 with the post in x.md, then its first reply.")
         lines.append(f"  Instagram: {eid}-9x16.mp4 as a Reel, cover.png as its cover, caption from instagram.md." +
                      ("\n  Instagram carousel: carousel-1.png onward, in order." if any("carousel" in k for k in m.get("files", {})) else ""))
-        lines.append(f"  YouTube: {eid}-9x16.mp4 as a Short, thumb.png, captions.srt as subtitles, title and description"
-                     f" from youtube.md (playlist: {m.get('youtube', {}).get('playlist', '-')}).")
+        fr = m.get("youtube", {}).get("shorts_frame_s")
+        lines.append(f"  YouTube: {eid}-9x16.mp4 as a Short; captions.srt as subtitles; title and description from youtube.md"
+                     f" (playlist: {m.get('youtube', {}).get('playlist', '-')}).")
+        lines.append(f"  YouTube Shorts thumbnail: pick the frame at {fr} s while uploading in the app (cover.png once custom"
+                     f" Shorts thumbnails are available to the channel). thumb.png is 16:9, for long-form only.")
         lines.append("")
     rp = os.path.join(ROOT, "batches", f"{batch['batch']}-report.md")
     if os.path.exists(rp):

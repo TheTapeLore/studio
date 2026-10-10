@@ -51,6 +51,11 @@ def validate(pkg):
     lore = f"Lore {int(m.get('lore_no', 0)):03d}"
     disc = CFG["required_disclaimer"]
 
+    # YouTube Shorts can't use the 16:9 thumb.png: they take a frame chosen at upload (or, for Partner Program
+    # channels, an uploaded 9:16 image = cover.png). Every vertical video names its thumbnail frame.
+    if (m.get("files") or {}).get("video_9x16") and not isinstance((m.get("youtube") or {}).get("shorts_frame_s"), (int, float)):
+        errs.append("youtube.shorts_frame_s missing: the second of the 9x16 video to pick as the Shorts thumbnail")
+
     # clarity gate: the human read in episodes/<id>/qa.md ("## Clarity": learn points found on screen, a first-time
     # viewer's restatement, PASS). Nothing is released without it.
     for prob in clarity_check.qa_clarity(m.get("id", os.path.basename(os.path.normpath(pkg)))):
@@ -123,7 +128,12 @@ def write_md(pkg):
         o.write(f"# Instagram — {m['id']}\n\nReel: {f.get('video_9x16','')}  \nFeed/carousel: {f.get('video_4x5','')}  \n"
                 f"Cover: {f.get('cover','')} (cover frame at {ig.get('cover_frame_s','')}s)\n\n## Caption\n\n{ig.get('caption','')}\n\n## Alt text\n\n{ig.get('alt_text','')}\n")
     with open(os.path.join(pkg, "youtube.md"), "w") as o:
-        o.write(f"# YouTube — {m['id']}\n\nShort: {f.get('video_9x16','')}  \nThumbnail: {f.get('thumb','')}  \n"
+        fr = yt.get("shorts_frame_s")
+        o.write(f"# YouTube — {m['id']}\n\nShort: {f.get('video_9x16','')}  \n"
+                f"Shorts thumbnail: when you upload in the YouTube app, pick the frame at {fr} s (it can't be changed after"
+                f" upload). Once the channel can upload custom Shorts thumbnails (desktop, YouTube Partner Program), upload"
+                f" {f.get('cover','')} (1080x1920) instead.  \n"
+                f"Long-form thumbnail (16:9, not for Shorts): {f.get('thumb','')}  \n"
                 f"Subtitles: captions.srt (Studio > Subtitles > Add language: English > Upload file > With timing)\n\n## Title\n\n{yt.get('title','')}\n\n"
                 f"## Description\n\n{yt.get('description','')}\n\n## Tags\n\n{', '.join(yt.get('tags', []))}\n\n"
                 f"Playlist: {yt.get('playlist','')}  \nCategory: {CFG['youtube']['category']}  \nMade for kids: No\n")

@@ -1,0 +1,329 @@
+{
+ "id": "L0007",
+ "song": {
+  "id": "L0007",
+  "key": "B dorian",
+  "bpm": 100.0,
+  "genre": "boom bap",
+  "groove": "hiphop",
+  "progression": [
+   "i",
+   "VII",
+   "IV",
+   "i"
+  ],
+  "lead": "glide",
+  "bass": "sub",
+  "arp": "none",
+  "swing": 0.127
+ },
+ "genre": "boom bap",
+ "bpm": 100.0,
+ "bars": 29.0,
+ "loop_aligned": true,
+ "lufs": -16.7,
+ "true_peak_db": -3.7,
+ "generator": "scripts/sound/score.py (v4)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "question"
+  },
+  {
+   "bar": 2,
+   "t": 2.4,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "question"
+  },
+  {
+   "bar": 3,
+   "t": 4.8,
+   "chord": "IV",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "question"
+  },
+  {
+   "bar": 4,
+   "t": 7.2,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "question"
+  },
+  {
+   "bar": 5,
+   "t": 9.6,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1",
+   "label": "seats"
+  },
+  {
+   "bar": 6,
+   "t": 12.0,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B2",
+   "label": "seats"
+  },
+  {
+   "bar": 7,
+   "t": 14.4,
+   "chord": "IV",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "seats"
+  },
+  {
+   "bar": 8,
+   "t": 16.8,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "seats"
+  },
+  {
+   "bar": 9,
+   "t": 19.2,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "seats"
+  },
+  {
+   "bar": 10,
+   "t": 21.6,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "seats"
+  },
+  {
+   "bar": 11,
+   "t": 24.0,
+   "chord": "IV",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "seats"
+  },
+  {
+   "bar": 12,
+   "t": 26.4,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "seats"
+  },
+  {
+   "bar": 13,
+   "t": 28.8,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1",
+   "label": "seats"
+  },
+  {
+   "bar": 14,
+   "t": 31.2,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B2",
+   "label": "seats"
+  },
+  {
+   "bar": 15,
+   "t": 33.6,
+   "chord": "IV",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "split"
+  },
+  {
+   "bar": 16,
+   "t": 36.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "split"
+  },
+  {
+   "bar": 17,
+   "t": 38.4,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "split"
+  },
+  {
+   "bar": 18,
+   "t": 40.8,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "split"
+  },
+  {
+   "bar": 19,
+   "t": 43.2,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 20,
+   "t": 45.6,
+   "chord": "VII",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 21,
+   "t": 48.0,
+   "chord": "IV",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 22,
+   "t": 50.4,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 23,
+   "t": 52.8,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 24,
+   "t": 55.2,
+   "chord": "VII",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 25,
+   "t": 57.6,
+   "chord": "IV",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 26,
+   "t": 60.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 27,
+   "t": 62.4,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 28,
+   "t": 64.8,
+   "chord": "vi",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 29,
+   "t": 67.2,
+   "chord": "IV",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "end card"
+  }
+ ],
+ "cues": [
+  {
+   "t": 43.2,
+   "bar": 19,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 52.8,
+   "bar": 23,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 62.4,
+   "bar": 27,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 64.8,
+   "bar": 28,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 67.2,
+   "bar": 29,
+   "cue": "loop build: the last bar resolves into frame 0"
+  }
+ ],
+ "end_card": {
+  "drawAt": 0.0,
+  "vertexAt": [
+   0.0,
+   0.45,
+   0.9,
+   1.2,
+   1.5,
+   1.8,
+   3.6133
+  ]
+ }
+}

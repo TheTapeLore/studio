@@ -1,0 +1,43 @@
+{
+  "id": "L0006",
+  "lore_no": 6,
+  "title": "Risk 0.5% vs 2% per trade: 1,000 runs",
+  "batch": "2026-10-10-a",
+  "duration_s": 74.6667,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0006-4x5.mp4",
+    "video_9x16": "release:L0006-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Same 200 trades, sized two ways.\n\nRisk 0.5% a trade: worst drop −6%.\nRisk 2% a trade: worst drop −23%.\n\nThe edge didn't change. The size did. Losing streaks visit everyone; your size decides how deep they dig.\n\nLore 006 · Risk 0.5% vs 2% per trade: 1,000 runs",
+    "reply": "1,000 simulated runs of 200 trades. 40% winners, wins pay 2R, losses cost 1R.\n\nAt 0.5%: typical worst drop −6%, unluckiest 5% −11%.\nAt 2%: typical −23%, unluckiest 5% −38%. Almost 1 in 5 fell past −30%.\n\nNext: Lore 007 · The Council: where does your stop go?"
+  },
+  "instagram": {
+    "caption": "Same 200 trades. One trader risked 0.5% a trade, the other 2%. Worst drop: −6% vs −23%.\n\nWe simulated 1,000 traders with the same edge: 40% winners, wins pay twice what losses cost. The only difference was how much of the account each trade put at risk.\n\nWhat happened:\n• Risk 0.5% a trade: the typical worst drop was −6%. The unluckiest 5% fell 11%.\n• Risk 2% a trade: the typical worst drop was −23%. The unluckiest 5% fell 38%.\n• Almost 1 in 5 runs at 2% fell more than 30% at some point.\n\nWhy? Losing streaks. Half the runs had 9 losses in a row. At 2% a trade, nine straight losses cost about 17%. At 0.5%, about 4%.\n\nBigger size can grow faster. It also digs deeper holes, and a −30% hole needs +43% to climb out.\n\nYou can't pick your losing streaks. You can pick your size. Pick it before the streak, not during.\n\nLore 006 · Risk 0.5% vs 2% per trade. Next up, Lore 007: five legends on where your stop goes.\n\nSend this to the friend who just doubled their size after a good week.\n\nSimulated results, no costs or slippage. Education only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #PositionSizing #Drawdown #TradingEducation",
+    "alt_text": "Animated chart on a dark blue grid labelled one simulated run, same 200 trades. Two equity lines draw together from the same start: a thin grey line for risking 0.5% a trade and a thick white line for risking 2%. Red shading fills every stretch where each line sits below its own best point; markers read −6% at worst for the thin line and −23% at worst for the thick one. Then 1,000 simulated runs fan out for each size, a histogram shows the deepest drop per run at 2%, and cards read: bigger size, bigger drops; size for the drop you can sit through.",
+    "cover_frame_s": 6.0
+  },
+  "youtube": {
+    "title": "Risk 2% vs 0.5% per trade: −23% vs −6% drawdowns | Lore 006",
+    "description": "Same 200 trades, sized two ways. Risking 0.5% a trade, the worst drop was −6%. Risking 2%, it was −23%.\nThe edge never changed. The size did, and losing streaks did the rest.\n\nWe simulated 1,000 traders with the same edge (40% winners, wins pay 2R, losses cost 1R). At 2% a trade the typical worst drop was −23%, and almost 1 in 5 runs fell past −30%. At 0.5% the typical worst drop was −6%. Half the runs hit 9 losses in a row: about −17% at 2% a trade, about −4% at 0.5%. Pick a size whose worst drop you could sit through, before the streak arrives.\n\nBefore this: Lore 005, The Seesaw: wider stop, smaller size. Lore 001, The Pit: why a 50% loss needs +100%.\nNext: Lore 007, The Council: where does your stop go?\n\nSources: our seeded simulation, sims/risk_per_trade.py (seed 7, github.com/TheTapeLore/studio); recovery math (exceljet.net/formulas/required-recovery-rate); position sizing as a percent of the account (5paisa.com position sizing guide). Simulated results, no costs, slippage or gaps.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #RiskManagement #Trading",
+    "tags": [
+      "risk per trade",
+      "position sizing",
+      "drawdown",
+      "1% rule",
+      "2% rule trading",
+      "risk management",
+      "losing streak",
+      "monte carlo trading",
+      "account size risk",
+      "the tape lore",
+      "lore 006"
+    ],
+    "playlist": "Risk & sizing",
+    "shorts_frame_s": 6.0
+  }
+}

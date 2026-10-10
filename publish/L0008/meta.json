@@ -1,0 +1,42 @@
+{
+  "id": "L0008",
+  "lore_no": 8,
+  "title": "Expectancy in 15 seconds",
+  "batch": "2026-10-10-a",
+  "duration_s": 18.6667,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0008-4x5.mp4",
+    "video_9x16": "release:L0008-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Got an edge? One number answers that.\n\nExpectancy: what you make or lose per trade, on average.\n\n20 trades, +3.5R in total = +0.18R a trade. Above zero, an edge. Below zero, a hobby with fees.\n\nLore 008 · Expectancy in 15 seconds",
+    "reply": "Same answer the long way: win rate × average win − loss rate × average loss.\n\n8 winners averaging 1.94R, 12 losers at 1R: 0.4 × 1.94 − 0.6 × 1 = +0.18R.\n\nNext: Lore 009 · Failure File: averaging down a loser"
+  },
+  "instagram": {
+    "caption": "Got an edge? One number answers that: expectancy.\n\nExpectancy is what you make or lose per trade, on average. Measure it in R (1R = what you lose when the stop hits) and it works at any account size.\n\nHow to get it:\n• Add up every trade's result in R.\n• Divide by the number of trades.\n• 20 simulated trades, +3.5R in total: +0.18R per trade.\n\nAbove zero, you have an edge. Below zero, you're paying to play.\n\nLore 008 · Expectancy in 15 seconds. Next up, Lore 009: averaging down a loser, on a real chart.\n\nWork out yours from your last 20 trades. Then save this for when you need the formula again.\n\nSimulated trades. Education only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #Expectancy #TradingEdge #RiskManagement",
+    "alt_text": "A title card reads Expectancy, noun. Then a tower of 20 simulated trades measured in R on a dark blue grid: red blocks of minus 1R for losers and white blocks of different heights for winners, with a running total that ends at plus 3.5R, or plus 0.18R per trade. The card returns with the definition: what you make or lose per trade, on average.",
+    "cover_frame_s": 8.0
+  },
+  "youtube": {
+    "title": "Expectancy explained: do you have an edge? | Lore 008",
+    "description": "Got an edge? One number answers that: expectancy, what you make or lose per trade, on average.\nAdd up your trades in R and divide by how many there were. Above zero is an edge.\n\n20 simulated trades, +3.5R in total: +0.18R per trade. The long way gives the same answer: win rate × average win − loss rate × average loss.\n\nBefore this: Lore 002, 35% winners can beat 60% winners. Lore 003, R: the only unit a trader needs.\nNext: Lore 009, Failure File: averaging down a loser.\n\nSources: luxalgo.com R-multiple framework; tradezella.com expectancy in trading; our seeded simulation, sims/r_multiples.py (seed 47, github.com/TheTapeLore/studio). Simulated trades.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #Expectancy #Trading",
+    "tags": [
+      "expectancy",
+      "trading expectancy",
+      "expectancy formula",
+      "r multiple",
+      "trading edge",
+      "do i have an edge",
+      "win rate",
+      "risk reward",
+      "the tape lore",
+      "lore 008"
+    ],
+    "playlist": "Risk & sizing",
+    "shorts_frame_s": 8.0
+  }
+}

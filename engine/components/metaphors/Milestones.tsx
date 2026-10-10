@@ -64,7 +64,6 @@ export const Milestones: React.FC<MilestonesProps> = ({ items, years = [1955, 19
         const x = X(it.year);
         const isNew = i === newest;
         const color = isNew ? C.tape : C.mist;
-        const anchor = x > x1 - 160 * u ? "end" : x < x0 + 160 * u ? "start" : "middle";
         const stem = 120;
         const ly = up ? axisY - stem * u : axisY + stem * u + 22 * u;
         if (!isNew) {
@@ -78,15 +77,22 @@ export const Milestones: React.FC<MilestonesProps> = ({ items, years = [1955, 19
             </g>
           );
         }
+        // the newest label, big, kept inside the frame (Big Shoulders is condensed: ~0.46 em per character)
+        const hs = SIZE.label * u * 1.55, ss = fs * 1.3;
+        const head = `${it.year} · ${it.label}`;
+        const hw = head.length * hs * 0.46, sw = (it.sub ?? "").length * ss * 0.5;
+        const half = Math.max(hw, sw) / 2;
+        const tx = Math.min(Math.max(x, half), w - half);
+        const hy = up ? ly - (it.sub ? 44 : 0) * u : ly + 10 * u;
         return (
           <g key={i} opacity={clamp(a)}>
-            <line x1={x} x2={x} y1={axisY} y2={up ? ly + 14 * u : ly - SIZE.label * u * 1.05 - (it.sub ? 34 : 0) * u} stroke={hexA(color, 0.6)} strokeWidth={2 * u} />
+            <line x1={x} x2={x} y1={axisY} y2={up ? ly + 18 * u : hy - hs * 0.95} stroke={hexA(color, 0.6)} strokeWidth={2 * u} />
             <circle cx={x} cy={axisY} r={13 * u} fill={C.tape} stroke={color} strokeWidth={3 * u} />
-            <text x={x} y={up ? ly - (it.sub ? 34 : 0) * u : ly} fill={color} fontFamily={FONT.display} fontWeight={800} fontSize={SIZE.label * u * 1.15} textAnchor={anchor}>
-              {`${it.year} · ${it.label}`}
+            <text x={tx} y={hy} fill={color} fontFamily={FONT.display} fontWeight={800} fontSize={hs} textAnchor="middle">
+              {head}
             </text>
             {it.sub ? (
-              <text x={x} y={up ? ly : ly + 40 * u} fill={hexA(color, 0.9)} fontFamily={FONT.body} fontSize={fs * 1.05} textAnchor={anchor}>
+              <text x={tx} y={up ? ly : hy + 50 * u} fill={hexA(color, 0.9)} fontFamily={FONT.body} fontSize={ss} textAnchor="middle">
                 {it.sub}
               </text>
             ) : null}

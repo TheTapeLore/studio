@@ -1,0 +1,44 @@
+{
+  "id": "L0007",
+  "lore_no": 7,
+  "title": "The Council: where does your stop go?",
+  "batch": "2026-10-10-a",
+  "duration_s": 69.6,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0007-4x5.mp4",
+    "video_9x16": "release:L0007-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Where does your stop go? We asked five legends (through their books and interviews).\n\nTwo camps: a fixed 7–8% under your buy, or just under the range the stock broke out of.\n\nAll five agree on the part that matters: decide it before you buy, and go when it hits.\n\nLore 007 · The Council",
+    "reply": "Who said what, paraphrased:\nLivermore: if it doesn't act right after you buy, get out.\nO'Neil: 7–8% below your buy, no exceptions.\nDarvas: just under his box, set as he bought.\nKovner: a wider stop, smaller size.\nSeykota: cut losses.\n\nNext: Lore 008 · Expectancy in 15 seconds"
+  },
+  "instagram": {
+    "caption": "Where does your stop go? Five legends, two camps, one thing they all agree on.\n\nYour stop is the price where you sell and take a small loss. Here's how five legends set it, paraphrased from their own books and interviews:\n\n• Livermore: watch how it acts after you buy. If it doesn't act right, get out.\n• O'Neil: sell any stock 7 to 8% below what you paid. No exceptions.\n• Darvas: just under the low of the range (his \"box\"), set the moment he bought.\n• Kovner: where the market shouldn't go if you're right, and buy less so the dollar risk stays the same.\n• Seykota: cut losses, cut losses, cut losses.\n\nCamp one uses a fixed percent. Camp two uses the chart. Where all five agree: decide the exit before you buy, keep the loss small, and when it hits, go.\n\nOur take: put the stop where your idea is wrong. Too far away? Buy fewer shares (Lore 005).\n\nLore 007 · The Council: where does your stop go? Next up, Lore 008: expectancy in 15 seconds.\n\nSave this for the next time you're tempted to move a stop.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #StopLoss #RiskManagement #TradingLegends #TradingEducation",
+    "alt_text": "An arc of five abstract emblems on a dark blue grid, one per legend: Livermore, O'Neil, Darvas, Kovner and Seykota, under the question 'Where does your stop go?'. Each seat lights in turn with a paraphrased answer. Then an illustrated chart: a price range drawn as a box, a buy just above its top, and two red stop lines under the buy, one labelled 7–8% below your buy (O'Neil), the other under the range low (Darvas, Kovner). A list follows of where all five agree, then the rule: put the stop where you're wrong, then size it.",
+    "cover_frame_s": 9.0
+  },
+  "youtube": {
+    "title": "Where does your stop loss go? 5 trading legends answer | Lore 007",
+    "description": "Where does your stop go? Five trading legends, two camps, one rule they all share.\nA fixed 7–8% under your buy, or just under the range the stock broke out of. Either way: decide it before you buy.\n\nLivermore watched how a stock acted after he bought. O'Neil cut every loss at 7 to 8% below his buy. Darvas set his stop under his box the moment he bought. Kovner placed it where the market shouldn't go if he was right, and bought less to keep the dollar risk the same. Seykota: cut losses. All paraphrased.\n\nBefore this: Lore 005, The Seesaw: wider stop, smaller size. Lore 004, Legend 01: Jesse Livermore.\nNext: Lore 008, Expectancy in 15 seconds.\n\nSources: Jesse L. Livermore, How to Trade in Stocks (1940), ch. V; Edwin Lefèvre, Reminiscences of a Stock Operator (1923); en.wikipedia.org/wiki/CAN_SLIM (CAN SLIM is a mark of Investor's Business Daily); en.wikipedia.org/wiki/Nicolas_Darvas; Jack D. Schwager, Market Wizards (1989), Bruce Kovner and Ed Seykota interviews. Emblems are abstract; no affiliation implied. The chart is an illustration.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #StopLoss #Trading",
+    "tags": [
+      "stop loss",
+      "where to put a stop loss",
+      "stop loss placement",
+      "william oneil 7 8 percent",
+      "darvas box stop",
+      "bruce kovner",
+      "ed seykota",
+      "jesse livermore",
+      "trading legends",
+      "risk management",
+      "the tape lore",
+      "lore 007"
+    ],
+    "playlist": "Legends",
+    "shorts_frame_s": 9.0
+  }
+}

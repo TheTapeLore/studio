@@ -41,7 +41,7 @@ const lengths = (pts: [number, number][]) => {
  * with volume drying up), then the break above the handle's high (the pivot, the frame's one Sodium, snapping) on a
  * volume surge. Optional: the loss line 7-8% under the buy. An illustration of the pattern, labelled as one.
  */
-export const CupHandle: React.FC<CupHandleProps> = ({ drawAt = 0.2, drawDur = 5, labelsAt = {}, stopAt = null, stopLabel = "SELL IF IT FALLS 7–8% BELOW YOUR BUY", sfx = true, note = "ILLUSTRATION · NOT A CHART", startDrawn = 0 }) => {
+export const CupHandle: React.FC<CupHandleProps> = ({ drawAt = 0.2, drawDur = 5, labelsAt = {}, stopAt = null, stopLabel = "SELL IF IT FALLS 7–8%\nBELOW YOUR BUY", sfx = true, note = "ILLUSTRATION · NOT A CHART", startDrawn = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { u } = useLayout();
@@ -78,11 +78,11 @@ export const CupHandle: React.FC<CupHandleProps> = ({ drawAt = 0.2, drawDur = 5,
     const s = labelsAt[key];
     return s !== undefined ? prog(frame, fps, s, 0.35) : clamp((headX - reachX) / 40);
   };
-  const wy = Y(PIVOT_Y), xa = X(560), xb = X(1000), xc = X(crossX);
+  const wy = Y(PIVOT_Y), xa = X(230), xb = X(1000), xc = X(crossX);
   const gap = 16 * u * snap, curl = CHART.tripwire.recoilPx * u * snap;
   const sw = 4.5 * u;
   const stopA = stopAt === null ? 0 : prog(frame, fps, stopAt, 0.4);
-  const stopY = Y(PIVOT_Y + 80); // about 8% under the pivot at this sketch's scale (the cup is ~30% deep)
+  const stopY = Y(PIVOT_Y + 90); // about 8-9% under the buy point at this sketch's scale (the cup is ~30% deep)
   const volTop = h - volH - 20 * u;
   const bw = (1000 * k) / VOL.length;
   return (
@@ -102,10 +102,10 @@ export const CupHandle: React.FC<CupHandleProps> = ({ drawAt = 0.2, drawDur = 5,
         </text>
       </g>
       <polyline points={pts.map(([x, y]) => `${X(x).toFixed(1)},${Y(y).toFixed(1)}`).join(" ")} fill="none" stroke={C.tape} strokeWidth={10 * u} strokeLinejoin="round" strokeLinecap="round" />
-      <text x={X(330)} y={Y(470)} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.2} textAnchor="middle" letterSpacing={TYPE.mono.tracking} opacity={lab("cup", 360)}>
+      <text x={X(330)} y={Y(470)} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.2} textAnchor="middle" letterSpacing={TYPE.mono.tracking} opacity={lab("cup", 360) * (1 - stopA)}>
         CUP
       </text>
-      <text x={X(790)} y={Y(250)} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.2} textAnchor="middle" letterSpacing={TYPE.mono.tracking} opacity={lab("handle", 800)}>
+      <text x={X(790)} y={Y(250)} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.2} textAnchor="middle" letterSpacing={TYPE.mono.tracking} opacity={lab("handle", 800) * (1 - stopA)}>
         HANDLE
       </text>
       {/* volume */}
@@ -124,10 +124,12 @@ export const CupHandle: React.FC<CupHandleProps> = ({ drawAt = 0.2, drawDur = 5,
       </text>
       {stopA > 0 ? (
         <g opacity={stopA}>
-          <line x1={xc} x2={xb} y1={stopY} y2={stopY} stroke={C.ember} strokeWidth={4 * u} strokeDasharray={`${14 * u} ${8 * u}`} />
-          <text x={xb} y={stopY + 34 * u} fill={C.ember} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.95} textAnchor="end">
-            {stopLabel}
-          </text>
+          <line x1={X(700)} x2={xb} y1={stopY} y2={stopY} stroke={C.ember} strokeWidth={4 * u} strokeDasharray={`${14 * u} ${8 * u}`} />
+          {stopLabel.split("\n").map((ln, j) => (
+            <text key={j} x={xb} y={stopY + (38 + j * 34) * u} fill={C.ember} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.05} textAnchor="end">
+              {ln}
+            </text>
+          ))}
         </g>
       ) : null}
       {note ? (

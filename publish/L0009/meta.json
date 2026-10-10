@@ -1,0 +1,42 @@
+{
+  "id": "L0009",
+  "lore_no": 9,
+  "title": "Failure File: averaging down a loser",
+  "batch": "2026-10-10-a",
+  "duration_s": 58.0,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0009-4x5.mp4",
+    "video_9x16": "release:L0009-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Cisco, April 2000: down 28% from its high. Bargain, right?\n\nBuy $10,000. Add $10,000 every 20% lower. Five buys, $50,000 in.\n\nOctober 2002: worth about $17,500.\n\nOne buy and a stop 8% below it would have cost $800.\n\nLore 009 · Failure File: averaging down a loser",
+    "reply": "The clues were on the chart the whole way: every bounce topped out lower, and every new buy went into a trade already losing. At the 2002 low it was down 88% from the top.\n\nNext: Lore 010 · Legend 02: William O'Neil"
+  },
+  "instagram": {
+    "caption": "Cisco in April 2000: down 28% from its high, weeks after being the world's most valuable company. Bargain, right?\n\nWe followed a simple averaging-down rule on its real weekly closes: buy $10,000, then add another $10,000 every time it closed 20% lower than the last buy.\n\nHow it went:\n• Five buys, $50,000 in by March 2001.\n• October 2002: down 88% from the top.\n• The $50,000 was worth about $17,500.\n• Getting back to even needed about +185%.\n\nThe clues were there. Every bounce topped out lower than the one before, and every new buy went into a trade that was already losing. Averaging down lowers your average price, and grows the bet at the same time.\n\nThe other way: one buy, one stop 8% below it. Out in October 2000 for about $800.\n\nLore 009 · Failure File: averaging down a loser. Next up, Lore 010: Legend 02, William O'Neil.\n\nSend this to the friend who says \"it'll come back\".\n\nPrices are split-adjusted, so we show % from the high; the stop assumes a fill at the stop price. Education only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #AveragingDown #StockMarketHistory #RiskManagement #TradingMistakes",
+    "alt_text": "A line chart of Cisco's weekly closes from 1999 to 2003, plotted as percent below its March 2000 high. White circles mark five buys of $10,000 as the line falls, and a dashed red average-cost line steps down with each buy. A readout shows money in $50,000 and worth about $17,500, down 65%. Red dots connect the bounce tops, each lower than the last. A myth card defines averaging down as buying more as it falls. Then the alternative: one buy with a stop line 8% below it, exiting for minus $800.",
+    "cover_frame_s": 20.0
+  },
+  "youtube": {
+    "title": "Averaging down Cisco in 2000: $50,000 became $17,500 | Lore 009",
+    "description": "Cisco in April 2000 was down 28% from its high. We bought, then added $10,000 every 20% lower: $50,000 in, worth about $17,500 at the 2002 low.\nOne buy with a stop 8% below it would have cost about $800.\n\nAveraging down means buying more as a stock falls. It lowers your average price and grows the bet at the same time. On Cisco's real weekly closes, every bounce topped out lower, and every new buy went into a trade already losing. Livermore and O'Neil both said the same thing: never add to a loser.\n\nBefore this: Lore 001, The Pit: why a 50% loss needs +100%. Lore 004, Legend 01: Jesse Livermore.\nNext: Lore 010, Legend 02: William O'Neil.\n\nSources: Cisco (CSCO) weekly closes via Yahoo Finance (split-adjusted; shown as % from the high); en.wikipedia.org/wiki/Cisco (most valuable company, March 2000); Jesse L. Livermore, How to Trade in Stocks (1940), ch. II; en.wikipedia.org/wiki/CAN_SLIM. The averaging-down rule is ours, for illustration; the stop assumes a fill at the stop price.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #AveragingDown #Trading",
+    "tags": [
+      "averaging down",
+      "averaging down stocks",
+      "cisco 2000",
+      "dot com crash",
+      "never average down",
+      "buying the dip",
+      "stop loss",
+      "trading mistakes",
+      "the tape lore",
+      "lore 009"
+    ],
+    "playlist": "Risk & sizing",
+    "shorts_frame_s": 20.0
+  }
+}

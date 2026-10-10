@@ -1,0 +1,158 @@
+{
+ "id": "L0008",
+ "song": {
+  "id": "L0008",
+  "key": "E dorian",
+  "bpm": 128.57,
+  "genre": "melodic house",
+  "groove": "four-ghost",
+  "progression": [
+   "IV",
+   "VII",
+   "i",
+   "i"
+  ],
+  "lead": "supersaw",
+  "bass": "sub",
+  "arp": "none",
+  "swing": 0.055
+ },
+ "genre": "melodic house",
+ "bpm": 128.57,
+ "bars": 10.0,
+ "loop_aligned": true,
+ "lufs": -16.7,
+ "true_peak_db": -2.8,
+ "generator": "scripts/sound/score.py (v4)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "IV",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "term"
+  },
+  {
+   "bar": 2,
+   "t": 1.867,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "term"
+  },
+  {
+   "bar": 3,
+   "t": 3.733,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "trades counted in"
+  },
+  {
+   "bar": 4,
+   "t": 5.6,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "trades counted in"
+  },
+  {
+   "bar": 5,
+   "t": 7.467,
+   "chord": "IV",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "the total in R"
+  },
+  {
+   "bar": 6,
+   "t": 9.333,
+   "chord": "VII",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "definition"
+  },
+  {
+   "bar": 7,
+   "t": 11.2,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "definition"
+  },
+  {
+   "bar": 8,
+   "t": 13.067,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 9,
+   "t": 14.933,
+   "chord": "vi",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 10,
+   "t": 16.8,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "end card"
+  }
+ ],
+ "cues": [
+  {
+   "t": 5.6,
+   "bar": 4,
+   "cue": "the last trades land: build 1.0 bars"
+  },
+  {
+   "t": 7.47,
+   "bar": 5,
+   "cue": "DROP"
+  },
+  {
+   "t": 13.07,
+   "bar": 8,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 14.93,
+   "bar": 9,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 16.8,
+   "bar": 10,
+   "cue": "loop build: the last bar resolves into frame 0"
+  }
+ ],
+ "end_card": {
+  "drawAt": 0.0,
+  "vertexAt": [
+   0.0,
+   0.35,
+   0.7,
+   0.9333,
+   1.1667,
+   1.4,
+   2.8104
+  ]
+ }
+}

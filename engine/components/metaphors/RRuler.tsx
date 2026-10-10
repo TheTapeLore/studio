@@ -1,7 +1,7 @@
 import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { C, FONT, SIZE, TYPE, hexA } from "../../tokens";
-import { clamp, fmtMoney, prog } from "../../lib/anim";
+import { clamp, fmtMoney } from "../../lib/anim";
 import { useLayout } from "../layout/layout";
 import { useStage } from "../layout/Stage";
 import { fmtR } from "./RCompare";

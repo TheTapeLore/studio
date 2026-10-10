@@ -1,0 +1,56 @@
+{
+  "id": "L0010",
+  "lore_no": 10,
+  "title": "Legend 02: William O'Neil",
+  "batch": "2026-10-10-a",
+  "duration_s": 106.6667,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0010-4x5.mp4",
+    "video_9x16": "release:L0010-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt",
+    "card_front": "card-front-750x1050.png",
+    "card_back": "card-back-750x1050.png",
+    "print_front": "print/card-front-825x1125.png",
+    "print_back": "print/card-back-825x1125.png",
+    "carousel": [
+      "carousel-1.png",
+      "carousel-2.png",
+      "carousel-3.png",
+      "carousel-4.png",
+      "carousel-5.png",
+      "carousel-6.png"
+    ]
+  },
+  "x": {
+    "post": "William O'Neil turned $5,000 into $200,000. Then he did the unusual thing: he asked why.\n\nHe measured over 1,000 big winners, back to the 1880s, and put the research in a daily paper.\n\nHis sell rule fits in one line: cut every loss at 7–8%.\n\nLore 010 · Legend 02: William O'Neil",
+    "reply": "Even legends slip. His fund rose 116% in 1967, then shrank from $49 million to $6 million by 1975. His own explanation: too many small stocks, growing too fast.\n\nHence the rule: own a few stocks, and know each one well.\n\nNext: Lore 011 · The RS line leads price"
+  },
+  "instagram": {
+    "caption": "William O'Neil turned $5,000 into $200,000 as a young broker. Then he studied why it worked, and kept studying for 60 years.\n\nWhy traders call him a legend:\n1. He studied stocks by computer before almost anyone. His firm built the first computerized daily stock database.\n2. He measured what over 1,000 big winners had in common before their big runs, back to the 1880s.\n3. He gave that research to everyday investors in a daily paper, Investor's Daily (1984), now Investor's Business Daily.\n\nHis favorite setup: the cup with handle. A base is a sideways pause; the cup with handle is a rounded dip, then a smaller dip near the top. He bought when the price broke above the handle on heavy volume.\n\nHis sell rule: cut every loss 7 to 8% below your buy. No exceptions. A small loss is easy to win back. A big one isn't.\n\nEven legends slip. His fund rose 116% in 1967, the year's best. Then stocks fell, investors pulled out, and by 1975 it had shrunk from $49 million to $6 million. His own take: they grew too fast and bought too many small stocks.\n\nHis rules, in short:\n1. Buy leading stocks as they break out of a sound base.\n2. Cut every loss at 7 to 8%.\n3. Own a few stocks, and know each one well.\n4. Follow the market's direction.\n\nLore 010 · Legend 02: William O'Neil. Next up, Lore 011: the RS line leads price.\n\nSave the card. Swipe for his rules.\n\nSources: Wikipedia; Bloomberg obituary via WealthManagement.com; William O'Neil + Co. CAN SLIM is a mark of Investor's Business Daily. Education only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #WilliamONeil #CupAndHandle #TradingLegends #StockMarketHistory",
+    "alt_text": "A legend title card on a dark blue grid: 02, William O'Neil, 1933 to 2023, stocks, with an abstract cup-with-handle emblem. A timeline lights his early career: stockbroker in 1958, selling everything before the 1962 crash, $5,000 growing to $200,000, a stock exchange seat at 30. A list explains why he is a legend. An illustrated chart then draws a cup with handle part by part, with volume bars drying up in the handle and surging as the price breaks above an amber buy-point line, followed by a red line 7 to 8% under the buy. Lists follow of his fund's slide and his rules, and the video ends on his legend card.",
+    "cover_frame_s": 49.0
+  },
+  "youtube": {
+    "title": "William O'Neil: $5,000 to $200,000, and the 7-8% rule | Lore 010",
+    "description": "William O'Neil turned $5,000 into $200,000, then measured what over 1,000 big winning stocks had in common.\nWhat made him a legend, his cup with handle, his 7–8% sell rule, and the mistake he explained himself.\n\nWhy a legend: he studied stocks by computer in the 1960s (his firm built the first computerized daily stock database), measured over 1,000 big winners back to the 1880s, and shared it with everyday investors in Investor's Daily (1984). His method: buy leaders as the price breaks above a sound base, like the cup with handle, on heavy volume; cut every loss at 7 to 8%. His miss: his fund rose 116% in 1967, then shrank from $49 million to $6 million by 1975; in his words, too many small stocks, growing too fast.\n\nBefore this: Lore 004, Legend 01: Jesse Livermore. Lore 001, The Pit: why a 50% loss needs +100%.\nNext: Lore 011, The RS line leads price.\n\nSources: en.wikipedia.org/wiki/William_O%27Neil (incl. the Wall Street Journal obituary); Bloomberg obituary via wealthmanagement.com; williamoneil.com/what-we-do (Model Book); en.wikipedia.org/wiki/CAN_SLIM. CAN SLIM is a registered mark of Investor's Business Daily. Paraphrased. The emblem is abstract and the cup with handle is an illustration; no affiliation implied.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #WilliamONeil #Trading",
+    "tags": [
+      "william oneil",
+      "william o'neil",
+      "cup and handle",
+      "cup with handle pattern",
+      "7 8 percent rule",
+      "how to make money in stocks",
+      "investors business daily founder",
+      "can slim",
+      "trading legends",
+      "stock market history",
+      "the tape lore",
+      "lore 010"
+    ],
+    "playlist": "Legends",
+    "shorts_frame_s": 49.0
+  }
+}

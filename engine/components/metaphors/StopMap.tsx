@@ -81,14 +81,14 @@ export const StopMap: React.FC<StopMapProps> = ({
         <text x={X(10)} y={Y(top) - 14 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>
           TOP OF THE RANGE
         </text>
-        <text x={X(10)} y={Y(low) + 32 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.9} letterSpacing={TYPE.mono.tracking}>
-          THE PRICE RANGE (A "BOX")
+        <text x={X(10)} y={Y(low) + 32 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.82} letterSpacing={TYPE.mono.tracking}>
+          THE RANGE ("BOX")
         </text>
       </g>
       <polyline points={pts.join(" ")} fill="none" stroke={C.tape} strokeWidth={8 * u} strokeLinejoin="round" strokeLinecap="round" />
       <g opacity={buyA}>
         <circle cx={X(575)} cy={Y(buy)} r={12 * u} fill={C.tape} stroke={C.abyss} strokeWidth={3 * u} />
-        <text x={X(575)} y={Y(buy) - 26 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="middle">
+        <text x={X(575) - 22 * u} y={Y(buy) - 22 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end">
           BUY
         </text>
       </g>

@@ -49,8 +49,9 @@ export const TwinPaths: React.FC<TwinPathsProps> = ({
   const lo = Math.min(...all, 1) * 0.97, hi = Math.max(...all) * 1.03;
   const fs = SIZE.tape * u;
   const pad = { l: 90 * u, r: 20 * u, t: 70 * u, b: 50 * u };
+  const plotTop = pad.t + 120 * u;
   const X = (i: number) => pad.l + ((w - pad.l - pad.r) * i) / (n - 1);
-  const Y = (v: number) => pad.t + (h - pad.t - pad.b) * (1 - (v - lo) / (hi - lo));
+  const Y = (v: number) => plotTop + (h - plotTop - pad.b) * (1 - (v - lo) / (hi - lo));
   const p = clamp((frame / fps - startAt) / dur);
   const vis = Math.max(2, Math.ceil(p * n));
   const dd = ddAt === undefined ? 1 : prog(frame, fps, ddAt, 0.4);
@@ -103,9 +104,6 @@ export const TwinPaths: React.FC<TwinPathsProps> = ({
           <g key={`d${li}`} opacity={dd}>
             <line x1={x} x2={x} y1={Y(path[pi] ?? path[wi])} y2={y} stroke={C.ember} strokeWidth={3 * u} strokeDasharray={`${5 * u} ${5 * u}`} />
             <circle cx={x} cy={y} r={9 * u} fill={C.ember} />
-            <text x={x + 14 * u} y={y + 34 * u} fill={C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.label * u * (li === 1 ? 1.5 : 1.15)}>
-              {`${fmtPct(twin.maxdd[lines[li].key], 0)} AT WORST`}
-            </text>
           </g>
         );
       })}
@@ -114,9 +112,26 @@ export const TwinPaths: React.FC<TwinPathsProps> = ({
         return (
           <g key={`l${li}`}>
             <circle cx={x} cy={y} r={(li === 1 ? 9 : 7) * u} fill={colors[li]} />
-            <text x={Math.min(x, w - pad.r) - 12 * u} y={y - 18 * u} fill={colors[li]} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end">
-              {lines[li].label + (fin > 0 ? `  ${fmtPct(twin.final[lines[li].key], 0)}` : "")}
+          </g>
+        );
+      })}
+      {/* legend: which line is which, its worst drop (Ember, once the markers land) and where it ended */}
+      {lines.map((l, li) => {
+        const ly = pad.t + (34 + li * 58) * u;
+        return (
+          <g key={`g${li}`}>
+            <line x1={pad.l + 10 * u} x2={pad.l + 46 * u} y1={ly - fs * 0.35} y2={ly - fs * 0.35} stroke={colors[li]} strokeWidth={widths[li]} />
+            <text x={pad.l + 60 * u} y={ly} fill={colors[li]} fontFamily={FONT.mono} fontWeight={600} fontSize={fs}>
+              {l.label}
             </text>
+            <text x={pad.l + 60 * u + fs * 14} y={ly + fs * 0.25} fill={C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.label * u * 1.35} opacity={dd}>
+              {`${fmtPct(twin.maxdd[l.key], 0)} AT WORST`}
+            </text>
+            {fin > 0 ? (
+              <text x={w - pad.r} y={ly} fill={colors[li]} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end" opacity={fin}>
+                {`ENDED ${fmtPct(twin.final[l.key], 0)}`}
+              </text>
+            ) : null}
           </g>
         );
       })}

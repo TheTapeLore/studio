@@ -77,7 +77,7 @@ export const AverageDown: React.FC<AverageDownProps> = ({
   const t = frame / fps;
   const head = Math.round(i0 + (i1 - i0) * clamp((t - (reveal.at ?? 0.2)) / Math.max(0.01, reveal.dur ?? 4)));
   const fs = SIZE.tape * u;
-  const ro = showReadout ? 170 * u : 60 * u;
+  const ro = showReadout ? 200 * u : 60 * u;
   const pad = { l: 96 * u, r: 16 * u, t: ro, b: 56 * u };
   const ymin = -0.95, ymax = 0.08;
   const X = (i: number) => pad.l + ((w - pad.l - pad.r) * i) / (n - 1);
@@ -130,7 +130,7 @@ export const AverageDown: React.FC<AverageDownProps> = ({
         <g opacity={tellA}>
           <polyline points={tops.filter((i) => i <= head).map((i) => `${X(i).toFixed(1)},${Y(pctAt(i)).toFixed(1)}`).join(" ")} fill="none" stroke={C.ember} strokeWidth={3 * u} strokeDasharray={`${10 * u} ${7 * u}`} />
           {tops.filter((i) => i <= head).map((i) => <circle key={i} cx={X(i)} cy={Y(pctAt(i))} r={7 * u} fill={C.ember} />)}
-          <text x={X(tops[1] ?? pk) + 16 * u} y={Y(pctAt(tops[1] ?? pk)) - 18 * u} fill={C.ember} fontFamily={FONT.mono} fontWeight={600} fontSize={fs}>
+          <text x={X(tops[0] ?? pk) + 20 * u} y={Y(pctAt(tops[0] ?? pk)) - 24 * u} fill={C.ember} fontFamily={FONT.mono} fontWeight={600} fontSize={fs}>
             EACH BOUNCE TOPPED LOWER
           </text>
         </g>
@@ -158,7 +158,7 @@ export const AverageDown: React.FC<AverageDownProps> = ({
       {done.map((b, k) => (
         <g key={b}>
           <circle cx={X(b)} cy={Y(pctAt(b))} r={11 * u} fill={C.abyss} stroke={C.tape} strokeWidth={4 * u} />
-          <text x={X(b) + (k % 2 ? 16 : -16) * u} y={Y(pctAt(b)) + (k % 2 ? 36 : -20) * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.9} textAnchor={k % 2 ? "start" : "end"}>
+          <text x={X(b) - 20 * u} y={Y(pctAt(b)) + (k === 0 ? -20 * u : fs * 0.35)} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.9} textAnchor="end">
             {`BUY ${k + 1}`}
           </text>
         </g>
@@ -168,20 +168,20 @@ export const AverageDown: React.FC<AverageDownProps> = ({
         <g opacity={stopA}>
           <line x1={X(first)} x2={X(stopHit < 0 ? head : stopHit)} y1={Y(stopPx / P - 1)} y2={Y(stopPx / P - 1)} stroke={C.sodium} strokeWidth={4 * u} />
           {stopHit > 0 ? <circle cx={X(stopHit)} cy={Y(stopPx / P - 1)} r={11 * u} fill={C.sodium} /> : null}
-          <text x={X(first)} y={Y(stopPx / P - 1) + 38 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing="0.06em">
+          <text x={X(stopHit < 0 ? head : stopHit) + 70 * u} y={Y(stopPx / P - 1) - 14 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing="0.06em">
             {`STOP ${Math.round(stopPct * 100)}% UNDER BUY 1: OUT, −${fmtMoney(amount * stopPct)}`}
           </text>
         </g>
       ) : null}
       {showReadout && done.length ? (
         <g>
-          <text x={0} y={78 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>
+          <text x={0} y={70 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>
             {`MONEY IN ${fmtMoney(invested)}`}
           </text>
-          <text x={0} y={140 * u} fill={worth >= invested ? C.tape : C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.h2 * u}>
+          <text x={0} y={162 * u} fill={worth >= invested ? C.tape : C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.h2 * u}>
             {`WORTH ${fmtMoney(Math.round(worth / 100) * 100)}`}
           </text>
-          <text x={w - pad.r} y={140 * u} fill={worth >= invested ? C.tape : C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.h2 * u} textAnchor="end">
+          <text x={w - pad.r} y={162 * u} fill={worth >= invested ? C.tape : C.ember} fontFamily={FONT.display} fontWeight={900} fontSize={SIZE.h2 * u} textAnchor="end">
             {`${worth >= invested ? "+" : "−"}${Math.abs(Math.round((worth / invested - 1) * 100))}%`}
           </text>
         </g>

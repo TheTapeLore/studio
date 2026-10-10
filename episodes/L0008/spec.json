@@ -52,7 +52,7 @@
       "props": {
         "startAt": 0.2,
         "step": 0.18,
-        "label": "20 SIMULATED TRADES · 1R = WHAT YOU LOSE IF THE STOP HITS"
+        "label": "SIMULATED · 1R = WHAT YOU LOSE IF THE STOP HITS"
       },
       "captions": [
         "20 trades, +3.5R in total. That's +0.18R per trade."

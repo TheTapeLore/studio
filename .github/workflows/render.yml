@@ -5,7 +5,8 @@
 #   gh workflow run render.yml -f batch=smoke -f ref=<branch>          # delivery smoke test (creates + deletes a release)
 #
 # It renders every episode in batches/<batch>.json (both aspects + thumbnail + cover), validates the publish
-# packages, creates or updates the Release `batch-<batch>`, uploads the files, and marks the entries released.
+# packages, zips the batch (batch-<batch>.zip: one folder per Lore with everything to post it), creates or
+# updates the Release `batch-<batch>`, uploads the files, and marks the entries released.
 name: render
 on:
   workflow_dispatch:
@@ -61,6 +62,9 @@ jobs:
       - name: Validate packages
         if: inputs.batch != 'smoke'
         run: python scripts/validate_publish.py --batch "batches/$BATCH.json"
+      - name: Package the batch (one zip, a folder per Lore)
+        if: inputs.batch != 'smoke'
+        run: python scripts/package_batch.py "batches/$BATCH.json"
       - name: Keep the renders as a workflow artifact too
         if: inputs.batch != 'smoke'
         uses: actions/upload-artifact@v4
@@ -71,6 +75,7 @@ jobs:
           IDS=$(python -c "import json,os; print(' '.join(json.load(open('batches/'+os.environ['BATCH']+'.json'))['episodes']))")
           FILES=""
           for id in $IDS; do FILES="$FILES $(ls engine/out/$id-*.mp4 engine/out/$id-thumb.png engine/out/$id-cover.png 2>/dev/null)"; done
+          FILES="$FILES engine/out/batch-$BATCH.zip"
           NOTES="batches/$BATCH-report.md"; [ -f "$NOTES" ] || { echo "Batch $BATCH" > /tmp/notes.md; NOTES=/tmp/notes.md; }
           if gh release view "batch-$BATCH" >/dev/null 2>&1; then
             gh release upload "batch-$BATCH" $FILES --clobber

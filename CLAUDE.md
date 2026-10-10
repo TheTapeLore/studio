@@ -139,9 +139,14 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - session: commit and push to `main`, then `gh release create batch-<id>` with MP4s + thumbnails.
 - actions: commit specs (+ episodes/<id>/data.json, publish/<id>/*) to `main`, push, then
   `gh workflow run render.yml --ref main -f batch=<id> -f ref=main`; watch with `gh run watch`/`gh run view`.
-  The workflow lints specs, renders, validates packages, creates/updates Release `batch-<id>` (MP4s, thumb, cover),
+  The workflow lints specs, renders, validates packages, zips the batch, creates/updates Release `batch-<id>` (MP4s,
+  thumb, cover, and `batch-<id>.zip`),
   uploads a workflow artifact, and commits `registry.py status <id> released` back to `main` (pull before your next push).
 - The cloud proxy rejects tag pushes; releases are created through `gh` (API), never `git push --tags`.
+- Every release carries ONE download for the founder: `batch-<id>.zip` (scripts/package_batch.py, run by render.yml),
+  one folder per Lore ("Lore 006 - <title>/") with both videos, thumb, cover, captions.srt, x.md, instagram.md,
+  youtube.md and any extras (legend card files, print/, carousel-N.png), plus a README.txt with the posting order.
+  Give the founder the zip's link in the final report.
 - Never post to social platforms. The founder uploads using publish/<id>/*.md.
 
 ## Commands (.claude/commands)
@@ -170,3 +175,6 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
   Legend videos are Legend stories (60-110 s): who, the record, why they earned the name, the method, the mistakes
   with their causes, their rules, the card. Legends get respect; their mistakes are taught, never mocked. Lore 004
   rebuilt to this standard and re-released.
+- 2026-10-10: One zip per release (founder: "give me a zip file containing that batch's all videos and necessary files
+  separated by their own lore named folders"): `batch-<id>.zip` on every Release from now on; earlier releases stay as
+  they are.

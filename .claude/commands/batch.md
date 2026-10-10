@@ -95,7 +95,9 @@ Fix and re-render failing entries. If an entry cannot pass in 3 passes, drop it,
   `gh release create batch-<batch> engine/out/<ids>*.mp4 publish/<ids>/thumb.png --title "Batch <batch>" --notes-file batches/<batch>-report.md`
 - actions: commit to `main`, push, then `gh workflow run render.yml --ref main -f batch=<batch> -f ref=main`; watch it with `gh run view <run-id>` until it finishes (it also marks entries released).
 - `registry.py status <id> released --release batch-<batch>`.
+- Every Release includes `batch-<batch>.zip` (scripts/package_batch.py; render.yml builds and uploads it): one folder
+  per Lore with everything needed to post it. Check it is on the Release before reporting.
 
 ## 11. Report (batches/<batch>-report.md, also printed)
-Table: Lore, title, pillar/format, duration, QA passes, release link, warnings. Then suggested posting slots from
+Lead with the download: the `batch-<batch>.zip` link on the Release. Table: Lore, title, pillar/format, duration, QA passes, release link, warnings. Then suggested posting slots from
 STRATEGY.md cadence, and the 3 thinnest coverage cells to target next batch.

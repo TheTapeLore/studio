@@ -79,10 +79,10 @@ export const StopMap: React.FC<StopMapProps> = ({
         <rect x={X(0)} y={Y(top)} width={X(560) - X(0)} height={Y(low) - Y(top)} fill={hexA(C.blueline, 0.18)} stroke={hexA(C.blueline, 0.9)} strokeWidth={2 * u} />
         <line x1={X(0)} x2={right} y1={Y(top)} y2={Y(top)} stroke={C.sodium} strokeWidth={4 * u} />
         <text x={X(10)} y={Y(top) - 14 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing={TYPE.mono.tracking}>
-          BREAKOUT LINE
+          TOP OF THE RANGE
         </text>
         <text x={X(10)} y={Y(low) + 32 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 0.9} letterSpacing={TYPE.mono.tracking}>
-          THE BASE (A "BOX")
+          THE PRICE RANGE (A "BOX")
         </text>
       </g>
       <polyline points={pts.join(" ")} fill="none" stroke={C.tape} strokeWidth={8 * u} strokeLinejoin="round" strokeLinecap="round" />

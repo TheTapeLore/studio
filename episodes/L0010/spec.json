@@ -1,1 +1,442 @@
-{"id":"L0010","pillar":"legends"}
+{
+  "id": "L0010",
+  "lore_no": 10,
+  "slug": "legend-02-oneil",
+  "batch": "2026-10-10-a",
+  "pillar": "legends",
+  "cluster": "legend-cards",
+  "format": "legendcard",
+  "concept_key": "legends.card.oneil",
+  "title": "Legend 02: William O'Neil",
+  "hook": "He turned $5,000 into $200,000. Then he studied why.",
+  "takeaway": "William O'Neil turned $5,000 into $200,000 as a young broker, then measured what more than 1,000 big winning stocks had in common and shared that research with everyday investors. His favorite setup was the cup with handle, bought as the price broke above the handle on heavy volume, and he cut every loss at 7 to 8%. His fund's slide taught the last rule: don't grow too fast or own too many small stocks.",
+  "learn": [
+    "William O'Neil turned $5,000 into $200,000 as a young broker, then measured what over 1,000 big winning stocks had in common.",
+    "He's a legend because he studied winners by computer in the 1960s and shared that research with everyday investors in a daily paper.",
+    "His favorite setup, the cup with handle, is a rounded dip, then a smaller dip; he bought when the price broke above the handle on heavy volume.",
+    "He cut every loss at 7 to 8% below his buy, because small losses are easy to win back.",
+    "His fund shrank after he grew too fast and bought too many small stocks, so own a few stocks and know each one well."
+  ],
+  "glossary": {
+    "base": "a sideways pause",
+    "cup with handle": "a rounded dip, then a smaller dip"
+  },
+  "question": null,
+  "emotion": "respect for a man who measured instead of guessed, a wince at his fund's slide, then the calm of rules short enough to fit on a card",
+  "legends": [
+    "William O'Neil"
+  ],
+  "duration_s": 106.6667,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "O'Neil"
+  },
+  "card": {
+    "legend": {
+      "no": "02",
+      "name": "William O'Neil",
+      "era": "1958 – 2023",
+      "markets": "Stocks",
+      "edge": "Bought leaders breaking out of sound bases.",
+      "habit": "Cut every loss at 7–8%. No exceptions.",
+      "read": "How to Make Money in Stocks (1988)"
+    },
+    "emblem": "cup-handle"
+  },
+  "data": null,
+  "simulation": null,
+  "beats": [
+    {
+      "t": 0,
+      "dur": 5.3333,
+      "kind": "hook",
+      "component": "LegendTitle",
+      "props": {
+        "no": "02",
+        "name": "William O'Neil",
+        "years": "1933 – 2023",
+        "markets": "Stocks",
+        "emblem": "cup-handle"
+      },
+      "captions": [
+        "He turned $5,000 into $200,000. Then he studied why."
+      ]
+    },
+    {
+      "t": 5.3333,
+      "dur": 16.0,
+      "kind": "who",
+      "component": "Milestones",
+      "props": {
+        "years": [
+          1956,
+          1966
+        ],
+        "title": "HIS EARLY CAREER",
+        "items": [
+          {
+            "year": 1958,
+            "label": "BECOMES A STOCKBROKER",
+            "sub": "Hayden Stone, Los Angeles",
+            "at": 0.3
+          },
+          {
+            "year": 1962,
+            "label": "HIS RULES SAY SELL EVERYTHING",
+            "sub": "That spring, the market crashed.",
+            "at": 3.0728
+          },
+          {
+            "year": 1963,
+            "label": "$5,000 GROWS TO $200,000",
+            "sub": "Three big trades in a row",
+            "at": 8.0
+          },
+          {
+            "year": 1964,
+            "label": "BUYS A STOCK EXCHANGE SEAT",
+            "sub": "At 30, the youngest yet",
+            "at": 11.4437
+          }
+        ]
+      },
+      "captions": [
+        "In 1958 he became a stockbroker.",
+        "In early 1962 his rules said sell everything. Then stocks crashed.",
+        "Three big trades turned $5,000 into $200,000.",
+        "At 30 he bought a New York Stock Exchange seat."
+      ]
+    },
+    {
+      "t": 21.3333,
+      "dur": 13.3333,
+      "kind": "why_legend",
+      "component": "ListCard",
+      "props": {
+        "label": "Why he's a legend",
+        "items": [
+          {
+            "text": "He studied stocks by computer before almost anyone.",
+            "sub": "His firm built the first computerized daily stock database."
+          },
+          {
+            "text": "He measured over 1,000 big winners, back to the 1880s.",
+            "sub": "What did they share before their big runs?"
+          },
+          {
+            "text": "He shared that research with everyday investors.",
+            "sub": "Investor's Daily, 1984. Now Investor's Business Daily."
+          }
+        ],
+        "at": [
+          0.3,
+          4.8062,
+          9.2506
+        ]
+      },
+      "captions": [
+        "Why a legend? He studied winners by computer in the 1960s.",
+        "He measured over 1,000 big winners, back to the 1880s.",
+        "Then he shared it all in a daily paper."
+      ]
+    },
+    {
+      "t": 34.6667,
+      "dur": 18.6667,
+      "kind": "method",
+      "component": "CupHandle",
+      "peak": true,
+      "props": {
+        "drawAt": 0.3,
+        "drawDur": 14.4343,
+        "labelsAt": {
+          "cup": 5.4142,
+          "handle": 11.6,
+          "pivot": 12.2
+        }
+      },
+      "captions": [
+        "Before big runs, winners often rested in a base: a sideways pause.",
+        "His favorite was the cup with handle.",
+        "That's a rounded dip, then a smaller dip near the top.",
+        "He bought when the price broke above the handle, on heavy volume."
+      ]
+    },
+    {
+      "t": 53.3333,
+      "dur": 10.6667,
+      "kind": "sell_rule",
+      "component": "CupHandle",
+      "transition": "cut",
+      "props": {
+        "startDrawn": 1,
+        "sfx": false,
+        "stopAt": 0.6667
+      },
+      "captions": [
+        "His sell rule: cut every loss 7 to 8% below your buy.",
+        "A small loss is easy to win back. A big one isn't."
+      ]
+    },
+    {
+      "t": 64.0,
+      "dur": 16.0,
+      "kind": "mistakes",
+      "component": "ListCard",
+      "props": {
+        "label": "Even legends slip",
+        "items": [
+          {
+            "text": "His fund rose 116% in 1967, the year's best.",
+            "sub": "The O'Neil Fund, ranked first by FundScope magazine."
+          },
+          {
+            "text": "Then stocks fell, and investors pulled their money.",
+            "sub": "Assets: $49 million at the peak, $6 million by 1975."
+          },
+          {
+            "text": "His take: too many small stocks, growing too fast.",
+            "sub": "What he told the Los Angeles Times, paraphrased."
+          }
+        ],
+        "at": [
+          0.3,
+          4.5305,
+          10.2652
+        ]
+      },
+      "captions": [
+        "Even legends slip. His fund rose 116% in 1967.",
+        "Then stocks fell, investors pulled out, and assets shrank to $6 million.",
+        "His take: they grew too fast and bought too many small stocks."
+      ]
+    },
+    {
+      "t": 80.0,
+      "dur": 13.3333,
+      "kind": "lessons",
+      "component": "ListCard",
+      "props": {
+        "label": "His rules, in short",
+        "items": [
+          {
+            "text": "Buy leading stocks as they break out of a sound base.",
+            "sub": "The cup with handle is one kind."
+          },
+          {
+            "text": "Cut every loss at 7 to 8%. No exceptions.",
+            "sub": "Small losses are easy to win back."
+          },
+          {
+            "text": "Own a few stocks, and know each one well.",
+            "sub": "The lesson his fund paid for."
+          },
+          {
+            "text": "Follow the market's direction, not opinions.",
+            "sub": "Most stocks move with the overall market."
+          }
+        ],
+        "at": [
+          0.3,
+          4.327,
+          6.727,
+          9.0063
+        ]
+      },
+      "captions": [
+        "His rules fit on a card. Buy leaders breaking out.",
+        "Cut losses at 7 to 8%. Don't own too many stocks.",
+        "And follow the market. Most stocks go where it goes."
+      ]
+    },
+    {
+      "t": 93.3333,
+      "dur": 5.3333,
+      "kind": "card",
+      "component": "LegendCard",
+      "props": {
+        "legend": {
+          "no": "02",
+          "name": "William O'Neil",
+          "era": "1958 – 2023",
+          "markets": "Stocks",
+          "edge": "Bought leaders breaking out of sound bases.",
+          "habit": "Cut every loss at 7–8%. No exceptions.",
+          "read": "How to Make Money in Stocks (1988)"
+        },
+        "emblem": "cup-handle",
+        "animate": true
+      },
+      "captions": [
+        "Legend card 02. Study his winners, and his rules."
+      ]
+    },
+    {
+      "t": 98.6667,
+      "dur": 8.0,
+      "kind": "end"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia: William O'Neil",
+      "url": "https://en.wikipedia.org/wiki/William_O%27Neil",
+      "used_for": "born 25 March 1933, died 28 May 2023; 1958 stockbroker at Hayden, Stone; NYSE seat at 30, the youngest at that time; 1963 founded William O'Neil + Co., which developed the first computerized daily securities database; early use of computers; Investor's Daily 1984, renamed Investor's Business Daily 1991; O'Neil Fund (1965) saw significant outflows in the late-1960s downturn; his words to the Los Angeles Times (via the WSJ obituary): 'we bought too many small names... We were growing too fast'"
+    },
+    {
+      "title": "WealthManagement.com: William J. O'Neil, Investor's Business Daily founder, dies at 90 (Bloomberg obituary)",
+      "url": "https://www.wealthmanagement.com/ria-news/william-j-o-neil-investor-s-business-daily-founder-dies-at-90",
+      "used_for": "1958 Hayden Stone, Los Angeles; following his rules in early 1962 he sold all his stocks before the spring crash; Market Wizards (1989): $5,000 into $200,000 through three consecutive trades (Korvette short, Chrysler, Syntex); NYSE seat bought with trading profits in 1964; O'Neil Fund +116% in 1967, the year's best per FundScope; assets $49 million peak to $6 million by its 1975 sale (Los Angeles Times); Martin Mayer (1969) on his computer work; How to Make Money in Stocks first published 1988"
+    },
+    {
+      "title": "William O'Neil + Co.: What we do",
+      "url": "https://www.williamoneil.com/what-we-do",
+      "used_for": "the Model Book of Greatest Stock Winners: evidence on more than 1,000 winning stocks back to the 1880s"
+    },
+    {
+      "title": "Wikipedia: CAN SLIM",
+      "url": "https://en.wikipedia.org/wiki/CAN_SLIM",
+      "used_for": "cut all losses at no more than 7% or 8% below the buy point; cup with handle as the preferred base; M = market direction (most stocks follow the market). CAN SLIM is a registered mark of Investor's Business Daily: attributed, never our branding"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0004",
+      "L0001"
+    ],
+    "next": [
+      "L0011"
+    ]
+  },
+  "next": {
+    "lore_no": 11,
+    "title": "The RS line leads price"
+  },
+  "thumb": {
+    "lines": [
+      "O'Neil",
+      "studied",
+      "[[1,000]] winners."
+    ],
+    "component": "CupHandle",
+    "props": {
+      "startDrawn": 1,
+      "sfx": false
+    }
+  },
+  "cover": {
+    "lines": [
+      "O'Neil",
+      "studied",
+      "[[1,000]] winners."
+    ],
+    "sub": "What they shared, and the rule that kept him safe.",
+    "component": "CupHandle",
+    "props": {
+      "startDrawn": 1,
+      "sfx": false
+    }
+  },
+  "carousel": [
+    {
+      "component": "LegendCard"
+    },
+    {
+      "headline": "Why he's a legend",
+      "component": "ListCard",
+      "props": {
+        "items": [
+          {
+            "text": "He studied stocks by computer before almost anyone.",
+            "sub": "His firm built the first computerized daily stock database."
+          },
+          {
+            "text": "He measured over 1,000 big winners, back to the 1880s.",
+            "sub": "What did they share before their big runs?"
+          },
+          {
+            "text": "He shared that research with everyday investors.",
+            "sub": "Investor's Daily, 1984. Now Investor's Business Daily."
+          }
+        ],
+        "at": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "headline": "His favorite base: the cup with handle.",
+      "component": "CupHandle",
+      "props": {
+        "startDrawn": 1,
+        "sfx": false
+      },
+      "sub": "A base is a sideways pause. The cup with handle is a rounded dip, then a smaller dip. He bought as the price broke above the handle on heavy volume."
+    },
+    {
+      "headline": "Even legends slip",
+      "component": "ListCard",
+      "props": {
+        "items": [
+          {
+            "text": "His fund rose 116% in 1967, the year's best.",
+            "sub": "The O'Neil Fund, ranked first by FundScope magazine."
+          },
+          {
+            "text": "Then stocks fell, and investors pulled their money.",
+            "sub": "Assets: $49 million at the peak, $6 million by 1975."
+          },
+          {
+            "text": "His take: too many small stocks, growing too fast.",
+            "sub": "What he told the Los Angeles Times, paraphrased."
+          }
+        ],
+        "at": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "headline": "His rules, in short",
+      "component": "ListCard",
+      "props": {
+        "items": [
+          {
+            "text": "Buy leading stocks as they break out of a sound base.",
+            "sub": "The cup with handle is one kind."
+          },
+          {
+            "text": "Cut every loss at 7 to 8%. No exceptions.",
+            "sub": "Small losses are easy to win back."
+          },
+          {
+            "text": "Own a few stocks, and know each one well.",
+            "sub": "The lesson his fund paid for."
+          },
+          {
+            "text": "Follow the market's direction, not opinions.",
+            "sub": "Most stocks move with the overall market."
+          }
+        ],
+        "at": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "headline": "Which legend [[next]]?",
+      "sub": "Minervini, Darvas, Weinstein, Loeb, Zanger. Tell us who you want on card 03."
+    }
+  ],
+  "status": "scripted"
+}

@@ -39,7 +39,7 @@
       "props": {
         "startAt": 0.2,
         "dur": 5.2,
-        "ddAt": 5.6
+        "ddAt": 5.3333
       },
       "captions": [
         "Same 200 trades. Worst drop: −6% or −23%.",
@@ -71,7 +71,6 @@
       "dur": 8.5333,
       "kind": "runs",
       "component": "TwinPaths",
-      "transition": "cut",
       "props": {
         "startAt": -10,
         "dur": 0.1,
@@ -133,8 +132,8 @@
         "bins": 24
       },
       "captions": [
-        "The cause? Losing streaks. Typical run: 9 losses in a row.",
-        "At 2% a trade, nine straight losses cost 17%."
+        "Losing streaks: half the runs hit 9 losses in a row.",
+        "At 2% each, nine straight losses cost 17%."
       ]
     },
     {

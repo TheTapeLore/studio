@@ -5,7 +5,9 @@ legends:
      fact_sheet: content/legends/livermore.md,
      sources: ["https://en.wikipedia.org/wiki/Jesse_Livermore", "How to Trade in Stocks (1940), ch. V", "https://www.gutenberg.org/ebooks/60979"],
      known_for: "Tape reading, pivotal points, adding to winners; subject of Reminiscences of a Stock Operator; wrote How to Trade in Stocks (1940)"}
-  - {id: oneil, name: William O'Neil, era: "1958-2023", markets: [stocks], priority: 1, verified: false,
+  - {id: oneil, name: William O'Neil, era: "1958-2023", markets: [stocks], priority: 1, verified: true, card: L0010,
+     fact_sheet: content/legends/oneil.md,
+     sources: ["https://en.wikipedia.org/wiki/William_O%27Neil", "https://www.wealthmanagement.com/ria-news/william-j-o-neil-investor-s-business-daily-founder-dies-at-90", "https://www.williamoneil.com/what-we-do"],
      known_for: "CAN SLIM (IBD's mark), cup with handle, cutting losses at 7-8%, founded Investor's Business Daily; How to Make Money in Stocks"}
   - {id: minervini, name: Mark Minervini, era: "1980s-", markets: [stocks], priority: 1, verified: false,
      known_for: "VCP, trend template, SEPA (his mark); Trade Like a Stock Market Wizard; US Investing Championship"}

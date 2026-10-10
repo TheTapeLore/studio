@@ -24,8 +24,7 @@ items:
   priority: big_bet
   search_terms:
   - win rate vs risk reward
-  status: taken
-  taken: L0002
+  status: "taken: L0002"
 - id: B003
   season: 1
   order: 3
@@ -73,7 +72,7 @@ items:
   priority: big_bet
   search_terms:
   - how much to risk per trade
-  status: open
+  status: "taken: L0006"
 - id: B007
   season: 1
   order: 7
@@ -85,7 +84,7 @@ items:
   priority: big_bet
   search_terms:
   - where to place stop loss
-  status: open
+  status: "taken: L0007"
 - id: B008
   season: 1
   order: 8
@@ -97,7 +96,7 @@ items:
   priority: fill_in
   search_terms:
   - trading expectancy
-  status: open
+  status: "taken: L0008"
 - id: B009
   season: 1
   order: 9
@@ -109,7 +108,7 @@ items:
   priority: quick_win
   search_terms:
   - averaging down stocks
-  status: open
+  status: "taken: L0009"
 - id: B010
   season: 1
   order: 10
@@ -121,7 +120,7 @@ items:
   priority: quick_win
   search_terms:
   - william oneil
-  status: open
+  status: "taken: L0010"
 - id: B011
   season: 1
   order: 11

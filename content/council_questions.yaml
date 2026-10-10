@@ -1,5 +1,5 @@
 questions:
-  - {q: "Where does your stop go?", seats_hint: [oneil, minervini, kovner, seykota, livermore], status: open}
+  - {q: "Where does your stop go?", seats_hint: [oneil, minervini, kovner, seykota, livermore], status: "used: L0007"}
   - {q: "How much do you risk on one trade?", seats_hint: [minervini, seykota, ptj, druckenmiller], status: open}
   - {q: "When do you sit in cash?", seats_hint: [oneil, weinstein, ptj, qullamaggie], status: open}
   - {q: "When do you sell a winner?", seats_hint: [oneil, minervini, zanger, qullamaggie, loeb], status: open}

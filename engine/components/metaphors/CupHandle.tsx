@@ -98,7 +98,7 @@ export const CupHandle: React.FC<CupHandleProps> = ({ drawAt = 0.2, drawDur = 5,
           </g>
         )}
         <text x={xa} y={wy - 16 * u} fill={C.sodium} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} letterSpacing="0.1em">
-          PIVOT: THE BUY POINT
+          BUY POINT: TOP OF THE HANDLE
         </text>
       </g>
       <polyline points={pts.map(([x, y]) => `${X(x).toFixed(1)},${Y(y).toFixed(1)}`).join(" ")} fill="none" stroke={C.tape} strokeWidth={10 * u} strokeLinejoin="round" strokeLinecap="round" />

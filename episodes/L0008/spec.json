@@ -83,10 +83,11 @@
   "data": null,
   "simulation": {
     "script": "sims/r_multiples.py",
-    "seed": 3,
+    "seed": 47,
     "params": {
       "trades": 20,
-      "win_rate": 0.4
+      "win_rate": 0.4,
+      "sequence_seed": 49
     }
   },
   "sources": [
@@ -101,9 +102,9 @@
       "used_for": "expectancy = win rate × average win − loss rate × average loss; positive means an edge"
     },
     {
-      "title": "sims/r_multiples.py (The Tape Lore, seed 3)",
+      "title": "sims/r_multiples.py (The Tape Lore, seed 47)",
       "url": "https://github.com/TheTapeLore/studio/blob/main/sims/r_multiples.py",
-      "used_for": "the same 20 simulated trades as Lore 003: +3.5R total, +0.175R per trade (shown as +0.18R)"
+      "used_for": "a fresh 20-trade sequence from the Lore 003 model (sequence seed 49, the median-total pick): +3.5R total, +0.175R per trade (shown as +0.18R)"
     }
   ],
   "links": {

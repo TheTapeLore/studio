@@ -160,7 +160,7 @@
         },
         "showReadout": false,
         "showAvg": false,
-        "stopAt": 0.4
+        "stopAt": 0.5
       },
       "captions": [
         "One buy and a stop 8% below it? Out for $800.",

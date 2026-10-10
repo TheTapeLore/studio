@@ -21,8 +21,8 @@ export interface MilestonesProps {
 }
 
 /**
- * A career as a timeline: a year axis that draws itself, milestones lighting one by one (the newest in Tape with its
- * label, earlier ones dimmed to Mist), labels alternating above and below the axis so they never collide.
+ * A career as a timeline: a year axis that draws itself, milestones lighting one by one. The newest shows its label in
+ * Tape; earlier ones step back to a dimmed dot and year, alternating above and below the axis so nothing collides.
  */
 export const Milestones: React.FC<MilestonesProps> = ({ items, years = [1955, 1990], title }) => {
   const frame = useCurrentFrame();
@@ -37,7 +37,8 @@ export const Milestones: React.FC<MilestonesProps> = ({ items, years = [1955, 19
   const draw = prog(frame, fps, 0, 0.8, "draw");
   const newest = items.reduce((k, it, i) => (t >= it.at ? i : k), -1);
   const decades: number[] = [];
-  for (let d = Math.ceil(years[0] / 10) * 10; d <= years[1]; d += 10) decades.push(d);
+  const step = years[1] - years[0] > 20 ? 10 : 2;
+  for (let d = Math.ceil(years[0] / step) * step; d <= years[1]; d += step) decades.push(d);
   return (
     <svg width={w} height={h} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
       {title ? (
@@ -49,9 +50,11 @@ export const Milestones: React.FC<MilestonesProps> = ({ items, years = [1955, 19
       {decades.map((d) => (
         <g key={d} opacity={draw}>
           <line x1={X(d)} x2={X(d)} y1={axisY - 8 * u} y2={axisY + 8 * u} stroke={C.mist} strokeWidth={2 * u} />
-          <text x={X(d)} y={axisY + 36 * u} fill={hexA(C.mist, 0.8)} fontFamily={FONT.mono} fontSize={fs * 0.85} textAnchor="middle">
-            {d}
-          </text>
+          {items.some((it) => it.year === d && t >= it.at) ? null : (
+            <text x={X(d)} y={axisY + 36 * u} fill={hexA(C.mist, 0.8)} fontFamily={FONT.mono} fontSize={fs * 0.85} textAnchor="middle">
+              {d}
+            </text>
+          )}
         </g>
       ))}
       {items.map((it, i) => {
@@ -62,17 +65,28 @@ export const Milestones: React.FC<MilestonesProps> = ({ items, years = [1955, 19
         const isNew = i === newest;
         const color = isNew ? C.tape : C.mist;
         const anchor = x > x1 - 160 * u ? "end" : x < x0 + 160 * u ? "start" : "middle";
-        const stem = up ? 120 : 120;
+        const stem = 120;
         const ly = up ? axisY - stem * u : axisY + stem * u + 22 * u;
+        if (!isNew) {
+          // earlier milestones step back to a dot and their year, so labels never pile up
+          return (
+            <g key={i} opacity={clamp(a) * 0.75}>
+              <circle cx={x} cy={axisY} r={9 * u} fill={C.abyss} stroke={C.mist} strokeWidth={3 * u} />
+              <text x={x} y={up ? axisY - 24 * u : axisY + 40 * u} fill={C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="middle">
+                {it.year}
+              </text>
+            </g>
+          );
+        }
         return (
-          <g key={i} opacity={clamp(a) * (isNew ? 1 : 0.75)}>
-            <line x1={x} x2={x} y1={axisY} y2={up ? ly + 14 * u : ly - SIZE.label * u * 1.05} stroke={hexA(color, 0.6)} strokeWidth={2 * u} />
-            <circle cx={x} cy={axisY} r={(isNew ? 13 : 9) * u} fill={isNew ? C.tape : C.abyss} stroke={color} strokeWidth={3 * u} />
-            <text x={x} y={ly - (it.sub ? 34 : 0) * u} fill={color} fontFamily={FONT.display} fontWeight={800} fontSize={SIZE.label * u * 1.15} textAnchor={anchor}>
+          <g key={i} opacity={clamp(a)}>
+            <line x1={x} x2={x} y1={axisY} y2={up ? ly + 14 * u : ly - SIZE.label * u * 1.05 - (it.sub ? 34 : 0) * u} stroke={hexA(color, 0.6)} strokeWidth={2 * u} />
+            <circle cx={x} cy={axisY} r={13 * u} fill={C.tape} stroke={color} strokeWidth={3 * u} />
+            <text x={x} y={up ? ly - (it.sub ? 34 : 0) * u : ly} fill={color} fontFamily={FONT.display} fontWeight={800} fontSize={SIZE.label * u * 1.15} textAnchor={anchor}>
               {`${it.year} · ${it.label}`}
             </text>
             {it.sub ? (
-              <text x={x} y={ly} fill={hexA(color, 0.9)} fontFamily={FONT.body} fontSize={fs * 1.05} textAnchor={anchor}>
+              <text x={x} y={up ? ly : ly + 40 * u} fill={hexA(color, 0.9)} fontFamily={FONT.body} fontSize={fs * 1.05} textAnchor={anchor}>
                 {it.sub}
               </text>
             ) : null}

@@ -597,10 +597,157 @@ def i_fortuneline(S, b, t0, t1, data):
             S.cue(te, f"{e['year']}: {e['label'].lower()} -> {S.name(S.depth_deg(depth))}, half-time, breakout withheld")
 
 
+CUP_CROSS_FRAC = 0.902939   # CupHandle: where along the drawn path the price breaks above the handle's high
+
+
+def i_cuphandle(S, b, t0, t1, data):
+    """The cup with handle (CupHandle). Drawing the cup and handle = a breakdown under the line (breakout withheld),
+    a one-bar build, the drop on the snap through the buy point. Already drawn (startDrawn 1): the chorus; the loss
+    line (stopAt) gets an impact on its bar."""
+    p = b.get("props", {})
+    if p.get("startDrawn", 0) >= CUP_CROSS_FRAC:
+        for k in S.bars_in(t0, t1):
+            S.bars[k].energy, S.bars[k].label = 4, "the rule: chorus"
+        S.melody(t0, t1)
+        if p.get("stopAt") is not None:
+            S.ev(t0 + p["stopAt"], "impact", size=0.6)
+            S.cue(t0 + p["stopAt"], "the loss line lands")
+        return
+    snap = t0 + p.get("drawAt", 0.2) + CUP_CROSS_FRAC * p.get("drawDur", 5.0)
+    if abs(snap / S.bar - round(snap / S.bar)) > 0.03:
+        S.cue(snap, "warning: the buy point snaps off the bar grid (adjust drawDur)")
+    sb = S.bar_of(snap + 1e-3)
+    for k in S.bars_in(t0, t1):
+        bar = S.bars[k]
+        bar.energy, bar.drums, bar.label = (2, "break", "the cup forms") if k < sb else (4, "full", "the break: chorus")
+    S.melody(t0, sb * S.bar, withhold=True, gain=0.7)
+    S.melody(sb * S.bar, t1)
+    build(S, max(t0, sb * S.bar - S.bar), sb * S.bar, "price reaches the buy point")
+    S.anchor(sb * S.bar)
+    S.cue(snap, "the buy point snaps (tripwire)")
+
+
+def i_averagedown(S, b, t0, t1, data):
+    """Averaging down on a real chart (AverageDown). Each buy lands with a fall sized by how far the stock is below
+    its high; the deeper it goes, the darker the chords (depth ladder), half-time below -50%, breakout withheld. The
+    tells are a breakdown; the one-stop rule is the chorus with an impact where the stop fires."""
+    p = b.get("props", {})
+    bars = (data or {}).get("bars") or []
+    if not bars:
+        return i_default(S, b, t0, t1, data)
+    if p.get("stopAt") is not None:
+        for k in S.bars_in(t0, t1):
+            S.bars[k].energy, S.bars[k].label = 4, "the rule: one stop"
+        S.melody(t0, t1)
+        S.ev(t0 + p["stopAt"], "impact", size=0.8)
+        S.cue(t0 + p["stopAt"], "the stop: out small")
+        return
+    rv = p.get("reveal") or {}
+    closes = [x["c"] for x in bars]
+    n = len(closes)
+    idx = lambda d: next((i for i, x in enumerate(bars) if x["t"] >= d), n - 1)
+    i0, i1 = idx(rv.get("from", bars[0]["t"])), idx(rv.get("to", bars[-1]["t"]))
+    at, dur = rv.get("at", 0.2), max(0.01, rv.get("dur", 4))
+    pk = 0
+    for i in range(n):
+        if bars[i]["t"] <= p.get("peakBefore", "2000-12-31") and closes[i] > closes[pk]:
+            pk = i
+    P = closes[pk]
+    first, step, mx = p.get("firstPct", 0.25), p.get("stepPct", 0.2), p.get("maxBuys", 5)
+    buys = []
+    for i in range(pk, n):
+        if len(buys) >= mx:
+            break
+        last = closes[buys[-1]] if buys else None
+        if (last is None and closes[i] <= P * (1 - first)) or (last is not None and closes[i] <= last * (1 - step)):
+            buys.append(i)
+    t_of = lambda i: t0 + at + dur * (i - i0) / max(1, i1 - i0)
+    head_dd = 1 - min(closes[i0:i1 + 1] or [P]) / P if i1 > i0 else 1 - closes[i1] / P
+    if p.get("tellsAt") is not None or i1 <= i0:
+        L = head_dd
+        for k in S.bars_in(t0, t1):
+            bar = S.bars[k]
+            bar.deg, bar.energy, bar.drums, bar.label = S.depth_deg(min(0.9, L)), 2, "break", f"the tells, {fmt(-L)}"
+        S.melody(t0, t1, withhold=True, gain=0.6)
+        S.cue(t0, f"tells: breakdown at depth {fmt(-L)}")
+        return
+    marks = [(t0, 0.0)] + [(t_of(i), 1 - closes[i] / P) for i in buys if i0 < i <= i1]
+    if i1 > i0:
+        lo = min(range(i0, i1 + 1), key=lambda i: closes[i])
+        if not buys or lo > buys[-1]:
+            marks.append((t_of(lo), 1 - closes[lo] / P))
+    # buys closer than two beats merge into one fall (the deepest), so the runs never pile on each other
+    merged = [marks[0]]
+    for m in marks[1:]:
+        if len(merged) > 1 and m[0] - merged[-1][0] < 2 * S.beat:
+            merged[-1] = m
+        else:
+            merged.append(m)
+    marks = merged
+    for j, (ta, L) in enumerate(marks):
+        tb = marks[j + 1][0] if j + 1 < len(marks) else t1
+        if j:
+            fall_fill(S, ta, L)
+        for k in S.bars_in(ta, tb):
+            bar = S.bars[k]
+            bar.deg = S.depth_deg(L) if L >= 0.35 else None
+            bar.energy = 4 if L < 0.3 else 3 if L < 0.6 else 2
+            bar.drums = "full" if L < 0.5 else "half"
+            bar.label = f"down {fmt(-L)}"
+        S.melody(ta, tb, withhold=L >= 0.35, gain=1.0 if L < 0.5 else 0.7)
+
+
+def i_twinpaths(S, b, t0, t1, data):
+    """One run sized two ways (TwinPaths). Drawing: the groove with the breakout withheld while the drawdowns shade;
+    the worst-drop markers (ddAt) get a fall the size of the loud line's drop; the end values (finalAt) land as the
+    chorus."""
+    p = b.get("props", {})
+    tw = (S.sim or {}).get(p.get("simKey", "twin")) or {}
+    dd = abs(min((tw.get("maxdd") or {"x": -0.2}).values()))
+    if p.get("finalAt") is not None:
+        for k in S.bars_in(t0, t1):
+            S.bars[k].energy, S.bars[k].label = 4, "the end values"
+        S.melody(t0, t1)
+        S.ev(t0 + p["finalAt"], "impact", size=0.7)
+        return
+    for k in S.bars_in(t0, t1):
+        S.bars[k].energy, S.bars[k].label = 3, "same trades, two sizes"
+    S.melody(t0, t1, withhold=True, gain=0.85)
+    if p.get("ddAt") is not None and t0 + p["ddAt"] < t1:
+        fall_fill(S, t0 + p["ddAt"], dd)
+
+
+def i_listcard(S, b, t0, t1, data):
+    """A list (ListCard), read by beat kind. Mistakes: darker chords, half-time, breakout withheld, a fall when the
+    second item (the slide) lands, and a one-bar build out of it into whatever comes next. Why-a-legend: the groove
+    with the hook, saving the chorus for the rules. Anything else (rules, lessons, agreements): the chorus."""
+    kind = b.get("kind", "")
+    at = (b.get("props") or {}).get("at") or []
+    if kind in ("mistakes", "misses", "failure"):
+        L = 0.5
+        for k in S.bars_in(t0, t1):
+            bar = S.bars[k]
+            bar.deg, bar.energy, bar.drums, bar.label = S.depth_deg(L), 2, "half", "the misses: darker, half-time"
+        S.melody(t0, t1 - S.bar, withhold=True, gain=0.7)
+        if len(at) > 1:
+            fall_fill(S, S.bar_of(t0 + at[1] + S.bar * 0.5) * S.bar, L)
+        if t1 - t0 >= 3 * S.bar:
+            build(S, t1 - S.bar, t1, "out of the misses, into the rules")
+        S.cue(t0, f"mistakes -> {S.name(S.depth_deg(L))}, half-time, breakout withheld")
+        return
+    if kind in ("why_legend", "who", "record"):
+        for k in S.bars_in(t0, t1):
+            S.bars[k].energy, S.bars[k].label = 3, kind
+        S.melody(t0, t1)
+        return
+    return i_rule(S, b, t0, t1, data)
+
+
 INTERPRETERS = {"ThePit": i_thepit, "Duel": i_duel, "RunsFan": i_runsfan, "Distribution": i_distribution, "CandleChart": i_candlechart, "Anatomy": i_candlechart, "MythCard": i_myth,
                 "RuleCard": i_rule, "EndCard": i_end,
                 "RCompare": i_rcompare, "RRuler": i_rruler, "RTower": i_rtower, "Seesaw": i_seesaw, "PivotStep": i_pivotstep,
-                "FortuneLine": i_fortuneline, "ListCard": i_rule}
+                "FortuneLine": i_fortuneline, "ListCard": i_listcard,
+                "CupHandle": i_cuphandle, "AverageDown": i_averagedown, "TwinPaths": i_twinpaths}
 KIND_DEFAULT = {"end": "EndCard", "misconception": "MythCard", "rule": "RuleCard", "the_rule": "RuleCard"}
 
 

@@ -1,0 +1,12 @@
+{
+  "batch": "2026-10-10-a",
+  "created": "2026-10-10",
+  "episodes": ["L0006", "L0007", "L0008", "L0009", "L0010"],
+  "rationale": {
+    "L0006": "Season 1 order 6 (backlog B006), risk/whatif (empty cell). New component TwinPaths: one simulated run, the same 200 trades sized at 0.5% and 2%, with each line's drawdowns shaded, then the 1,000-run fans and the distribution of worst drops. New angle over Lore 005 (which fixed the dollar risk when the stop moves): how big that fixed risk should be, and its price in drawdowns.",
+    "L0007": "Season 1 order 7 (backlog B007): the first Council, legends/council (empty). Five legends on one question, answers paraphrased from their own books and Market Wizards interviews. New component StopMap splits the two schools of stop placement (a fixed percent vs under the range) on one illustration, then where all five agree. Feeds Lore 005's 'then size it'.",
+    "L0008": "Season 1 order 8 (backlog B008): the first Lexicon, risk/lexicon (empty). Names what Lore 002 computed in dollars and measures it in R (Lore 003), on a fresh simulated 20-trade sequence from the same model. An 18-second reference card later entries can cite.",
+    "L0009": "Season 1 order 9 (backlog B009): the first Failure File, risk/failure (empty). Real Cisco weekly closes 1999-2003 (ended more than 20 years ago), averaging down computed from the closes by a stated rule: five buys, money in $50,000, worth $17,500 at the 2002 low. New component AverageDown also draws the tells (each bounce topped lower) and the one-stop alternative (out at -$800).",
+    "L0010": "Season 1 order 10 (backlog B010): Legend 02, legends/legendcard, built to the Legend story standard set by Lore 004 (who, the record, why a legend, the method, the mistakes with their causes, the rules, the card). New components Milestones and CupHandle. His fund's slide is told with his own explanation (too many small stocks, growing too fast), sourced."
+  }
+}

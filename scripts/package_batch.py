@@ -26,7 +26,9 @@ COPY = ["x.md", "instagram.md", "youtube.md"]
 
 
 def folder_name(meta):
-    title = re.sub(r"[^A-Za-z0-9 ,'&()+-]+", " ", meta["title"]).strip()
+    # keep what reads naturally and is safe on Windows, macOS and Linux ("0.5%", "1,000"); a colon becomes a dash
+    title = meta["title"].replace(":", " -")
+    title = re.sub(r"[^A-Za-z0-9 .,%'&()+-]+", " ", title).strip().rstrip(".")
     title = re.sub(r"\s+", " ", title)
     return f"Lore {int(meta['lore_no']):03d} - {title}"
 

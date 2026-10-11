@@ -60,7 +60,7 @@ Every entry lands as: videos in the GitHub Release `batch-<id>`, and copy in `pu
 - Yahoo data is fine for education; consider a licensed data source if the channel is monetised.
 
 ## Status
-Studio built (2026-10-06). Released: Lore 001 (The Pit), Lore 002 (Mostly Wrong, 2026-10-09), Lore 003 (The Ruler), Lore 004 (Legend 01: Livermore), Lore 005 (The Seesaw) (batch 2026-10-09-b). Delivery mode: **actions** (see CLAUDE.md).
+Studio built (2026-10-06). Released: Lore 001 (The Pit), Lore 002 (Mostly Wrong, 2026-10-09), Lore 003 (The Ruler), Lore 004 (Legend 01: Livermore), Lore 005 (The Seesaw) (batch 2026-10-09-b); Lore 006 to 010 (batch 2026-10-10-a). Delivery mode: **actions** (see CLAUDE.md).
 
 ### What was built
 | Part | Where | Notes |
@@ -116,7 +116,16 @@ gh workflow run render.yml --ref <branch> -f batch=<id> -f ref=<branch>   # rend
 - Videos: GitHub Release [batch-2026-10-09-b](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-09-b).
   Report and posting slots: `batches/2026-10-09-b-report.md`. Registry status: `released`.
 
+### Lore 006–010 · batch 2026-10-10-a
+- Lore 006 · Risk 0.5% vs 2% per trade: 1,000 runs (What If; `sims/risk_per_trade.py`, seed 7). Lore 007 · The Council:
+  where does your stop go? (first Council). Lore 008 · Expectancy in 15 seconds (first Lexicon). Lore 009 · Failure File:
+  averaging down a loser (Cisco 2000-2002, real weekly closes). Lore 010 · Legend 02: William O'Neil (Legend story,
+  107 s; fact sheet `content/legends/oneil.md`; card, print files and a 6-slide carousel).
+- Download everything in one go: `batch-2026-10-10-a.zip` on the Release
+  [batch-2026-10-10-a](https://github.com/TheTapeLore/studio/releases/tag/batch-2026-10-10-a) (one folder per Lore).
+  Report and posting slots: `batches/2026-10-10-a-report.md`.
+
 ### What you must do by hand
-1. **Upload Lore 001 to 005** from their Releases and `publish/<id>/*.md`, in order (each description links back to the one before). Claude never posts.
+1. **Upload Lore 001 to 010** from their Releases and `publish/<id>/*.md`, in order (each description links back to the one before). Claude never posts.
 2. **Check the Remotion licence** (remotion.dev/license) before monetising or hiring: it is free for individuals and very small companies; larger teams need a company licence. That is a money decision for you.
 3. Nothing else needs credentials. Cloud sessions cannot create Releases themselves (HTTP 403 for this session type), which is why delivery runs through Actions with the workflow's own token.

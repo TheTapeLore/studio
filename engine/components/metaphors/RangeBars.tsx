@@ -81,7 +81,7 @@ export const RangeBars: React.FC<RangeBarsProps> = ({ series, drawAt = 0.2, draw
             {adrA > 0 ? (
               <g opacity={adrA}>
                 <line x1={0} x2={(w - axisW) * adrA} y1={Y(adr)} y2={Y(adr)} stroke={C.tape} strokeWidth={3 * u} strokeDasharray={`${12 * u} ${8 * u}`} />
-                <text x={w - axisW - 8 * u} y={Y(adr) - 12 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end">
+                <text x={w - axisW - 8 * u} y={Y(adr) - 12 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.15} textAnchor="end">
                   {`ADR ${adr.toFixed(1)}%`}
                 </text>
               </g>
@@ -89,7 +89,7 @@ export const RangeBars: React.FC<RangeBarsProps> = ({ series, drawAt = 0.2, draw
             {stopA > 0 && stop !== null ? (
               <g opacity={stopA}>
                 <line x1={0} x2={w - axisW} y1={Y(stop)} y2={Y(stop)} stroke={C.sodium} strokeWidth={3.5 * u} />
-                <text x={w - axisW} y={y0 + 28 * u} fill={hits ? C.ember : C.mist} fontFamily={FONT.mono} fontWeight={600} fontSize={fs} textAnchor="end">
+                <text x={w - axisW} y={y0 + 28 * u} fill={hits ? C.ember : C.mist} fontFamily={FONT.display} fontWeight={800} fontSize={SIZE.label * u * 1.2} textAnchor="end">
                   {`${hits} OF ${n} DAYS MOVED ${stop}%+`}
                 </text>
               </g>

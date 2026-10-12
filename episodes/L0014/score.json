@@ -1,0 +1,281 @@
+{
+ "id": "L0014",
+ "song": {
+  "id": "L0014",
+  "key": "Eb minor",
+  "bpm": 120.0,
+  "genre": "melodic techno",
+  "groove": "four-broken",
+  "progression": [
+   "i",
+   "VI",
+   "iv",
+   "V"
+  ],
+  "lead": "supersaw",
+  "bass": "sub",
+  "arp": "broken",
+  "swing": 0.0
+ },
+ "genre": "melodic techno",
+ "bpm": 120.0,
+ "bars": 22.0,
+ "loop_aligned": true,
+ "lufs": -16.7,
+ "true_peak_db": -3.1,
+ "generator": "scripts/sound/score.py (v4)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 2,
+   "t": 2.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 3,
+   "t": 4.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 4,
+   "t": 6.0,
+   "chord": "V",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 5,
+   "t": 8.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 6,
+   "t": 10.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B2-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 7,
+   "t": 12.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 8,
+   "t": 14.0,
+   "chord": "V",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''2-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 9,
+   "t": 16.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1-",
+   "label": "chart: filter = drawdown"
+  },
+  {
+   "bar": 10,
+   "t": 18.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "tripwire snaps: chorus"
+  },
+  {
+   "bar": 11,
+   "t": 20.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 12,
+   "t": 22.0,
+   "chord": "VI",
+   "energy": 4,
+   "drums": "full",
+   "melody": "B2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 13,
+   "t": 24.0,
+   "chord": "iv",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 14,
+   "t": 26.0,
+   "chord": "V",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A''2",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 15,
+   "t": 28.0,
+   "chord": "i",
+   "energy": 4,
+   "drums": "full",
+   "melody": "A1",
+   "label": "chorus: the rule"
+  },
+  {
+   "bar": 16,
+   "t": 30.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "poll_card"
+  },
+  {
+   "bar": 17,
+   "t": 32.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "poll_card"
+  },
+  {
+   "bar": 18,
+   "t": 34.0,
+   "chord": "V",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "poll_card"
+  },
+  {
+   "bar": 19,
+   "t": 36.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1",
+   "label": "poll_card"
+  },
+  {
+   "bar": 20,
+   "t": 38.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 21,
+   "t": 40.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 22,
+   "t": 42.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "end card"
+  }
+ ],
+ "cues": [
+  {
+   "t": 0,
+   "bar": 1,
+   "cue": "groove runs through a low-pass that follows the drawdown (deepest \u22128% ~ 11639 Hz)"
+  },
+  {
+   "t": 6.0,
+   "bar": 4,
+   "cue": "groove runs through a low-pass that follows the drawdown (deepest \u221211% ~ 10419 Hz)"
+  },
+  {
+   "t": 16.0,
+   "bar": 9,
+   "cue": "the old high comes back: build 1.0 bars"
+  },
+  {
+   "t": 18.0,
+   "bar": 10,
+   "cue": "DROP"
+  },
+  {
+   "t": 20.0,
+   "bar": 11,
+   "cue": "chorus: the hook from its bar 5 (B), the song's peak, then its cadence"
+  },
+  {
+   "t": 38.0,
+   "bar": 20,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 40.0,
+   "bar": 21,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 42.0,
+   "bar": 22,
+   "cue": "loop build: the last bar resolves into frame 0"
+  }
+ ],
+ "end_card": {
+  "drawAt": 0.0,
+  "vertexAt": [
+   0.0,
+   0.375,
+   0.75,
+   1.0,
+   1.25,
+   1.5,
+   3.0111
+  ]
+ }
+}

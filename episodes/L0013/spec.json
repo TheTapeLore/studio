@@ -49,6 +49,7 @@
           "warnAt": 5
         },
         "title": "S&P 500 · DAILY · YAHOO FINANCE",
+        "revealTo": "2007-11-07",
         "revealDur": 0
       },
       "captions": [
@@ -88,10 +89,9 @@
     },
     {
       "t": 23.4667,
-      "dur": 17.0667,
+      "dur": 8.5333,
       "kind": "build",
       "component": "CandleChart",
-      "peak": true,
       "props": {
         "from": "2007-08-20",
         "to": "2007-11-30",
@@ -104,14 +104,65 @@
         },
         "title": "S&P 500 · DAILY · YAHOO FINANCE",
         "revealFrom": "2007-09-24",
-        "revealTo": "2007-11-30",
-        "revealAt": -0.3095,
-        "revealDur": 19.911
+        "revealTo": "2007-10-09",
+        "revealAt": 0.3,
+        "revealDur": 3.7857
       },
       "captions": [
         "Here's the S&P 500 in 2007. Watch the count.",
-        "On October 9 it closed at a record. Count: one.",
-        "Eight trading days later, the count was five.",
+        "On October 9 it closed at a record. Count: one."
+      ]
+    },
+    {
+      "t": 32.0,
+      "dur": 4.2667,
+      "kind": "build",
+      "component": "CandleChart",
+      "transition": "cut",
+      "props": {
+        "from": "2007-08-20",
+        "to": "2007-11-30",
+        "volume": true,
+        "distribution": {
+          "minDrop": 0.002,
+          "window": 25,
+          "rally": 0.05,
+          "warnAt": 5
+        },
+        "title": "S&P 500 · DAILY · YAHOO FINANCE",
+        "revealFrom": "2007-10-10",
+        "revealTo": "2007-10-19",
+        "revealAt": 0.1,
+        "revealDur": 2.4
+      },
+      "captions": [
+        "Eight trading days later, the count was five."
+      ]
+    },
+    {
+      "t": 36.2667,
+      "dur": 4.2667,
+      "kind": "build",
+      "component": "CandleChart",
+      "transition": "cut",
+      "peak": true,
+      "props": {
+        "from": "2007-08-20",
+        "to": "2007-11-30",
+        "volume": true,
+        "distribution": {
+          "minDrop": 0.002,
+          "window": 25,
+          "rally": 0.05,
+          "warnAt": 5
+        },
+        "title": "S&P 500 · DAILY · YAHOO FINANCE",
+        "revealFrom": "2007-10-22",
+        "revealTo": "2007-11-07",
+        "revealAt": 0.1,
+        "revealDur": 2.6
+      },
+      "captions": [
         "By November 7 it hit eight. Prices kept slipping."
       ]
     },

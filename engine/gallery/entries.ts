@@ -22,6 +22,7 @@ export const GALLERY: GalleryEntry[] = [
   { name: "TheRace", component: "TheRace", props: { dur: 3.5, window: "SIMULATED" } },
   { name: "Anatomy (synthetic VCP)", component: "Anatomy", props: { demo: true, revealSpeed: 22 }, secs: 5 },
   { name: "CandleChart + MAs + volume", component: "CandleChart", props: { bars: simBars(140, 5, 40, 0.003, 0.02), ma: [10, 21, 50], volume: true, revealDur: 3.5, measures: [{ from: 40, to: 70, fromPrice: "l", toPrice: "h" }], annotations: [{ at: 100, text: "Simulated", price: "h" }] }, secs: 5 },
+  { name: "CandleChart + distribution days (computed) + % axis", component: "CandleChart", props: { bars: simBars(120, 9, 40, -0.001, 0.015), volume: true, revealDur: 3.5, axisRef: 0, distribution: { minDrop: 0.002, window: 25, rally: 0.05, warnAt: 5 }, title: "SIMULATED INDEX" }, secs: 5 },
   { name: "RunsFan (sims/risk_per_trade.py)", component: "RunsFan", props: { runs: simDemo["runs_2pct"], label: "RISK 2% PER TRADE · SIMULATED", dur: 3 } },
   { name: "Distribution", component: "Distribution", props: { values: simDemo.values["maxdd_2pct"], label: "MAX DRAWDOWN", badSide: "low" } },
   { name: "FiveExits", component: "FiveExits", props: { revealSpeed: 30 }, secs: 5 },

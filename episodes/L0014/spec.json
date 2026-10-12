@@ -47,6 +47,9 @@
         "rs": true,
         "axisRef": "2007-09-21",
         "domain": "visible",
+        "include": [
+          14.6996
+        ],
         "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
         "revealTo": "2007-07-31",
         "revealDur": 0
@@ -72,6 +75,9 @@
         "rs": true,
         "axisRef": "2007-09-21",
         "domain": "visible",
+        "include": [
+          14.6996
+        ],
         "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
         "revealFrom": "2007-07-31",
         "revealAt": 0.2,
@@ -194,6 +200,9 @@
       "rs": true,
       "axisRef": "2007-09-21",
       "domain": "visible",
+      "include": [
+        14.6996
+      ],
       "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
       "revealDur": 0
     }
@@ -215,6 +224,9 @@
       "rs": true,
       "axisRef": "2007-09-21",
       "domain": "visible",
+      "include": [
+        14.6996
+      ],
       "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
       "revealDur": 0
     }

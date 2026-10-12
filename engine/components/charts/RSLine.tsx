@@ -8,7 +8,7 @@ import { useChart } from "./ChartContext";
  * Relative strength line: close / benchmark close, drawn in its own band at the top of the price pane.
  * New RS highs that arrive before a new price high are ringed — the leader shows itself early.
  */
-export const RSLine: React.FC<{ benchmark?: Bar[]; band?: number; markLeads?: boolean }> = ({ benchmark, band = 0.26, markLeads = true }) => {
+export const RSLine: React.FC<{ benchmark?: Bar[]; band?: number; markLeads?: boolean; leadLabel?: string }> = ({ benchmark, band = 0.26, markLeads = true, leadLabel }) => {
   const s = useChart();
   const ep = useEpisode();
   const bm = benchmark ?? ep?.data?.benchmark?.bars;
@@ -34,12 +34,21 @@ export const RSLine: React.FC<{ benchmark?: Bar[]; band?: number; markLeads?: bo
   }
   return (
     <g>
-      <text x={s.plot.x + 4 * s.u} y={top - 6 * s.u} fill={CHART.rsLine} fontFamily={FONT.mono} fontSize={SIZE.tape * s.u * 0.85}>
+      <text x={s.x(s.start)} y={y(ratio[s.start]) - 14 * s.u} fill={CHART.rsLine} fontFamily={FONT.mono} fontWeight={600} fontSize={SIZE.tape * s.u * 0.9}>
         RS
       </text>
       <path d={pts.join("")} fill="none" stroke={CHART.rsLine} strokeWidth={2.6 * s.u} strokeLinejoin="round" />
       {markLeads
-        ? leads.slice(-1).map((i) => <circle key={i} cx={s.x(i)} cy={y(ratio[i])} r={9 * s.u} fill="none" stroke={C.lichen} strokeWidth={2.5 * s.u} />)
+        ? leads.slice(-1).map((i) => (
+            <g key={i}>
+              <circle cx={s.x(i)} cy={y(ratio[i])} r={9 * s.u} fill="none" stroke={C.lichen} strokeWidth={2.5 * s.u} />
+              {leadLabel ? (
+                <text x={s.x(i) + 18 * s.u} y={y(ratio[i]) + 8 * s.u} fill={C.lichen} fontFamily={FONT.mono} fontWeight={600} fontSize={SIZE.tape * s.u}>
+                  {leadLabel}
+                </text>
+              ) : null}
+            </g>
+          ))
         : null}
     </g>
   );

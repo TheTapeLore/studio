@@ -36,6 +36,8 @@ export interface CandleChartProps {
   volume?: boolean;
   ma?: number[];
   rs?: boolean;
+  /** Label next to the newest RS-leads ring (an RS high while the price is still under its high). */
+  rsLabel?: string;
   /** Mark distribution days (computed from closes and volume) with a live count. */
   distribution?: DistributionSpec | null;
   tripwire?: TripwireSpec | null;
@@ -209,7 +211,7 @@ export const CandleChart: React.FC<CandleChartProps> = (p) => {
         {ticks}
         {vol ? <VolumePane /> : null}
         {p.ma?.length ? <MovingAverages periods={p.ma} /> : null}
-        {p.rs ? <RSLine /> : null}
+        {p.rs ? <RSLine leadLabel={p.rsLabel} /> : null}
         {p.distribution ? <DistributionDays {...p.distribution} /> : null}
         {candles}
         {p.tripwire ? <Tripwire {...p.tripwire} /> : null}

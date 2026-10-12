@@ -1,0 +1,148 @@
+{
+ "id": "L0012",
+ "song": {
+  "id": "L0012",
+  "key": "B minor",
+  "bpm": 120.0,
+  "genre": "garage house",
+  "groove": "garage",
+  "progression": [
+   "i",
+   "iv",
+   "VI",
+   "V"
+  ],
+  "lead": "square",
+  "bass": "sub",
+  "arp": "none",
+  "swing": 0.143
+ },
+ "genre": "garage house",
+ "bpm": 120.0,
+ "bars": 10.0,
+ "loop_aligned": true,
+ "lufs": -16.7,
+ "true_peak_db": -3.7,
+ "generator": "scripts/sound/score.py (v4)",
+ "arrangement": [
+  {
+   "bar": 1,
+   "t": 0.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A1",
+   "label": "term"
+  },
+  {
+   "bar": 2,
+   "t": 2.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A2",
+   "label": "term"
+  },
+  {
+   "bar": 3,
+   "t": 4.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "picture"
+  },
+  {
+   "bar": 4,
+   "t": 6.0,
+   "chord": "V",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'2",
+   "label": "picture"
+  },
+  {
+   "bar": 5,
+   "t": 8.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B1",
+   "label": "picture"
+  },
+  {
+   "bar": 6,
+   "t": 10.0,
+   "chord": "iv",
+   "energy": 3,
+   "drums": "full",
+   "melody": "B2",
+   "label": "definition"
+  },
+  {
+   "bar": 7,
+   "t": 12.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A''1",
+   "label": "definition"
+  },
+  {
+   "bar": 8,
+   "t": 14.0,
+   "chord": "i",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo1",
+   "label": "end card"
+  },
+  {
+   "bar": 9,
+   "t": 16.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "logo2",
+   "label": "end card"
+  },
+  {
+   "bar": 10,
+   "t": 18.0,
+   "chord": "VI",
+   "energy": 3,
+   "drums": "full",
+   "melody": "A'1",
+   "label": "end card"
+  }
+ ],
+ "cues": [
+  {
+   "t": 14.0,
+   "bar": 8,
+   "cue": "sonic logo: the mark's nine notes in this song's key"
+  },
+  {
+   "t": 16.0,
+   "bar": 9,
+   "cue": "the wire snaps on the logo's breakout note"
+  },
+  {
+   "t": 18.0,
+   "bar": 10,
+   "cue": "loop build: the last bar resolves into frame 0"
+  }
+ ],
+ "end_card": {
+  "drawAt": 0.0,
+  "vertexAt": [
+   0.0,
+   0.375,
+   0.75,
+   1.0,
+   1.25,
+   1.5,
+   3.0111
+  ]
+ }
+}

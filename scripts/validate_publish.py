@@ -79,6 +79,15 @@ def validate(pkg):
         if x_len(t) > CFG["x"]["post_max_chars"]: errs.append(f"x.thread[{i}] is {x_len(t)} chars")
         scan_banned(f"x.thread[{i}]", t, errs)
     if x.get("reply") and x_len(x["reply"]) > CFG["x"]["post_max_chars"]: errs.append("x.reply too long")
+    # Replay polls (formats.yaml replay deliverables: x_poll_text, ig_story_poll_text). X: 2-4 options, 25 chars each.
+    for where, poll in (("x.poll", x.get("poll")), ("instagram.story_poll", (m.get("instagram") or {}).get("story_poll"))):
+        if not poll:
+            continue
+        opts = poll.get("options") or []
+        if not poll.get("question"): errs.append(f"{where}.question missing")
+        if not 2 <= len(opts) <= 4: errs.append(f"{where} needs 2-4 options")
+        for o in opts:
+            if len(o) > 25: errs.append(f"{where} option '{o}' is {len(o)} chars (max 25)")
     if dur > CFG["x"]["video_max_seconds"]: errs.append(f"video {dur}s exceeds X limit")
     scan_banned("x.post", post, errs)
     if x.get("reply"): scan_banned("x.reply", x["reply"], errs)
@@ -124,9 +133,15 @@ def write_md(pkg):
         o.write(f"# X — {m['id']}\n\nVideo: {f.get('video_4x5','')}\n\n## Post\n\n{x.get('post','')}\n")
         if x.get("reply"): o.write(f"\n## First reply\n\n{x['reply']}\n")
         for i, t in enumerate(x.get("thread", []) or []): o.write(f"\n## Thread {i+2}\n\n{t}\n")
+        if x.get("poll"):
+            po = x["poll"]
+            o.write(f"\n## Poll (attach to the post; X polls run up to 7 days)\n\n{po['question']}\n" + "".join(f"- {op}\n" for op in po["options"]))
     with open(os.path.join(pkg, "instagram.md"), "w") as o:
         o.write(f"# Instagram — {m['id']}\n\nReel: {f.get('video_9x16','')}  \nFeed/carousel: {f.get('video_4x5','')}  \n"
                 f"Cover: {f.get('cover','')} (cover frame at {ig.get('cover_frame_s','')}s)\n\n## Caption\n\n{ig.get('caption','')}\n\n## Alt text\n\n{ig.get('alt_text','')}\n")
+        if ig.get("story_poll"):
+            sp = ig["story_poll"]
+            o.write(f"\n## Story poll (share the Reel to your Story, add the Poll sticker)\n\n{sp['question']}\n" + "".join(f"- {op}\n" for op in sp["options"]))
     with open(os.path.join(pkg, "youtube.md"), "w") as o:
         fr = yt.get("shorts_frame_s")
         o.write(f"# YouTube — {m['id']}\n\nShort: {f.get('video_9x16','')}  \n"

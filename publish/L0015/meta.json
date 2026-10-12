@@ -1,0 +1,42 @@
+{
+  "id": "L0015",
+  "lore_no": 15,
+  "title": "Replay reveal: what happened next",
+  "batch": "2026-10-12-a",
+  "duration_s": 52.0,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0015-4x5.mp4",
+    "video_9x16": "release:L0015-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Yesterday's mystery stock: Google, Sept 21, 2007.\n\nBought at that close, it never closed below the buy price. Six weeks later: +32%.\n\nThen the market topped. Sold on a close below the 50-day average: +20%. Held and hoped: −25% by March.\n\nLore 015 · Replay reveal",
+    "reply": "The buy was the easy half. Plan the sell before you need it.\n\nThe 50-day rule is one example, not the only one. We'll draw the others in the exits pillar.\n\nNext: Lore 016 · Leaders travel in groups"
+  },
+  "instagram": {
+    "caption": "The mystery stock was Google, in September 2007. If you voted buy, the first six weeks were a joy.\n\nWhat happened next:\n• Bought at the September 21 close, it never closed below the buy price\n• Six weeks later it was up 32%\n• Then the market topped and heavy-volume down days piled up (Lore 013)\n• It gave the gains back, week after week\n\nTwo endings for the same trade:\n• Exit on a close below the 50-day average (the average close of the last 50 days): sold in December, up 20%\n• Hold and hope: down 25% by March 2008\n\nThe buy was the easy half. Plan your sell before you need it. The 50-day line is one example, not the only rule.\n\nLore 015 · Replay reveal: what happened next. Next up, Lore 016: leaders travel in groups.\n\nSave this for the next winner you're tempted to just hold.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #ChartReplay #ExitStrategy #StockMarketHistory",
+    "alt_text": "The same daily chart, now labelled Google, 2007 to 2008, with volume and a 50-day average. From the September 21, 2007 close it climbs, and a measure shows plus 32% by early November. Then it rolls over; a green label at December 17 reads sold, close below 50-day average, plus 20%, and a red label in March 2008 reads held and hoped, minus 25%. A card reads: plan the sell before you buy.",
+    "cover_frame_s": 36.0
+  },
+  "youtube": {
+    "title": "Replay reveal: +32%, then −25% with no sell plan | Lore 015",
+    "description": "The mystery stock was Google, September 21, 2007: up 32% six weeks later.\nThen the market topped. A simple sell rule kept +20%; holding and hoping turned it into −25% by March 2008.\n\nBought at the September 21 close, the stock never closed below the buy price before peaking. When the market turned, one exit rule (a close below the 50-day average) sold on December 17 with +20%. Holding on meant −25% by March 17, 2008. The buy was the easy half: plan the sell before you need it.\n\nBefore this: Lore 014, Replay: would you buy here?\nNext: Lore 016, Leaders travel in groups.\n\nSources: Google (GOOG) and S&P 500 daily data via Yahoo Finance (split-adjusted; shown as % from the September 21, 2007 close).\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #ExitStrategy #Trading",
+    "tags": [
+      "when to sell a stock",
+      "sell rules",
+      "exit strategy",
+      "50 day moving average",
+      "google 2007",
+      "chart replay",
+      "taking profits",
+      "market top 2007",
+      "the tape lore",
+      "lore 015"
+    ],
+    "playlist": "Setups",
+    "shorts_frame_s": 36.0
+  }
+}

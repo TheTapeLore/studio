@@ -1,0 +1,42 @@
+{
+  "id": "L0013",
+  "lore_no": 13,
+  "title": "Distribution days, drawn",
+  "batch": "2026-10-12-a",
+  "duration_s": 64.0,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0013-4x5.mp4",
+    "video_9x16": "release:L0013-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "October 9, 2007: the S&P 500 closed at a record. One warning on the count.\n\nEight trading days later: five. By November 7: eight.\n\nA distribution day: the index falls 0.2% or more on heavier volume than the day before.\n\nLore 013 · Distribution days, drawn",
+    "reply": "Five months later the S&P 500 was down 19%. By March 2009, 57%.\n\nIt's a warning, not a crystal ball: some counts fade without a fall. But it's free, and it's on every chart.\n\nNext: Lore 014 · Replay: would you buy here?"
+  },
+  "instagram": {
+    "caption": "A record high in October 2007. Then the warnings piled up, and almost nobody was looking.\n\nA distribution day is a day the index closes down 0.2% or more on heavier volume than the day before. The old-school read (William O'Neil's): big funds are quietly selling.\n\nHow to count:\n• Count them over the last 25 trading days\n• A day drops off after 25 sessions, or if the index rallies 5% above it\n• O'Neil: four or five in about a month spells trouble\n\nThe S&P 500 in 2007:\n• October 9: record close, count one\n• Eight trading days later: five\n• November 7: eight\n• March 2008: down 19%. March 2009: down 57%\n\nIt's a warning, not a crystal ball. When the count piles up, go easy on new buys.\n\nLore 013 · Distribution days, drawn. Next up, Lore 014: a replay. Would you buy here?\n\nSave this and count them on the next market you're nervous about.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #DistributionDays #StockMarket #CANSLIM #TradingEducation",
+    "alt_text": "An S&P 500 daily candlestick chart from August to November 2007 with volume bars below. Each distribution day gets a red triangle under its candle and a ring around its volume bar, and a counter in the corner climbs from 1 at the October 9 record close to 5 eight days later and 8 by November 7. A definition card explains a distribution day, a rule card says to count the last 25 sessions, and a line chart shows the index down 19% by March 2008 and 57% by March 2009.",
+    "cover_frame_s": 3.0
+  },
+  "youtube": {
+    "title": "Distribution days: the 2007 top in 8 warnings | Lore 013",
+    "description": "A record high in October 2007, then the warnings piled up: 1, then 5, then 8 distribution days.\nFive months later the S&P 500 was down 19%; by March 2009, 57%.\n\nA distribution day is a day the index closes down 0.2% or more on higher volume than the day before. Count them over the last 25 sessions (a day drops off early if the index rallies 5% above it). O'Neil's rule of thumb: four or five in about a month is trouble. It's a warning, not a forecast.\n\nBefore this: Lore 010, Legend 02: William O'Neil.\nNext: Lore 014, Replay: would you buy here?\n\nSources: S&P 500 daily data via Yahoo Finance (every day marked is computed by the rule); luxalgo.com library, Distribution Days (definition, 25 sessions, 5% rally rule, O'Neil's four or five); en.wikipedia.org/wiki/CAN_SLIM (CAN SLIM is a mark of Investor's Business Daily).\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #DistributionDays #Trading",
+    "tags": [
+      "distribution days",
+      "distribution day",
+      "market top",
+      "2007 market top",
+      "how to spot a market top",
+      "canslim market direction",
+      "william oneil",
+      "stock market 2008",
+      "the tape lore",
+      "lore 013"
+    ],
+    "playlist": "Market conditions",
+    "shorts_frame_s": 3.0
+  }
+}

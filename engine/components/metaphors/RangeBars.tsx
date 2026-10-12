@@ -81,7 +81,7 @@ export const RangeBars: React.FC<RangeBarsProps> = ({ series, drawAt = 0.2, draw
             {adrA > 0 ? (
               <g opacity={adrA}>
                 <line x1={0} x2={(w - axisW) * adrA} y1={Y(adr)} y2={Y(adr)} stroke={C.tape} strokeWidth={3 * u} strokeDasharray={`${12 * u} ${8 * u}`} />
-                <text x={w - axisW - 8 * u} y={Y(adr) - 12 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.15} textAnchor="end">
+                <text x={w - axisW - 8 * u} y={Y(adr) - 12 * u} fill={C.tape} fontFamily={FONT.mono} fontWeight={600} fontSize={fs * 1.15} textAnchor="end" stroke={C.abyss} strokeWidth={7 * u} paintOrder="stroke" strokeLinejoin="round">
                   {`ADR ${adr.toFixed(1)}%`}
                 </text>
               </g>

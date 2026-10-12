@@ -168,9 +168,9 @@
   },
   "thumb": {
     "lines": [
-      "Same 2% stop.",
-      "[[0]] hits or",
-      "15."
+      "Same stop.",
+      "[[0]] hits",
+      "or 15."
     ],
     "component": "RangeBars",
     "props": {

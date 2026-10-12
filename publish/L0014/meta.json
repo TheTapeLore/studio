@@ -1,0 +1,58 @@
+{
+  "id": "L0014",
+  "lore_no": 14,
+  "title": "Replay: would you buy here?",
+  "batch": "2026-10-12-a",
+  "duration_s": 44.0,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0014-4x5.mp4",
+    "video_9x16": "release:L0014-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "It's September 2007. No hindsight.\n\nA leading stock pulled back 14% over six weeks. Today it closed at a new high on 80% more volume than usual. Its RS line is at a new high. The market shows one distribution day.\n\nWould you buy here?\n\nLore 014 · Replay: would you buy here?",
+    "reply": "What you can check today, and what we mean:\nBase = a sideways pause (6 weeks, 14% deep).\nRS line = price ÷ S&P 500 (Lore 011).\nDistribution day = index down 0.2%+ on heavier volume (Lore 013).\n\nThe reveal is Lore 015.",
+    "poll": {
+      "question": "Would you buy here?",
+      "options": [
+        "Buy at today's close",
+        "Wait for a pullback",
+        "Pass"
+      ]
+    }
+  },
+  "instagram": {
+    "caption": "It's September 2007. You only see what traders saw then. Would you buy here?\n\nWhat's on the chart today:\n• A six-week pause, 14% deep (a base: the price moving sideways before a move)\n• A close at a new high, on 80% more volume than usual\n• The RS line at a new high (Lore 011: the stock is beating the market)\n• The market: one distribution day (Lore 013: a calm count)\n\nThe stock's name is hidden on purpose. Names bring hindsight.\n\nVote in the story poll, or comment A, B or C:\nA. Buy at today's close\nB. Wait for a pullback\nC. Pass\n\nThe reveal is Lore 015.\n\nLore 014 · Replay: would you buy here?\n\nSend this to the friend who always says they would have bought it.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #ChartReplay #StockMarketHistory #TradingEducation",
+    "alt_text": "A daily candlestick chart labelled mystery stock, 2007, with volume, a 50-day average and a green RS line above. It reveals bar by bar from May to September 21, 2007: a rise, a six-week sideways pause, then a candle closing above an amber line at the top of the range, which snaps. A list follows: a six-week pause 14% deep, a new high on 80% more volume, RS line at a new high, the market with one distribution day. A poll card asks: would you buy here? Buy at today's close, wait for a pullback, or pass.",
+    "cover_frame_s": 19.0,
+    "story_poll": {
+      "question": "Would you buy here?",
+      "options": [
+        "Buy",
+        "Wait",
+        "Pass"
+      ]
+    }
+  },
+  "youtube": {
+    "title": "Would you buy this breakout? Replay, Sept 2007 | Lore 014",
+    "description": "It's September 2007. No hindsight: a leading stock just closed at a new high after a six-week, 14% pause.\nWould you buy here? Answer in the comments: A buy, B wait for a pullback, C pass. The reveal is Lore 015.\n\nOn the chart: a base (a sideways pause) six weeks long and 14% deep; a close at a new high on 80% more volume than its 50-day average; the RS line at a new high; the S&P 500 with one distribution day. The name is hidden to keep hindsight out.\n\nBefore this: Lore 011, The RS line leads price. Lore 013, Distribution days, drawn.\nNext: Lore 015, Replay reveal: what happened next.\n\nSources: daily data via Yahoo Finance (split-adjusted; shown as % from the frozen day's close); luxalgo.com library, Distribution Days (the rule used for the market count).\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #ChartReplay #Trading",
+    "tags": [
+      "chart replay",
+      "would you buy this stock",
+      "breakout",
+      "base breakout",
+      "stock chart quiz",
+      "trading psychology",
+      "2007 stock market",
+      "relative strength",
+      "the tape lore",
+      "lore 014"
+    ],
+    "playlist": "Setups",
+    "shorts_frame_s": 19.0
+  }
+}

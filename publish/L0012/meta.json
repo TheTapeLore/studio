@@ -1,0 +1,42 @@
+{
+  "id": "L0012",
+  "lore_no": 12,
+  "title": "ADR% in 15 seconds",
+  "batch": "2026-10-12-a",
+  "duration_s": 20.0,
+  "aspect_primary": "9x16",
+  "files": {
+    "video_4x5": "release:L0012-4x5.mp4",
+    "video_9x16": "release:L0012-9x16.mp4",
+    "thumb": "thumb.png",
+    "cover": "cover.png",
+    "captions": "captions.srt"
+  },
+  "x": {
+    "post": "Why do some stocks need a wider stop?\n\nADR%: how far a stock moves, low to high, on a normal day.\n\nDecember 2019: Coca-Cola 0.9%, Tesla 2.9%. A 2% stop was never reached on a Coca-Cola day. Tesla reached it on 15 of 20.\n\nLore 012 · ADR% in 15 seconds",
+    "reply": "ADR% = the 20-day average of (high ÷ low − 1). A stop tighter than one normal day gets hit by noise; a stop that fits needs a smaller position (Lore 005).\n\nNext: Lore 013 · Distribution days, drawn"
+  },
+  "instagram": {
+    "caption": "Why do some stocks need a wider stop? Because some stocks move three times as much on a normal day.\n\nADR% (average daily range) is how far a stock moves from its low to its high on a normal day, averaged over 20 days.\n\nLast 20 days of 2019:\n• Coca-Cola: 0.9% a day\n• Tesla: 2.9% a day\n• A 2% stop: reached on 0 of 20 Coca-Cola days, and 15 of 20 Tesla days\n\nSame stop, very different odds. Tight stops on wild stocks get hit by everyday noise. If the stop has to be wider, buy fewer shares (Lore 005).\n\nLore 012 · ADR% in 15 seconds. Next up, Lore 013: distribution days, drawn.\n\nSend this to the friend who keeps getting stopped out the day before it runs.\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #ADR #StopLoss #RiskManagement",
+    "alt_text": "A title card reads ADR%, noun. Two bar charts on a dark blue grid show 20 daily ranges each, on the same 0 to 6% scale: Coca-Cola's bars are short with a dashed average at 0.9%, Tesla's are tall with a dashed average at 2.9%. An amber line at 2% appears across both: no Coca-Cola bar reaches it, while 15 of Tesla's 20 bars turn red. The card returns with the definition: average daily range, how far a stock moves, low to high, on a normal day.",
+    "cover_frame_s": 9.0
+  },
+  "youtube": {
+    "title": "ADR% explained: why some stocks need a wider stop | Lore 012",
+    "description": "Why do some stocks need a wider stop? ADR%: how far a stock moves, low to high, on a normal day.\nDecember 2019: Coca-Cola 0.9%, Tesla 2.9%. A 2% stop: 0 of 20 Coca-Cola days reached it, 15 of 20 Tesla days did.\n\nADR% is the 20-day average of (high ÷ low − 1). A stop tighter than one normal day gets hit by noise; if the stop must be wider, size the position down.\n\nBefore this: Lore 005, The Seesaw: wider stop, smaller size.\nNext: Lore 013, Distribution days, drawn.\n\nSources: KO and TSLA daily highs and lows via Yahoo Finance (2019-12-03 to 2019-12-31); TradingView open-source ADR(20)% scripts (formula).\n\nEducation only. Not investment advice. Historical charts; past results don't predict future ones.\n\n#TheTapeLore #ADR #Trading",
+    "tags": [
+      "adr",
+      "adr percent",
+      "average daily range",
+      "stop loss placement",
+      "stop loss too tight",
+      "volatility",
+      "position sizing",
+      "swing trading",
+      "the tape lore",
+      "lore 012"
+    ],
+    "playlist": "Selection & relative strength",
+    "shorts_frame_s": 9.0
+  }
+}

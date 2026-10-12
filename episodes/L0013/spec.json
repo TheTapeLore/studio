@@ -296,7 +296,7 @@
       "revealDur": 0
     }
   },
-  "status": "scripted",
+  "status": "qa_passed",
   "data": {
     "symbol": "^GSPC",
     "start": "2007-05-01",

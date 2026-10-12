@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:03,542
+The market fell 56%. Netflix rose 66%.
+
+2
+00:00:03,543 --> 00:00:07,466
+One line on the chart flagged it early.
+
+3
+00:00:07,467 --> 00:00:13,066
+That line is relative strength: Netflix's price divided by the S&P 500.
+
+4
+00:00:13,067 --> 00:00:18,666
+It rises when Netflix beats the market. It falls when it lags.
+
+5
+00:00:18,667 --> 00:00:22,399
+Late 2008. Stocks crashed. Netflix fell hard too.
+
+6
+00:00:22,400 --> 00:00:26,132
+Then it bounced back faster than the market.
+
+7
+00:00:26,133 --> 00:00:31,179
+In December 2008, the RS line hit a new 52-week high.
+
+8
+00:00:31,180 --> 00:00:35,466
+The price was still 35% below its own high.
+
+9
+00:00:35,467 --> 00:00:40,726
+Fourteen weeks later, the price broke to a new high too.
+
+10
+00:00:40,727 --> 00:00:44,799
+The market was still 52% below its peak.
+
+11
+00:00:44,800 --> 00:00:49,170
+From there, Netflix rose 176% in 15 months.
+
+12
+00:00:49,171 --> 00:00:52,266
+The S&P 500 rose 36%.
+
+13
+00:00:52,267 --> 00:00:56,519
+Leaders often show strength before their price does.
+
+14
+00:00:56,520 --> 00:01:01,599
+It's a clue for your watchlist, not a buy signal.
+
+15
+00:01:03,667 --> 00:01:07,149
+Lore 011. Next: Lore 012, ADR% in 15 seconds

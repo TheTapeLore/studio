@@ -20,7 +20,7 @@ export const RSLine: React.FC<{ benchmark?: Bar[]; band?: number; markLeads?: bo
     lo = Math.min(lo, ratio[i]);
     hi = Math.max(hi, ratio[i]);
   }
-  const top = s.plot.y + s.plot.h * 0.02;
+  const top = s.plot.y + 40 * s.u; // below the chart title row
   const y = (r: number) => top + s.plot.h * band * (1 - (r - lo) / (hi - lo || 1));
   const vis = Math.min(s.end, Math.ceil(s.reveal));
   const pts: string[] = [];

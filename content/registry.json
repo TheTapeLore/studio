@@ -350,6 +350,177 @@
       "created": "2026-10-10",
       "updated": "2026-10-10",
       "release": "batch-2026-10-10-a"
+    },
+    {
+      "id": "L0011",
+      "lore_no": 11,
+      "slug": "rs-line-leads",
+      "pillar": "selection",
+      "cluster": "relative-strength",
+      "format": "anatomy",
+      "concept_key": "selection.relative-strength.rs-line",
+      "title": "The RS line leads price",
+      "hook": "The market fell 56%. Netflix rose 66%.",
+      "takeaway": "Relative strength is a stock's price divided by the market. In the 2008 crash, Netflix fell too, but it rebounded much faster than the market: its RS line hit a new 52-week high in December 2008 while its price was still 35% below its high. Fourteen weeks later the price broke out, and it rose 176% in the next 15 months. A rising RS line flags a possible leader early; it's a watchlist clue, not a buy signal.",
+      "data": {
+        "symbol": "NFLX",
+        "start": "2007-07-01",
+        "end": "2010-06-30",
+        "interval": "1wk",
+        "benchmark": "^GSPC",
+        "source": "yfinance"
+      },
+      "legends": [],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [
+          "L0010"
+        ],
+        "next": [
+          "L0012"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-12-a",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "L0012",
+      "lore_no": 12,
+      "slug": "adr-percent",
+      "pillar": "selection",
+      "cluster": "volatility",
+      "format": "lexicon",
+      "concept_key": "selection.lexicon.adr",
+      "title": "ADR% in 15 seconds",
+      "hook": "Why do some stocks need a wider stop?",
+      "takeaway": "ADR% (average daily range) is how far a stock moves from low to high on a normal day, averaged over 20 days. In December 2019, Coca-Cola's was 0.9% and Tesla's 2.9%: a 2% stop was never reached by a Coca-Cola day, but 15 of 20 Tesla days moved that much. A stop tighter than one normal day gets hit by noise.",
+      "data": null,
+      "legends": [],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [
+          "L0005"
+        ],
+        "next": [
+          "L0013"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-12-a",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "L0013",
+      "lore_no": 13,
+      "slug": "distribution-days",
+      "pillar": "conditions",
+      "cluster": "distribution",
+      "format": "anatomy",
+      "concept_key": "conditions.distribution-days.drawn",
+      "title": "Distribution days, drawn",
+      "hook": "A record high in October 2007. Then the warnings piled up.",
+      "takeaway": "A distribution day is a session where an index closes down 0.2% or more on higher volume than the day before; O'Neil's school reads it as big funds selling. Count them over the last 25 sessions: four or five in about a month is a warning. In 2007 the S&P 500 closed at a record on October 9 with one on the count; eight trading days later there were five, and eight by November 7. Five months later the index was down 19%, and 57% by March 2009. It's a warning, not a forecast.",
+      "data": {
+        "symbol": "^GSPC",
+        "start": "2007-05-01",
+        "end": "2009-03-31",
+        "interval": "1d",
+        "source": "yfinance"
+      },
+      "legends": [
+        "William O'Neil"
+      ],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [
+          "L0010"
+        ],
+        "next": [
+          "L0014"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-12-a",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "L0014",
+      "lore_no": 14,
+      "slug": "replay-01",
+      "pillar": "setups",
+      "cluster": "replay",
+      "format": "replay",
+      "concept_key": "setups.replay.mystery-2007",
+      "title": "Replay: would you buy here?",
+      "hook": "It's September 2007. You only see what traders saw then.",
+      "takeaway": "A replay without hindsight: a leading stock built a six-week, 14%-deep base, then closed at a new high on 80% more volume than usual, with its RS line at a new high and the market showing one distribution day. Would you buy? The reveal is Lore 015.",
+      "data": {
+        "symbol": "GOOG",
+        "start": "2007-03-01",
+        "end": "2008-03-31",
+        "interval": "1d",
+        "benchmark": "^GSPC",
+        "source": "yfinance"
+      },
+      "legends": [],
+      "question": "Would you buy here?",
+      "simulation": null,
+      "links": {
+        "prerequisites": [
+          "L0011",
+          "L0013"
+        ],
+        "next": [
+          "L0015"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-12-a",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "L0015",
+      "lore_no": 15,
+      "slug": "replay-01-reveal",
+      "pillar": "setups",
+      "cluster": "replay",
+      "format": "replay",
+      "concept_key": "setups.replay.mystery-2007.reveal",
+      "title": "Replay reveal: what happened next",
+      "hook": "The mystery stock was Google, in September 2007.",
+      "takeaway": "The Replay stock was Google on September 21, 2007. Bought at that close, it never closed below the buy price and was up 32% six weeks later. Then the market topped. A simple sell rule (exit on a close below the 50-day average) sold in December with +20%; holding and hoping was −25% by March 2008. Plan the sell before you buy.",
+      "data": {
+        "symbol": "GOOG",
+        "start": "2007-03-01",
+        "end": "2008-03-31",
+        "interval": "1d",
+        "benchmark": "^GSPC",
+        "source": "yfinance"
+      },
+      "legends": [],
+      "question": null,
+      "simulation": null,
+      "links": {
+        "prerequisites": [
+          "L0014",
+          "L0013"
+        ],
+        "next": [
+          "L0016"
+        ]
+      },
+      "status": "qa_passed",
+      "batch": "2026-10-12-a",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     }
   ]
 }

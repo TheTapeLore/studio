@@ -36,3 +36,15 @@ Song: Db minor, 112.5 BPM breaks, square lead; max hook similarity 0.54.
 - First-time viewer restatement: "Count the days the market drops on heavy volume. When there are five or more in a
   month, be careful."
 **Clarity: PASS.**
+
+## Pass 1 (full render 4x5)
+Frames every 2 s + every beat boundary viewed. 1. Truth: PASS (badge reads 1 on the record day, rises 2→5 through the
+eight-day beat, 8 on November 7; measures −19% and −57%). 2. Compliance: PASS. 3. Clarity: PASS. 4. Brand: PASS (one
+Sodium per frame: the term, the 25, the rule words; Ember for distribution days). 5. Craft: PASS (−14.1 LUFS, −2.7 dBFS
+peak, −2.67 dBTP). 6. Distinct: PASS (first conditions entry).
+
+## Pass 1, 9x16
+Frames every 2 s + beat boundaries viewed: inside the safe zone, badge and marks readable; −14.1 LUFS, −2.67 dBTP. Thumb
+and cover viewed (count 8 on the chart, "Record high. Then 8 warnings."). Shorts thumbnail frame 3.0 s (the chart with
+the count at 8 and the hook caption).
+**Result: qa_passed after 1 pass (after the still-review fixes).**

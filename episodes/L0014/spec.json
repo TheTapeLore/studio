@@ -86,7 +86,7 @@
           "price": 13.7379,
           "from": "2007-08-09",
           "snapAt": "auto",
-          "label": "TOP OF THE 6-WEEK RANGE"
+          "label": "6-WEEK HIGH"
         }
       },
       "captions": [
@@ -231,7 +231,7 @@
       "revealDur": 0
     }
   },
-  "status": "scripted",
+  "status": "qa_passed",
   "data": {
     "symbol": "GOOG",
     "start": "2007-03-01",

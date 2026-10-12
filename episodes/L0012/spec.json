@@ -304,6 +304,6 @@
       "stopAt": -1
     }
   },
-  "status": "scripted",
+  "status": "qa_passed",
   "data": null
 }

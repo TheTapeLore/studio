@@ -254,7 +254,7 @@
       "revealDur": 0
     }
   },
-  "status": "scripted",
+  "status": "qa_passed",
   "data": {
     "symbol": "GOOG",
     "start": "2007-03-01",

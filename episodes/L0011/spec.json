@@ -757,7 +757,7 @@
       "window": "OCT 2007 – MAR 2009"
     }
   },
-  "status": "scripted",
+  "status": "qa_passed",
   "data": {
     "symbol": "NFLX",
     "start": "2007-07-01",

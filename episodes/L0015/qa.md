@@ -26,3 +26,11 @@ Song: F# mixolydian, 120 BPM melodic techno (four), bell lead.
 - The 50-day average is explained in plain words in the copy; on screen it is the drawn line and its label.
 - First-time viewer restatement: "The buy worked, but without a sell plan you'd have given it all back and more."
 **Clarity: PASS.**
+
+## Pass 1 (full render 4x5 + 9x16)
+Frames every 2 s + every beat boundary (4x5) and at 2, 12, 22, 36, 44 s (9x16) viewed. 1. Truth: PASS (+32% measure;
+green SOLD label at December 17, +20%; red HELD AND HOPED at March 17, −25%). 2. Compliance: PASS. 3. Clarity: PASS.
+4. Brand: PASS (one Sodium per frame: the rule word; Lichen and Ember for the two endings; TapeStrip reads THE REVEAL).
+5. Craft: PASS (−14.1 LUFS, −2.3 dBFS peak, −2.29 dBTP; labels clear). 6. Distinct: PASS. Thumb and cover viewed
+("+32%. Then −25%."). Shorts thumbnail frame 36.0 s (both endings labelled on the chart).
+**Result: qa_passed after 1 pass.**

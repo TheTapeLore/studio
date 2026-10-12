@@ -48,3 +48,9 @@ selection entry).
 Frames every 2 s + beat boundaries viewed: inside the safe zone, labels clear; −14.1 LUFS, −2.21 dBTP.
 Shorts thumbnail frame 5.0 s (the finished race: S&P 500 −56%, Netflix +66%, with the hook caption).
 **Result: qa_passed after 1 pass (after the still-review fixes).**
+
+## Pass 2 (engine change from Lore 014)
+The RS band now starts below the chart title row; re-rendered both aspects and re-checked the lead and breakout beats.
+Frames at 25 and 40 s viewed in both aspects after the re-render: RS line, ring and wire clear of the title. −14.1 LUFS,
+−2.21 dBTP.
+**Result: qa_passed after 2 passes.**

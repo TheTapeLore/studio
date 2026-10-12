@@ -14,6 +14,7 @@ import { PercentMeasure, MeasureSpec } from "./PercentMeasure";
 import { RSLine } from "./RSLine";
 import { Tripwire, TripwireSpec } from "./Tripwire";
 import { VolumePane } from "./VolumePane";
+import { DistributionDays, DistributionSpec } from "./DistributionDays";
 
 export interface CandleChartProps {
   bars?: Bar[];
@@ -35,12 +36,17 @@ export interface CandleChartProps {
   volume?: boolean;
   ma?: number[];
   rs?: boolean;
+  /** Mark distribution days (computed from closes and volume) with a live count. */
+  distribution?: DistributionSpec | null;
   tripwire?: TripwireSpec | null;
   annotations?: AnnotationSpec[];
   measures?: MeasureSpec[];
   /** "line" draws a close line instead of candles (long histories). */
   style?: "candles" | "line";
   axes?: boolean;
+  /** Label the price axis in % from this bar's close (index or date) instead of prices: split-adjusted history
+   *  ($0.40 Netflix) reads honestly as "+50%". 0% sits at that bar. */
+  axisRef?: number | string;
   /** Mono label top-left, e.g. "NASDAQ COMPOSITE · DAILY CLOSE". "auto" builds it from the episode data. */
   title?: string | null;
   w?: number;
@@ -148,16 +154,21 @@ export const CandleChart: React.FC<CandleChartProps> = (p) => {
   // price axis
   const ticks: React.ReactNode[] = [];
   if (p.axes !== false) {
-    const rough = (hi - lo) / 4;
+    const ref = p.axisRef !== undefined ? bars[barIndex(bars, p.axisRef, start)].c : null;
+    const toAxis = (v: number) => (ref ? v / ref - 1 : v);
+    const fromAxis = (a: number) => (ref ? ref * (1 + a) : a);
+    const aLo = toAxis(lo), aHi = toAxis(hi);
+    const rough = (aHi - aLo) / 4;
     const mag = Math.pow(10, Math.floor(Math.log10(rough)));
     const stepV = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= rough) ?? rough;
-    for (let v = Math.ceil(lo / stepV) * stepV; v <= hi; v += stepV) {
-      const y = scale.y(v);
+    for (let a = Math.ceil(aLo / stepV) * stepV; a <= aHi; a += stepV) {
+      const y = scale.y(fromAxis(a));
+      const k = Math.round(a / stepV);
       ticks.push(
-        <g key={`p${v}`}>
+        <g key={`p${k}`}>
           <line x1={plot.x + plot.w} x2={plot.x + plot.w + 10 * u} y1={y} y2={y} stroke={C.blueline} strokeWidth={2 * u} />
           <text x={plot.x + plot.w + 16 * u} y={y + 7 * u} fill={C.mist} fontFamily={FONT.mono} fontSize={SIZE.tape * u * 0.9}>
-            {fmtNum(v, stepV < 1 ? 2 : 0)}
+            {ref ? (Math.abs(a) < 1e-9 ? "0%" : `${a > 0 ? "+" : "−"}${Math.round(Math.abs(a) * 100)}%`) : fmtNum(a, stepV < 1 ? 2 : 0)}
           </text>
         </g>,
       );
@@ -199,6 +210,7 @@ export const CandleChart: React.FC<CandleChartProps> = (p) => {
         {vol ? <VolumePane /> : null}
         {p.ma?.length ? <MovingAverages periods={p.ma} /> : null}
         {p.rs ? <RSLine /> : null}
+        {p.distribution ? <DistributionDays {...p.distribution} /> : null}
         {candles}
         {p.tripwire ? <Tripwire {...p.tripwire} /> : null}
         {(p.measures ?? []).map((m, i) => (

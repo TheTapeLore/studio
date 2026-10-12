@@ -1,0 +1,18 @@
+{
+  "batch": "2026-10-12-a",
+  "created": "2026-10-12",
+  "episodes": [
+    "L0011",
+    "L0012",
+    "L0013",
+    "L0014",
+    "L0015"
+  ],
+  "rationale": {
+    "L0011": "Season 1 week 4 opens with 'RS line leads' (B011), promised on Lore 010's end card. First selection entry (empty pillar). Real weekly Netflix vs S&P 500, 2007-2010: The Race for the hook, then the chart's own RS line hitting a 52-week high 14 weeks before the price did. Every number computed from the data.",
+    "L0012": "ADR% in 15 seconds (B013), selection/lexicon (empty cell). Real daily ranges for Coca-Cola and Tesla, December 2019, in a new component (RangeBars): 0.9% vs 2.9%, and a 2% stop reached on 0 vs 15 of 20 days. Follows Lore 005 (sizing for a chosen stop) with how to judge the stop distance itself.",
+    "L0013": "Distribution days, drawn (B027): the first conditions entry (empty pillar). New chart overlay computes every distribution day from the S&P 500's closes and volume (0.2% / higher volume / 25 sessions / 5% rally removal) with a live count: 1 at the October 9, 2007 record close, 8 by November 7; \u221219% five months later.",
+    "L0014": "The first Model Book Replay (B017; setups/replay, empty format and pillar): an anonymised leader frozen on its breakout day with no hindsight (y-axis grows with the bars, % from the frozen close), the checks from Lore 011 and 013 on screen, and a poll.",
+    "L0015": "The Replay's companion reveal (formats.yaml: a second short, concept_key .reveal): Google, Sept 21, 2007, +32% in six weeks, then the market topped; a close below the 50-day average sold at +20% while holding was \u221225% by March 2008. Lesson: plan the sell before you buy (bridges to the exits pillar)."
+  }
+}

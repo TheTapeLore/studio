@@ -128,7 +128,10 @@ def check_one(spec, entries, idf, today=None):
         if d.get("symbol") and ed_.get("symbol") and d["symbol"].upper() == ed_["symbol"].upper():
             ov = overlap_days(parse_date(d.get("start")), parse_date(d.get("end")),
                               parse_date(ed_.get("start")), parse_date(ed_.get("end")))
-            if ov > 20 and e.get("format") == spec.get("format"):
+            # a Replay and its own reveal (concept_key + ".reveal", formats.yaml "companion") share the chart by design
+            ck, eck = spec.get("concept_key") or "", e.get("concept_key") or ""
+            pair = spec.get("format") == "replay" and (ck == eck + ".reveal" or eck == ck + ".reveal")
+            if ov > 20 and e.get("format") == spec.get("format") and not pair:
                 errs.append(f"same chart ({d['symbol']}, {ov} overlapping days) already used in this format by {tag}")
             elif ov > 20:
                 warns.append(f"chart {d['symbol']} overlaps {ov} days with {tag}. Fine only if the lesson differs.")

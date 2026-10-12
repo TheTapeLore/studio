@@ -1,0 +1,266 @@
+{
+  "id": "L0015",
+  "lore_no": 15,
+  "slug": "replay-01-reveal",
+  "batch": "2026-10-12-a",
+  "pillar": "setups",
+  "cluster": "replay",
+  "format": "replay",
+  "concept_key": "setups.replay.mystery-2007.reveal",
+  "title": "Replay reveal: what happened next",
+  "hook": "The mystery stock was Google, in September 2007.",
+  "takeaway": "The Replay stock was Google on September 21, 2007. Bought at that close, it never closed below the buy price and was up 32% six weeks later. Then the market topped. A simple sell rule (exit on a close below the 50-day average) sold in December with +20%; holding and hoping was −25% by March 2008. Plan the sell before you buy.",
+  "learn": [
+    "The Replay stock was Google: bought at the September 21, 2007 close, it was up 32% six weeks later.",
+    "When the market topped, it gave the gains back; a close below the 50-day average (the average close of the last 50 days) sold it in December, up 20%.",
+    "Holding and hoping turned the same trade into a 25% loss by March 2008: plan the sell before you buy."
+  ],
+  "glossary": {},
+  "question": null,
+  "emotion": "the relief of being right, then the slow sinking feeling of watching it leak away",
+  "legends": [],
+  "duration_s": 52.0,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "Replay 01"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 6.0,
+      "kind": "recap",
+      "component": "CandleChart",
+      "props": {
+        "from": "2007-05-01",
+        "to": "2008-03-31",
+        "volume": true,
+        "ma": [
+          50
+        ],
+        "rs": false,
+        "axisRef": "2007-09-21",
+        "domain": "all",
+        "title": "GOOGLE (GOOG) · DAILY · % FROM THE SEPT 21, 2007 CLOSE",
+        "revealTo": "2007-09-21",
+        "revealDur": 0
+      },
+      "captions": [
+        "The mystery stock was Google, in September 2007."
+      ]
+    },
+    {
+      "t": 6.0,
+      "dur": 10.0,
+      "kind": "run",
+      "component": "CandleChart",
+      "transition": "cut",
+      "peak": true,
+      "props": {
+        "from": "2007-05-01",
+        "to": "2008-03-31",
+        "volume": true,
+        "ma": [
+          50
+        ],
+        "rs": false,
+        "axisRef": "2007-09-21",
+        "domain": "all",
+        "title": "GOOGLE (GOOG) · DAILY · % FROM THE SEPT 21, 2007 CLOSE",
+        "revealFrom": "2007-09-21",
+        "revealTo": "2007-11-06",
+        "revealAt": 0.2,
+        "revealDur": 6.0,
+        "measures": [
+          {
+            "from": "2007-09-21",
+            "to": "2007-11-06",
+            "fromPrice": "c",
+            "toPrice": "c",
+            "x": "to",
+            "side": "left",
+            "delay": 0.2
+          }
+        ]
+      },
+      "captions": [
+        "It never closed below the buy price.",
+        "Six weeks later it was up 32%.",
+        "Buying was the easy half."
+      ]
+    },
+    {
+      "t": 16.0,
+      "dur": 10.0,
+      "kind": "turn",
+      "component": "CandleChart",
+      "transition": "cut",
+      "props": {
+        "from": "2007-05-01",
+        "to": "2008-03-31",
+        "volume": true,
+        "ma": [
+          50
+        ],
+        "rs": false,
+        "axisRef": "2007-09-21",
+        "domain": "all",
+        "title": "GOOGLE (GOOG) · DAILY · % FROM THE SEPT 21, 2007 CLOSE",
+        "revealFrom": "2007-11-06",
+        "revealTo": "2008-01-22",
+        "revealAt": 0.2,
+        "revealDur": 7.0
+      },
+      "captions": [
+        "Then the market topped. Heavy-volume down days piled up.",
+        "Google gave back its gains, week after week."
+      ]
+    },
+    {
+      "t": 26.0,
+      "dur": 12.0,
+      "kind": "exits",
+      "component": "CandleChart",
+      "transition": "cut",
+      "props": {
+        "from": "2007-05-01",
+        "to": "2008-03-31",
+        "volume": true,
+        "ma": [
+          50
+        ],
+        "rs": false,
+        "axisRef": "2007-09-21",
+        "domain": "all",
+        "title": "GOOGLE (GOOG) · DAILY · % FROM THE SEPT 21, 2007 CLOSE",
+        "revealFrom": "2008-01-22",
+        "revealTo": "2008-03-31",
+        "revealAt": 0.2,
+        "revealDur": 4.0,
+        "annotations": [
+          {
+            "at": "2007-12-17",
+            "price": "c",
+            "text": "SOLD: CLOSE BELOW 50-DAY AVERAGE · +20%",
+            "dy": -120,
+            "dx": -40,
+            "color": "lichen",
+            "delay": 0.3
+          },
+          {
+            "at": "2008-03-17",
+            "price": "c",
+            "text": "HELD AND HOPED · −25%",
+            "dy": 90,
+            "dx": -140,
+            "color": "ember",
+            "delay": 4.2
+          }
+        ]
+      },
+      "captions": [
+        "One simple sell rule: exit on a close below the 50-day average.",
+        "That sold in December, up 20%.",
+        "Holding and hoping: down 25% by March."
+      ]
+    },
+    {
+      "t": 38.0,
+      "dur": 8.0,
+      "kind": "rule",
+      "component": "RuleCard",
+      "props": {
+        "text": "Plan the [[sell]] before you buy.",
+        "sub": "The 50-day line is one example, not the only rule."
+      },
+      "captions": [
+        "The buy was the easy half.",
+        "Plan your sell before you need it."
+      ]
+    },
+    {
+      "t": 46.0,
+      "dur": 6.0,
+      "kind": "end"
+    }
+  ],
+  "new_angle": "The reveal of Lore 014: what happened after the frozen day, and why the sell plan decided the result.",
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Yahoo Finance via yfinance: GOOG daily closes, 2007-09-21 to 2008-03-31 (split-adjusted; shown as % from the 2007-09-21 close)",
+      "url": "https://finance.yahoo.com/quote/GOOG/history",
+      "used_for": "no close below the 2007-09-21 close before the 2007-11-06 peak (+32.4%); first close below the 50-day average after the peak on 2007-12-17 (+19.5%); −25.0% at the 2008-03-17 close"
+    },
+    {
+      "title": "Yahoo Finance via yfinance: ^GSPC daily OHLCV, autumn 2007",
+      "url": "https://finance.yahoo.com/quote/%5EGSPC/history",
+      "used_for": "the market topping (record close 2007-10-09) as distribution days piled up (Lore 013)"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0014",
+      "L0013"
+    ],
+    "next": [
+      "L0016"
+    ]
+  },
+  "next": {
+    "lore_no": 16,
+    "title": "Leaders travel in groups"
+  },
+  "thumb": {
+    "lines": [
+      "+32%.",
+      "Then [[−25%]]."
+    ],
+    "component": "CandleChart",
+    "props": {
+      "from": "2007-05-01",
+      "to": "2008-03-31",
+      "volume": true,
+      "ma": [
+        50
+      ],
+      "rs": false,
+      "axisRef": "2007-09-21",
+      "domain": "all",
+      "title": "GOOGLE (GOOG) · DAILY · % FROM THE SEPT 21, 2007 CLOSE",
+      "revealDur": 0
+    }
+  },
+  "cover": {
+    "lines": [
+      "+32%.",
+      "Then [[−25%]]."
+    ],
+    "sub": "Same stock. The sell plan decided.",
+    "component": "CandleChart",
+    "props": {
+      "from": "2007-05-01",
+      "to": "2008-03-31",
+      "volume": true,
+      "ma": [
+        50
+      ],
+      "rs": false,
+      "axisRef": "2007-09-21",
+      "domain": "all",
+      "title": "GOOGLE (GOOG) · DAILY · % FROM THE SEPT 21, 2007 CLOSE",
+      "revealDur": 0
+    }
+  },
+  "status": "scripted",
+  "data": {
+    "symbol": "GOOG",
+    "start": "2007-03-01",
+    "end": "2008-03-31",
+    "interval": "1d",
+    "benchmark": "^GSPC",
+    "source": "yfinance"
+  }
+}

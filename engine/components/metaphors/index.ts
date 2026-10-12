@@ -24,4 +24,5 @@ export { StopMap } from "./StopMap";
 export { AverageDown } from "./AverageDown";
 export { Milestones } from "./Milestones";
 export { CupHandle } from "./CupHandle";
+export { RangeBars } from "./RangeBars";
 export { Emblem, EMBLEMS } from "./emblems";

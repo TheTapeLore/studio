@@ -1,0 +1,256 @@
+{
+  "id": "L0013",
+  "lore_no": 13,
+  "slug": "distribution-days",
+  "batch": "2026-10-12-a",
+  "pillar": "conditions",
+  "cluster": "distribution",
+  "format": "anatomy",
+  "concept_key": "conditions.distribution-days.drawn",
+  "title": "Distribution days, drawn",
+  "hook": "A record high in October 2007. Then the warnings piled up.",
+  "takeaway": "A distribution day is a session where an index closes down 0.2% or more on higher volume than the day before; O'Neil's school reads it as big funds selling. Count them over the last 25 sessions: four or five in about a month is a warning. In 2007 the S&P 500 closed at a record on October 9 with one on the count; eight trading days later there were five, and eight by November 7. Five months later the index was down 19%, and 57% by March 2009. It's a warning, not a forecast.",
+  "learn": [
+    "A distribution day is a day the index closes down 0.2% or more on higher volume than the day before.",
+    "Count them over the last 25 trading days; four or five in about a month is a warning sign.",
+    "In 2007 the S&P 500 went from a record close with one distribution day to eight within a month, then fell 19% by March 2008.",
+    "The count is a warning, not a forecast: when it piles up, be careful with new buys."
+  ],
+  "glossary": {
+    "distribution day": "closes down 0.2% or more, on higher volume than the day before"
+  },
+  "question": null,
+  "emotion": "the quiet dread of watching warnings stack up while the price still looks fine",
+  "legends": [
+    "William O'Neil"
+  ],
+  "duration_s": 64.0,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "Market weather"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 6.4,
+      "kind": "hook",
+      "component": "CandleChart",
+      "props": {
+        "from": "2007-08-20",
+        "to": "2007-11-30",
+        "volume": true,
+        "distribution": {
+          "minDrop": 0.002,
+          "window": 25,
+          "rally": 0.05,
+          "warnAt": 5
+        },
+        "title": "S&P 500 · DAILY · YAHOO FINANCE",
+        "revealDur": 0
+      },
+      "captions": [
+        "A record high in October 2007. Then the warnings piled up."
+      ]
+    },
+    {
+      "t": 6.4,
+      "dur": 8.5333,
+      "kind": "define",
+      "component": "TermCard",
+      "props": {
+        "term": "Distribution day",
+        "kind": "noun",
+        "definition": "The index closes down **0.2% or more**, on higher volume than the day before.",
+        "defAt": 0.2
+      },
+      "captions": [
+        "An index falls 0.2% or more, on heavier volume than yesterday.",
+        "Old-school read: big funds are quietly selling."
+      ]
+    },
+    {
+      "t": 14.9333,
+      "dur": 8.5333,
+      "kind": "count",
+      "component": "RuleCard",
+      "props": {
+        "label": "How to count them",
+        "text": "Count the last [[25]] sessions.",
+        "sub": "A day drops off after 25 sessions, or if the index rallies 5% above it."
+      },
+      "captions": [
+        "Count them over the last 25 trading days.",
+        "O'Neil: four or five in a month spells trouble."
+      ]
+    },
+    {
+      "t": 23.4667,
+      "dur": 17.0667,
+      "kind": "build",
+      "component": "CandleChart",
+      "peak": true,
+      "props": {
+        "from": "2007-08-20",
+        "to": "2007-11-30",
+        "volume": true,
+        "distribution": {
+          "minDrop": 0.002,
+          "window": 25,
+          "rally": 0.05,
+          "warnAt": 5
+        },
+        "title": "S&P 500 · DAILY · YAHOO FINANCE",
+        "revealFrom": "2007-09-24",
+        "revealTo": "2007-11-30",
+        "revealAt": -0.3095,
+        "revealDur": 19.911
+      },
+      "captions": [
+        "Here's the S&P 500 in 2007. Watch the count.",
+        "On October 9 it closed at a record. Count: one.",
+        "Eight trading days later, the count was five.",
+        "By November 7 it hit eight. Prices kept slipping."
+      ]
+    },
+    {
+      "t": 40.5333,
+      "dur": 8.5333,
+      "kind": "after",
+      "component": "CandleChart",
+      "props": {
+        "from": "2007-07-02",
+        "to": "2009-03-31",
+        "style": "line",
+        "volume": false,
+        "revealAt": 0.2,
+        "revealDur": 5.5,
+        "title": "S&P 500 · DAILY CLOSE · YAHOO FINANCE",
+        "measures": [
+          {
+            "from": "2007-10-09",
+            "to": "2008-03-10",
+            "fromPrice": "c",
+            "toPrice": "c",
+            "x": "to",
+            "side": "right"
+          },
+          {
+            "from": "2007-10-09",
+            "to": "2009-03-09",
+            "fromPrice": "c",
+            "toPrice": "c",
+            "x": "to",
+            "side": "left",
+            "delay": 0.3
+          }
+        ]
+      },
+      "captions": [
+        "By March 2008 the S&P 500 was down 19%.",
+        "A year later it was down 57%."
+      ]
+    },
+    {
+      "t": 49.0667,
+      "dur": 8.5333,
+      "kind": "rule",
+      "component": "RuleCard",
+      "props": {
+        "text": "When the count [[piles up]], go easy on new buys.",
+        "sub": "A warning, not a forecast: some counts fade without a fall."
+      },
+      "captions": [
+        "It's a warning, not a crystal ball.",
+        "When the count piles up, go easy on new buys."
+      ]
+    },
+    {
+      "t": 57.6,
+      "dur": 6.4,
+      "kind": "end"
+    }
+  ],
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Yahoo Finance via yfinance: ^GSPC daily OHLCV, 2007-05-01 to 2009-03-31",
+      "url": "https://finance.yahoo.com/quote/%5EGSPC/history",
+      "used_for": "every distribution day marked on screen, computed by the rule (close ≤ −0.2% vs the prior close on higher volume; live for 25 sessions unless the index closes 5% above it): 1 on 2007-10-09 (record close 1,565.15), 5 by 2007-10-19, 8 by 2007-11-07; S&P 500 −18.6% from the October 9 close to 2008-03-10 and −56.8% to 2009-03-09"
+    },
+    {
+      "title": "LuxAlgo Library: Distribution Days",
+      "url": "https://www.luxalgo.com/library/concept/distribution-days/",
+      "used_for": "the definition (index closes down at least 0.2% on higher volume than the session before), the 25-session window and the 5%-rally removal (IBD practice), and O'Neil's line that four or five over four or five weeks is usually enough to turn an advancing market down; no count is a guarantee"
+    },
+    {
+      "title": "Wikipedia: CAN SLIM",
+      "url": "https://en.wikipedia.org/wiki/CAN_SLIM",
+      "used_for": "M = market direction in William O'Neil's method (CAN SLIM is a mark of Investor's Business Daily)"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0010"
+    ],
+    "next": [
+      "L0014"
+    ]
+  },
+  "next": {
+    "lore_no": 14,
+    "title": "Replay: would you buy here?"
+  },
+  "thumb": {
+    "lines": [
+      "Record high.",
+      "Then [[8]]",
+      "warnings."
+    ],
+    "component": "CandleChart",
+    "props": {
+      "from": "2007-08-20",
+      "to": "2007-11-07",
+      "volume": true,
+      "distribution": {
+        "minDrop": 0.002,
+        "window": 25,
+        "rally": 0.05,
+        "warnAt": 5
+      },
+      "title": "S&P 500 · DAILY · YAHOO FINANCE",
+      "revealDur": 0
+    }
+  },
+  "cover": {
+    "lines": [
+      "Record high.",
+      "Then [[8]] warnings."
+    ],
+    "sub": "The S&P 500, autumn 2007.",
+    "component": "CandleChart",
+    "props": {
+      "from": "2007-08-20",
+      "to": "2007-11-07",
+      "volume": true,
+      "distribution": {
+        "minDrop": 0.002,
+        "window": 25,
+        "rally": 0.05,
+        "warnAt": 5
+      },
+      "title": "S&P 500 · DAILY · YAHOO FINANCE",
+      "revealDur": 0
+    }
+  },
+  "status": "scripted",
+  "data": {
+    "symbol": "^GSPC",
+    "start": "2007-05-01",
+    "end": "2009-03-31",
+    "interval": "1d",
+    "source": "yfinance"
+  }
+}

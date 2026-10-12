@@ -237,34 +237,76 @@ def i_thepit(S, b, t0, t1, data):
     S.anchor(land_bar * S.bar)
 
 
+def _bar_ref(bars, ref, fallback):
+    """CandleChart's barIndex: an index (negative = from the end) or an ISO date (first bar on/after it)."""
+    if ref is None:
+        return fallback
+    if isinstance(ref, (int, float)):
+        return int(ref) if ref >= 0 else len(bars) + int(ref)
+    return next((i for i, x in enumerate(bars) if x["t"] >= str(ref)), len(bars) - 1)
+
+
 def i_candlechart(S, b, t0, t1, data):
+    """A real chart (CandleChart), read the way the engine draws it: the view window (from/to) and the reveal
+    (revealFrom..revealTo over revealDur). The groove runs through a low-pass that follows the drawdown of the bar on
+    screen; a tripwire snap drops into the chorus; distribution days (if marked) each get a short fall, and the
+    harmony darkens once the live count reaches its warning level."""
     p = b.get("props", {})
     bars = (data or {}).get("bars") or []
     if not bars:
         return i_default(S, b, t0, t1, data)
-    rev_at, rev_dur = p.get("revealAt", 0.0), p.get("revealDur", 0.0) or 0.001
     n = len(bars)
+    start = _bar_ref(bars, p.get("from"), 0)
+    end = min(n, _bar_ref(bars, p.get("to"), n - 1) + 1)
+    rf = _bar_ref(bars, p.get("revealFrom"), start)
+    rt = min(end, _bar_ref(bars, p.get("revealTo"), end - 1) + 1)
+    span = max(1, rt - rf)
+    rev_at, rev_dur = p.get("revealAt", 0.0), p.get("revealDur", 0.0) or 0.0
+    t_of = (lambda k: t0 + rev_at + rev_dur * (k + 1 - rf) / span) if rev_dur > 0 else (lambda k: t0)
     closes = np.array([x["c"] for x in bars])
-    peak = np.maximum.accumulate(closes)
+    peak = np.maximum.accumulate(closes[start:end]) if end > start else closes
     tw = p.get("tripwire") or {}
     snap = None
     if tw.get("price"):
-        i0 = next((i for i, x in enumerate(bars) if x["t"] >= str(tw.get("from", ""))), 0)
-        k = next((i for i in range(i0 + 1, n) if closes[i] > tw["price"]), None)
-        if k is not None:
-            snap = t0 + rev_at + rev_dur * (k + 1) / n
+        i0 = _bar_ref(bars, tw.get("from"), start)
+        k = next((i for i in range(i0 + 1, rt) if closes[i] > tw["price"]), None)
+        if k is not None and k >= rf:
+            snap = t_of(k)
 
     def dd_at(t):
-        i = min(n - 1, max(0, int((t - t0 - rev_at) / rev_dur * n)))
-        return float(1 - closes[i] / peak[i])
+        if rev_dur <= 0:
+            k = rt - 1
+        else:
+            k = int(rf - 1 + (t - t0 - rev_at) / rev_dur * span)
+        k = min(rt - 1, max(start, k))
+        return float(1 - closes[k] / peak[k - start])
 
-    end = snap if snap and snap < t1 else t1
-    S.cutoff.append((t0, end, lambda t: max(320.0, 15000.0 * (1 - dd_at(t)) ** 3.0)))
-    for k in S.bars_in(t0, end):
+    end_t = snap if snap and snap < t1 else t1
+    S.cutoff.append((t0, end_t, lambda t: max(320.0, 15000.0 * (1 - dd_at(t)) ** 3.0)))
+    for k in S.bars_in(t0, end_t):
         S.bars[k].energy, S.bars[k].label = 3, "chart: filter = drawdown"
-    S.melody(t0, end, withhold=True, gain=0.85)
-    worst = max(dd_at(x) for x in np.linspace(t0 + rev_at, end, 80))
+    S.melody(t0, end_t, withhold=True, gain=0.85)
+    worst = max(dd_at(x) for x in np.linspace(t0 + rev_at, end_t, 80))
     S.cue(t0, f"groove runs through a low-pass that follows the drawdown (deepest {fmt(-worst)} ~ {max(320, 15000 * (1 - worst) ** 3):.0f} Hz)")
+    dist = p.get("distribution")
+    if dist and rev_dur > 0:
+        vols = [x.get("v", 0) for x in bars]
+        md, win, rally, warn = dist.get("minDrop", 0.002), dist.get("window", 25), dist.get("rally", 0.05), dist.get("warnAt", 5)
+        days = [i for i in range(1, n) if closes[i] / closes[i - 1] - 1 <= -md and vols[i] > vols[i - 1]]
+        def live(j):
+            return [i for i in days if j - win < i <= j and not any(closes[k] >= closes[i] * (1 + rally) for k in range(i + 1, j + 1))]
+        warned = None
+        for i in days:
+            if rf <= i < rt:
+                ti = t_of(i)
+                if t0 <= ti < t1:
+                    fall_fill(S, ti, 0.12)
+                    if warned is None and len(live(i)) >= warn:
+                        warned = ti
+        if warned is not None:
+            for k in S.bars_in(warned, end_t):
+                S.bars[k].deg, S.bars[k].label = S.depth_deg(0.45), "distribution count at warning: darker"
+            S.cue(warned, f"distribution count reaches {warn}: darker chords")
     if snap and snap < t1:
         if abs(snap / S.bar - round(snap / S.bar)) > 0.05:
             S.cue(snap, "warning: the snap is not on a bar line (set revealDur so it is)")

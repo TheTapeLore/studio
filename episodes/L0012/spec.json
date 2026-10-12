@@ -1,0 +1,309 @@
+{
+  "id": "L0012",
+  "lore_no": 12,
+  "slug": "adr-percent",
+  "batch": "2026-10-12-a",
+  "pillar": "selection",
+  "cluster": "volatility",
+  "format": "lexicon",
+  "concept_key": "selection.lexicon.adr",
+  "title": "ADR% in 15 seconds",
+  "hook": "Why do some stocks need a wider stop?",
+  "takeaway": "ADR% (average daily range) is how far a stock moves from low to high on a normal day, averaged over 20 days. In December 2019, Coca-Cola's was 0.9% and Tesla's 2.9%: a 2% stop was never reached by a Coca-Cola day, but 15 of 20 Tesla days moved that much. A stop tighter than one normal day gets hit by noise.",
+  "learn": [
+    "ADR% is how far a stock moves from its low to its high on a normal day, averaged over 20 days.",
+    "In December 2019, Coca-Cola's ADR was 0.9% and Tesla's was 2.9%.",
+    "A 2% stop was never reached by a Coca-Cola day but was reached on 15 of 20 Tesla days, so a stop tighter than a normal day gets hit by noise."
+  ],
+  "glossary": {
+    "ADR": "how far a stock moves, low to high, on a normal day"
+  },
+  "question": null,
+  "emotion": "the 'oh, that's why I keep getting stopped out' click",
+  "legends": [],
+  "duration_s": 20.0,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "ADR%"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 4.0,
+      "kind": "term",
+      "component": "TermCard",
+      "props": {
+        "term": "ADR%",
+        "kind": "noun"
+      },
+      "captions": [
+        "Why do some stocks need a wider stop?"
+      ]
+    },
+    {
+      "t": 4.0,
+      "dur": 6.0,
+      "kind": "picture",
+      "component": "RangeBars",
+      "props": {
+        "series": [
+          {
+            "name": "COCA-COLA (KO)",
+            "ranges": [
+              0.8241,
+              1.0984,
+              0.8546,
+              0.609,
+              0.9069,
+              0.6327,
+              0.913,
+              0.9453,
+              1.3185,
+              0.8459,
+              0.5341,
+              1.5959,
+              0.7791,
+              1.3402,
+              0.7294,
+              0.6589,
+              0.4198,
+              0.8182,
+              0.5994,
+              0.7277
+            ]
+          },
+          {
+            "name": "TESLA (TSLA)",
+            "ranges": [
+              1.7218,
+              1.5052,
+              2.191,
+              1.2219,
+              2.796,
+              3.3655,
+              1.7376,
+              2.6923,
+              2.9802,
+              5.8233,
+              2.5539,
+              3.8468,
+              2.6103,
+              3.201,
+              2.9294,
+              3.0968,
+              1.6726,
+              2.1593,
+              4.8233,
+              4.7778
+            ]
+          }
+        ],
+        "title": "DAILY RANGE, LOW TO HIGH · LAST 20 DAYS OF 2019",
+        "max": 6,
+        "drawAt": 0.1,
+        "drawDur": 1.4,
+        "adrAt": 1.6,
+        "stop": 2,
+        "stopAt": 3.5621
+      },
+      "captions": [
+        "Coca-Cola moved 0.9% a day. Tesla, 2.9%.",
+        "Now add a 2% stop."
+      ]
+    },
+    {
+      "t": 10.0,
+      "dur": 4.0,
+      "kind": "definition",
+      "component": "TermCard",
+      "props": {
+        "term": "ADR%",
+        "kind": "noun",
+        "definition": "Average daily range: how far a stock moves, **low to high**, on a normal day.",
+        "defAt": 0.1
+      },
+      "captions": [
+        "Tight stops on wild stocks get hit by noise."
+      ]
+    },
+    {
+      "t": 14.0,
+      "dur": 6.0,
+      "kind": "end"
+    }
+  ],
+  "new_angle": "Lore 005 sized a position for a stop already chosen; this shows how to judge whether a stop distance is realistic for a given stock.",
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Yahoo Finance via yfinance: KO and TSLA daily highs and lows, 2019-12-03 to 2019-12-31",
+      "url": "https://finance.yahoo.com/quote/KO/history",
+      "used_for": "the 20 daily ranges per stock ((high ÷ low − 1) × 100), the averages (KO 0.86%, TSLA 2.89%) and the count of days with a 2%+ range (KO 0 of 20, TSLA 15 of 20)"
+    },
+    {
+      "title": "TradingView: ADR(20)% open-source script (Qullamaggie-style)",
+      "url": "https://www.tradingview.com/script/GT3wcd6D-ADR-20-Value",
+      "used_for": "ADR% = the 20-day average of (high ÷ low − 1), shown as a percent; used by swing traders to judge stop distance"
+    },
+    {
+      "title": "TradingView: ADR(20)% - Qullamagi (corner value) v6",
+      "url": "https://www.tradingview.com/script/EfuMxaXm-ADR-20-Qullamagi-corner-value-v6",
+      "used_for": "the same formula and its use for sizing stops relative to a stock's normal daily move"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0005"
+    ],
+    "next": [
+      "L0013"
+    ]
+  },
+  "next": {
+    "lore_no": 13,
+    "title": "Distribution days, drawn"
+  },
+  "thumb": {
+    "lines": [
+      "Same 2% stop.",
+      "[[0]] hits or",
+      "15."
+    ],
+    "component": "RangeBars",
+    "props": {
+      "series": [
+        {
+          "name": "COCA-COLA (KO)",
+          "ranges": [
+            0.8241,
+            1.0984,
+            0.8546,
+            0.609,
+            0.9069,
+            0.6327,
+            0.913,
+            0.9453,
+            1.3185,
+            0.8459,
+            0.5341,
+            1.5959,
+            0.7791,
+            1.3402,
+            0.7294,
+            0.6589,
+            0.4198,
+            0.8182,
+            0.5994,
+            0.7277
+          ]
+        },
+        {
+          "name": "TESLA (TSLA)",
+          "ranges": [
+            1.7218,
+            1.5052,
+            2.191,
+            1.2219,
+            2.796,
+            3.3655,
+            1.7376,
+            2.6923,
+            2.9802,
+            5.8233,
+            2.5539,
+            3.8468,
+            2.6103,
+            3.201,
+            2.9294,
+            3.0968,
+            1.6726,
+            2.1593,
+            4.8233,
+            4.7778
+          ]
+        }
+      ],
+      "title": "DAILY RANGE, LOW TO HIGH · LAST 20 DAYS OF 2019",
+      "max": 6,
+      "drawAt": -5,
+      "drawDur": 0.1,
+      "adrAt": -1,
+      "stop": 2,
+      "stopAt": -1
+    }
+  },
+  "cover": {
+    "lines": [
+      "Same 2% stop.",
+      "[[0]] hits or 15."
+    ],
+    "sub": "Coca-Cola vs Tesla, 20 days of 2019.",
+    "component": "RangeBars",
+    "props": {
+      "series": [
+        {
+          "name": "COCA-COLA (KO)",
+          "ranges": [
+            0.8241,
+            1.0984,
+            0.8546,
+            0.609,
+            0.9069,
+            0.6327,
+            0.913,
+            0.9453,
+            1.3185,
+            0.8459,
+            0.5341,
+            1.5959,
+            0.7791,
+            1.3402,
+            0.7294,
+            0.6589,
+            0.4198,
+            0.8182,
+            0.5994,
+            0.7277
+          ]
+        },
+        {
+          "name": "TESLA (TSLA)",
+          "ranges": [
+            1.7218,
+            1.5052,
+            2.191,
+            1.2219,
+            2.796,
+            3.3655,
+            1.7376,
+            2.6923,
+            2.9802,
+            5.8233,
+            2.5539,
+            3.8468,
+            2.6103,
+            3.201,
+            2.9294,
+            3.0968,
+            1.6726,
+            2.1593,
+            4.8233,
+            4.7778
+          ]
+        }
+      ],
+      "title": "DAILY RANGE, LOW TO HIGH · LAST 20 DAYS OF 2019",
+      "max": 6,
+      "drawAt": -5,
+      "drawDur": 0.1,
+      "adrAt": -1,
+      "stop": 2,
+      "stopAt": -1
+    }
+  },
+  "status": "scripted",
+  "data": null
+}

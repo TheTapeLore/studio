@@ -34,6 +34,7 @@ export const COMPONENTS: Record<string, React.FC<any>> = {
   AverageDown: M.AverageDown,
   Milestones: M.Milestones,
   CupHandle: M.CupHandle,
+  RangeBars: M.RangeBars,
   CandleChart,
   RunsFan,
   Distribution,

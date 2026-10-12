@@ -1,0 +1,231 @@
+{
+  "id": "L0014",
+  "lore_no": 14,
+  "slug": "replay-01",
+  "batch": "2026-10-12-a",
+  "pillar": "setups",
+  "cluster": "replay",
+  "format": "replay",
+  "concept_key": "setups.replay.mystery-2007",
+  "title": "Replay: would you buy here?",
+  "hook": "It's September 2007. You only see what traders saw then.",
+  "takeaway": "A replay without hindsight: a leading stock built a six-week, 14%-deep base, then closed at a new high on 80% more volume than usual, with its RS line at a new high and the market showing one distribution day. Would you buy? The reveal is Lore 015.",
+  "learn": [
+    "A base is a pause where the price moves sideways; this one lasted six weeks and was 14% deep.",
+    "A close at a new high on heavier volume than usual, with the RS line at a new high, is what a strong breakout looks like.",
+    "Check the market too: here the S&P 500 had only one distribution day, a calm count."
+  ],
+  "glossary": {
+    "base": "the price moving sideways",
+    "relative strength": "the stock was beating the market",
+    "distribution day": "down days on heavy volume"
+  },
+  "question": "Would you buy here?",
+  "emotion": "the itch of deciding with no hindsight, the way it actually feels",
+  "legends": [],
+  "duration_s": 44.0,
+  "aspects": [
+    "4x5",
+    "9x16"
+  ],
+  "tape": {
+    "label": "Replay 01"
+  },
+  "beats": [
+    {
+      "t": 0,
+      "dur": 6.0,
+      "kind": "context",
+      "component": "CandleChart",
+      "props": {
+        "from": "2007-05-01",
+        "to": "2007-09-21",
+        "volume": true,
+        "ma": [
+          50
+        ],
+        "rs": true,
+        "axisRef": "2007-09-21",
+        "domain": "visible",
+        "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
+        "revealTo": "2007-07-31",
+        "revealDur": 0
+      },
+      "captions": [
+        "It's September 2007. You only see what traders saw then."
+      ]
+    },
+    {
+      "t": 6.0,
+      "dur": 14.0,
+      "kind": "reveal_bars",
+      "component": "CandleChart",
+      "transition": "cut",
+      "peak": true,
+      "props": {
+        "from": "2007-05-01",
+        "to": "2007-09-21",
+        "volume": true,
+        "ma": [
+          50
+        ],
+        "rs": true,
+        "axisRef": "2007-09-21",
+        "domain": "visible",
+        "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
+        "revealFrom": "2007-07-31",
+        "revealAt": 0.2,
+        "revealDur": 11.8,
+        "tripwire": {
+          "price": 13.7379,
+          "from": "2007-08-09",
+          "snapAt": "auto",
+          "label": "TOP OF THE 6-WEEK RANGE"
+        }
+      },
+      "captions": [
+        "A leading stock pulled back 14% over six weeks.",
+        "It closed at a new high, on 80% more volume than usual.",
+        "Its RS line hit a new high too."
+      ]
+    },
+    {
+      "t": 20.0,
+      "dur": 10.0,
+      "kind": "freeze_question",
+      "component": "ListCard",
+      "props": {
+        "label": "What you can see today",
+        "items": [
+          {
+            "text": "A six-week pause, 14% deep.",
+            "sub": "A base: the price moving sideways before a move."
+          },
+          {
+            "text": "A new high, on 80% more volume than usual.",
+            "sub": "Volume compared with its 50-day average."
+          },
+          {
+            "text": "RS line at a new high.",
+            "sub": "Lore 011: the stock was beating the market."
+          },
+          {
+            "text": "The market: one distribution day.",
+            "sub": "Lore 013: down days on heavy volume. One is calm."
+          }
+        ],
+        "at": [
+          0.3,
+          1.0,
+          1.7,
+          3.4731
+        ]
+      },
+      "captions": [
+        "Here's everything you can see today.",
+        "The market looked calm: one distribution day.",
+        "Your call. No peeking."
+      ]
+    },
+    {
+      "t": 30.0,
+      "dur": 8.0,
+      "kind": "poll_card",
+      "component": "PollCard",
+      "props": {
+        "question": "Would you buy here?",
+        "options": [
+          "Buy at today's close",
+          "Wait for a pullback",
+          "Pass"
+        ]
+      },
+      "captions": [
+        "Would you buy here? Vote, then come back.",
+        "The reveal is Lore 015."
+      ]
+    },
+    {
+      "t": 38.0,
+      "dur": 6.0,
+      "kind": "end"
+    }
+  ],
+  "new_angle": "The first Replay: the checks from Lore 011 (RS line) and Lore 013 (distribution days) applied to one real chart, frozen before the decision.",
+  "simulation": null,
+  "sources": [
+    {
+      "title": "Yahoo Finance via yfinance: GOOG and ^GSPC daily OHLCV, 2007-03-01 to 2008-03-31 (split-adjusted; shown as % from the frozen day)",
+      "url": "https://finance.yahoo.com/quote/GOOG/history",
+      "used_for": "the frozen chart (2007-05-01 to 2007-09-21): base of the 30 sessions before 2007-09-21, 13.7% deep (high to low); the 2007-09-21 close above the base high on 1.77× its 50-day average volume; RS (GOOG ÷ S&P 500) at a new high; S&P 500 distribution days live on 2007-09-21: one (2007-09-05), by the Lore 013 rule"
+    },
+    {
+      "title": "LuxAlgo Library: Distribution Days",
+      "url": "https://www.luxalgo.com/library/concept/distribution-days/",
+      "used_for": "the distribution-day rule used for the market count"
+    }
+  ],
+  "links": {
+    "prerequisites": [
+      "L0011",
+      "L0013"
+    ],
+    "next": [
+      "L0015"
+    ]
+  },
+  "next": {
+    "lore_no": 15,
+    "title": "Replay reveal: what happened next"
+  },
+  "thumb": {
+    "lines": [
+      "Would you",
+      "[[buy]] here?"
+    ],
+    "component": "CandleChart",
+    "props": {
+      "from": "2007-05-01",
+      "to": "2007-09-21",
+      "volume": true,
+      "ma": [
+        50
+      ],
+      "rs": true,
+      "axisRef": "2007-09-21",
+      "domain": "visible",
+      "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
+      "revealDur": 0
+    }
+  },
+  "cover": {
+    "lines": [
+      "Would you",
+      "[[buy]] here?"
+    ],
+    "sub": "September 2007. No hindsight.",
+    "component": "CandleChart",
+    "props": {
+      "from": "2007-05-01",
+      "to": "2007-09-21",
+      "volume": true,
+      "ma": [
+        50
+      ],
+      "rs": true,
+      "axisRef": "2007-09-21",
+      "domain": "visible",
+      "title": "MYSTERY STOCK · DAILY · 2007 · % FROM TODAY'S CLOSE",
+      "revealDur": 0
+    }
+  },
+  "status": "scripted",
+  "data": {
+    "symbol": "GOOG",
+    "start": "2007-03-01",
+    "end": "2008-03-31",
+    "interval": "1d",
+    "benchmark": "^GSPC",
+    "source": "yfinance"
+  }
+}

@@ -1,0 +1,330 @@
+{
+ "mode": "dorian",
+ "key": 5,
+ "progression": [
+  0,
+  4,
+  6,
+  3
+ ],
+ "bpm": 128.57142857142858,
+ "groove": "four-broken",
+ "lead": "supersaw",
+ "bass": "syncopated",
+ "arp": "broken",
+ "swing": 0.03,
+ "form": [
+  "A",
+  "A'",
+  "B",
+  "A''"
+ ],
+ "chorus_at": 4,
+ "melody": [
+  {
+   "bar": 0,
+   "step": 3,
+   "len": 3,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 6,
+   "len": 2,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 8,
+   "len": 3,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 11,
+   "len": 3,
+   "semis": 9,
+   "breakout": false
+  },
+  {
+   "bar": 0,
+   "step": 14,
+   "len": 2,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 0,
+   "len": 6,
+   "semis": 14,
+   "breakout": true
+  },
+  {
+   "bar": 1,
+   "step": 6,
+   "len": 4,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 1,
+   "step": 10,
+   "len": 6,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 3,
+   "len": 3,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 6,
+   "len": 2,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 8,
+   "len": 3,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 11,
+   "len": 3,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 2,
+   "step": 14,
+   "len": 2,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 0,
+   "len": 6,
+   "semis": 9,
+   "breakout": true
+  },
+  {
+   "bar": 3,
+   "step": 6,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 3,
+   "step": 10,
+   "len": 6,
+   "semis": 9,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 0,
+   "len": 3,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 3,
+   "len": 3,
+   "semis": 14,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 6,
+   "len": 4,
+   "semis": 14,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 10,
+   "len": 2,
+   "semis": 14,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 12,
+   "len": 2,
+   "semis": 12,
+   "breakout": false
+  },
+  {
+   "bar": 4,
+   "step": 14,
+   "len": 2,
+   "semis": 10,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 0,
+   "len": 6,
+   "semis": 19,
+   "breakout": true
+  },
+  {
+   "bar": 5,
+   "step": 6,
+   "len": 4,
+   "semis": 15,
+   "breakout": false
+  },
+  {
+   "bar": 5,
+   "step": 10,
+   "len": 6,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 3,
+   "len": 3,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 6,
+   "len": 2,
+   "semis": 3,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 8,
+   "len": 3,
+   "semis": 2,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 11,
+   "len": 3,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 6,
+   "step": 14,
+   "len": 2,
+   "semis": 5,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 0,
+   "len": 6,
+   "semis": 9,
+   "breakout": true
+  },
+  {
+   "bar": 7,
+   "step": 6,
+   "len": 4,
+   "semis": 7,
+   "breakout": false
+  },
+  {
+   "bar": 7,
+   "step": 10,
+   "len": 6,
+   "semis": 12,
+   "breakout": false
+  }
+ ],
+ "material": {
+  "motif_cell": [
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    8,
+    3
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    14,
+    2
+   ]
+  ],
+  "close_cell": [
+   [
+    0,
+    6
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    6
+   ]
+  ],
+  "b_cell": [
+   [
+    0,
+    3
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    12,
+    2
+   ],
+   [
+    14,
+    2
+   ]
+  ],
+  "contour": "fall-rise",
+  "b_contour": "climb"
+ },
+ "hook_quality": 1.54,
+ "max_similarity": 0.532,
+ "id": "L0011",
+ "pillar": "selection",
+ "genre": "garage house",
+ "key_name": "F dorian",
+ "designed_by": "scripts/sound/song.py",
+ "frozen": true
+}

@@ -132,7 +132,7 @@ items:
   priority: big_bet
   search_terms:
   - relative strength line
-  status: open
+  status: "taken: L0011"
 - id: B012
   season: 1
   order: 12
@@ -156,7 +156,7 @@ items:
   priority: fill_in
   search_terms:
   - average daily range
-  status: open
+  status: "taken: L0012"
 - id: B014
   season: 1
   order: 14
@@ -204,7 +204,7 @@ items:
   priority: big_bet
   search_terms:
   - how to read a chart pattern
-  status: open
+  status: "taken: L0014"
 - id: B018
   season: 1
   order: 18
@@ -324,7 +324,7 @@ items:
   priority: big_bet
   search_terms:
   - distribution days
-  status: open
+  status: "taken: L0013"
 - id: B028
   season: 1
   order: 28

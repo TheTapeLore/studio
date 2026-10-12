@@ -8,4 +8,5 @@ export { Annotation } from "./Annotation";
 export { PercentMeasure } from "./PercentMeasure";
 export { RunsFan } from "./RunsFan";
 export { Distribution } from "./Distribution";
+export { DistributionDays, distributionDays, liveDistribution } from "./DistributionDays";
 export { ChartContext, useChart, barIndex, priceAt } from "./ChartContext";

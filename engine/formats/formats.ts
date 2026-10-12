@@ -16,7 +16,7 @@ export const FORMATS: Record<string, FormatDef> = {
   anatomy: { key: "anatomy", label: "Anatomy", duration: [35, 70], tapeRight: simLabel },
   council: { key: "council", label: "The Council", duration: [45, 75], tapeRight: () => "PARAPHRASED" },
   whatif: { key: "whatif", label: "What If Lab", duration: [40, 75], tapeRight: (ep) => simLabel(ep) ?? "SIMULATED" },
-  replay: { key: "replay", label: "Model Book Replay", duration: [30, 60], tapeRight: () => "NO HINDSIGHT" },
+  replay: { key: "replay", label: "Model Book Replay", duration: [30, 60], tapeRight: (ep) => ((ep.spec as { concept_key?: string }).concept_key?.endsWith(".reveal") ? "THE REVEAL" : "NO HINDSIGHT") },
   failure: { key: "failure", label: "Failure Files", duration: [35, 60], tapeRight: () => "FAILURE FILE" },
   lexicon: { key: "lexicon", label: "Lexicon", duration: [12, 20], tapeRight: () => "LEXICON" },
   desknotes: { key: "desknotes", label: "Desk Notes", duration: [20, 45], tapeRight: () => "DESK NOTES" },

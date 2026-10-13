@@ -178,3 +178,5 @@ new in the spec and link the earlier Lore. After QA: `registry.py add`, then `re
 - 2026-10-10: One zip per release (founder: "give me a zip file containing that batch's all videos and necessary files
   separated by their own lore named folders"): `batch-<id>.zip` on every Release from now on; earlier releases stay as
   they are.
+- 2026-10-13: No automated posting for now (founder: "we don't want to build the api posting workflow for now"). The
+  founder uploads by hand from each batch zip. Don't build or propose platform-API posting again unless asked.
